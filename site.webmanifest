@@ -1,0 +1,17 @@
+﻿{
+  "name": "Le journal MD Renov'",
+  "short_name": "MD Renov'",
+  "description": "Blog maison, menuiseries et renovation de MD Renov'.",
+  "start_url": "https://www.mdrenov-menuiserie.com/blog/",
+  "display": "standalone",
+  "background_color": "#fbfbfc",
+  "theme_color": "#c50000",
+  "icons": [
+    {
+      "src": "https://www.mdrenov-menuiserie.com/blog/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
