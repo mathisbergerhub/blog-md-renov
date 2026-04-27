@@ -8,6 +8,18 @@
   "theme_color": "#c50000",
   "icons": [
     {
+      "src": "https://www.mdrenov-menuiserie.com/blog/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://www.mdrenov-menuiserie.com/blog/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "https://www.mdrenov-menuiserie.com/blog/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",

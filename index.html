@@ -25,7 +25,8 @@
     <link rel="shortcut icon" href="./favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
-    <meta name="theme-color" content="#c50000" /><link rel="preconnect" href="https://fonts.googleapis.com" />
+    <meta name="theme-color" content="#c50000" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
@@ -54,18 +55,18 @@
       }
     </script>
   </head>
-  <body class="site-page site-page--home journal-page">
+  <body class="site-page site-page--home editorial-page">
     <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-    <header class="site-header journal-header" id="top">
-      <div class="shell header-row journal-header__row">
-        <a class="brand" href="./index.html" aria-label="Retour a l'accueil du blog">
+    <header class="site-header editorial-header" id="top">
+      <div class="shell editorial-header__row">
+        <a class="brand editorial-brand" href="./index.html" aria-label="Retour a l'accueil du blog">
           <img src="./logo-mdr-site.svg" alt="Logo MD Renov'" width="241" height="54" />
         </a>
 
-        <nav class="nav journal-nav" aria-label="Navigation principale">
+        <nav class="editorial-nav" aria-label="Navigation du blog">
           <a href="#a-la-une">A la une</a>
-          <a href="#dernieres-publications">Dernieres publications</a>
+          <a href="#dernieres">Dernieres publications</a>
           <a href="#rubriques">Rubriques</a>
           <a href="https://www.mdrenov-menuiserie.com" target="_blank" rel="noopener noreferrer">Site MD Renov'</a>
         </nav>
@@ -73,41 +74,73 @@
     </header>
 
     <main id="contenu">
-      <section class="journal-masthead">
-        <div class="shell journal-masthead__grid">
-          <div class="journal-masthead__intro reveal">
+      <section class="editorial-intro">
+        <div class="shell editorial-intro__grid">
+          <div class="editorial-intro__copy reveal">
             <p class="eyebrow">Le journal MD Renov'</p>
-            <h1>Un blog pour lire, comparer et comprendre avant de choisir.</h1>
+            <h1>Lire avant de choisir.</h1>
             <p class="hero-lead">
-              Ici, on parle facade, ouvertures, confort d'ete, renovation et arbitrages de projet.
-              L'idee n'est pas de vendre vite, mais d'aider a mieux lire les options avant d'avancer.
+              Un blog de conseils et de lecture autour des menuiseries, de la facade,
+              du confort d'ete et de la renovation en Haute-Savoie.
             </p>
           </div>
 
-          <article class="journal-feature reveal" id="a-la-une">
-            <a class="journal-feature__media" href="./fenetre-pvc-vs-aluminium-haute-savoie.html">
+          <div class="editorial-intro__aside reveal">
+            <p class="editorial-minihead">Ce qu'on lit ici</p>
+            <ul>
+              <li>Comparatifs produits</li>
+              <li>Guides de projet</li>
+              <li>Questions locales et budgetaires</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section editorial-lead" id="a-la-une">
+        <div class="shell editorial-lead__grid">
+          <article class="feature-story reveal">
+            <a class="feature-story__media" href="./fenetre-pvc-vs-aluminium-haute-savoie.html">
               <img src="./1.png" alt="Fenetre contemporaine sur facade claire" width="960" height="1200" fetchpriority="high" />
             </a>
-            <div class="journal-feature__body">
-              <p class="journal-kicker">A la une • Fenetres</p>
+            <div class="feature-story__body">
+              <p class="story-kicker">A la une • Fenetres</p>
               <h2><a href="./fenetre-pvc-vs-aluminium-haute-savoie.html">Fenetre PVC ou aluminium en Haute-Savoie</a></h2>
               <p>
-                Un comparatif utile pour comprendre ce qui change vraiment entre budget,
-                finesse des profils, performance et lecture de facade.
+                Un bon point d'entree dans le blog: un article qui aide a arbitrer entre budget,
+                finesse des profils, performance et rendu de facade.
               </p>
               <a class="text-link" href="./fenetre-pvc-vs-aluminium-haute-savoie.html">Lire l'article</a>
             </div>
           </article>
+
+          <aside class="latest-stories reveal" id="dernieres">
+            <p class="story-kicker">Dernieres publications</p>
+            <article>
+              <span>Portes d'entree</span>
+              <h3><a href="./porte-entree-aluminium-annecy.html">Porte d'entree aluminium a Annecy</a></h3>
+              <p>Style, securite, usage quotidien et coherence de facade.</p>
+            </article>
+            <article>
+              <span>Pergolas</span>
+              <h3><a href="./pergola-bioclimatique-haute-savoie.html">Pergola bioclimatique en Haute-Savoie</a></h3>
+              <p>Une lecture plus usage que catalogue, autour du confort d'ete.</p>
+            </article>
+            <article>
+              <span>Aides renovation</span>
+              <h3><a href="./maprimerenov-2025-haute-savoie.html">MaPrimeRenov' 2025 en Haute-Savoie</a></h3>
+              <p>Un sujet de recherche fort pour cadrer le budget avant travaux.</p>
+            </article>
+          </aside>
         </div>
       </section>
 
-      <section class="journal-strip" id="rubriques">
+      <section class="editorial-topics" id="rubriques">
         <div class="shell reveal">
-          <div class="journal-strip__head">
+          <div class="editorial-topics__head">
             <p class="eyebrow">Rubriques</p>
-            <p>Les grands sujets du blog, a mesure qu'ils se construisent.</p>
+            <p>Les grandes portes d'entree du blog.</p>
           </div>
-          <div class="journal-strip__rail" aria-label="Rubriques editoriales">
+          <div class="editorial-topics__rail" aria-label="Rubriques editoriales">
             <a href="./fenetre-pvc-vs-aluminium-haute-savoie.html">Fenetres</a>
             <a href="./porte-entree-aluminium-annecy.html">Portes d'entree</a>
             <a href="./pergola-bioclimatique-haute-savoie.html">Pergolas</a>
@@ -120,89 +153,77 @@
         </div>
       </section>
 
-      <section class="section journal-section" id="dernieres-publications">
+      <section class="section story-stream">
         <div class="shell">
-          <div class="journal-section__head reveal">
-            <p class="eyebrow">Dernieres publications</p>
-            <h2>Les articles deja en ligne.</h2>
+          <div class="story-stream__head reveal">
+            <p class="eyebrow">A lire ensuite</p>
+            <h2>Une selection de lectures simples et utiles.</h2>
           </div>
 
-          <div class="journal-grid">
-            <article class="journal-card journal-card--large reveal">
-              <a class="journal-card__media" href="./porte-entree-aluminium-annecy.html">
-                <img src="./5.png" alt="Facade de maison avec entree contemporaine" width="960" height="1200" loading="lazy" />
+          <div class="story-stream__grid">
+            <article class="stream-card stream-card--wide reveal">
+              <a class="stream-card__media" href="./porte-entree-aluminium-annecy.html">
+                <img src="./5.png" alt="Facade avec entree contemporaine" width="960" height="1200" loading="lazy" />
               </a>
-              <div class="journal-card__body">
-                <p class="journal-kicker">Portes d'entree</p>
+              <div class="stream-card__body">
+                <p class="story-kicker">Portes d'entree</p>
                 <h3><a href="./porte-entree-aluminium-annecy.html">Porte d'entree aluminium a Annecy</a></h3>
-                <p>Un article pour penser style, securite, usage quotidien et coherence de facade dans le meme mouvement.</p>
+                <p>Un article utile pour relier image de facade, securite, lumiere et usage quotidien.</p>
               </div>
             </article>
 
-            <article class="journal-card reveal">
-              <a class="journal-card__media" href="./pergola-bioclimatique-haute-savoie.html">
+            <article class="stream-card reveal">
+              <a class="stream-card__media" href="./pergola-bioclimatique-haute-savoie.html">
                 <img src="./4.png" alt="Terrasse avec pergola bioclimatique" width="960" height="1200" loading="lazy" />
               </a>
-              <div class="journal-card__body">
-                <p class="journal-kicker">Pergolas</p>
+              <div class="stream-card__body">
+                <p class="story-kicker">Pergolas</p>
                 <h3><a href="./pergola-bioclimatique-haute-savoie.html">Pergola bioclimatique en Haute-Savoie</a></h3>
-                <p>Un sujet d'usage plus que de catalogue, autour du confort d'ete et de la vie dehors.</p>
+                <p>Pour comprendre a quoi sert vraiment ce type de projet au quotidien.</p>
               </div>
             </article>
 
-            <article class="journal-card reveal">
-              <a class="journal-card__media" href="./maprimerenov-2025-haute-savoie.html">
-                <img src="./1.png" alt="Budget et projet de renovation energetique" width="960" height="1200" loading="lazy" />
+            <article class="stream-card reveal">
+              <a class="stream-card__media" href="./maprimerenov-2025-haute-savoie.html">
+                <img src="./1.png" alt="Budget de renovation energetique" width="960" height="1200" loading="lazy" />
               </a>
-              <div class="journal-card__body">
-                <p class="journal-kicker">Aides renovation</p>
+              <div class="stream-card__body">
+                <p class="story-kicker">Aides renovation</p>
                 <h3><a href="./maprimerenov-2025-haute-savoie.html">MaPrimeRenov' 2025 en Haute-Savoie</a></h3>
-                <p>Une porte d'entree claire sur les aides, l'eligibilite et les arbitrages budgetaires avant travaux.</p>
+                <p>Un repere simple pour les recherches budgetaires avant travaux.</p>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section journal-section journal-section--soft">
-        <div class="shell journal-columns">
-          <div class="journal-note reveal">
-            <p class="eyebrow">Esprit editorial</p>
-            <h2>Le blog doit se lire comme un journal de projet.</h2>
+      <section class="section editorial-notebook">
+        <div class="shell editorial-notebook__grid">
+          <div class="editorial-notebook__copy reveal">
+            <p class="eyebrow">Carnet editorial</p>
+            <h2>Les prochains sujets a nourrir.</h2>
             <p>
-              Chaque article doit pouvoir servir de point d'entree autonome: une question simple,
-              une reponse lisible, un contexte local, puis des liens vers les autres sujets utiles.
+              La home doit rester un journal de lecture. Les futures rubriques viendront s'ajouter
+              naturellement, sans transformer la page en vitrine commerciale.
             </p>
           </div>
 
-          <div class="journal-list reveal">
-            <article>
-              <span>Volets</span>
-              <strong>Volets roulants ou battants: quel choix selon la facade et le confort d'ete ?</strong>
-            </article>
-            <article>
-              <span>Moustiquaires</span>
-              <strong>Comment ventiler sans subir les insectes en ete ?</strong>
-            </article>
-            <article>
-              <span>Portails</span>
-              <strong>Portail battant ou coulissant: comment bien cadrer son entree ?</strong>
-            </article>
-            <article>
-              <span>Renovation globale</span>
-              <strong>Quels travaux prioriser en premier dans une maison a renover ?</strong>
-            </article>
+          <div class="editorial-notebook__list reveal">
+            <article><span>Volets</span><strong>Volets roulants ou battants: quel choix selon la facade et le confort d'ete ?</strong></article>
+            <article><span>Moustiquaires</span><strong>Comment ventiler sans subir les insectes en ete ?</strong></article>
+            <article><span>Portails</span><strong>Portail battant ou coulissant: comment bien cadrer son entree ?</strong></article>
+            <article><span>Renovation globale</span><strong>Quels travaux prioriser en premier dans une maison a renover ?</strong></article>
           </div>
         </div>
       </section>
 
-      <footer class="site-footer journal-footer">
-        <div class="shell journal-footer__row">
+      <footer class="site-footer editorial-footer">
+        <div class="shell editorial-footer__row">
           <div>
-            <p class="journal-footer__brand">Le journal MD Renov'</p>
+            <p class="editorial-footer__brand">Le journal MD Renov'</p>
             <p>Blog editorial autour des menuiseries, de la renovation et de l'habitat en Haute-Savoie.</p>
           </div>
-          <div class="journal-footer__links">
+          <div class="editorial-footer__links">
             <a href="./index.html">Accueil</a>
             <a href="https://www.mdrenov-menuiserie.com" target="_blank" rel="noopener noreferrer">Site principal</a>
             <a href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Contact</a>
@@ -214,4 +235,3 @@
     <script src="./script.js"></script>
   </body>
 </html>
-
