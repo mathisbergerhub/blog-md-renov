@@ -4108,12 +4108,14 @@ h3 {
 }
 
 .mdr-home-hero h1 {
-  max-width: 13ch;
+  max-width: 18ch;
   color: #1a1a18;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-  font-style: italic;
-  line-height: 1.18;
+  font-family: "Lexend", sans-serif;
+  font-size: clamp(2.35rem, 4.2vw, 4.25rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
 }
 
 .mdr-home-hero p {
@@ -4121,6 +4123,13 @@ h3 {
   color: #6d7380;
   font-size: 1rem;
   line-height: 1.72;
+}
+
+.mdr-script-word {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .mdr-home-cats {
