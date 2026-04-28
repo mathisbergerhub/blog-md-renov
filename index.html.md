@@ -1,32 +1,29 @@
-﻿# Le journal MD Renov'
+# Le carnet MD Renov'
 
-> Une vraie page d'accueil de blog pour explorer les projets maison, menuiseries et renovation de MD Renov'.
+> Template editorial de blog structure comme un carnet local expert pour la renovation et les menuiseries en Haute-Savoie.
 
-## Promesse editoriale
+## Intention
 
-Le blog aide les clients a mieux choisir avant de lancer les travaux.
+La page d'accueil est actuellement une refonte de structure.
 
-Il couvre les fenetres, les portes d'entree, les pergolas, les aides a la renovation et d'autres univers a venir.
+Elle ne met pas encore en scene des images definitives ni des articles finalises.
 
-## Article a la une
+## Structure de home
 
-- Fenetre PVC ou aluminium en Haute-Savoie
-  Comparatif sur le budget, le style, la performance et la facade.
+- Hero editorial local
+- Bloc `Par ou commencer ?`
+- Bloc `A lire d'abord`
+- Bloc `Explorer par univers`
+- Bloc `Dernieres publications`
+- Bloc `Questions frequentes`
+- Bloc `Chantiers editoriaux a venir`
 
-## Dernieres lectures
+## Emplacements visuels prevus
 
-- Porte d'entree aluminium a Annecy
-- Pergola bioclimatique en Haute-Savoie
-- MaPrimeRenov' 2025 en Haute-Savoie
+- Hero : format portrait `4:5`
+- Article a la une : format paysage `16:10`
+- Cartes ou vignettes : format `4:3`
 
-## Univers a developper
+## Ligne editoriale
 
-- Volets
-- Moustiquaires
-- Portails
-- Renovation globale
-
-## Contact
-
-- Telephone : 04 50 24 30 90
-- Contact : https://www.mdrenov-menuiserie.com/contact#Contact-Form
+Le ton recherche une posture locale, utile, lisible et non commerciale.
