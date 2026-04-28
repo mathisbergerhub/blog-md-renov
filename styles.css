@@ -2381,3 +2381,469 @@ h3 {
     padding-right: 1rem;
   }
 }
+
+.carnet-page {
+  background:
+    radial-gradient(circle at top left, rgba(197, 0, 0, 0.05), transparent 18%),
+    linear-gradient(180deg, #fbfaf7 0%, #f4efe7 42%, #faf8f3 100%);
+}
+
+.carnet-header {
+  background: rgba(251, 250, 247, 0.9);
+}
+
+.carnet-header__row {
+  min-height: 84px;
+}
+
+.carnet-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.carnet-nav a:last-child {
+  font-weight: 700;
+}
+
+.carnet-page h1,
+.carnet-page h2,
+.carnet-page h3,
+.draft-page h1,
+.draft-page h2,
+.draft-page h3 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  letter-spacing: -0.045em;
+}
+
+.carnet-hero {
+  padding: 3.4rem 0 2.2rem;
+}
+
+.carnet-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.carnet-hero__copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.carnet-hero__copy h1 {
+  max-width: 8ch;
+  font-size: clamp(3.4rem, 7vw, 6.4rem);
+  line-height: 0.9;
+}
+
+.carnet-hero__copy .hero-lead {
+  max-width: 46ch;
+  font-size: 1.04rem;
+  line-height: 1.82;
+}
+
+.media-slot {
+  display: grid;
+  align-content: center;
+  gap: 0.55rem;
+  padding: 1.4rem;
+  border: 1px dashed rgba(197, 0, 0, 0.4);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(246, 244, 239, 0.86)),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(197, 0, 0, 0.04) 0,
+      rgba(197, 0, 0, 0.04) 12px,
+      rgba(255, 255, 255, 0.12) 12px,
+      rgba(255, 255, 255, 0.12) 24px
+    );
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+.media-slot strong {
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.media-slot span {
+  color: var(--accent-deep);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.media-slot small {
+  line-height: 1.7;
+}
+
+.media-slot--hero {
+  aspect-ratio: 4 / 5;
+}
+
+.media-slot--feature {
+  aspect-ratio: 16 / 10;
+}
+
+.media-slot--card {
+  aspect-ratio: 4 / 3;
+}
+
+.media-slot--article {
+  aspect-ratio: 16 / 10;
+}
+
+.carnet-section-head {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 760px;
+  margin-bottom: 1.8rem;
+}
+
+.carnet-section-head h2 {
+  max-width: 12ch;
+  font-size: clamp(2.2rem, 3.8vw, 4rem);
+  line-height: 0.96;
+}
+
+.carnet-start__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.carnet-panel,
+.carnet-universe,
+.carnet-question,
+.carnet-roadmap__list,
+.carnet-rail,
+.carnet-line,
+.draft-panel {
+  border: 1px solid rgba(23, 24, 29, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-soft);
+}
+
+.carnet-panel,
+.carnet-universe,
+.carnet-question,
+.draft-panel {
+  padding: 1.25rem;
+  border-radius: 24px;
+}
+
+.carnet-panel {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.carnet-panel__meta,
+.carnet-rail span,
+.carnet-line span,
+.carnet-roadmap__list span,
+.draft-kicker {
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.carnet-panel p,
+.carnet-universe p,
+.carnet-question p,
+.carnet-feature__body p,
+.carnet-rail p,
+.carnet-line p,
+.carnet-roadmap__copy p,
+.carnet-footer p,
+.draft-panel p,
+.draft-page p,
+.draft-outline li {
+  line-height: 1.78;
+}
+
+.carnet-essentials__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: 1.8rem;
+  align-items: start;
+}
+
+.carnet-feature {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.carnet-feature__body {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.carnet-feature__body h2 {
+  max-width: 10ch;
+  font-size: clamp(2.5rem, 4vw, 4.2rem);
+  line-height: 0.94;
+}
+
+.carnet-rail {
+  display: grid;
+  gap: 0;
+  padding: 1.2rem 1.3rem;
+  border-radius: 28px;
+}
+
+.carnet-rail article {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.95rem 0;
+  border-top: 1px solid rgba(23, 24, 29, 0.08);
+}
+
+.carnet-rail article:first-of-type {
+  border-top: 0;
+  padding-top: 0.3rem;
+}
+
+.carnet-rail h3,
+.carnet-line h3 {
+  font-size: 1.34rem;
+  line-height: 1.15;
+}
+
+.carnet-univers__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.carnet-universe {
+  display: grid;
+  gap: 0.7rem;
+  min-height: 170px;
+}
+
+.carnet-latest__list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.carnet-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.15rem 1.25rem;
+  border-radius: 24px;
+}
+
+.carnet-line small {
+  color: var(--muted);
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.carnet-questions__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.carnet-question {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.carnet-roadmap__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 1.8rem;
+  align-items: start;
+}
+
+.carnet-roadmap__copy {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.carnet-roadmap__copy h2 {
+  max-width: 10ch;
+  font-size: clamp(2.2rem, 3.8vw, 3.7rem);
+  line-height: 0.97;
+}
+
+.carnet-roadmap__list {
+  display: grid;
+  gap: 0;
+  padding: 1.2rem 1.3rem;
+  border-radius: 28px;
+}
+
+.carnet-roadmap__list article {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.95rem 0;
+  border-top: 1px solid rgba(23, 24, 29, 0.08);
+}
+
+.carnet-roadmap__list article:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.carnet-roadmap__list strong {
+  font-size: 1.05rem;
+  line-height: 1.42;
+}
+
+.carnet-footer__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem 2rem;
+  align-items: start;
+}
+
+.carnet-footer__brand {
+  margin: 0 0 0.45rem;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.carnet-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+}
+
+.draft-page {
+  background:
+    radial-gradient(circle at top left, rgba(197, 0, 0, 0.04), transparent 18%),
+    linear-gradient(180deg, #faf8f3 0%, #f6f1e8 100%);
+}
+
+.draft-hero {
+  padding: 3rem 0 2rem;
+}
+
+.draft-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(300px, 1.04fr);
+  gap: 1.8rem;
+  align-items: start;
+}
+
+.draft-copy {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.draft-copy h1 {
+  max-width: 11ch;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 0.94;
+}
+
+.draft-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.draft-panel {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.draft-outline {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.draft-outline li + li {
+  margin-top: 0.55rem;
+}
+
+@media (max-width: 1100px) {
+  .carnet-hero__grid,
+  .carnet-essentials__grid,
+  .carnet-roadmap__grid,
+  .draft-hero__grid,
+  .draft-layout,
+  .carnet-footer__row {
+    grid-template-columns: 1fr;
+  }
+
+  .carnet-start__grid,
+  .carnet-univers__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .carnet-line {
+    grid-template-columns: 1fr;
+  }
+
+  .carnet-line small {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 820px) {
+  .carnet-nav {
+    display: none;
+  }
+
+  .carnet-hero {
+    padding-top: 2rem;
+  }
+
+  .carnet-hero__copy h1,
+  .carnet-section-head h2,
+  .carnet-feature__body h2,
+  .carnet-roadmap__copy h2,
+  .draft-copy h1 {
+    max-width: none;
+  }
+
+  .carnet-questions__grid,
+  .carnet-start__grid,
+  .carnet-univers__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .carnet-hero__grid,
+  .carnet-essentials__grid,
+  .draft-layout {
+    gap: 1.2rem;
+  }
+
+  .media-slot,
+  .carnet-rail,
+  .carnet-roadmap__list,
+  .carnet-line,
+  .carnet-panel,
+  .carnet-universe,
+  .carnet-question,
+  .draft-panel {
+    border-radius: 22px;
+  }
+
+  .media-slot,
+  .carnet-rail,
+  .carnet-roadmap__list,
+  .carnet-line,
+  .draft-panel {
+    padding: 1rem;
+  }
+}

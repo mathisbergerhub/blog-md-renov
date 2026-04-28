@@ -1,25 +1,30 @@
-﻿# Le journal MD Renov'
+# Le carnet MD Renov'
 
-> Blog maison, menuiseries et renovation de MD Renov' pour les projets en Haute-Savoie, Savoie et Pays de Gex.
+> Template editorial en cours de refonte pour le blog MD Renov', oriente renovation, menuiseries et habitat en Haute-Savoie.
 
-Ce blog s'adresse d'abord aux particuliers qui cherchent a mieux comprendre un projet avant de demander un devis ou un rendez-vous.
+Le blog n'expose plus pour l'instant ses anciens contenus publics.
 
-Le site couvre les sujets suivants : fenetres, portes d'entree, pergolas, aides a la renovation, puis progressivement volets, moustiquaires, portails et renovation globale.
+La page d'accueil est devenue une base editoriale `Carnet Local Expert` avec une structure de lecture claire, des rubriques futures et des emplacements visuels normalises.
 
-Utiliser en priorite les miroirs Markdown listes ci-dessous. Ils sont plus propres a lire que les pages HTML et conservent la structure editoriale utile pour l'inference.
+## Priorite de lecture
 
-## Accueil
+- [Accueil du blog](https://www.mdrenov-menuiserie.com/blog/index.html.md) : structure de home, positionnement editorial et formats visuels a prevoir.
 
-- [Accueil du blog](https://www.mdrenov-menuiserie.com/blog/index.html.md): Vue d'ensemble du blog, rubriques couvertes, article a la une et selection de lectures.
+## Brouillons conserves
 
-## Articles publies
+- [Fenetre PVC ou aluminium en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/fenetre-pvc-vs-aluminium-haute-savoie.html.md)
+- [Porte d'entree aluminium a Annecy](https://www.mdrenov-menuiserie.com/blog/porte-entree-aluminium-annecy.html.md)
+- [Pergola bioclimatique en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/pergola-bioclimatique-haute-savoie.html.md)
+- [MaPrimeRenov' 2025 en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/maprimerenov-2025-haute-savoie.html.md)
 
-- [Fenetre PVC ou aluminium en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/fenetre-pvc-vs-aluminium-haute-savoie.html.md): Comparatif client sur le choix des materiaux, le budget, le style et la facade.
-- [Porte d'entree aluminium a Annecy](https://www.mdrenov-menuiserie.com/blog/porte-entree-aluminium-annecy.html.md): Guide sur le style, la securite, l'isolation et la coherence de facade.
-- [Pergola bioclimatique en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/pergola-bioclimatique-haute-savoie.html.md): Guide d'usage sur le confort d'ete, les options et la vie de terrasse.
-- [MaPrimeRenov' 2025 en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/maprimerenov-2025-haute-savoie.html.md): Guide de premier niveau sur les aides et la lecture budgetaire avant travaux.
+## Intentions editoriales
+
+- posture locale experte
+- lecture simple et non commerciale
+- rubriques claires par univers produit
+- formats visuels prevus sans images definitives
 
 ## Optional
 
-- [Site principal MD Renov'](https://www.mdrenov-menuiserie.com): Site vitrine principal de l'entreprise.
-- [Contact MD Renov'](https://www.mdrenov-menuiserie.com/contact#Contact-Form): Formulaire de prise de contact et de rendez-vous.
+- [Site principal MD Renov'](https://www.mdrenov-menuiserie.com)
+- [Contact MD Renov'](https://www.mdrenov-menuiserie.com/contact#Contact-Form)
