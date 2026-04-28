@@ -1,28 +1,28 @@
-# Le carnet MD Renov'
+# Le blog MD Renov'
 
-> Template editorial en cours de refonte pour le blog MD Renov', oriente renovation, menuiseries et habitat en Haute-Savoie.
+> Blog editorial MD Renov' autour de la renovation, des menuiseries et du confort de l'habitat en Haute-Savoie.
 
-Le blog n'expose plus pour l'instant ses anciens contenus publics.
-
-La page d'accueil est devenue une base editoriale `Carnet Local Expert` avec une structure de lecture claire, des rubriques futures et des emplacements visuels normalises.
+La page d'accueil propose une lecture magazine claire, avec des univers produits, des articles de fond et des emplacements visuels prepares pour les futurs contenus photo.
 
 ## Priorite de lecture
 
 - [Accueil du blog](https://www.mdrenov-menuiserie.com/blog/index.html.md) : structure de home, positionnement editorial et formats visuels a prevoir.
 
-## Brouillons conserves
+## Articles a lire
 
 - [Fenetre PVC ou aluminium en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/fenetre-pvc-vs-aluminium-haute-savoie.html.md)
+- [Comment savoir si vos fenetres perdent de la chaleur ?](https://www.mdrenov-menuiserie.com/blog/fenetres-perdent-chaleur-haute-savoie.html.md)
 - [Porte d'entree aluminium a Annecy](https://www.mdrenov-menuiserie.com/blog/porte-entree-aluminium-annecy.html.md)
 - [Pergola bioclimatique en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/pergola-bioclimatique-haute-savoie.html.md)
 - [MaPrimeRenov' 2025 en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/maprimerenov-2025-haute-savoie.html.md)
+- [Volets roulants motorises en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/volets-roulants-motorises-haute-savoie.html.md)
 
 ## Intentions editoriales
 
 - posture locale experte
-- lecture simple et non commerciale
+- lecture simple et utile
 - rubriques claires par univers produit
-- formats visuels prevus sans images definitives
+- formats visuels deja prevus en attendant les images definitives
 
 ## Optional
 
