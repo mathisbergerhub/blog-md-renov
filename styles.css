@@ -4557,14 +4557,14 @@ h3 {
 }
 
 .mdr-listing-hero h1 {
-  max-width: 14ch;
+  max-width: none;
   color: #1a1a18;
   font-family: "Lexend", sans-serif;
-  font-size: clamp(2.1rem, 3.8vw, 3.5rem);
+  font-size: clamp(1.95rem, 3.2vw, 3.3rem);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.04em;
-  text-wrap: balance;
+  white-space: nowrap;
 }
 
 .mdr-listing-hero p {
@@ -4680,6 +4680,11 @@ h3 {
   .mdr-home-featured {
     grid-template-columns: 1fr;
     min-height: 0;
+  }
+
+  .mdr-listing-hero h1 {
+    white-space: normal;
+    text-wrap: balance;
   }
 }
 
