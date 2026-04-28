@@ -2847,3 +2847,552 @@ h3 {
     padding: 1rem;
   }
 }
+
+.mdblog-page,
+.mdarticle-page {
+  background: #0d0d0d;
+}
+
+.mdblog-stage {
+  width: min(calc(100% - 1rem), 1240px);
+  margin: 5rem auto 2rem;
+}
+
+.mdblog-wrap {
+  overflow: hidden;
+  border: 1px solid #d8d0c2;
+  border-radius: 20px;
+  background: #f8f5ef;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+}
+
+.mdblog-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2rem;
+  padding: 0.8rem 1rem;
+  background: #1a4a2e;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.mdblog-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 78px;
+  padding: 0 2rem;
+  border-bottom: 1px solid #e4ddd1;
+  background: #fff;
+}
+
+.mdblog-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  max-width: 190px;
+}
+
+.mdblog-nav__brand img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mdblog-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: #7b8593;
+  font-size: 0.98rem;
+}
+
+.mdblog-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.mdblog-button:hover,
+.mdblog-button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.mdblog-button--primary {
+  background: #1a4a2e;
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(26, 74, 46, 0.12);
+}
+
+.mdblog-button--light {
+  background: #fff;
+  color: #1a4a2e;
+}
+
+.mdblog-nav__cta {
+  white-space: nowrap;
+}
+
+.mdblog-hero {
+  padding: 3.5rem 2rem 3rem;
+  border-bottom: 1px solid #e4ddd1;
+  background: #f8f5ef;
+  text-align: center;
+}
+
+.mdblog-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.4rem 1.3rem;
+  border-radius: 999px;
+  background: #c8973a;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mdblog-hero h1,
+.mdblog-cta h2,
+.mdarticle-head h1,
+.mdarticle-prose h2,
+.mdblog-featured__body h2,
+.mdblog-card h2 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.mdblog-hero h1 {
+  margin: 1.25rem auto 0;
+  max-width: 12ch;
+  color: #1a4a2e;
+  font-size: clamp(2.5rem, 4.6vw, 4rem);
+  line-height: 1.14;
+}
+
+.mdblog-hero p {
+  max-width: 720px;
+  margin: 1rem auto 1.8rem;
+  color: #798291;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.mdblog-catbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e4ddd1;
+  background: #fff;
+}
+
+.mdblog-cat {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.45rem 1.2rem;
+  border: 1px solid #e4ddd1;
+  border-radius: 999px;
+  background: #fff;
+  color: #7b8593;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.mdblog-cat--active {
+  border-color: #1a4a2e;
+  background: #1a4a2e;
+  color: #fff;
+  font-weight: 700;
+}
+
+.mdblog-articles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  padding: 2rem;
+  background: #f0ece4;
+}
+
+.mdblog-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #1a4a2e;
+}
+
+.mdblog-featured__media {
+  background: #2d6e45;
+}
+
+.mdblog-featured__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.2rem;
+}
+
+.mdblog-featured__tag {
+  display: inline-flex;
+  align-self: flex-start;
+  min-height: 30px;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: #c8973a;
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mdblog-featured__body h2 {
+  margin-top: 1rem;
+  color: #fff;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.18;
+}
+
+.mdblog-featured__body p {
+  margin: 1rem 0 1.6rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.mdblog-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e4ddd1;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.mdblog-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.35rem 1.5rem 1.4rem;
+}
+
+.mdblog-card__meta,
+.mdarticle-head__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.7rem;
+}
+
+.mdblog-card__tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.22rem 0.8rem;
+  border: 1px solid #e4ddd1;
+  border-radius: 999px;
+  background: #f8f5ef;
+  color: #1a4a2e;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mdblog-card__date,
+.mdblog-card__time {
+  color: #7b8593;
+  font-size: 0.86rem;
+}
+
+.mdblog-card h2 {
+  color: #1c1c1a;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.mdblog-card p {
+  margin: 0.75rem 0 1.2rem;
+  color: #6f7784;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.mdblog-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mdblog-readmore {
+  color: #1a4a2e;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.mdblog-cta {
+  padding: 2.7rem 2rem 3rem;
+  border-top: 1px solid #e4ddd1;
+  background: #f8f5ef;
+  text-align: center;
+}
+
+.mdblog-cta h2 {
+  color: #1a4a2e;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.mdblog-cta p {
+  max-width: 760px;
+  margin: 0.8rem auto 1.7rem;
+  color: #798291;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.mdblog-media-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 1.4rem;
+  text-align: center;
+}
+
+.mdblog-media-placeholder__icon {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.mdblog-media-placeholder__meta {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.mdblog-media-placeholder__meta strong {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 1rem;
+}
+
+.mdblog-media-placeholder__meta span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mdblog-media-placeholder--card,
+.mdblog-media-placeholder--article {
+  background: #e8e3da;
+}
+
+.mdblog-media-placeholder--card .mdblog-media-placeholder__meta strong,
+.mdblog-media-placeholder--card .mdblog-media-placeholder__meta span,
+.mdblog-media-placeholder--article .mdblog-media-placeholder__meta strong,
+.mdblog-media-placeholder--article .mdblog-media-placeholder__meta span {
+  color: #5f675e;
+}
+
+.mdblog-media-placeholder--featured {
+  min-height: 260px;
+}
+
+.mdblog-media-placeholder--card {
+  min-height: 190px;
+}
+
+.mdblog-media-placeholder--article {
+  min-height: 220px;
+  border-radius: 18px;
+}
+
+.mdarticle-content {
+  padding: 2rem;
+  background: #f0ece4;
+}
+
+.mdarticle-head {
+  margin-bottom: 1rem;
+  padding: 2rem;
+  border: 1px solid #e4ddd1;
+  border-radius: 18px;
+  background: #fff;
+  text-align: center;
+}
+
+.mdarticle-head h1 {
+  max-width: 18ch;
+  margin: 0 auto;
+  color: #1a4a2e;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.2;
+}
+
+.mdarticle-head__excerpt {
+  max-width: 820px;
+  margin: 0.9rem auto 0;
+  color: #798291;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.mdarticle-prose {
+  margin-top: 1rem;
+  padding: 1.7rem 1.9rem;
+  border: 1px solid #e4ddd1;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.mdarticle-prose h2 {
+  margin: 0 0 0.8rem;
+  color: #1a4a2e;
+  font-size: 1.45rem;
+}
+
+.mdarticle-prose h2 + p,
+.mdarticle-prose p {
+  color: #3a3a38;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.mdarticle-prose p + h2,
+.mdarticle-prose blockquote + h2,
+.mdarticle-inline-cta + h2 {
+  margin-top: 1.4rem;
+}
+
+.mdarticle-prose blockquote {
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid #c8973a;
+  border-radius: 0 10px 10px 0;
+  background: #f8f5ef;
+  color: #1a4a2e;
+  font-style: italic;
+}
+
+.mdarticle-inline-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.4rem 0;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: #1a4a2e;
+}
+
+.mdarticle-inline-cta__text strong {
+  display: block;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.mdarticle-inline-cta__text span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.mdarticle-inline-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: #fff;
+  color: #1a4a2e;
+  font-size: 0.92rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width: 980px) {
+  .mdblog-stage {
+    margin-top: 1.5rem;
+  }
+
+  .mdblog-nav,
+  .mdblog-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .mdblog-nav {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .mdblog-articles {
+    grid-template-columns: 1fr;
+  }
+
+  .mdblog-featured__media {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 760px) {
+  .mdblog-stage {
+    width: min(calc(100% - 0.6rem), 1240px);
+  }
+
+  .mdblog-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: auto;
+    gap: 1rem;
+  }
+
+  .mdblog-nav__links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem 1.2rem;
+  }
+
+  .mdblog-hero,
+  .mdblog-catbar,
+  .mdblog-articles,
+  .mdarticle-content,
+  .mdblog-cta {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mdblog-featured__body,
+  .mdblog-card__body,
+  .mdarticle-head,
+  .mdarticle-prose {
+    padding: 1.2rem;
+  }
+
+  .mdblog-card__foot,
+  .mdarticle-inline-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mdblog-media-placeholder--card {
+    min-height: 170px;
+  }
+}
