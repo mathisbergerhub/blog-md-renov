@@ -1,5 +1,5 @@
-# Volets roulants motorises : confort, securite et economies
+# Volets roulants motorisés : confort, sécurité et économies
 
 - Angle : comprendre ce que change vraiment la motorisation au quotidien
-- Points traites : filaire, radio, solaire, confort d'usage, gestion de la chaleur
-- Format visuel prevu : hero 16:10
+- Points traités : filaire, radio, solaire, confort d'usage, gestion de la chaleur
+- Format visuel prévu : hero 16:10

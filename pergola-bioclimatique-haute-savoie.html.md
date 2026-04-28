@@ -1,8 +1,8 @@
 # Pergola bioclimatique en Haute-Savoie
 
-> URL conservee comme brouillon editorial pendant la refonte du blog.
+> URL conservée comme brouillon éditorial pendant la refonte du blog.
 
-- Statut : contenu public retire
-- Indexation : desactivee temporairement via `noindex`
-- Visuel prevu : paysage `16:10`
-- Structure prevue : usage reel, confort d'ete, contexte local, FAQ
+- Statut : contenu public retiré
+- Indexation : désactivée temporairement via `noindex`
+- Visuel prévu : paysage `16:10`
+- Structure prévue : usage réel, confort d'été, contexte local, FAQ

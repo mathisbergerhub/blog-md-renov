@@ -1,8 +1,8 @@
-# Fenetre PVC ou aluminium en Haute-Savoie
+# Fenêtre PVC ou aluminium en Haute-Savoie
 
-> URL conservee comme brouillon editorial pendant la refonte du blog.
+> URL conservée comme brouillon éditorial pendant la refonte du blog.
 
-- Statut : contenu public retire
-- Indexation : desactivee temporairement via `noindex`
-- Visuel prevu : paysage `16:10`
-- Structure prevue : introduction, comparatif, vigilance locale, FAQ
+- Statut : contenu public retiré
+- Indexation : désactivée temporairement via `noindex`
+- Visuel prévu : paysage `16:10`
+- Structure prévue : introduction, comparatif, vigilance locale, FAQ

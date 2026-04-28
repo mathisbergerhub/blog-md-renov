@@ -1,37 +1,37 @@
-# Le blog MD Renov'
+# Le blog MD Rénov'
 
-> Blog editorial MD Renov' autour de la renovation, des menuiseries et du confort de l'habitat en Haute-Savoie.
+> Blog éditorial MD Rénov' autour de la rénovation, des menuiseries et du confort de l'habitat en Haute-Savoie.
 
-La page d'accueil propose une lecture magazine claire, avec des univers produits, des articles de fond et des emplacements visuels prepares pour les futurs contenus photo.
+La page d'accueil propose une lecture magazine claire, avec des univers produits, des articles de fond et des emplacements visuels préparés pour les futurs contenus photo.
 
-## Priorite de lecture
+## Priorité de lecture
 
-- [Accueil du blog](https://blog.mdrenov-menuiserie.com/index.html.md) : structure de home, positionnement editorial et formats visuels a prevoir.
+- [Accueil du blog](https://blog.mdrenov-menuiserie.com/index.html.md) : structure de home, positionnement éditorial et formats visuels à prévoir.
 
-## Articles a lire
+## Articles à lire
 
-- [Fenetre PVC ou aluminium en Haute-Savoie](https://blog.mdrenov-menuiserie.com/fenetre-pvc-vs-aluminium-haute-savoie.html.md)
-- [Comment savoir si vos fenetres perdent de la chaleur ?](https://blog.mdrenov-menuiserie.com/fenetres-perdent-chaleur-haute-savoie.html.md)
-- [Porte d'entree aluminium a Annecy](https://blog.mdrenov-menuiserie.com/porte-entree-aluminium-annecy.html.md)
+- [Fenêtre PVC ou aluminium en Haute-Savoie](https://blog.mdrenov-menuiserie.com/fenetre-pvc-vs-aluminium-haute-savoie.html.md)
+- [Comment savoir si vos fenêtres perdent de la chaleur ?](https://blog.mdrenov-menuiserie.com/fenetres-perdent-chaleur-haute-savoie.html.md)
+- [Porte d'entrée aluminium à Annecy](https://blog.mdrenov-menuiserie.com/porte-entree-aluminium-annecy.html.md)
 - [Pergola bioclimatique en Haute-Savoie](https://blog.mdrenov-menuiserie.com/pergola-bioclimatique-haute-savoie.html.md)
-- [MaPrimeRenov' 2026 en Haute-Savoie](https://blog.mdrenov-menuiserie.com/maprimerenov-2026-haute-savoie.html.md)
-- [Volets roulants motorises en Haute-Savoie](https://blog.mdrenov-menuiserie.com/volets-roulants-motorises-haute-savoie.html.md)
+- [MaPrimeRénov' 2026 en Haute-Savoie](https://blog.mdrenov-menuiserie.com/maprimerenov-2026-haute-savoie.html.md)
+- [Volets roulants motorisés en Haute-Savoie](https://blog.mdrenov-menuiserie.com/volets-roulants-motorises-haute-savoie.html.md)
 
-## Pages legales
+## Pages légales
 
-- [Mentions legales](https://blog.mdrenov-menuiserie.com/mentions-legales)
-- [Politique de confidentialite](https://blog.mdrenov-menuiserie.com/politique-confidentialite)
+- [Mentions légales](https://blog.mdrenov-menuiserie.com/mentions-legales)
+- [Politique de confidentialité](https://blog.mdrenov-menuiserie.com/politique-confidentialite)
 - [Politique cookies](https://blog.mdrenov-menuiserie.com/politique-cookies)
 - [Conditions d'utilisation](https://blog.mdrenov-menuiserie.com/conditions-utilisation)
 
-## Intentions editoriales
+## Intentions éditoriales
 
 - posture locale experte
 - lecture simple et utile
 - rubriques claires par univers produit
-- formats visuels deja prevus en attendant les images definitives
+- formats visuels déjà prévus en attendant les images définitives
 
 ## Optional
 
-- [Site principal MD Renov'](https://www.mdrenov-menuiserie.com)
-- [Contact MD Renov'](https://www.mdrenov-menuiserie.com/contact#Contact-Form)
+- [Site principal MD Rénov'](https://www.mdrenov-menuiserie.com)
+- [Contact MD Rénov'](https://www.mdrenov-menuiserie.com/contact#Contact-Form)

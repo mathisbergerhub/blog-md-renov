@@ -31,14 +31,14 @@
     gate.setAttribute("aria-labelledby", "auth-gate-title");
     gate.innerHTML = `
       <form class="auth-gate__panel" autocomplete="off">
-        <div class="auth-gate__brand">MD Renov'</div>
-        <p class="auth-gate__eyebrow">Acces de prevalidation</p>
+        <div class="auth-gate__brand">MD Rénov'</div>
+        <p class="auth-gate__eyebrow">Accès de prévalidation</p>
         <h1 id="auth-gate-title">Blog en cours de validation</h1>
         <p class="auth-gate__text">Entrez le mot de passe pour consulter la version de travail.</p>
         <label class="auth-gate__label" for="auth-gate-password">Mot de passe</label>
         <input id="auth-gate-password" class="auth-gate__input" type="password" autocomplete="current-password" autofocus />
         <p class="auth-gate__error" aria-live="polite"></p>
-        <button class="auth-gate__button" type="submit">Acceder au blog</button>
+        <button class="auth-gate__button" type="submit">Accéder au blog</button>
       </form>
     `;
 
@@ -70,7 +70,7 @@
         input.value = "";
         input.focus();
       } catch (_error) {
-        error.textContent = "Impossible de verifier le mot de passe sur ce navigateur.";
+        error.textContent = "Impossible de vérifier le mot de passe sur ce navigateur.";
       }
     });
   };
