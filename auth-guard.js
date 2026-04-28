@@ -1,0 +1,96 @@
+(function () {
+  const ACCESS_KEY = "mdr_blog_preview_access";
+  const PASSWORD_HASH = "8f9e5669280cd41a44674368ccb532d5b8f1070e58ad7bc9091216c62893b25e";
+
+  const hashText = async (value) => {
+    const data = new TextEncoder().encode(value);
+    const hash = await crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(hash))
+      .map((byte) => byte.toString(16).padStart(2, "0"))
+      .join("");
+  };
+
+  const unlock = () => {
+    localStorage.setItem(ACCESS_KEY, "ok");
+    document.documentElement.classList.remove("auth-pending");
+    document.body?.classList.remove("auth-locked");
+    document.querySelector(".auth-gate")?.remove();
+  };
+
+  const renderGate = () => {
+    if (document.querySelector(".auth-gate")) {
+      return;
+    }
+
+    document.body.classList.add("auth-locked");
+
+    const gate = document.createElement("section");
+    gate.className = "auth-gate";
+    gate.setAttribute("role", "dialog");
+    gate.setAttribute("aria-modal", "true");
+    gate.setAttribute("aria-labelledby", "auth-gate-title");
+    gate.innerHTML = `
+      <form class="auth-gate__panel" autocomplete="off">
+        <div class="auth-gate__brand">MD Renov'</div>
+        <p class="auth-gate__eyebrow">Acces de prevalidation</p>
+        <h1 id="auth-gate-title">Blog en cours de validation</h1>
+        <p class="auth-gate__text">Entrez le mot de passe pour consulter la version de travail.</p>
+        <label class="auth-gate__label" for="auth-gate-password">Mot de passe</label>
+        <input id="auth-gate-password" class="auth-gate__input" type="password" autocomplete="current-password" autofocus />
+        <p class="auth-gate__error" aria-live="polite"></p>
+        <button class="auth-gate__button" type="submit">Acceder au blog</button>
+      </form>
+    `;
+
+    document.body.appendChild(gate);
+
+    const form = gate.querySelector("form");
+    const input = gate.querySelector("input");
+    const error = gate.querySelector(".auth-gate__error");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      error.textContent = "";
+
+      const candidate = input.value.trim();
+      if (!candidate) {
+        error.textContent = "Veuillez saisir le mot de passe.";
+        input.focus();
+        return;
+      }
+
+      try {
+        const candidateHash = await hashText(candidate);
+        if (candidateHash === PASSWORD_HASH) {
+          unlock();
+          return;
+        }
+
+        error.textContent = "Mot de passe incorrect.";
+        input.value = "";
+        input.focus();
+      } catch (_error) {
+        error.textContent = "Impossible de verifier le mot de passe sur ce navigateur.";
+      }
+    });
+  };
+
+  const init = () => {
+    if (new URLSearchParams(window.location.search).has("logout")) {
+      localStorage.removeItem(ACCESS_KEY);
+    }
+
+    if (localStorage.getItem(ACCESS_KEY) === "ok") {
+      unlock();
+      return;
+    }
+
+    renderGate();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

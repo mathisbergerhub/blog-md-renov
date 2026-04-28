@@ -6,16 +6,23 @@ La page d'accueil propose une lecture magazine claire, avec des univers produits
 
 ## Priorite de lecture
 
-- [Accueil du blog](https://www.mdrenov-menuiserie.com/blog/index.html.md) : structure de home, positionnement editorial et formats visuels a prevoir.
+- [Accueil du blog](https://blog.mdrenov-menuiserie.com/index.html.md) : structure de home, positionnement editorial et formats visuels a prevoir.
 
 ## Articles a lire
 
-- [Fenetre PVC ou aluminium en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/fenetre-pvc-vs-aluminium-haute-savoie.html.md)
-- [Comment savoir si vos fenetres perdent de la chaleur ?](https://www.mdrenov-menuiserie.com/blog/fenetres-perdent-chaleur-haute-savoie.html.md)
-- [Porte d'entree aluminium a Annecy](https://www.mdrenov-menuiserie.com/blog/porte-entree-aluminium-annecy.html.md)
-- [Pergola bioclimatique en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/pergola-bioclimatique-haute-savoie.html.md)
-- [MaPrimeRenov' 2025 en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/maprimerenov-2025-haute-savoie.html.md)
-- [Volets roulants motorises en Haute-Savoie](https://www.mdrenov-menuiserie.com/blog/volets-roulants-motorises-haute-savoie.html.md)
+- [Fenetre PVC ou aluminium en Haute-Savoie](https://blog.mdrenov-menuiserie.com/fenetre-pvc-vs-aluminium-haute-savoie.html.md)
+- [Comment savoir si vos fenetres perdent de la chaleur ?](https://blog.mdrenov-menuiserie.com/fenetres-perdent-chaleur-haute-savoie.html.md)
+- [Porte d'entree aluminium a Annecy](https://blog.mdrenov-menuiserie.com/porte-entree-aluminium-annecy.html.md)
+- [Pergola bioclimatique en Haute-Savoie](https://blog.mdrenov-menuiserie.com/pergola-bioclimatique-haute-savoie.html.md)
+- [MaPrimeRenov' 2026 en Haute-Savoie](https://blog.mdrenov-menuiserie.com/maprimerenov-2026-haute-savoie.html.md)
+- [Volets roulants motorises en Haute-Savoie](https://blog.mdrenov-menuiserie.com/volets-roulants-motorises-haute-savoie.html.md)
+
+## Pages legales
+
+- [Mentions legales](https://blog.mdrenov-menuiserie.com/mentions-legales)
+- [Politique de confidentialite](https://blog.mdrenov-menuiserie.com/politique-confidentialite)
+- [Politique cookies](https://blog.mdrenov-menuiserie.com/politique-cookies)
+- [Conditions d'utilisation](https://blog.mdrenov-menuiserie.com/conditions-utilisation)
 
 ## Intentions editoriales
 

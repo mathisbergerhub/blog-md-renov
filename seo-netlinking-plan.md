@@ -24,7 +24,7 @@ Renforcer l'autorite locale et thematique du blog pour soutenir les pages consei
 - /blog/fenetre-pvc-vs-aluminium-haute-savoie
 - /blog/porte-entree-aluminium-annecy
 - /blog/pergola-bioclimatique-haute-savoie
-- /blog/maprimerenov-2025-haute-savoie
+- /blog/maprimerenov-2026-haute-savoie
 
 ## Ancres conseillees
 

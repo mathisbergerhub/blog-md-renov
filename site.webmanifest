@@ -1,26 +1,26 @@
-﻿{
+{
   "name": "Le journal MD Renov'",
   "short_name": "MD Renov'",
   "description": "Blog maison, menuiseries et renovation de MD Renov'.",
-  "start_url": "https://www.mdrenov-menuiserie.com/blog/",
+  "start_url": "https://blog.mdrenov-menuiserie.com/",
   "display": "standalone",
   "background_color": "#fbfbfc",
   "theme_color": "#c50000",
   "icons": [
     {
-      "src": "https://www.mdrenov-menuiserie.com/blog/android-chrome-192x192.png",
+      "src": "https://blog.mdrenov-menuiserie.com/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://www.mdrenov-menuiserie.com/blog/android-chrome-512x512.png",
+      "src": "https://blog.mdrenov-menuiserie.com/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://www.mdrenov-menuiserie.com/blog/favicon.svg",
+      "src": "https://blog.mdrenov-menuiserie.com/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

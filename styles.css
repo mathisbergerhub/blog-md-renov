@@ -4580,6 +4580,227 @@ h3 {
   background: #f0ece4;
 }
 
+.mdr-legal-page {
+  background: #f0ece4;
+  font-family: "Lexend", sans-serif;
+}
+
+html.auth-pending .mdr-full {
+  visibility: hidden;
+}
+
+body.auth-locked {
+  overflow: hidden;
+}
+
+.auth-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: #f0ece4;
+  font-family: "Lexend", sans-serif;
+}
+
+.auth-gate__panel {
+  width: min(100%, 430px);
+  display: grid;
+  gap: 0.85rem;
+  padding: clamp(1.35rem, 4vw, 2rem);
+  border: 1px solid #ddd9d0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(26, 26, 24, 0.12);
+}
+
+.auth-gate__brand {
+  color: #1a1a18;
+  font-weight: 800;
+}
+
+.auth-gate__eyebrow {
+  width: fit-content;
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(155, 28, 28, 0.1);
+  color: #9b1c1c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.auth-gate h1 {
+  margin: 0;
+  color: #1a1a18;
+  font-size: clamp(1.65rem, 5vw, 2.35rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.auth-gate__text {
+  margin: 0;
+  color: #5f665f;
+  line-height: 1.6;
+}
+
+.auth-gate__label {
+  margin-top: 0.25rem;
+  color: #1a1a18;
+  font-size: 0.85rem;
+  font-weight: 750;
+}
+
+.auth-gate__input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 0.9rem;
+  border: 1px solid #d5cec3;
+  border-radius: 7px;
+  background: #f9f7f2;
+  color: #1a1a18;
+  font: inherit;
+}
+
+.auth-gate__input:focus {
+  outline: 2px solid rgba(155, 28, 28, 0.32);
+  border-color: #9b1c1c;
+}
+
+.auth-gate__error {
+  min-height: 1.2em;
+  margin: 0;
+  color: #9b1c1c;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.auth-gate__button {
+  min-height: 50px;
+  border: 0;
+  border-radius: 7px;
+  background: #9b1c1c;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.auth-gate__button:hover {
+  background: #831414;
+}
+
+.mdr-legal-hero {
+  display: grid;
+  justify-items: center;
+  gap: 0.85rem;
+  padding: 3rem 1.25rem 2rem;
+  border-bottom: 1px solid #ddd9d0;
+  text-align: center;
+}
+
+.mdr-legal-hero h1 {
+  margin: 0;
+  color: #1a1a18;
+  font-family: "Lexend", sans-serif;
+  font-size: clamp(2.25rem, 4.6vw, 4.6rem);
+  font-weight: 750;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.mdr-legal-hero p {
+  max-width: 48rem;
+  margin: 0;
+  color: #5f665f;
+  line-height: 1.72;
+}
+
+.mdr-legal-layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 820px);
+  gap: 2rem;
+  align-items: start;
+  justify-content: center;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.mdr-legal-summary {
+  position: sticky;
+  top: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 1px solid #ddd9d0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.mdr-legal-summary a {
+  padding: 0.6rem 0.7rem;
+  border-radius: 6px;
+  color: #5f665f;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.mdr-legal-summary a:hover {
+  background: #fff;
+  color: #9b1c1c;
+}
+
+.mdr-legal-card {
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border: 1px solid #ddd9d0;
+  border-radius: 8px;
+  background: #fff;
+  color: #292925;
+}
+
+.mdr-legal-card h2 {
+  margin: 2rem 0 0.75rem;
+  color: #1a1a18;
+  font-family: "Lexend", sans-serif;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.mdr-legal-card h2:first-of-type {
+  margin-top: 0;
+}
+
+.mdr-legal-card p,
+.mdr-legal-card li {
+  color: #4f544f;
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.mdr-legal-card ul {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 1.2rem;
+}
+
+.mdr-legal-card a {
+  color: #9b1c1c;
+  font-weight: 700;
+}
+
+.mdr-legal-update {
+  margin: 0 0 1.5rem;
+  color: #9b1c1c;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .mdr-home-footer {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -4686,6 +4907,15 @@ h3 {
     white-space: normal;
     text-wrap: balance;
   }
+
+  .mdr-legal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mdr-legal-summary {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -4723,6 +4953,10 @@ h3 {
 
   .mdr-home-footer__links {
     justify-content: flex-start;
+  }
+
+  .mdr-legal-summary {
+    grid-template-columns: 1fr;
   }
 
   .mdr-prose h2 {
