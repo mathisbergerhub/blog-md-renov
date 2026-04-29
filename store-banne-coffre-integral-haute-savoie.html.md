@@ -38,7 +38,7 @@ En protégeant la toile et les bras quand le store est fermé, le coffre intégr
  Vous réfléchissez à protéger votre terrasse ? On cadre l'exposition, la largeur utile et le bon niveau d'équipement. Demander mon devis 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -50,7 +50,7 @@ En protégeant la toile et les bras quand le store est fermé, le coffre intégr
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

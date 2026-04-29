@@ -26,7 +26,7 @@ Un brise-soleil orientable permet de couper le soleil tout en gardant de la lumi
 
 Dans un séjour très exposé, le BSO est agréable parce qu'il nuance la lumière. Dans une chambre, le volet roulant reste souvent plus logique pour dormir dans le noir et renforcer la fermeture. Sur une maison complète, on peut très bien mixer les deux.
 
-## Questions fréquentes
+## 💬 Les questions que se posent souvent les particuliers
 
  Le BSO résiste-t-il au vent ? Il faut choisir une solution adaptée à l'exposition et prévoir les automatismes nécessaires.
 

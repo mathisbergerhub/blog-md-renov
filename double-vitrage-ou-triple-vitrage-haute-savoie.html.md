@@ -38,7 +38,7 @@ Sur une façade sud ou ouest, le gain solaire peut compter. Sur une baie vitrée
  Vous hésitez sur le vitrage ? On regarde l'exposition et l'usage pièce par pièce avant de figer le devis. Faire vérifier mon projet 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -50,7 +50,7 @@ Sur une façade sud ou ouest, le gain solaire peut compter. Sur une baie vitrée
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

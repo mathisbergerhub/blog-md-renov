@@ -2,7 +2,7 @@
 
 Guides concrets sur les fenêtres, volets, stores, pergolas, portes, portails, aides et démarches en Haute-Savoie.
 
-## Articles
+## Articles récents
 - Pose en rénovation ou dépose totale : que choisir pour remplacer ses fenêtres ? : ./renovation-sur-cadre-ou-depose-totale-fenetres.html
 - PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ? : ./fenetre-bois-pvc-alu-mixte-comparatif.html
 - Baie coulissante ou galandage : quel choix pour ouvrir le séjour ? : ./baie-vitree-coulissante-ou-galandage.html
@@ -14,7 +14,6 @@ Guides concrets sur les fenêtres, volets, stores, pergolas, portes, portails, a
 - Portail motorisé, visiophone, digicode : que prévoir dès le départ ? : ./portail-motorise-interphone-securite.html
 - Couleur des menuiseries : comment éviter l'erreur avec le PLU ? : ./couleurs-menuiseries-ral-plu.html
 - Délais de pose : combien de temps prévoir pour fenêtres, volets ou portail ? : ./delais-pose-menuiseries-renovation.html
-- Fenêtre PVC ou aluminium : quel choix pour une maison en Haute-Savoie ? : ./fenetre-pvc-vs-aluminium-haute-savoie.html
 - Double ou triple vitrage : dans quels cas le surcoût est vraiment utile ? : ./double-vitrage-ou-triple-vitrage-haute-savoie.html
 - Comment savoir si vos fenêtres perdent de la chaleur ? : ./fenetres-perdent-chaleur-haute-savoie.html
 - Volets roulants motorisés : confort, sécurité et économies au quotidien : ./volets-roulants-motorises-haute-savoie.html
@@ -25,6 +24,7 @@ Guides concrets sur les fenêtres, volets, stores, pergolas, portes, portails, a
 - Prix d'un store banne : ce qui fait vraiment varier le devis : ./prix-store-banne-annecy.html
 - Pergola bioclimatique : comment savoir si elle a du sens chez vous ? : ./pergola-bioclimatique-haute-savoie.html
 - Moustiquaire fixe, enroulable ou plissée : laquelle choisir ? : ./moustiquaire-sur-mesure-haute-savoie.html
+- Fenêtre PVC ou aluminium : quel choix pour une maison en Haute-Savoie ? : ./fenetre-pvc-vs-aluminium-haute-savoie.html
 - Porte d'entrée aluminium : sécurité, isolation et style à vérifier : ./porte-entree-aluminium-annecy.html
 - Porte de garage sectionnelle ou enroulable : quel modèle choisir ? : ./porte-garage-sectionnelle-ou-enroulable.html
 - Portail battant ou coulissant : quel choix selon votre terrain ? : ./portail-battant-ou-coulissant-haute-savoie.html

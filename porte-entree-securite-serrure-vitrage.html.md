@@ -8,7 +8,7 @@ Source HTML : ./porte-entree-securite-serrure-vitrage.html
 
 Une porte d'entrée sécurisée associe plusieurs éléments : panneau robuste, serrure adaptée, cylindre fiable, paumelles solides, vitrage retardateur si nécessaire et pose sérieuse. Un seul bon composant ne suffit pas si l'ensemble est incohérent.
 
-## Les points à lire sur un devis
+## ✅ Les points à lire sur un devis
  
  
 - Type de serrure et nombre de points de verrouillage.

@@ -36,7 +36,7 @@ Tout ne mérite pas un remplacement complet. Un réglage, un joint ou une repris
  Votre maison reste froide malgré le chauffage ? On distingue le simple réglage du vrai besoin de remplacement. Demander un diagnostic 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -48,7 +48,7 @@ Tout ne mérite pas un remplacement complet. Un réglage, un joint ou une repris
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

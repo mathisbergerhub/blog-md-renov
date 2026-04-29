@@ -22,7 +22,7 @@ Une porte sectionnelle remonte sous plafond : elle est confortable, isolante et 
  
  
 
-## Les questions à poser avant devis
+## 💬 Les questions à poser avant devis
  
  
 - Le garage est-il chauffé ou accolé à une pièce de vie ?
@@ -44,7 +44,7 @@ Avant de choisir, regardez comment vous utilisez le garage : voiture tous les jo
 La motorisation, le déverrouillage de secours et la sécurité anti-obstacle doivent aussi être vérifiés, surtout si la porte devient l'accès principal de la maison.
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -56,7 +56,7 @@ La motorisation, le déverrouillage de secours et la sécurité anti-obstacle do
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

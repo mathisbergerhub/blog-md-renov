@@ -40,22 +40,22 @@ Changer une fenêtre, un volet ou une porte par un modèle différent modifie l'
 
 Ce guide donne les réflexes. La décision dépend de la mairie, du PLU, de la copropriété et de la localisation exacte du bien.
 
-## À quoi servent les liens officiels ci-dessous ?
+## ✅ Les règles à retenir avant de commander
 
-Ils permettent de vérifier le bon cadre administratif avant de commander. L'objectif n'est pas de vous noyer dans les règles, mais de savoir si le projet doit être validé par la mairie, par la copropriété, ou par les deux.
+Quand le projet modifie l'aspect extérieur du logement, il faut vérifier le cadre administratif avant de signer : changement de couleur, nouveau matériau, remplacement de volets, pose d'une porte différente, installation d'une pergola ou travaux visibles en copropriété. Selon le cas, une déclaration préalable, un permis ou un accord de copropriété peut être nécessaire.
 
-- Fenêtres, volets et portes : à consulter si vous changez le modèle, la couleur, le matériau ou l'aspect extérieur.
+- Fenêtres, volets et portes : changement d'aspect extérieur = vérification en mairie avant travaux.
 
-- Pergola, carport et abri : utile pour comprendre le rôle de la surface, du PLU et d'un éventuel secteur protégé.
+- Pergola, carport et abri : la surface, le PLU et la localisation peuvent changer l'autorisation nécessaire.
 
-- Travaux en copropriété : à lire si la façade, le balcon ou une partie commune peut être concernée.
+- Copropriété : un élément visible depuis l'extérieur peut demander un accord du syndic ou de l'assemblée générale.
 
-En pratique, MD Rénov' vous aide à préparer les informations techniques du projet, puis la mairie ou le syndic confirme le cadre administratif applicable.
+Sources : Service Public, fenêtres, volets et portes ; pergola, carport et abri ; travaux en copropriété. En pratique, MD Rénov' vous aide à préparer les informations techniques du projet, puis la mairie ou le syndic confirme le cadre administratif applicable.
 
  Vous voulez éviter un blocage administratif ? On prépare les informations utiles avant devis et avant dépôt. Préparer mon projet 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -67,7 +67,7 @@ En pratique, MD Rénov' vous aide à préparer les informations techniques du pr
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

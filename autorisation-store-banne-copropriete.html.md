@@ -26,11 +26,11 @@ Un store banne peut modifier l'aspect extérieur de l'immeuble. Il faut donc vé
 
 L'accord de la copropriété ne remplace pas forcément l'autorisation d'urbanisme. Si l'aspect extérieur change, la mairie peut aussi être concernée. Le bon ordre consiste à vérifier le règlement, préparer le dossier copropriété, puis clarifier le besoin de déclaration préalable.
 
-## Pourquoi consulter la source officielle ?
+## ✅ Ce qu’il faut retenir avant de poser un store
 
-Le lien Service Public sert à comprendre dans quels cas un copropriétaire doit obtenir un accord avant de modifier un élément visible ou une partie commune. Pour un store banne, c'est utile si la toile, le coffre, les bras ou la fixation changent l'aspect de la façade.
+En copropriété, un store banne peut nécessiter un accord si sa toile, son coffre, ses bras ou sa fixation modifient l'aspect de la façade ou touchent une partie commune. Le dossier doit donc être clair avant la pose : dimensions, couleur, emplacement et mode de fixation.
 
-Voir la fiche Service Public sur les travaux en copropriété : elle aide à savoir quand passer par le syndic ou l'assemblée générale avant la pose.
+Source : Service Public, travaux et aspect extérieur en copropriété.
 
  
 
@@ -40,7 +40,7 @@ Le plus simple est de présenter un dossier clair : dimensions, couleur de toile
  Vous habitez en copropriété ? On vous aide à cadrer le modèle et les informations utiles pour le syndic. Cadrer mon store 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -52,7 +52,7 @@ Le plus simple est de présenter un dossier clair : dimensions, couleur de toile
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

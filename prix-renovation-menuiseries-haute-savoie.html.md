@@ -44,7 +44,7 @@ Pour comparer deux devis, vérifiez que les mêmes postes sont inclus : dépose,
 Demandez aussi les performances indiquées sur les produits : vitrage, coefficient thermique, type de profil, sécurité et options de confort. Le prix seul ne raconte jamais toute l'histoire.
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -56,7 +56,7 @@ Demandez aussi les performances indiquées sur les produits : vitrage, coefficie
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

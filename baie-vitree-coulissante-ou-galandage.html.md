@@ -34,7 +34,7 @@ Le coulissant classique est plus simple à intégrer en rénovation. Il offre d�
  
  
 
-## Questions fréquentes
+## 💬 Les questions que se posent souvent les particuliers
 
  Le galandage isole-t-il moins ? Il peut être performant, mais il demande une conception plus rigoureuse. En rénovation, ce point doit être vérifié très tôt.
 

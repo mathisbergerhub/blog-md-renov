@@ -32,7 +32,7 @@ La largeur du store ne suffit pas. Il faut regarder la course du soleil, l'avanc
  Vous préparez un store banne ? On vérifie les mesures et l'exposition avant de figer le modèle. Préparer mon devis 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -44,7 +44,7 @@ La largeur du store ne suffit pas. Il faut regarder la course du soleil, l'avanc
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

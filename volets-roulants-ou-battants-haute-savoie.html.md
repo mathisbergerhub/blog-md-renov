@@ -36,7 +36,7 @@ Sur une maison ancienne, des volets battants peuvent préserver le caractère de
  Vous voulez remplacer vos volets ? On vérifie le style de la maison, les contraintes de pose et les règles locales. Cadrer mon projet 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -48,7 +48,7 @@ Sur une maison ancienne, des volets battants peuvent préserver le caractère de
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

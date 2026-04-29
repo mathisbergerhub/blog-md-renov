@@ -26,19 +26,19 @@ En Haute-Savoie, il faut aussi penser au froid, aux écarts de température, au 
  
  
 
-## Le conseil terrain
+## 👉 Le conseil terrain
 
 Pour une rénovation homogène, on peut mixer intelligemment : PVC sur les chambres et petites ouvertures, aluminium sur une grande baie ou une façade très visible. Ce n'est pas une faute, à condition de garder une cohérence couleur et de bien traiter les seuils, les tapées et les finitions.
  Vous comparez plusieurs devis fenêtres ? On vous aide à lire les profils, le vitrage, la pose et les écarts de prix. Demander un avis 
 
-## FAQ rapide
+## 💬 Les questions que se posent souvent les particuliers
 
  Le PVC jaunit-il forcément ? Non, pas sur des gammes sérieuses et correctement entretenues. Le choix de la teinte et l'exposition restent importants.
 
  L'aluminium isole-t-il moins ? Les anciens aluminiums oui. Les menuiseries actuelles à rupture de pont thermique peuvent atteindre de très bonnes performances, mais il faut lire les valeurs du devis.
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -50,7 +50,7 @@ Pour une rénovation homogène, on peut mixer intelligemment : PVC sur les chamb
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

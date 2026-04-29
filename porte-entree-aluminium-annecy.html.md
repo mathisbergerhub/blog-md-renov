@@ -8,7 +8,7 @@ Source HTML : ./porte-entree-aluminium-annecy.html
 
 La porte d'entrée influence la sécurité, l'isolation, la lumière et la première impression de la maison. Le bon modèle doit être beau, mais surtout cohérent avec l'usage : passages fréquents, exposition, besoin de vitrage, seuil accessible ou entrée très froide.
 
-## Les points à comparer sur un devis
+## ✅ Les points à comparer sur un devis
  
  
 - Composition du panneau et niveau d'isolation.
@@ -36,7 +36,7 @@ Une porte pleine rassure et protège l'intimité. Une porte semi-vitrée apporte
 L'aluminium permet de travailler des lignes contemporaines et des couleurs durables, mais le confort final dépend aussi du seuil, de la serrure, de l'étanchéité et de la qualité de pose.
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -48,7 +48,7 @@ L'aluminium permet de travailler des lignes contemporaines et des couleurs durab
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

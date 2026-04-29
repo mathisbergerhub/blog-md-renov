@@ -8,7 +8,7 @@ Source HTML : ./fenetre-bois-pvc-alu-mixte-comparatif.html
 
 Le PVC est souvent choisi pour son rapport performance/prix et son entretien simple. L'aluminium est apprécié pour les profils fins, les grands formats et les couleurs. Le bois reste chaleureux et adapté à certains bâtiments de caractère, mais demande plus d'entretien. Le mixte bois-aluminium vise le meilleur des deux mondes : chaleur intérieure et protection extérieure.
 
-## Comparatif simple
+## ✅ Comparatif simple
  
  | 
  | Matériau | À privilégier si... | Point de vigilance 
@@ -24,11 +24,11 @@ Le PVC est souvent choisi pour son rapport performance/prix et son entretien sim
  
  
 
-## Le vrai arbitrage : façade, usage et cohérence
+## 👉 Le vrai arbitrage : façade, usage et cohérence
 
 Une maison contemporaine avec grandes baies ne pose pas les mêmes questions qu'une ferme rénovée ou qu'un appartement en copropriété. Le matériau doit rester cohérent avec la façade, le PLU, l'exposition et le niveau d'entretien accepté.
 
-## Questions fréquentes
+## 💬 Les questions que se posent souvent les particuliers
 
  Le bois isole-t-il mieux ? Il peut être très performant, mais la performance finale dépend aussi du vitrage, de la fabrication et de la pose.
 

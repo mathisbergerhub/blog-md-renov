@@ -8,7 +8,7 @@ Source HTML : ./portail-battant-ou-coulissant-haute-savoie.html
 
 Un portail battant fonctionne très bien quand l'entrée dispose d'un dégagement suffisant et d'une pente maîtrisée. Le coulissant devient plus logique quand il manque du recul, quand l'ouverture donne sur une voie ou quand la largeur de passage doit rester confortable.
 
-## Comparer sans se tromper
+## ✅ Comparer sans se tromper
  
  | 
  | Situation | Solution à étudier 
@@ -38,7 +38,7 @@ Le portail battant peut devenir pénible si les vantaux ouvrent dans une pente, 
 Avant de parler esthétique, mesurez la largeur utile, la pente, les dégagements et l'emplacement possible de la motorisation. C'est ce relevé qui évite les compromis coûteux.
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -50,7 +50,7 @@ Avant de parler esthétique, mesurez la largeur utile, la pente, les dégagement
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

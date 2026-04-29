@@ -8,7 +8,7 @@ Source HTML : ./pergola-bioclimatique-haute-savoie.html
 
 La pergola bioclimatique est pertinente quand la terrasse est trop chaude, trop exposée ou peu utilisable aux mi-saisons. Elle n'est pas seulement décorative : elle doit améliorer l'usage quotidien de l'extérieur.
 
-## Les questions à se poser
+## 💬 Les questions à se poser
  
  
 - À quelle heure la terrasse devient-elle inconfortable ?
@@ -24,11 +24,11 @@ La pergola bioclimatique est pertinente quand la terrasse est trop chaude, trop 
 
 Service Public rappelle qu'une pergola peut relever d'une déclaration préalable ou d'un permis selon le PLU, la localisation et la surface. En zone urbaine couverte par un PLU, une extension jusqu'à 40 m² peut relever d'une déclaration préalable ; au-delà, le permis peut être requis. La mairie reste le passage obligé.
 
-## À quoi sert la fiche Service Public ?
+## 📍 La surface peut changer l’autorisation nécessaire
 
-Elle sert à vérifier si votre pergola est considérée comme une construction nouvelle ou une extension, puis à comprendre si la surface du projet impose une déclaration préalable ou un permis. C'est le bon lien à ouvrir avant de figer les dimensions.
+Une pergola peut être considérée comme une construction nouvelle ou comme une extension selon son implantation. La surface, le PLU et la localisation du terrain peuvent donc faire basculer le projet vers une déclaration préalable ou un permis. Il faut clarifier ce point avant de figer les dimensions et le devis définitif.
 
-Voir la fiche pergola, carport et abri sur Service Public : utile pour préparer les questions à poser à la mairie avant le devis définitif.
+Source : Service Public, pergola, carport et abri.
 
  
 
@@ -38,7 +38,7 @@ La pergola bioclimatique protège du soleil et améliore l'usage de la terrasse,
  Vous envisagez une pergola ? On vérifie l'usage, la surface et les contraintes de façade avant le devis. Étudier ma terrasse 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -50,7 +50,7 @@ La pergola bioclimatique protège du soleil et améliore l'usage de la terrasse,
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

@@ -1,4 +1,4 @@
-﻿const revealTargets = document.querySelectorAll('.reveal');
+const revealTargets = document.querySelectorAll('.reveal');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if ('IntersectionObserver' in window && !prefersReducedMotion.matches) {

@@ -42,7 +42,7 @@ La centralisation devient utile dès que plusieurs volets sont concernés. Elle 
  Vous envisagez de motoriser vos volets ? On regarde l'accès, la façade et vos habitudes avant de choisir la solution. Demander mon devis 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -54,7 +54,7 @@ La centralisation devient utile dès que plusieurs volets sont concernés. Elle 
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

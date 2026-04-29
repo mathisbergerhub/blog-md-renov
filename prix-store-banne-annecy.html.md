@@ -24,7 +24,7 @@ Deux stores de même largeur peuvent avoir des devis très différents. La diff�
  
  
 
-## Le bon réflexe avant de demander un prix
+## 👉 Le bon réflexe avant de demander un prix
 
 Préparez deux photos de la façade, une largeur approximative, l'orientation et l'usage recherché. Le devis sera plus fiable et les options seront plus faciles à arbitrer.
  Vous voulez un prix fiable ? On chiffre selon la façade, pas seulement selon une largeur théorique. Demander un prix 
@@ -38,7 +38,7 @@ Pour comparer correctement, demandez le type de store, les dimensions, l'avancé
 Sur une façade exposée au vent, le capteur et la qualité de fixation ne sont pas des détails : ils protègent le matériel et évitent de mauvaises surprises en usage quotidien.
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -50,7 +50,7 @@ Sur une façade exposée au vent, le capteur et la qualité de fixation ne sont 
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

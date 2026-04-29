@@ -24,7 +24,7 @@ Le bon choix dépend de l'état du dormant existant. S'il est sain, stable et bi
 - Volonté de traiter proprement les seuils, tapées, habillages et ponts thermiques.
  
 
-## Comparatif terrain
+## ✅ Comparatif terrain
  
  | 
  | Méthode | Avantage | Vigilance 

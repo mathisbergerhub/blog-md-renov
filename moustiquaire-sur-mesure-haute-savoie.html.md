@@ -38,7 +38,7 @@ Une moustiquaire mal ajustée laisse passer les insectes, frotte, se déforme ou
  Vous voulez ventiler sans moustiques ? On choisit le modèle selon la fenêtre, le volet et le passage réel. Choisir ma moustiquaire 
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -50,7 +50,7 @@ Une moustiquaire mal ajustée laisse passer les insectes, frotte, se déforme ou
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.

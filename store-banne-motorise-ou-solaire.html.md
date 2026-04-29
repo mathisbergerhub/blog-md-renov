@@ -44,7 +44,7 @@ La motorisation ne se limite pas à ouvrir et fermer le store. Un capteur vent p
 La solution solaire est intéressante quand elle évite les câbles visibles, mais elle doit rester accessible pour l'entretien futur et adaptée à l'exposition de la façade.
  
 
-## Ce qu'il faut préparer avant un rendez-vous
+## 📸 Ce qu’il faut préparer avant un rendez-vous
  
  
 - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
@@ -56,7 +56,7 @@ La solution solaire est intéressante quand elle évite les câbles visibles, ma
 - Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
  
 
-## Les erreurs qui font perdre du temps
+## ⚠️ Les erreurs à éviter
  
  
 - Demander un prix sans préciser le contexte de pose.
