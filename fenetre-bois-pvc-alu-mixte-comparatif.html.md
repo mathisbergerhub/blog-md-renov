@@ -2,80 +2,45 @@
 
 Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.
 
-- Catégorie : Fenêtres
-- Temps de lecture : 8 min
-- URL canonique : https://blog.mdrenov-menuiserie.com/fenetre-bois-pvc-alu-mixte-comparatif
-- Statut : prévalidation, accès par mot de passe, noindex temporaire
+Source HTML : ./fenetre-bois-pvc-alu-mixte-comparatif.html
 
-## Contenu
-
-Chaque matériau a une vraie logique d'usage
+## Chaque matériau a une vraie logique d'usage
 
 Le PVC est souvent choisi pour son rapport performance/prix et son entretien simple. L'aluminium est apprécié pour les profils fins, les grands formats et les couleurs. Le bois reste chaleureux et adapté à certains bâtiments de caractère, mais demande plus d'entretien. Le mixte bois-aluminium vise le meilleur des deux mondes : chaleur intérieure et protection extérieure.
 
-Comparatif simple
+## Comparatif simple
+ 
+ | 
+ | Matériau | À privilégier si... | Point de vigilance 
+ 
+ 
+ | PVC | Budget maîtrisé, bonne isolation, entretien réduit | Profils plus épais et grands formats à étudier
+ 
+ | Aluminium | Grandes baies, style contemporain, couleur précise | Prix plus élevé et performance à vérifier
+ 
+ | Bois | Cachet, rénovation traditionnelle, ambiance intérieure | Entretien régulier nécessaire
+ 
+ | Mixte | Projet premium, confort intérieur, durabilité extérieure | Budget supérieur
+ 
+ 
 
-  
-
-Matériau
-
-À privilégier si...
-
-Point de vigilance
-
-  
-
-    
-
-PVC
-
-Budget maîtrisé, bonne isolation, entretien réduit
-
-Profils plus épais et grands formats à étudier
-
-    
-
-Aluminium
-
-Grandes baies, style contemporain, couleur précise
-
-Prix plus élevé et performance à vérifier
-
-    
-
-Bois
-
-Cachet, rénovation traditionnelle, ambiance intérieure
-
-Entretien régulier nécessaire
-
-    
-
-Mixte
-
-Projet premium, confort intérieur, durabilité extérieure
-
-Budget supérieur
-
-  
-
-Le vrai arbitrage : façade, usage et cohérence
+## Le vrai arbitrage : façade, usage et cohérence
 
 Une maison contemporaine avec grandes baies ne pose pas les mêmes questions qu'une ferme rénovée ou qu'un appartement en copropriété. Le matériau doit rester cohérent avec la façade, le PLU, l'exposition et le niveau d'entretien accepté.
 
-Questions fréquentes
+## Questions fréquentes
 
-Le bois isole-t-il mieux ?
- Il peut être très performant, mais la performance finale dépend aussi du vitrage, de la fabrication et de la pose.
+ Le bois isole-t-il mieux ? Il peut être très performant, mais la performance finale dépend aussi du vitrage, de la fabrication et de la pose.
 
-L'aluminium est-il froid ?
- Les menuiseries aluminium modernes utilisent des ruptures de pont thermique. Il faut lire les valeurs, pas se fier aux idées anciennes.
+ L'aluminium est-il froid ? Les menuiseries aluminium modernes utilisent des ruptures de pont thermique. Il faut lire les valeurs, pas se fier aux idées anciennes.
 
-Peut-on mélanger PVC et aluminium ?
- Oui, si la cohérence couleur et les lignes de façade sont maîtrisées.
+ Peut-on mélanger PVC et aluminium ? Oui, si la cohérence couleur et les lignes de façade sont maîtrisées.
 
-Vous hésitez entre plusieurs matériaux ?
+ 
 
-On compare selon la façade, le budget, le vitrage et l'entretien réel.
+## Quel matériau selon la pièce ?
 
-Comparer mon projet
+Dans une chambre ou un bureau, le PVC peut être très cohérent si l'objectif principal est l'isolation et le budget. Dans un séjour avec grande baie, l'aluminium apporte souvent plus de finesse et de lumière. Sur une façade ancienne ou une rénovation de caractère, le bois ou le mixte peuvent mieux respecter l'esprit du bâti.
+
+Le bon choix n'est donc pas forcément uniforme sur toute la maison. On peut mixer les matériaux si les couleurs, les proportions et les lignes restent cohérentes depuis l'extérieur.
+ Vous hésitez entre plusieurs matériaux ? On compare selon la façade, le budget, le vitrage et l'entretien réel. Comparer mon projet

@@ -2,42 +2,43 @@
 
 RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérifications avant de commander une couleur.
 
-- Catégorie : Démarches
-- Temps de lecture : 7 min
-- URL canonique : https://blog.mdrenov-menuiserie.com/couleurs-menuiseries-ral-plu
-- Statut : prévalidation, accès par mot de passe, noindex temporaire
+Source HTML : ./couleurs-menuiseries-ral-plu.html
 
-## Contenu
-
-La couleur est un choix esthétique, mais aussi administratif
+## La couleur est un choix esthétique, mais aussi administratif
 
 Changer du blanc au gris anthracite, harmoniser une porte avec un portail ou choisir des volets colorés peut transformer une façade. C'est justement pour cela que la mairie, le PLU, un lotissement ou une copropriété peuvent encadrer les teintes.
 
-Les vérifications utiles
+## Les vérifications utiles
+ 
+ 
+- Regarder le PLU ou demander à la mairie les teintes autorisées.
+ 
+- Vérifier le règlement de lotissement ou de copropriété.
+ 
+- Demander un échantillon réel plutôt que choisir seulement sur écran.
+ 
+- Penser aux autres éléments : garde-corps, portail, porte de garage, volets.
+ 
+- Éviter une teinte tendance si elle jure avec la façade existante.
+ 
 
-  
-Regarder le PLU ou demander à la mairie les teintes autorisées.
-
-  
-Vérifier le règlement de lotissement ou de copropriété.
-
-  
-Demander un échantillon réel plutôt que choisir seulement sur écran.
-
-  
-Penser aux autres éléments : garde-corps, portail, porte de garage, volets.
-
-  
-Éviter une teinte tendance si elle jure avec la façade existante.
-
-Bicoloration : une bonne solution dans certains cas
+## Bicoloration : une bonne solution dans certains cas
 
 La bicoloration permet de garder une couleur sobre à l'extérieur et une teinte plus claire à l'intérieur. C'est utile quand on veut respecter l'architecture de façade sans assombrir les pièces.
 
 Si le remplacement modifie l'aspect extérieur, une déclaration préalable peut être nécessaire. La couleur fait partie des éléments visibles du projet.
 
-Vous hésitez sur une teinte ?
+ 
 
-On vérifie façade, PLU et cohérence avec les autres menuiseries.
+## La méthode simple pour valider une couleur
 
-Valider une couleur
+Avant de commander, partez de trois éléments : la teinte autorisée côté mairie, la cohérence avec les menuiseries déjà visibles et le rendu réel de l'échantillon à la lumière extérieure. Un gris, un beige ou un rouge foncé peuvent changer fortement selon l'orientation de la façade.
+
+Si le projet concerne plusieurs produits, choisissez une logique globale : porte d'entrée, porte de garage, volets, portail et fenêtres doivent dialoguer entre eux. C'est souvent ce qui donne une rénovation plus haut de gamme, même sans choisir la couleur la plus chère.
+
+ 
+
+## Pourquoi éviter le choix uniquement sur catalogue
+
+Un nuancier imprimé ou un écran ne restitue pas toujours la couleur réelle. Avant de trancher, il est préférable de comparer un échantillon avec la façade, les volets existants, la toiture et le portail. La lumière extérieure change beaucoup la perception de la teinte.
+ Vous hésitez sur une teinte ? On vérifie façade, PLU et cohérence avec les autres menuiseries. Valider une couleur

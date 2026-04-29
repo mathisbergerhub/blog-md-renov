@@ -2,74 +2,49 @@
 
 Clair de jour, seuil, isolation, passage, budget et travaux : le vrai comparatif entre coulissant et galandage.
 
-- Catégorie : Fenêtres
-- Temps de lecture : 7 min
-- URL canonique : https://blog.mdrenov-menuiserie.com/baie-vitree-coulissante-ou-galandage
-- Statut : prévalidation, accès par mot de passe, noindex temporaire
+Source HTML : ./baie-vitree-coulissante-ou-galandage.html
 
-## Contenu
-
-Le galandage fait rêver, mais il impose plus de contraintes
+## Le galandage fait rêver, mais il impose plus de contraintes
 
 Une baie à galandage disparaît dans la cloison et offre une ouverture spectaculaire. C'est très agréable pour relier séjour et terrasse. Mais cette solution demande une réservation dans le mur, une bonne gestion de l'isolation, une étanchéité soignée et un budget supérieur.
 
 Le coulissant classique est plus simple à intégrer en rénovation. Il offre déjà beaucoup de lumière et de confort, surtout avec des profils aluminium fins et un seuil bien traité.
 
-Les critères à comparer
+## Les critères à comparer
+ 
+ 
+- Largeur d'ouverture réellement utile.
+ 
+- Épaisseur disponible dans les murs ou cloisons.
+ 
+- Traitement du seuil entre intérieur et terrasse.
+ 
+- Exposition au vent et à la pluie.
+ 
+- Performance thermique attendue.
+ 
+ 
+ | 
+ | Solution | Avantage | Limite 
+ 
+ 
+ | Coulissant | Simple, fiable, bon rapport usage/prix | Une partie de la baie reste visible
+ 
+ | Galandage | Ouverture maximale et effet dedans-dehors | Travaux plus lourds et isolation à surveiller
+ 
+ 
 
-  
-Largeur d'ouverture réellement utile.
+## Questions fréquentes
 
-  
-Épaisseur disponible dans les murs ou cloisons.
+ Le galandage isole-t-il moins ? Il peut être performant, mais il demande une conception plus rigoureuse. En rénovation, ce point doit être vérifié très tôt.
 
-  
-Traitement du seuil entre intérieur et terrasse.
+ Quel seuil choisir ? Un seuil confortable doit tenir compte de l'accessibilité, de l'eau de pluie et du niveau de terrasse.
 
-  
-Exposition au vent et à la pluie.
+ 
 
-  
-Performance thermique attendue.
+## Les points à vérifier en rénovation
 
-  
+En rénovation, le galandage n'est pas seulement une menuiserie : il touche au mur, à l'isolation et parfois aux finitions intérieures. Il faut donc vérifier la place disponible, la nature de la cloison et les conséquences sur le chauffage ou les prises électriques.
 
-Solution
-
-Avantage
-
-Limite
-
-  
-
-    
-
-Coulissant
-
-Simple, fiable, bon rapport usage/prix
-
-Une partie de la baie reste visible
-
-    
-
-Galandage
-
-Ouverture maximale et effet dedans-dehors
-
-Travaux plus lourds et isolation à surveiller
-
-  
-
-Questions fréquentes
-
-Le galandage isole-t-il moins ?
- Il peut être performant, mais il demande une conception plus rigoureuse. En rénovation, ce point doit être vérifié très tôt.
-
-Quel seuil choisir ?
- Un seuil confortable doit tenir compte de l'accessibilité, de l'eau de pluie et du niveau de terrasse.
-
-Vous voulez ouvrir votre séjour sur la terrasse ?
-
-On vérifie largeur, seuil, isolation et faisabilité avant devis.
-
-Étudier ma baie
+Le coulissant classique reste souvent le choix le plus rationnel quand on veut moderniser le séjour sans ouvrir un chantier lourd. Avec un bon vitrage et un seuil correctement traité, il apporte déjà beaucoup de confort.
+ Vous voulez ouvrir votre séjour sur la terrasse ? On vérifie largeur, seuil, isolation et faisabilité avant devis. Étudier ma baie
