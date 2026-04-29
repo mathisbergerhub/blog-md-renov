@@ -1,45 +1,68 @@
-﻿# MaPrimeRénov’ 2026 : ce qu’il faut vérifier avant de changer ses fenêtres en Haute-Savoie Aides, conditions, démarches : tout ce qu’il faut savoir avant de lancer votre projet de menuiseries sans faire d’erreur.
+# MaPrimeRénov’ 2026 : ce qu’il faut vérifier avant de changer ses fenêtres en Haute-Savoie
+
+Aides, conditions, démarches : tout ce qu’il faut savoir avant de lancer votre projet de menuiseries sans faire d’erreur.
 
 Source HTML : ./maprimerenov-2026-haute-savoie.html
 
-## MaPrimeRénov’ : ne jamais considérer l’aide comme acquise MaPrimeRénov’ reste une aide importante pour financer certains travaux de rénovation énergétique. Mais ce n’est pas une remise automatique sur votre devis. En 2026, le dispositif a rouvert après la loi de finances, mais les règles restent encadrées : conditions de revenus, type de travaux, parcours choisi, qualification de l’entreprise et ordre des démarches. Le bon réflexe est donc simple : vérifier votre éligibilité avant de signer quoi que ce soit.
+## Le point important
 
-Sources : France Rénov’, MaPrimeRénov’ ; info.gouv.fr, réouverture du dispositif en 2026.
+MaPrimeRénov’ peut aider à financer un projet de rénovation énergétique, mais le remplacement de fenêtres ne doit jamais être traité comme une remise automatique. En 2026, il faut d’abord vérifier le parcours concerné, le logement, vos revenus, la performance visée et l’ordre exact des démarches.
 
-## Pourquoi votre projet ne dépend pas que des fenêtres Changer ses fenêtres, ce n’est pas juste choisir un produit. Votre dossier dépend aussi du logement, de votre situation, de la performance thermique visée et du type de rénovation engagé.
-- Votre logement : maison ou appartement, résidence principale ou location.
-- Votre situation fiscale : les revenus du foyer influencent le niveau d’aide possible.
-- Les menuiseries prévues : fenêtres, portes-fenêtres, porte d’entrée ou volets associés.
-- La performance thermique : vitrage, pose, étanchéité et cohérence globale du projet.
-- Le parcours choisi : remplacement ponctuel ou rénovation plus globale.
-- L’entreprise : la qualification RGE est indispensable pour les aides concernées. Résultat : deux maisons qui semblent proches peuvent obtenir des réponses très différentes. C’est pour cela qu’il faut cadrer le dossier avant de comparer les devis.
+## Chiffres et règles à retenir
 
-## La checklist à faire avant de demander un devis - Type de logement : maison, appartement, résidence principale ou location.
-- Menuiseries concernées : fenêtres, portes-fenêtres, porte d’entrée, volets.
-- Type de projet : remplacement simple, confort thermique ou rénovation globale.
-- Entreprise RGE : à vérifier avant de constituer le dossier d’aide.
-- Démarches : ne pas signer définitivement avant d’avoir validé l’ordre du dossier.
+- Réouverture : 23 février 2026. Le guichet MaPrimeRénov’ a rouvert après la loi de finances 2026.
+- Budget national : 3,6 milliards d’euros annoncés pour financer les parcours MaPrimeRénov’ en 2026.
+- Objectif 2026 : 150 000 rénovations par geste annoncées, en plus des rénovations d’ampleur.
+- Point bloquant : les travaux doivent être réalisés par une entreprise RGE.
 
-## Les questions que se posent souvent les particuliers
+Sources : info.gouv.fr, réouverture de MaPrimeRénov’ en 2026 ; France Rénov’, MaPrimeRénov’ par geste.
 
-**“Combien vais-je toucher ?”** Impossible à dire sérieusement sans simulation précise : revenus, logement, travaux et devis doivent être connus.
+## MaPrimeRénov’ : ce qu’il faut comprendre avant le devis
 
-**“Changer mes fenêtres suffit-il ?”** Parfois oui, mais une approche plus globale peut être plus pertinente si le logement reste froid, mal ventilé ou très énergivore.
+MaPrimeRénov’ dépend de votre situation et du type de travaux. France Rénov’ indique que l’aide varie selon les revenus du foyer et le projet engagé. Pour une rénovation par geste, elle concerne notamment le chauffage et l’isolation ; pour une rénovation d’ampleur, le projet doit viser un gain énergétique beaucoup plus important.
 
-**“Peut-on cumuler les aides ?”** Oui dans certains cas, mais cela dépend du dossier : CEE, éco-PTZ, TVA réduite, aides locales. Chaque situation doit être vérifiée au cas par cas.
+Pour des fenêtres, la question n’est donc pas seulement “combien vais-je toucher ?”. La bonne question est plutôt : mon projet entre-t-il dans un parcours d’aide, et dans quelles conditions ?
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos : une vue globale de la façade et un détail de l’ouverture.
-- Les dimensions approximatives, même si les cotes seront reprises par un professionnel.
-- Les contraintes connues : copropriété, accès, bruit, vent, exposition, humidité.
-- Votre priorité : budget, confort thermique, sécurité, esthétique ou facilité d’usage.
+## Fenêtres seules ou rénovation globale : le bon réflexe
 
-## Les erreurs les plus fréquentes - Demander un prix sans expliquer le projet complet.
-- Comparer deux devis sans regarder les prestations incluses.
-- Choisir uniquement sur le design ou le prix affiché.
-- Signer avant d’avoir validé les aides et l’ordre des démarches.
+| Votre situation | Ce que cela implique | À vérifier avant de signer |
+|---|---|---|
+| Ancien simple vitrage | Le remplacement peut être étudié dans une logique d’isolation. | Éligibilité exacte, revenus, performance de la nouvelle menuiserie, entreprise RGE. |
+| Logement froid ou énergivore | Une rénovation plus globale peut être plus pertinente qu’un changement isolé de fenêtres. | DPE, ventilation, toiture, murs, chauffage et ordre des travaux. |
+| Appartement en copropriété | Le projet peut dépendre du règlement de copropriété et de l’aspect extérieur. | Accord de copropriété, couleur, matériau, dimensions, éventuelle autorisation d’urbanisme. |
+| Projet d’ampleur | France Rénov’ annonce un rendez-vous obligatoire avec un conseiller avant dépôt. | Conseiller France Rénov’, accompagnement, gain énergétique minimal et devis cohérents. |
 
-## En Haute-Savoie : un projet à adapter au climat En zone de montagne ou proche des Alpes, les performances thermiques sont essentielles. Le choix du vitrage, du matériau, de la pose et de l’exposition change beaucoup le résultat final. Une fenêtre exposée au froid, au vent ou au bruit ne se choisit pas comme une ouverture abritée. C’est là qu’un accompagnement local permet d’éviter les mauvaises décisions.
+## Le parcours simple en 5 étapes
 
-## Faire le point sur votre projet avant de vous engager Avant de signer, l’essentiel est de vérifier votre éligibilité réelle, de choisir les bonnes performances et de structurer les démarches dans le bon ordre. Vous pouvez faire le point sur votre projet de menuiseries en Haute-Savoie avec un professionnel avant de lancer les travaux.
+- Décrire le projet : fenêtres, portes-fenêtres, volets, contraintes de façade, bruit, froid, condensation.
+- Vérifier le logement : résidence principale, ancienneté du logement, copropriété, DPE si disponible.
+- Contrôler le parcours d’aide : rénovation par geste, rénovation d’ampleur, aides locales, CEE, éco-PTZ, TVA réduite.
+- Demander un devis cohérent : matériau, vitrage, pose, étanchéité, finitions et performances doivent être lisibles.
+- Signer au bon moment : ne pas engager le chantier avant d’avoir validé l’ordre des démarches d’aide.
 
+## La checklist à préparer avant le rendez-vous
 
+- Photos : une vue globale de la façade et un détail de chaque menuiserie concernée.
+- Mesures approximatives : largeur et hauteur, même si les cotes finales seront reprises par un professionnel.
+- Confort recherché : moins de froid, moins de bruit, moins de condensation, plus de sécurité ou meilleure esthétique.
+- Contraintes : copropriété, PLU, accès difficile, étage, exposition au vent, façade visible depuis la rue.
+- Documents utiles : dernier avis d’imposition, DPE si disponible, règlement de copropriété si appartement.
+- Priorité budgétaire : savoir si l’objectif est l’aide maximale, le meilleur confort ou le meilleur arbitrage prix/durée.
+
+## Les erreurs qui font perdre du temps
+
+- Comparer uniquement le prix : deux devis peuvent avoir le même montant mais pas le même vitrage, la même pose, les mêmes finitions ou les mêmes garanties.
+- Oublier la ventilation : des fenêtres plus étanches peuvent révéler un problème d’air intérieur si la ventilation n’est pas adaptée.
+- Signer trop tôt : les aides doivent être vérifiées avant l’engagement du projet, surtout si le financement dépend de MaPrimeRénov’ ou des CEE.
+
+## En Haute-Savoie : pourquoi le contexte local compte
+
+Entre Annecy, Chambéry, les zones plus exposées au froid et les communes proches des axes routiers, une menuiserie ne se choisit pas seulement sur catalogue. Le vitrage, le matériau, la pose, le seuil et l’étanchéité doivent être adaptés au froid, au bruit, au vent et à l’exposition solaire.
+
+Le bon devis doit donc expliquer le produit, mais aussi la logique du choix : performance thermique, confort acoustique, entretien, esthétique de façade et compatibilité avec les démarches d’aide.
+
+## Sources officielles utilisées
+
+- info.gouv.fr : réouverture de MaPrimeRénov’ le 23 février 2026, budget 2026 et objectifs annoncés.
+- France Rénov’ : conditions MaPrimeRénov’ par geste, logement, revenus, entreprise RGE et aides cumulables.
+- France Rénov’ : rénovation d’ampleur, gain énergétique et rendez-vous obligatoire avec un conseiller.
