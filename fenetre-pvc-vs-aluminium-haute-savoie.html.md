@@ -2,6 +2,17 @@
 
 Source HTML : ./fenetre-pvc-vs-aluminium-haute-savoie.html
 
+## À retenir avant de demander un devis
+
+Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai comparatif pour choisir sans se perdre.
+
+## Repères rapides
+
+- Ouverture : À cadrer. Dimensions, exposition, clair de jour et contraintes de pose changent le bon choix.
+- Performance : Thermique. Vitrage, dormant, seuil et étanchéité doivent être lus ensemble.
+- Confort : Usage réel. Froid, bruit, condensation et entretien comptent autant que l’esthétique.
+- Devis : Comparable. Matériau, pose, finitions et garanties doivent être détaillés ligne par ligne.
+
 ## La vraie question n'est pas “PVC ou alu”, mais “pour quelle ouverture ?” Le PVC reste souvent très performant pour optimiser le budget et l'isolation sur des fenêtres classiques. L'aluminium devient plus pertinent quand la finesse des profils, les grands formats, les coulissants ou la cohérence esthétique de la façade comptent beaucoup. En Haute-Savoie, il faut aussi penser au froid, aux écarts de température, au bruit selon l'axe routier et au style de la maison. Le meilleur matériau sur le papier peut devenir un mauvais choix si la pose, le vitrage ou la ventilation sont négligés.
 
 ## Comparatif utile avant devis | | Critère | PVC | Aluminium | Budget | Souvent plus accessible | Plus élevé à gamme équivalente | Isolation | Très bon rapport performance/prix | Très bon si profilés à rupture de pont thermique | Grandes baies | Moins adapté aux très grands formats | Très adapté aux grands coulissants | Esthétique | Sobre, efficace, moins fin | Profils fins, nombreux coloris
@@ -18,5 +29,6 @@ Source HTML : ./fenetre-pvc-vs-aluminium-haute-savoie.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

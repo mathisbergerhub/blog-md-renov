@@ -2,6 +2,17 @@
 
 Source HTML : ./comment-choisir-store-banne-annecy.html
 
+## À retenir avant de demander un devis
+
+Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.
+
+## Repères rapides
+
+- Terrasse : Exposition. Largeur, avancée, soleil et vent déterminent le bon niveau de protection.
+- Toile : Technique. Couleur, densité, résistance et entretien influencent le confort.
+- Options : Utiles. Motorisation, capteurs et coffre ne sont pertinents que selon l’usage.
+- Pose : Sécurité. Support, fixation et accès doivent être validés avant commande.
+
 ## Commencer par l'usage, pas par la couleur Avant de choisir une toile ou une finition, il faut savoir ce que le store doit protéger : une table, une baie vitrée, une terrasse complète ou seulement une zone de passage. C'est cette réponse qui détermine la largeur, l'avancée et le niveau de motorisation.
 
 ## Les quatre mesures à préparer - Largeur disponible sur la façade.
@@ -21,5 +32,6 @@ Source HTML : ./comment-choisir-store-banne-annecy.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

@@ -2,6 +2,17 @@
 
 Source HTML : ./condensation-fenetres-neuves-ventilation.html
 
+## À retenir avant de demander un devis
+
+Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilation et comment réagir sans mauvais diagnostic.
+
+## Repères rapides
+
+- Symptôme : À observer. Courants d’air, paroi froide, bruit ou condensation indiquent des causes différentes.
+- Diagnostic : Avant devis. Le vitrage seul ne règle pas toujours la ventilation ou les ponts thermiques.
+- Confort : Hiver/été. L’objectif doit être défini avant de choisir le produit.
+- Pose : Décisive. Une bonne menuiserie mal posée perd une grande partie de son intérêt.
+
 ## Des fenêtres neuves peuvent révéler un logement mal ventilé Quand on remplace d'anciennes menuiseries peu étanches par des fenêtres performantes, l'air parasite diminue. C'est bon pour le confort, mais cela peut révéler une ventilation insuffisante. La condensation ne signifie donc pas toujours que la fenêtre est mauvaise.
 
 ## Où se forme la condensation ? | | Emplacement | Interprétation possible | À l'intérieur de la pièce | Humidité intérieure et ventilation à vérifier | Entre deux vitrages | Vitrage isolant probablement défaillant | À l'extérieur du vitrage | Souvent signe d'un vitrage très isolant
@@ -18,5 +29,6 @@ Source HTML : ./condensation-fenetres-neuves-ventilation.html
 - Si la buée est entre les vitrages, le vitrage isolant doit être examiné par un professionnel.
 
 ## Pourquoi il ne faut pas condamner les entrées d'air Après une rénovation, certains propriétaires sont tentés de boucher les grilles pour supprimer le froid ou le bruit. C'est rarement une bonne idée : sans renouvellement d'air, l'humidité reste dans le logement et peut créer moisissures, odeurs ou inconfort. Vous avez de la condensation après travaux ? On distingue problème de ventilation, vitrage ou pose avant de conclure. Faire le point
+
 
 

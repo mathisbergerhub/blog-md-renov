@@ -2,6 +2,17 @@
 
 Source HTML : ./store-banne-coffre-integral-haute-savoie.html
 
+## À retenir avant de demander un devis
+
+Protection solaire, exposition, dimensions et durabilité : les critères utiles pour choisir un store banne.
+
+## Repères rapides
+
+- Terrasse : Exposition. Largeur, avancée, soleil et vent déterminent le bon niveau de protection.
+- Toile : Technique. Couleur, densité, résistance et entretien influencent le confort.
+- Options : Utiles. Motorisation, capteurs et coffre ne sont pertinents que selon l’usage.
+- Pose : Sécurité. Support, fixation et accès doivent être validés avant commande.
+
 ## Le vrai enjeu, c'est le confort d'usage en été Un store banne n'est pas seulement un équipement de façade. C'est une réponse concrète à une terrasse inutilisable à midi, une baie trop exposée ou un espace repas qui manque d'ombre dès les premiers beaux jours.
 
 ## Pourquoi choisir un coffre intégral ? Le coffre intégral protège la toile, les bras et le mécanisme lorsque le store est fermé. Il est pertinent sur une façade exposée, quand l'esthétique compte ou quand on cherche une solution durable avec moins d'usure visible. | | Point à vérifier | Pourquoi c'est important | Orientation | Conditionne l'heure de protection solaire | Largeur utile | Définit la vraie zone d'ombre | Avancée | Évite un store trop court pour la terrasse | Vent | Détermine les automatismes et limites d'usage
@@ -18,5 +29,6 @@ Source HTML : ./store-banne-coffre-integral-haute-savoie.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

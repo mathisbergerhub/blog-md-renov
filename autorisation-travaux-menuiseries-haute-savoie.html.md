@@ -2,6 +2,17 @@
 
 Source HTML : ./autorisation-travaux-menuiseries-haute-savoie.html
 
+## À retenir avant de demander un devis
+
+Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.
+
+## Repères rapides
+
+- Projet : À cadrer. Le bon choix dépend de votre logement, de l’usage et des contraintes.
+- Confort : À prioriser. Budget, isolation, sécurité, esthétique ou facilité d’usage doivent être hiérarchisés.
+- Pose : Essentielle. La qualité de mise en œuvre compte autant que le produit choisi.
+- Devis : Lisible. Les options, garanties et finitions doivent être clairement indiquées.
+
 ## La règle simple : si l'aspect extérieur change, on vérifie avant Changer une fenêtre, un volet ou une porte par un modèle différent modifie l'aspect extérieur. Service Public indique qu'une déclaration préalable est alors nécessaire, sauf cas plus lourd avec changement de destination pouvant relever du permis de construire.
 
 ## Cas fréquents | | Projet | Point à vérifier | Fenêtre, volet ou porte différente | Déclaration préalable en mairie | Appartement en copropriété | Accord d'assemblée générale si aspect extérieur modifié | Pergola ou carport | PLU, surface, secteur protégé, DP ou permis | Portail ou clôture | PLU, lotissement, hauteur, couleur, ouverture
@@ -27,5 +38,6 @@ Sources : Service Public, fenêtres, volets et portes ; pergola, carport et abri
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

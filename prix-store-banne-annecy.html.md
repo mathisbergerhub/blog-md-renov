@@ -2,6 +2,17 @@
 
 Source HTML : ./prix-store-banne-annecy.html
 
+## À retenir avant de demander un devis
+
+Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliquent les écarts de prix.
+
+## Repères rapides
+
+- Terrasse : Exposition. Largeur, avancée, soleil et vent déterminent le bon niveau de protection.
+- Toile : Technique. Couleur, densité, résistance et entretien influencent le confort.
+- Options : Utiles. Motorisation, capteurs et coffre ne sont pertinents que selon l’usage.
+- Pose : Sécurité. Support, fixation et accès doivent être validés avant commande.
+
 ## Un prix de store banne ne se compare jamais à largeur seule Deux stores de même largeur peuvent avoir des devis très différents. La différence vient du type de coffre, de la qualité de la toile, de la motorisation, des automatismes, des supports de pose et de la complexité de la façade.
 
 ## Les postes qui font varier le devis | | Poste | Impact | Coffre intégral | Meilleure protection, prix supérieur | Motorisation | Confort d'usage, câblage à prévoir selon cas | Capteur vent | Sécurité utile sur façade exposée | Fixation | Support béton, isolation extérieure ou façade ancienne changent la pose
@@ -18,5 +29,6 @@ Source HTML : ./prix-store-banne-annecy.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

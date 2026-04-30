@@ -2,6 +2,17 @@
 
 Source HTML : ./porte-entree-aluminium-annecy.html
 
+## À retenir avant de demander un devis
+
+Les critères importants avant de remplacer une porte d'entrée : panneau, serrure, seuil, vitrage, isolation et pose.
+
+## Repères rapides
+
+- Sécurité : Priorité. Serrure, panneau, vitrage et paumelles doivent être regardés ensemble.
+- Isolation : Seuil inclus. Le confort dépend aussi du seuil, de l’étanchéité et de la pose.
+- Style : Façade. La porte doit rester cohérente avec les menuiseries et l’entrée.
+- Devis : Détaillé. Dimensions, accessoires, finitions et garanties doivent être écrits.
+
 ## Une porte d'entrée se juge tous les jours La porte d'entrée influence la sécurité, l'isolation, la lumière et la première impression de la maison. Le bon modèle doit être beau, mais surtout cohérent avec l'usage : passages fréquents, exposition, besoin de vitrage, seuil accessible ou entrée très froide.
 
 ## Les points à comparer sur un devis - Composition du panneau et niveau d'isolation.
@@ -22,5 +33,6 @@ Source HTML : ./porte-entree-aluminium-annecy.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

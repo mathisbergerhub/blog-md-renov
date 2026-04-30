@@ -2,6 +2,17 @@
 
 Source HTML : ./double-vitrage-ou-triple-vitrage-haute-savoie.html
 
+## À retenir avant de demander un devis
+
+Un guide concret pour choisir le bon vitrage selon l'exposition, l'altitude, le bruit et le confort attendu.
+
+## Repères rapides
+
+- Ouverture : À cadrer. Dimensions, exposition, clair de jour et contraintes de pose changent le bon choix.
+- Performance : Thermique. Vitrage, dormant, seuil et étanchéité doivent être lus ensemble.
+- Confort : Usage réel. Froid, bruit, condensation et entretien comptent autant que l’esthétique.
+- Devis : Comparable. Matériau, pose, finitions et garanties doivent être détaillés ligne par ligne.
+
 ## Le triple vitrage n'est pas automatiquement le meilleur choix Beaucoup de propriétaires pensent qu'un triple vitrage est forcément supérieur. En réalité, le bon choix dépend de l'exposition, du niveau d'isolation du reste de la maison, de la taille des ouvertures et du confort recherché. Un excellent double vitrage bien posé peut être plus cohérent qu'un triple vitrage mal dimensionné.
 
 ## Quand le triple vitrage mérite d'être étudié - Façade nord, pièces froides ou maison située en altitude.
@@ -19,5 +30,6 @@ Source HTML : ./double-vitrage-ou-triple-vitrage-haute-savoie.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

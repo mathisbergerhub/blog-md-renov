@@ -2,6 +2,17 @@
 
 Source HTML : ./prix-renovation-menuiseries-haute-savoie.html
 
+## À retenir avant de demander un devis
+
+Fenêtres, porte, volets, portail : la méthode pour comparer les devis sur la pose, les performances, les options et les garanties.
+
+## Repères rapides
+
+- Budget : À cadrer. Le prix dépend du produit, de la pose, des finitions et des contraintes.
+- Aides : À vérifier. Les aides changent selon le logement, les revenus et l’ordre des démarches.
+- Devis : Comparable. Deux devis ne se comparent pas sans lire les prestations exactes.
+- Décision : Sans précipiter. Signer trop tôt peut bloquer une aide ou créer une mauvaise comparaison.
+
 ## Le moins cher n'est pas toujours le moins coûteux Un devis de menuiserie ne compare pas seulement un produit. Il compare une performance, une pose, des finitions, des garanties et une capacité à traiter les contraintes du chantier. Deux montants très différents peuvent cacher des prestations qui ne couvrent pas le même périmètre.
 
 ## Les lignes à regarder - Type exact de produit, matériau, gamme et coloris.
@@ -20,5 +31,6 @@ Source HTML : ./prix-renovation-menuiseries-haute-savoie.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

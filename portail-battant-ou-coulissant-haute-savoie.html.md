@@ -2,6 +2,17 @@
 
 Source HTML : ./portail-battant-ou-coulissant-haute-savoie.html
 
+## À retenir avant de demander un devis
+
+Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.
+
+## Repères rapides
+
+- Usage : À définir. Ombre, accès, protection, confort ou sécurité : le besoin change la solution.
+- Terrain : Contraintes. Exposition, pente, support, vent et dimensions doivent être vérifiés.
+- Démarches : À anticiper. Façade, copropriété, PLU ou déclaration peuvent influencer le projet.
+- Devis : Sur mesure. Options, dimensions, pose et motorisation doivent être comparables.
+
 ## La configuration du terrain décide souvent avant l'esthétique Un portail battant fonctionne très bien quand l'entrée dispose d'un dégagement suffisant et d'une pente maîtrisée. Le coulissant devient plus logique quand il manque du recul, quand l'ouverture donne sur une voie ou quand la largeur de passage doit rester confortable.
 
 ## Comparer sans se tromper | | Situation | Solution à étudier | Terrain plat avec dégagement intérieur | Battant | Entrée en pente | Coulissant ou battant avec étude précise | Manque de recul | Coulissant | Besoin de motorisation fréquente | Les deux, selon contraintes de pose
@@ -18,5 +29,6 @@ Source HTML : ./portail-battant-ou-coulissant-haute-savoie.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

@@ -2,6 +2,17 @@
 
 Source HTML : ./portail-motorise-interphone-securite.html
 
+## À retenir avant de demander un devis
+
+Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d'un portail.
+
+## Repères rapides
+
+- Usage : À définir. Ombre, accès, protection, confort ou sécurité : le besoin change la solution.
+- Terrain : Contraintes. Exposition, pente, support, vent et dimensions doivent être vérifiés.
+- Démarches : À anticiper. Façade, copropriété, PLU ou déclaration peuvent influencer le projet.
+- Devis : Sur mesure. Options, dimensions, pose et motorisation doivent être comparables.
+
 ## La motorisation se prépare avant la pose du portail Un portail peut être motorisé plus tard, mais c'est rarement l'option la plus simple. Prévoir l'alimentation, les gaines, les cellules, le feu clignotant, le visiophone ou le digicode dès le départ évite des reprises coûteuses.
 
 ## Les équipements à anticiper - Alimentation électrique jusqu'au pilier.
@@ -18,5 +29,6 @@ Source HTML : ./portail-motorise-interphone-securite.html
 - Anticipez l'accès piéton pour éviter d'ouvrir le portail à chaque passage.
 
 ## Penser aussi aux visiteurs et aux livraisons Un portail confortable doit gérer les usages réels : famille, invités, livreurs, artisans, accès piéton et ouverture à distance. Le visiophone, le digicode ou le badge doivent être choisis selon ces habitudes, pas seulement selon la technologie disponible. Vous voulez un portail confortable au quotidien ? On anticipe motorisation, accès piéton et câblage avant la pose. Prévoir mon portail
+
 
 

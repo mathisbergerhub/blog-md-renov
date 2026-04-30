@@ -2,6 +2,17 @@
 
 Source HTML : ./volet-roulant-solaire-haute-savoie.html
 
+## À retenir avant de demander un devis
+
+Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.
+
+## Repères rapides
+
+- Usage : Quotidien. Confort, obscurité, sécurité et protection solaire ne demandent pas le même modèle.
+- Commande : À prévoir. Filaire, radio, solaire ou centralisée : le choix se pense avant la pose.
+- Façade : Cohérence. Couleur, coffre, tablier et règlement local peuvent guider la solution.
+- Devis : Complet. Moteur, lames, coulisses, coffre et finitions doivent être précisés.
+
 ## Le solaire est très utile quand le câblage devient compliqué Le volet roulant solaire évite de tirer une alimentation électrique jusqu'à chaque ouverture. En rénovation, c'est souvent un vrai avantage : moins de saignées, moins de reprises intérieures et une pose plus discrète. Mais il faut vérifier l'exposition et l'usage.
 
 ## Les cas favorables - Fenêtre difficile à raccorder électriquement.
@@ -14,5 +25,6 @@ Source HTML : ./volet-roulant-solaire-haute-savoie.html
 ## Le point spécifique en Haute-Savoie Dans les secteurs froids, ombragés ou proches de reliefs, l'exposition réelle compte plus qu'une promesse générale. Une façade sud ou ouest est souvent favorable, tandis qu'une fenêtre durablement à l'ombre demande plus de prudence. Le solaire reste une très bonne solution quand il évite des travaux électriques lourds, mais il doit être validé ouverture par ouverture, surtout sur les maisons avec débords de toit, balcons ou végétation proche.
 
 ## Quand préférer une solution filaire ? Si une alimentation électrique est déjà disponible, le filaire peut rester plus logique, notamment sur une façade très ombragée ou sur un volet très sollicité. Le solaire est surtout intéressant quand il évite des travaux intérieurs lourds ou des câbles visibles. Vous voulez éviter les travaux électriques ? On vérifie si le solaire est cohérent fenêtre par fenêtre. Étudier mes volets
+
 
 

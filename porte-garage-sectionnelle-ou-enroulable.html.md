@@ -2,6 +2,17 @@
 
 Source HTML : ./porte-garage-sectionnelle-ou-enroulable.html
 
+## À retenir avant de demander un devis
+
+Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.
+
+## Repères rapides
+
+- Sécurité : Priorité. Serrure, panneau, vitrage et paumelles doivent être regardés ensemble.
+- Isolation : Seuil inclus. Le confort dépend aussi du seuil, de l’étanchéité et de la pose.
+- Style : Façade. La porte doit rester cohérente avec les menuiseries et l’entrée.
+- Devis : Détaillé. Dimensions, accessoires, finitions et garanties doivent être écrits.
+
 ## Le choix dépend surtout de l'espace disponible Une porte sectionnelle remonte sous plafond : elle est confortable, isolante et adaptée à beaucoup de garages. Une porte enroulable fonctionne comme un volet roulant : elle libère le plafond et peut être pertinente si des rangements ou réseaux occupent déjà le haut du garage. | | Critère | Sectionnelle | Enroulable | Plafond libre | Nécessaire | Moins nécessaire | Isolation | Souvent très bonne | Dépend du tablier | Motorisation | Très courante | Intégrée ou simple à prévoir | Garage encombré | À vérifier | Souvent plus pratique
 
 ## Les questions à poser avant devis - Le garage est-il chauffé ou accolé à une pièce de vie ? - Le plafond accueille-t-il déjà des rangements, tuyaux ou rails ? - Faut-il un portillon intégré ou un accès piéton séparé ? - La façade impose-t-elle une couleur ou un dessin particulier ? Vous remplacez une porte de garage ? On regarde les cotes, l'usage et l'isolation avant de choisir le modèle. Comparer les solutions
@@ -16,5 +27,6 @@ Source HTML : ./porte-garage-sectionnelle-ou-enroulable.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 

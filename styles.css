@@ -766,9 +766,19 @@ h3 { margin: 0; color: var(--ink); letter-spacing: -0.04em;
 } .mdr-home-footer { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem 1.5rem; padding: 1.1rem 1.25rem 1.5rem; border-top: 1px solid #ddd9d0; background: #fff;
 } .mdr-home-footer__brand { color: #1a1a18; font-size: 1rem; font-weight: 700;
 } .mdr-home-footer__sub { color: #777; font-size: 0.84rem;
-} .mdr-home-footer__socials { display: flex; gap: 0.55rem;
-} .mdr-home-footer__socials a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #ddd9d0; border-radius: 999px; color: #9b1c1c;
-} .mdr-home-footer__socials svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8;
+} .mdr-footer-socials { display: flex; gap: 0.55rem; align-items: center;
+} .mdr-footer-socials a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #ddd9d0; border-radius: 999px; color: #9b1c1c; background: #fff; transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+} .mdr-footer-socials a:hover,
+.mdr-footer-socials a:focus-visible { transform: translateY(-2px); border-color: #9b1c1c; background: #f8f1eb;
+} .mdr-footer-socials svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8;
+} .mdr-footer-socials svg path { fill: currentColor; stroke: none;
+} .mdr-footer-socials svg rect,
+.mdr-footer-socials svg circle { fill: none; stroke: currentColor;
+} .mdr-footer-socials svg .mdr-social-dot { fill: currentColor; stroke: none;
+} .mdr-footer-socials--dark { margin-top: 0.75rem;
+} .mdr-footer-socials--dark a { border-color: rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.08); color: #fff;
+} .mdr-footer-socials--dark a:hover,
+.mdr-footer-socials--dark a:focus-visible { border-color: rgba(255, 255, 255, 0.62); background: rgba(255, 255, 255, 0.14);
 } .mdr-home-footer__links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.8rem 1rem; color: #777; font-size: 0.86rem;
 } .mdr-article-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 1.5rem; align-items: start; padding: 1.15rem 1.75rem 1.4rem; background: #171715; color: rgba(255, 255, 255, 0.8);
 } .mdr-article-footer__brand { color: #fff; font-family: "Lexend", sans-serif; font-size: 0.98rem; font-weight: 700;

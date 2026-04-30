@@ -2,6 +2,17 @@
 
 Source HTML : ./volets-roulants-ou-battants-haute-savoie.html
 
+## À retenir avant de demander un devis
+
+Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.
+
+## Repères rapides
+
+- Usage : Quotidien. Confort, obscurité, sécurité et protection solaire ne demandent pas le même modèle.
+- Commande : À prévoir. Filaire, radio, solaire ou centralisée : le choix se pense avant la pose.
+- Façade : Cohérence. Couleur, coffre, tablier et règlement local peuvent guider la solution.
+- Devis : Complet. Moteur, lames, coulisses, coffre et finitions doivent être précisés.
+
 ## Le choix dépend autant de la maison que du produit Le volet roulant est souvent apprécié pour son confort, sa motorisation et sa discrétion. Le volet battant garde une vraie force esthétique, surtout sur des façades traditionnelles ou des maisons où l'harmonie extérieure compte beaucoup.
 
 ## Comparer les usages | | Besoin | Volet roulant | Volet battant | Motorisation | Très simple à intégrer | Possible, mais plus spécifique | Style traditionnel | Plus discret | Souvent plus cohérent | Occultation | Très efficace | Dépend du modèle et des jeux | Chaleur d'été | Bonne protection si utilisé avant la surchauffe | Protection intéressante selon orientation
@@ -18,5 +29,6 @@ Source HTML : ./volets-roulants-ou-battants-haute-savoie.html
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
