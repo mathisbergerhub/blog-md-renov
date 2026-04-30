@@ -2,16 +2,17 @@
 
 Source HTML : ./fenetres-perdent-chaleur-haute-savoie.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Courants d'air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.
 
 ## Repères rapides
 
-- Symptôme : À observer. Courants d’air, paroi froide, bruit ou condensation indiquent des causes différentes.
-- Diagnostic : Avant devis. Le vitrage seul ne règle pas toujours la ventilation ou les ponts thermiques.
-- Confort : Hiver/été. L’objectif doit être défini avant de choisir le produit.
-- Pose : Décisive. Une bonne menuiserie mal posée perd une grande partie de son intérêt.
+- Ce que vous constatez : Froid, bruit ou buée. Notez la pièce, le moment de la journée et l’ouverture concernée.
+- Ce qu’on vérifie : Vitrage, joints, pose. On regarde aussi le dormant, le coffre de volet et la ventilation.
+- Ce qui peut suffire : Réglage ou joint. Si la menuiserie est récente, une réparation peut parfois éviter le remplacement.
+- Quand remplacer : Ancienneté + inconfort. Si le produit est ancien, peu isolant ou mal posé, remplacer devient plus logique.
+
 
 ## Les signes à prendre au sérieux Une fenêtre peut laisser perdre du confort sans être cassée. Le premier indice est souvent la sensation de paroi froide près du vitrage ou du dormant. Viennent ensuite les courants d'air, la condensation persistante, les bruits extérieurs plus présents ou une pièce qui reste difficile à chauffer.
 - Flamme ou rideau qui bouge près du dormant : suspicion d'entrée d'air.
@@ -29,6 +30,7 @@ Courants d'air, condensation, paroi froide, bruit : les signes à observer avant
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
 

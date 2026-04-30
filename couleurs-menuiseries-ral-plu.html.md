@@ -2,16 +2,17 @@
 
 Source HTML : ./couleurs-menuiseries-ral-plu.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérifications avant de commander une couleur.
 
 ## Repères rapides
 
-- Projet : À cadrer. Le bon choix dépend de votre logement, de l’usage et des contraintes.
-- Confort : À prioriser. Budget, isolation, sécurité, esthétique ou facilité d’usage doivent être hiérarchisés.
-- Pose : Essentielle. La qualité de mise en œuvre compte autant que le produit choisi.
-- Devis : Lisible. Les options, garanties et finitions doivent être clairement indiquées.
+- Ce qui déclenche une démarche : Façade modifiée. Couleur, matériau, dimensions ou ajout visible peuvent nécessiter une autorisation.
+- Ce qu’il faut vérifier : PLU et copropriété. La commune et le règlement de copropriété peuvent imposer des règles.
+- Le risque à éviter : Signer trop tôt. Il vaut mieux valider les autorisations avant de commander le matériel.
+- À préparer : Photos + références. Photos, couleur RAL, dimensions et fiche produit facilitent le dossier.
+
 
 ## La couleur est un choix esthétique, mais aussi administratif Changer du blanc au gris anthracite, harmoniser une porte avec un portail ou choisir des volets colorés peut transformer une façade. C'est justement pour cela que la mairie, le PLU, un lotissement ou une copropriété peuvent encadrer les teintes.
 
@@ -26,6 +27,7 @@ RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérificat
 ## La méthode simple pour valider une couleur Avant de commander, partez de trois éléments : la teinte autorisée côté mairie, la cohérence avec les menuiseries déjà visibles et le rendu réel de l'échantillon à la lumière extérieure. Un gris, un beige ou un rouge foncé peuvent changer fortement selon l'orientation de la façade. Si le projet concerne plusieurs produits, choisissez une logique globale : porte d'entrée, porte de garage, volets, portail et fenêtres doivent dialoguer entre eux. C'est souvent ce qui donne une rénovation plus haut de gamme, même sans choisir la couleur la plus chère.
 
 ## Pourquoi éviter le choix uniquement sur catalogue Un nuancier imprimé ou un écran ne restitue pas toujours la couleur réelle. Avant de trancher, il est préférable de comparer un échantillon avec la façade, les volets existants, la toiture et le portail. La lumière extérieure change beaucoup la perception de la teinte. Vous hésitez sur une teinte ? On vérifie façade, PLU et cohérence avec les autres menuiseries. Valider une couleur
+
 
 
 

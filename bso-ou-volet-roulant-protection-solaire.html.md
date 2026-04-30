@@ -2,16 +2,17 @@
 
 Source HTML : ./bso-ou-volet-roulant-protection-solaire.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Comparer brise-soleil orientable et volet roulant pour gérer chaleur, lumière, intimité et sécurité.
 
 ## Repères rapides
 
-- Usage : Quotidien. Confort, obscurité, sécurité et protection solaire ne demandent pas le même modèle.
-- Commande : À prévoir. Filaire, radio, solaire ou centralisée : le choix se pense avant la pose.
-- Façade : Cohérence. Couleur, coffre, tablier et règlement local peuvent guider la solution.
-- Devis : Complet. Moteur, lames, coulisses, coffre et finitions doivent être précisés.
+- Votre besoin principal : Confort ou sécurité. Obscurité, protection solaire, sécurité et usage quotidien ne demandent pas le même volet.
+- Le choix technique : Manuel, radio, solaire. La commande se décide avant la pose, surtout en rénovation.
+- Ce qui se voit dehors : Coffre et couleur. Le coffre, les coulisses et le tablier doivent rester cohérents avec la façade.
+- À vérifier au devis : Moteur + finitions. Marque du moteur, type de lames, coffre, coulisses et garanties doivent être écrits.
+
 
 ## Le BSO gère la lumière, le volet gère l'occultation Un brise-soleil orientable permet de couper le soleil tout en gardant de la lumière et une vue vers l'extérieur. Le volet roulant est plus polyvalent pour l'occultation, la sécurité et la protection de nuit. Les deux répondent à des usages différents. | | Besoin | BSO | Volet roulant | Garder de la lumière | Très bon | Plus limité | Occulter une chambre | Moyen | Très bon | Protection solaire façade sud | Très bon | Bon si fermé tôt | Sécurité | Moins prioritaire | Plus rassurant
 
@@ -22,6 +23,7 @@ Comparer brise-soleil orientable et volet roulant pour gérer chaleur, lumière,
 ## Raisonner selon l'orientation de la façade Une façade sud ou ouest chauffe vite en été : le BSO peut apporter un vrai confort car il bloque le rayonnement tout en gardant une lumière agréable. À l'est, le besoin est souvent plus ponctuel. Au nord, l'enjeu solaire est généralement moins fort, sauf besoin d'intimité. Pour une chambre, l'occultation totale reste souvent prioritaire. Pour un séjour, le confort visuel et la gestion de l'éblouissement peuvent justifier un BSO ou un mix avec volets roulants sur les autres pièces.
 
 ## Penser confort d'été avant climatisation Bloquer le soleil à l'extérieur est souvent plus efficace que refroidir une pièce une fois qu'elle a surchauffé. BSO, volets roulants et stores doivent donc être pensés comme une stratégie de confort d'été, surtout sur les grandes baies exposées. Votre façade chauffe trop l'été ? On compare lumière, occultation et exposition avant de choisir. Choisir ma protection
+
 
 
 

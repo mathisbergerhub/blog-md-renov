@@ -2,16 +2,17 @@
 
 Source HTML : ./pergola-bioclimatique-haute-savoie.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Orientation, lames, pluie légère, options et autorisations : les points à valider avant de commander une pergola.
 
 ## Repères rapides
 
-- Usage : À définir. Ombre, accès, protection, confort ou sécurité : le besoin change la solution.
-- Terrain : Contraintes. Exposition, pente, support, vent et dimensions doivent être vérifiés.
-- Démarches : À anticiper. Façade, copropriété, PLU ou déclaration peuvent influencer le projet.
-- Devis : Sur mesure. Options, dimensions, pose et motorisation doivent être comparables.
+- Votre objectif : Ombre ou pièce d’été. La pergola ne se choisit pas pareil pour déjeuner, abriter ou prolonger la maison.
+- Ce qui change le confort : Orientation et pluie. Soleil, vent, évacuation d’eau et options changent l’usage réel.
+- Ce qui change le prix : Dimensions + options. Lames, stores latéraux, éclairage et pose font varier le budget.
+- À vérifier avant travaux : Déclaration possible. Surface, hauteur, façade et commune peuvent imposer une démarche.
+
 
 ## Une pergola doit répondre à un problème précis La pergola bioclimatique est pertinente quand la terrasse est trop chaude, trop exposée ou peu utilisable aux mi-saisons. Elle n'est pas seulement décorative : elle doit améliorer l'usage quotidien de l'extérieur.
 
@@ -31,6 +32,7 @@ Orientation, lames, pluie légère, options et autorisations : les points à val
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
 

@@ -2,16 +2,17 @@
 
 Source HTML : ./volet-roulant-solaire-haute-savoie.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.
 
 ## Repères rapides
 
-- Usage : Quotidien. Confort, obscurité, sécurité et protection solaire ne demandent pas le même modèle.
-- Commande : À prévoir. Filaire, radio, solaire ou centralisée : le choix se pense avant la pose.
-- Façade : Cohérence. Couleur, coffre, tablier et règlement local peuvent guider la solution.
-- Devis : Complet. Moteur, lames, coulisses, coffre et finitions doivent être précisés.
+- Votre besoin principal : Confort ou sécurité. Obscurité, protection solaire, sécurité et usage quotidien ne demandent pas le même volet.
+- Le choix technique : Manuel, radio, solaire. La commande se décide avant la pose, surtout en rénovation.
+- Ce qui se voit dehors : Coffre et couleur. Le coffre, les coulisses et le tablier doivent rester cohérents avec la façade.
+- À vérifier au devis : Moteur + finitions. Marque du moteur, type de lames, coffre, coulisses et garanties doivent être écrits.
+
 
 ## Le solaire est très utile quand le câblage devient compliqué Le volet roulant solaire évite de tirer une alimentation électrique jusqu'à chaque ouverture. En rénovation, c'est souvent un vrai avantage : moins de saignées, moins de reprises intérieures et une pose plus discrète. Mais il faut vérifier l'exposition et l'usage.
 
@@ -25,6 +26,7 @@ Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet s
 ## Le point spécifique en Haute-Savoie Dans les secteurs froids, ombragés ou proches de reliefs, l'exposition réelle compte plus qu'une promesse générale. Une façade sud ou ouest est souvent favorable, tandis qu'une fenêtre durablement à l'ombre demande plus de prudence. Le solaire reste une très bonne solution quand il évite des travaux électriques lourds, mais il doit être validé ouverture par ouverture, surtout sur les maisons avec débords de toit, balcons ou végétation proche.
 
 ## Quand préférer une solution filaire ? Si une alimentation électrique est déjà disponible, le filaire peut rester plus logique, notamment sur une façade très ombragée ou sur un volet très sollicité. Le solaire est surtout intéressant quand il évite des travaux intérieurs lourds ou des câbles visibles. Vous voulez éviter les travaux électriques ? On vérifie si le solaire est cohérent fenêtre par fenêtre. Étudier mes volets
+
 
 
 

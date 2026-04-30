@@ -2,16 +2,17 @@
 
 Source HTML : ./delais-pose-menuiseries-renovation.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d'un chantier de menuiseries.
 
 ## Repères rapides
 
-- Budget : À cadrer. Le prix dépend du produit, de la pose, des finitions et des contraintes.
-- Aides : À vérifier. Les aides changent selon le logement, les revenus et l’ordre des démarches.
-- Devis : Comparable. Deux devis ne se comparent pas sans lire les prestations exactes.
-- Décision : Sans précipiter. Signer trop tôt peut bloquer une aide ou créer une mauvaise comparaison.
+- Ce qui compose le prix : Produit + pose. Le devis dépend du matériau, des dimensions, de la pose et des finitions.
+- Ce qui peut aider : Aides à vérifier. Les aides dépendent du logement, des revenus, des travaux et de l’ordre des démarches.
+- Ce qu’il faut comparer : Lignes du devis. Deux prix ne se comparent pas sans vérifier les mêmes prestations.
+- La bonne méthode : Décider sans urgence. Cadrer le besoin avant signature évite les mauvaises surprises.
+
 
 ## Le délai ne commence pas seulement le jour de la pose Un chantier de menuiseries comprend plusieurs étapes : rendez-vous, prise de cotes, devis, validation, autorisations éventuelles, fabrication, livraison, pose et finitions. Un délai réaliste dépend donc du produit et des contraintes du projet.
 
@@ -31,6 +32,7 @@ Commande, fabrication, autorisations, pose et finitions : les étapes qui expliq
 ## Ce qu'il faut bloquer dès le départ - La date limite souhaitée : emménagement, vente, vacances ou arrivée du froid.
 - Les autorisations éventuelles : mairie, copropriété, lotissement.
 - Les points bloquants : accès, étage, électricité, seuils, maçonnerie ou finitions intérieures. Vous avez une date cible ? On cale le calendrier avec les autorisations, la fabrication et la pose. Planifier mon chantier
+
 
 
 

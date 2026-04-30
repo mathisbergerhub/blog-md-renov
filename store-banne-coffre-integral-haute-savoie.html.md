@@ -2,16 +2,17 @@
 
 Source HTML : ./store-banne-coffre-integral-haute-savoie.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Protection solaire, exposition, dimensions et durabilité : les critères utiles pour choisir un store banne.
 
 ## Repères rapides
 
-- Terrasse : Exposition. Largeur, avancée, soleil et vent déterminent le bon niveau de protection.
-- Toile : Technique. Couleur, densité, résistance et entretien influencent le confort.
-- Options : Utiles. Motorisation, capteurs et coffre ne sont pertinents que selon l’usage.
-- Pose : Sécurité. Support, fixation et accès doivent être validés avant commande.
+- Votre terrasse : Soleil et vent. L’orientation, l’avancée et l’exposition au vent guident le modèle.
+- Le choix visible : Toile et coffre. La couleur, la qualité de toile et le coffre changent le rendu et la durée de vie.
+- Les options utiles : Moteur ou capteur. Motorisation, capteur vent ou solaire ne sont utiles que selon votre usage.
+- À vérifier au devis : Largeur + pose. Dimensions, fixation, accès, toile, moteur et garanties doivent être précisés.
+
 
 ## Le vrai enjeu, c'est le confort d'usage en été Un store banne n'est pas seulement un équipement de façade. C'est une réponse concrète à une terrasse inutilisable à midi, une baie trop exposée ou un espace repas qui manque d'ombre dès les premiers beaux jours.
 
@@ -29,6 +30,7 @@ Protection solaire, exposition, dimensions et durabilité : les critères utiles
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
 

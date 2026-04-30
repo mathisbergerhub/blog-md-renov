@@ -2,16 +2,17 @@
 
 Source HTML : ./moustiquaire-sur-mesure-haute-savoie.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Fenêtre, porte-fenêtre, baie coulissante : choisir la moustiquaire selon l'usage, l'espace disponible et la fréquence de passage.
 
 ## Repères rapides
 
-- Usage : À définir. Ombre, accès, protection, confort ou sécurité : le besoin change la solution.
-- Terrain : Contraintes. Exposition, pente, support, vent et dimensions doivent être vérifiés.
-- Démarches : À anticiper. Façade, copropriété, PLU ou déclaration peuvent influencer le projet.
-- Devis : Sur mesure. Options, dimensions, pose et motorisation doivent être comparables.
+- L’ouverture concernée : Fenêtre ou baie. Le modèle dépend surtout du type d’ouverture et de la fréquence d’usage.
+- Le bon modèle : Fixe, plissé, enroulable. Chaque système répond à un besoin différent de passage et de confort.
+- Ce qui change le prix : Dimensions + accès. Grandes baies, pose et finitions font varier le devis.
+- À vérifier au devis : Cadre + toile. Type de toile, couleur, fixation et garantie doivent être précisés.
+
 
 ## Le bon modèle dépend de l'ouverture Une moustiquaire efficace doit se faire oublier. Sur une fenêtre peu utilisée, un cadre fixe peut suffire. Sur une chambre que l'on ouvre souvent, l'enroulable est plus pratique. Sur une baie ou une porte-fenêtre avec passage fréquent, la plissée ou la coulissante devient souvent plus confortable. | | Ouverture | Solution à regarder | Petite fenêtre | Cadre fixe ou enroulable verticale | Fenêtre utilisée tous les jours | Enroulable avec coffre discret | Porte-fenêtre | Plissée latérale ou coulissante | Baie vitrée | Coulissante ou plissée selon passage
 
@@ -29,6 +30,7 @@ Fenêtre, porte-fenêtre, baie coulissante : choisir la moustiquaire selon l'usa
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
 

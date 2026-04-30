@@ -2,16 +2,17 @@
 
 Source HTML : ./portail-battant-ou-coulissant-haute-savoie.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.
 
 ## Repères rapides
 
-- Usage : À définir. Ombre, accès, protection, confort ou sécurité : le besoin change la solution.
-- Terrain : Contraintes. Exposition, pente, support, vent et dimensions doivent être vérifiés.
-- Démarches : À anticiper. Façade, copropriété, PLU ou déclaration peuvent influencer le projet.
-- Devis : Sur mesure. Options, dimensions, pose et motorisation doivent être comparables.
+- Votre entrée : Battant ou coulissant. Le dégagement, la pente et la largeur guident le type de portail.
+- Ce qui change l’usage : Motorisation et accès. Interphone, digicode, télécommande et sécurité doivent être pensés ensemble.
+- Ce qui change le prix : Terrain + options. Maçonnerie, alimentation électrique, moteur et finitions font varier le devis.
+- À vérifier avant travaux : PLU + voisinage. Hauteur, couleur, sens d’ouverture et limite de propriété peuvent compter.
+
 
 ## La configuration du terrain décide souvent avant l'esthétique Un portail battant fonctionne très bien quand l'entrée dispose d'un dégagement suffisant et d'une pente maîtrisée. Le coulissant devient plus logique quand il manque du recul, quand l'ouverture donne sur une voie ou quand la largeur de passage doit rester confortable.
 
@@ -29,6 +30,7 @@ Pente, recul, largeur de passage, motorisation et PLU : les critères pour chois
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
 

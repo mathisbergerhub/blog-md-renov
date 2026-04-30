@@ -2,16 +2,17 @@
 
 Source HTML : ./fenetre-pvc-vs-aluminium-haute-savoie.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai comparatif pour choisir sans se perdre.
 
 ## Repères rapides
 
-- Ouverture : À cadrer. Dimensions, exposition, clair de jour et contraintes de pose changent le bon choix.
-- Performance : Thermique. Vitrage, dormant, seuil et étanchéité doivent être lus ensemble.
-- Confort : Usage réel. Froid, bruit, condensation et entretien comptent autant que l’esthétique.
-- Devis : Comparable. Matériau, pose, finitions et garanties doivent être détaillés ligne par ligne.
+- Ce qu’il faut choisir : Matériau + vitrage. PVC, aluminium, bois, mixte, double ou triple vitrage selon l’usage.
+- Ce qui change le prix : Dimensions et pose. Grand format, couleur, type d’ouverture et dépose totale font varier le devis.
+- Ce qui change le confort : Froid, bruit, lumière. Le bon choix dépend autant du confort attendu que du style de la maison.
+- À lire sur le devis : Performances + options. Uw, vitrage, dormant, accessoires, finitions et garanties doivent être indiqués.
+
 
 ## La vraie question n'est pas “PVC ou alu”, mais “pour quelle ouverture ?” Le PVC reste souvent très performant pour optimiser le budget et l'isolation sur des fenêtres classiques. L'aluminium devient plus pertinent quand la finesse des profils, les grands formats, les coulissants ou la cohérence esthétique de la façade comptent beaucoup. En Haute-Savoie, il faut aussi penser au froid, aux écarts de température, au bruit selon l'axe routier et au style de la maison. Le meilleur matériau sur le papier peut devenir un mauvais choix si la pose, le vitrage ou la ventilation sont négligés.
 
@@ -29,6 +30,7 @@ Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai co
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
 

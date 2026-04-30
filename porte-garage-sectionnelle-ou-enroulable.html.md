@@ -2,16 +2,17 @@
 
 Source HTML : ./porte-garage-sectionnelle-ou-enroulable.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.
 
 ## Repères rapides
 
-- Sécurité : Priorité. Serrure, panneau, vitrage et paumelles doivent être regardés ensemble.
-- Isolation : Seuil inclus. Le confort dépend aussi du seuil, de l’étanchéité et de la pose.
-- Style : Façade. La porte doit rester cohérente avec les menuiseries et l’entrée.
-- Devis : Détaillé. Dimensions, accessoires, finitions et garanties doivent être écrits.
+- Votre priorité : Sécurité ou isolation. Porte d’entrée, garage ou service : le besoin principal change la solution.
+- Ce qui protège : Serrure + panneau. Serrure, vitrage, panneau, seuil et paumelles doivent être regardés ensemble.
+- Ce qui change le confort : Étanchéité et seuil. Une porte confortable dépend aussi de la pose et du traitement du seuil.
+- À vérifier au devis : Options + garanties. Dimensions, accessoires, motorisation, finitions et garanties doivent être clairs.
+
 
 ## Le choix dépend surtout de l'espace disponible Une porte sectionnelle remonte sous plafond : elle est confortable, isolante et adaptée à beaucoup de garages. Une porte enroulable fonctionne comme un volet roulant : elle libère le plafond et peut être pertinente si des rangements ou réseaux occupent déjà le haut du garage. | | Critère | Sectionnelle | Enroulable | Plafond libre | Nécessaire | Moins nécessaire | Isolation | Souvent très bonne | Dépend du tablier | Motorisation | Très courante | Intégrée ou simple à prévoir | Garage encombré | À vérifier | Souvent plus pratique
 
@@ -27,6 +28,7 @@ Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les cr
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
 

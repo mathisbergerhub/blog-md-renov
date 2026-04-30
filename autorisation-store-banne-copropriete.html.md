@@ -2,16 +2,17 @@
 
 Source HTML : ./autorisation-store-banne-copropriete.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Règlement de copropriété, harmonie de façade, assemblée générale et mairie : les bons réflexes avant de poser un store.
 
 ## Repères rapides
 
-- Projet : À cadrer. Le bon choix dépend de votre logement, de l’usage et des contraintes.
-- Confort : À prioriser. Budget, isolation, sécurité, esthétique ou facilité d’usage doivent être hiérarchisés.
-- Pose : Essentielle. La qualité de mise en œuvre compte autant que le produit choisi.
-- Devis : Lisible. Les options, garanties et finitions doivent être clairement indiquées.
+- Ce qui déclenche une démarche : Façade modifiée. Couleur, matériau, dimensions ou ajout visible peuvent nécessiter une autorisation.
+- Ce qu’il faut vérifier : PLU et copropriété. La commune et le règlement de copropriété peuvent imposer des règles.
+- Le risque à éviter : Signer trop tôt. Il vaut mieux valider les autorisations avant de commander le matériel.
+- À préparer : Photos + références. Photos, couleur RAL, dimensions et fiche produit facilitent le dossier.
+
 
 ## En copropriété, la façade n'est jamais un détail Un store banne peut modifier l'aspect extérieur de l'immeuble. Il faut donc vérifier le règlement de copropriété, les couleurs autorisées, la présence d'une clause d'harmonie et les règles de pose. Dans de nombreux cas, l'accord de l'assemblée générale est nécessaire.
 
@@ -35,6 +36,7 @@ Règlement de copropriété, harmonie de façade, assemblée générale et mairi
 ## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
 - Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
 - Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+
 
 
 

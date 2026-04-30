@@ -613,7 +613,7 @@ h3 { margin: 0; color: var(--ink); letter-spacing: -0.04em;
 } .mdr-media--hero { min-height: 240px; border: 1.5px dashed #c8c0b0; border-radius: 14px; background: #e8e3da;
 } .mdr-media--featured { min-height: 210px; background: #2d2d2a;
 } .mdr-media--card { min-height: 140px; background: #e8e3da;
-} .mdr-media--article { min-height: 220px; margin-bottom: 1rem; border-radius: 12px; background: #e8e3da;
+} .mdr-media--article { min-height: 150px; margin-bottom: 0.25rem; border: 1px dashed #cfc4b4; border-radius: 12px; background: #e8e3da;
 } .mdr-featured__body { display: flex; flex-direction: column; justify-content: center; padding: 1.5rem 1.6rem;
 } .mdr-featured__tag { display: inline-flex; align-self: flex-start; padding: 0.3rem 0.7rem; border-radius: 999px; background: #9b1c1c; color: #fff;
 } .mdr-featured__body h2 { margin-top: 0.8rem; color: #fff; font-size: 1.7rem; line-height: 1.22;
@@ -696,20 +696,20 @@ h3 { margin: 0; color: var(--ink); letter-spacing: -0.04em;
 } .mdr-home-media strong { color: #666; font-size: 0.9rem;
 } .mdr-home-media span { color: #888; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
 } .mdr-home-media--featured { min-height: 100%; background: #31302d;
-} .mdr-home-media--card { min-height: 170px;
+} .mdr-home-media--card { min-height: 104px;
 } .mdr-home-featured__body { display: flex; flex-direction: column; justify-content: center; padding: 1.6rem 1.55rem;
 } .mdr-home-featured__tag { display: inline-flex; align-self: flex-start; padding: 0.3rem 0.8rem; border-radius: 999px; background: #9b1c1c; color: #fff; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
 } .mdr-home-featured__body h2 { margin-top: 0.95rem; color: #fff; font-family: "Lexend", sans-serif; font-size: clamp(1.65rem, 2.2vw, 2.45rem); font-style: normal; font-weight: 700; line-height: 1.12; max-width: 11ch; text-wrap: balance;
 } .mdr-home-featured__body p { margin: 0.8rem 0 1rem; color: rgba(255, 255, 255, 0.86); line-height: 1.64; max-width: 30ch;
 } .mdr-home-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem;
 } .mdr-home-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #ddd9d0; border-radius: 14px; background: #fff; box-shadow: 0 12px 26px rgba(20, 14, 8, 0.04);
-} .mdr-home-card__body { display: flex; flex: 1; flex-direction: column; padding: 1rem 1.1rem 1.1rem;
+} .mdr-home-card__body { display: flex; flex: 1; flex-direction: column; padding: 0.95rem 1.05rem 1rem;
 } .mdr-home-card__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.55rem; margin-bottom: 0.45rem;
 } .mdr-home-card__tag { display: inline-flex; align-items: center; min-height: 28px; padding: 0.22rem 0.7rem; border: 1px solid #ddd9d0; border-radius: 999px; background: #f8f5ef; color: #9b1c1c; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
 } .mdr-home-card__date,
 .mdr-home-card__time { color: #8b92a0; font-size: 0.8rem;
-} .mdr-home-card h3 { color: #1a1a18; font-family: "Lexend", sans-serif; font-size: 1.18rem; font-weight: 700; line-height: 1.27; text-wrap: balance;
-} .mdr-home-card p { margin: 0.6rem 0 0.9rem; color: #6d7380; line-height: 1.7; flex: 1;
+} .mdr-home-card h3 { color: #1a1a18; font-family: "Lexend", sans-serif; font-size: 1.08rem; font-weight: 700; line-height: 1.24; text-wrap: balance;
+} .mdr-home-card p { margin: 0.5rem 0 0.75rem; color: #6d7380; font-size: 0.94rem; line-height: 1.58; flex: 1;
 } .mdr-home-card__foot { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem; margin-top: auto;
 } .mdr-home-side { gap: 0.95rem;
 } .mdr-home-cta { display: grid; gap: 1rem; padding: 1.2rem 1.2rem 1.15rem; border-radius: 16px; background: #b01f1f; color: #fff; min-height: 382px; align-content: start;
@@ -781,8 +781,12 @@ h3 { margin: 0; color: var(--ink); letter-spacing: -0.04em;
 .mdr-footer-socials--dark a:focus-visible { border-color: rgba(255, 255, 255, 0.62); background: rgba(255, 255, 255, 0.14);
 } .mdr-home-footer__links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.8rem 1rem; color: #777; font-size: 0.86rem;
 } .mdr-article-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 1.5rem; align-items: start; padding: 1.15rem 1.75rem 1.4rem; background: #171715; color: rgba(255, 255, 255, 0.8);
+} .mdr-article-footer__identity { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;
 } .mdr-article-footer__brand { color: #fff; font-family: "Lexend", sans-serif; font-size: 0.98rem; font-weight: 700;
 } .mdr-article-footer__sub { margin-top: 0.2rem; color: rgba(255, 255, 255, 0.62); font-size: 0.88rem;
+} .mdr-article-footer__identity .mdr-footer-socials { margin-top: 0;
+} .mdr-article-footer__identity .mdr-footer-socials a { width: 30px; height: 30px;
+} .mdr-article-footer__identity .mdr-footer-socials svg { width: 15px; height: 15px;
 } .mdr-article-footer__links { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; justify-content: flex-end;
 } .mdr-article-footer__links a { color: rgba(255, 255, 255, 0.72);
 } @media (max-width: 980px) { .mdr-home-content { grid-template-columns: 1fr; } .mdr-home-side { padding-top: 0; } .mdr-home-featured { grid-template-columns: 1fr; min-height: 0; } .mdr-listing-hero h1 { white-space: normal; text-wrap: balance; } .mdr-legal-layout { grid-template-columns: 1fr; } .mdr-legal-summary { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -971,6 +975,15 @@ h3 { margin: 0; color: var(--ink); letter-spacing: -0.04em;
   color: #1a1a18;
   font-size: clamp(1.25rem, 2.4vw, 1.75rem);
   line-height: 1.05;
+}
+
+.mdr-keyfacts--compact strong {
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  line-height: 1.16;
+}
+
+.mdr-keyfacts--compact span {
+  margin-bottom: 0.35rem;
 }
 
 .mdr-keyfacts p,

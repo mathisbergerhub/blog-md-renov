@@ -2,16 +2,17 @@
 
 Source HTML : ./condensation-fenetres-neuves-ventilation.html
 
-## À retenir avant de demander un devis
+## Ce que ce guide vous aide à décider
 
 Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilation et comment réagir sans mauvais diagnostic.
 
 ## Repères rapides
 
-- Symptôme : À observer. Courants d’air, paroi froide, bruit ou condensation indiquent des causes différentes.
-- Diagnostic : Avant devis. Le vitrage seul ne règle pas toujours la ventilation ou les ponts thermiques.
-- Confort : Hiver/été. L’objectif doit être défini avant de choisir le produit.
-- Pose : Décisive. Une bonne menuiserie mal posée perd une grande partie de son intérêt.
+- Ce que vous constatez : Froid, bruit ou buée. Notez la pièce, le moment de la journée et l’ouverture concernée.
+- Ce qu’on vérifie : Vitrage, joints, pose. On regarde aussi le dormant, le coffre de volet et la ventilation.
+- Ce qui peut suffire : Réglage ou joint. Si la menuiserie est récente, une réparation peut parfois éviter le remplacement.
+- Quand remplacer : Ancienneté + inconfort. Si le produit est ancien, peu isolant ou mal posé, remplacer devient plus logique.
+
 
 ## Des fenêtres neuves peuvent révéler un logement mal ventilé Quand on remplace d'anciennes menuiseries peu étanches par des fenêtres performantes, l'air parasite diminue. C'est bon pour le confort, mais cela peut révéler une ventilation insuffisante. La condensation ne signifie donc pas toujours que la fenêtre est mauvaise.
 
@@ -29,6 +30,7 @@ Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilat
 - Si la buée est entre les vitrages, le vitrage isolant doit être examiné par un professionnel.
 
 ## Pourquoi il ne faut pas condamner les entrées d'air Après une rénovation, certains propriétaires sont tentés de boucher les grilles pour supprimer le froid ou le bruit. C'est rarement une bonne idée : sans renouvellement d'air, l'humidité reste dans le logement et peut créer moisissures, odeurs ou inconfort. Vous avez de la condensation après travaux ? On distingue problème de ventilation, vitrage ou pose avant de conclure. Faire le point
+
 
 
 
