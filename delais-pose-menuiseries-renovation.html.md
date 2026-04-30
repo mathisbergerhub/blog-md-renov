@@ -1,4 +1,4 @@
-﻿# Délais de pose : combien de temps prévoir pour fenêtres, volets ou portail ? Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d'un chantier de menuiseries.
+# Délais de pose : combien de temps prévoir pour fenêtres, volets ou portail ? Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d'un chantier de menuiseries.
 
 Source HTML : ./delais-pose-menuiseries-renovation.html
 
@@ -36,3 +36,21 @@ Commande, fabrication, autorisations, pose et finitions : les étapes qui expliq
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Ce qui fait vraiment varier le délai d’un chantier
+
+Le délai ne se limite pas au jour de pose. Il comprend la validation du projet, la prise de cotes, les autorisations éventuelles, la fabrication sur mesure, la livraison et l’organisation du chantier.
+
+- **Fabrication - Le sur-mesure prend du temps** : Dimensions spéciales, teintes particulières, vitrages techniques et motorisations peuvent allonger le délai.
+- **Administratif - Une autorisation peut décaler la commande** : Si l’aspect extérieur change, il vaut mieux attendre la validation avant de lancer une fabrication définitive.
+- **Pose - L’accès au chantier change l’organisation** : Étage, stationnement, copropriété, protection intérieure ou reprise de tableau modifient le temps nécessaire sur place.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.

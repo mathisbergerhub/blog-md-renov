@@ -1,4 +1,4 @@
-﻿# Couleur des menuiseries : comment éviter l'erreur avec le PLU ? RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérifications avant de commander une couleur.
+# Couleur des menuiseries : comment éviter l'erreur avec le PLU ? RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérifications avant de commander une couleur.
 
 Source HTML : ./couleurs-menuiseries-ral-plu.html
 
@@ -31,3 +31,18 @@ RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérificat
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Choisir une couleur qui sera acceptée et durable
+
+La bonne couleur est celle qui respecte le style de la maison, le PLU, la copropriété et le vieillissement réel en façade. Un RAL tendance peut devenir un problème si le cadre administratif n’a pas été vérifié.
+
+- **PLU - La commune peut encadrer les teintes** : Certaines zones imposent des couleurs, des matériaux ou une harmonie de façade.
+- **Copropriété - L’uniformité de l’immeuble compte** : Changer seul une teinte de fenêtre, volet ou garde-corps peut être refusé si cela rompt l’aspect collectif.
+- **Durabilité - Observer exposition et entretien** : Une teinte foncée, une façade très ensoleillée ou une maison en altitude demandent un choix de finition plus prudent.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.

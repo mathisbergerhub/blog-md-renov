@@ -642,6 +642,7 @@ h3 { margin: 0; color: var(--ink); letter-spacing: -0.04em;
 } .mdr-sidelink:last-child { border-bottom: 0; padding-bottom: 0;
 } .mdr-sidelink strong { color: #1a1a18; font-family: "Lexend", sans-serif; font-style: normal; font-weight: 700; font-size: 1rem; line-height: 1.25;
 } .mdr-sidebar { display: grid; align-content: start; gap: 1rem;
+} @media (min-width: 1051px) { .mdr-sidebar { position: sticky; top: 1.25rem; max-height: calc(100vh - 2.5rem); overflow: auto; scrollbar-width: thin; }
 } .mdr-univers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem;
 } .mdr-univers span { padding: 0.6rem 0.7rem; border: 1px solid #e8e3da; border-radius: 8px; background: #f7f4ef; color: #333; font-size: 0.86rem; text-align: center;
 } .mdr-article-head { padding: 1.75rem 1.75rem 1.3rem; border-bottom: 1px solid #ddd9d0; background: #f0ece4;
@@ -1082,6 +1083,96 @@ h3 { margin: 0; color: var(--ink); letter-spacing: -0.04em;
   text-decoration: underline;
   text-decoration-color: rgba(155, 28, 28, 0.35);
   text-underline-offset: 0.18em;
+}
+
+.mdr-editorial-value {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.05rem, 2.2vw, 1.4rem);
+  border: 1px solid #e2d6c7;
+  border-radius: 18px;
+  background: #fffdf8;
+}
+
+.mdr-editorial-value h2 {
+  margin-bottom: 0;
+}
+
+.mdr-editorial-value > p {
+  margin: 0;
+  color: #46433f;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.mdr-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.mdr-value-grid div {
+  padding: 0.95rem;
+  border: 1px solid #e7dbcc;
+  border-radius: 14px;
+  background: #f8f3eb;
+}
+
+.mdr-value-grid span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #9b1c1c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mdr-value-grid strong {
+  display: block;
+  color: #1a1a18;
+  font-size: 1.02rem;
+  line-height: 1.25;
+}
+
+.mdr-value-grid p {
+  margin-top: 0.4rem;
+  color: #55504a;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.mdr-source-card--rich {
+  background: #fffdf8;
+}
+
+.mdr-source-list {
+  display: grid;
+  gap: 0.75rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.mdr-source-list li {
+  padding-left: 0;
+}
+
+.mdr-source-list li::before {
+  display: none;
+}
+
+.mdr-source-list span {
+  display: block;
+  margin-top: 0.15rem;
+  color: #5e5952;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .mdr-value-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 980px) {

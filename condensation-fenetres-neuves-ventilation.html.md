@@ -1,4 +1,4 @@
-﻿# Condensation après changement de fenêtres : normal ou inquiétant ? Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilation et comment réagir sans mauvais diagnostic.
+# Condensation après changement de fenêtres : normal ou inquiétant ? Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilation et comment réagir sans mauvais diagnostic.
 
 Source HTML : ./condensation-fenetres-neuves-ventilation.html
 
@@ -34,3 +34,20 @@ Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilat
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Ce que la condensation dit vraiment du logement
+
+Après des fenêtres neuves, la maison devient souvent plus étanche. Si l’air humide ne sort plus correctement, la condensation apparaît sur les vitrages, les murs froids ou dans les angles.
+
+- **Air intérieur - Une fenêtre étanche exige une ventilation cohérente** : Boucher les entrées d’air ou ignorer une VMC faible peut créer de l’humidité malgré de très bonnes menuiseries.
+- **Diagnostic - Regarder quand et où la buée apparaît** : Condensation le matin, pièce humide, angle froid ou vitrage intérieur n’indiquent pas toujours le même problème.
+- **Solution - Traiter la cause avant d’accuser le produit** : Il faut vérifier ventilation, chauffage, ponts thermiques et habitudes d’aération avant de conclure à un défaut.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - choisir un système de ventilation](https://agirpourlatransition.ademe.fr/particuliers/maison/renovation/systeme-ventilation-choisir) : Cette ressource rappelle qu’un logement rénové doit rester correctement ventilé pour limiter humidité, condensation et inconfort.
+- [ADEME - assainir l’air intérieur](https://agirpourlatransition.ademe.fr/particuliers/maison/menage/comment-assainir-lair-partout-maison) : Cette page explique pourquoi l’humidité et l’air intérieur doivent être traités en même temps que les menuiseries.
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.

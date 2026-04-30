@@ -1,4 +1,4 @@
-﻿# Moustiquaire fixe, enroulable ou plissée : laquelle choisir ? Fenêtre, porte-fenêtre, baie coulissante : choisir la moustiquaire selon l'usage, l'espace disponible et la fréquence de passage.
+# Moustiquaire fixe, enroulable ou plissée : laquelle choisir ? Fenêtre, porte-fenêtre, baie coulissante : choisir la moustiquaire selon l'usage, l'espace disponible et la fréquence de passage.
 
 Source HTML : ./moustiquaire-sur-mesure-haute-savoie.html
 
@@ -34,3 +34,20 @@ Fenêtre, porte-fenêtre, baie coulissante : choisir la moustiquaire selon l'usa
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Choisir une moustiquaire selon l’usage, pas seulement l’ouverture
+
+Une moustiquaire doit laisser passer l’air, rester facile à manipuler et s’intégrer à la menuiserie. Le bon modèle dépend surtout de la fréquence d’ouverture et du passage.
+
+- **Fenêtre - Fixe ou enroulable selon l’accès** : Une fenêtre peu manipulée accepte un modèle simple ; une fenêtre souvent ouverte demande une solution plus pratique.
+- **Baie ou porte - Le passage impose du solide** : Sur terrasse ou balcon, la moustiquaire plissée ou coulissante est souvent plus confortable au quotidien.
+- **Ventilation - L’air doit continuer à circuler** : La moustiquaire ne remplace pas la ventilation : elle améliore le confort d’été tout en gardant l’aération possible.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - choisir un système de ventilation](https://agirpourlatransition.ademe.fr/particuliers/maison/renovation/systeme-ventilation-choisir) : Cette ressource rappelle qu’un logement rénové doit rester correctement ventilé pour limiter humidité, condensation et inconfort.
+- [ADEME - assainir l’air intérieur](https://agirpourlatransition.ademe.fr/particuliers/maison/menage/comment-assainir-lair-partout-maison) : Cette page explique pourquoi l’humidité et l’air intérieur doivent être traités en même temps que les menuiseries.
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.

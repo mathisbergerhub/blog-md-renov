@@ -1,4 +1,4 @@
-﻿# Volet roulant solaire : bonne idée ou fausse économie ? Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.
+# Volet roulant solaire : bonne idée ou fausse économie ? Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.
 
 Source HTML : ./volet-roulant-solaire-haute-savoie.html
 
@@ -30,3 +30,19 @@ Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet s
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Le solaire est pertinent si l’exposition suit
+
+Le volet roulant solaire évite de tirer une alimentation électrique, mais il dépend de l’ensoleillement, de l’orientation, de la batterie et de l’accessibilité en maintenance.
+
+- **Orientation - Le panneau doit recevoir assez de lumière** : Une ouverture très ombragée ou mal orientée demande une vérification avant de choisir le solaire.
+- **Autonomie - La batterie doit rester accessible** : En hiver ou en usage intensif, la capacité et le SAV doivent être anticipés.
+- **Comparaison - Filaire ou solaire selon le contexte** : Si une alimentation existe déjà, le filaire peut rester plus simple ; sinon le solaire évite des travaux intérieurs.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche aide à vérifier les autorisations lorsque l’installation change l’aspect extérieur.
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.

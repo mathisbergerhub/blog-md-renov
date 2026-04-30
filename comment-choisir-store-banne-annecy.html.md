@@ -1,4 +1,4 @@
-﻿# Comment choisir un store banne à Annecy sans se tromper ? Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.
+# Comment choisir un store banne à Annecy sans se tromper ? Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.
 
 Source HTML : ./comment-choisir-store-banne-annecy.html
 
@@ -37,3 +37,19 @@ Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète po
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## La bonne question : quelle terrasse voulez-vous vraiment utiliser ?
+
+Un store banne ne se choisit pas seulement à la largeur. Il faut penser orientation, avancée, vent, couleur de toile, fixation et confort d’usage au quotidien.
+
+- **Orientation - Sud et ouest ne demandent pas la même protection** : L’ouest chauffe plus tard dans la journée et peut nécessiter une toile plus couvrante ou une avancée plus généreuse.
+- **Structure - La fixation doit être vérifiée avant le choix** : Façade isolée, balcon, linteau, avancée de toit ou support fragile changent la solution technique.
+- **Usage - Motorisation et capteur vent évitent les oublis** : Un store exposé doit pouvoir être rentré rapidement pour protéger la toile, les bras et la fixation.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche aide à vérifier les autorisations lorsque l’installation change l’aspect extérieur.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.

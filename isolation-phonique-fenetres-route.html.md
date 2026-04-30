@@ -1,4 +1,4 @@
-﻿# Bruit de route : comment améliorer l'isolation phonique des fenêtres ? Vitrage acoustique, entrées d'air, pose et coffres de volets : les vrais leviers pour réduire les nuisances sonores.
+# Bruit de route : comment améliorer l'isolation phonique des fenêtres ? Vitrage acoustique, entrées d'air, pose et coffres de volets : les vrais leviers pour réduire les nuisances sonores.
 
 Source HTML : ./isolation-phonique-fenetres-route.html
 
@@ -31,3 +31,19 @@ Vitrage acoustique, entrées d'air, pose et coffres de volets : les vrais levier
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Le bruit se traite par l’ensemble de l’ouverture
+
+Une bonne isolation phonique ne dépend pas seulement du vitrage. Les joints, le coffre de volet, les entrées d’air, la pose et les murs autour peuvent laisser passer autant de bruit que la fenêtre.
+
+- **Vitrage - Chercher une composition acoustique** : Un vitrage asymétrique ou feuilleté acoustique peut être plus pertinent qu’un simple triple vitrage.
+- **Ventilation - Ne pas supprimer les entrées d’air** : Il faut conserver une ventilation adaptée, éventuellement acoustique, pour éviter humidité et inconfort.
+- **Pose - La moindre fuite sonore s’entend** : Un bon calfeutrement périphérique et un coffre traité sont essentiels près d’une route ou d’une voie ferrée.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - réduire les nuisances sonores dans le logement](https://agirpourlatransition.ademe.fr/particuliers/maison/emmenagement/isolation-phonique-mur-sol-plafond-comment-reduire-nuisances-sonores) : Cette ressource rappelle qu’un traitement acoustique se raisonne avec la fenêtre, les joints, les entrées d’air et les parois autour.
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche permet de vérifier si un changement de menuiserie visible doit être déclaré en mairie.
+- [ADEME - choisir un système de ventilation](https://agirpourlatransition.ademe.fr/particuliers/maison/renovation/systeme-ventilation-choisir) : Cette ressource rappelle qu’un logement rénové doit rester correctement ventilé pour limiter humidité, condensation et inconfort.
+- [ADEME - assainir l’air intérieur](https://agirpourlatransition.ademe.fr/particuliers/maison/menage/comment-assainir-lair-partout-maison) : Cette page explique pourquoi l’humidité et l’air intérieur doivent être traités en même temps que les menuiseries.

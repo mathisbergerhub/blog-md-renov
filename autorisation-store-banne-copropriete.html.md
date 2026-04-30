@@ -1,4 +1,4 @@
-﻿# Store banne en copropriété : faut-il demander une autorisation ? Règlement de copropriété, harmonie de façade, assemblée générale et mairie : les bons réflexes avant de poser un store.
+# Store banne en copropriété : faut-il demander une autorisation ? Règlement de copropriété, harmonie de façade, assemblée générale et mairie : les bons réflexes avant de poser un store.
 
 Source HTML : ./autorisation-store-banne-copropriete.html
 
@@ -40,3 +40,19 @@ Règlement de copropriété, harmonie de façade, assemblée générale et mairi
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Ce que le propriétaire doit clarifier avant de commander
+
+Un store banne peut paraître simple, mais en copropriété il touche souvent la façade, l’harmonie visuelle et parfois la structure. La bonne méthode consiste à valider le cadre avant de choisir la toile ou le moteur.
+
+- **Copropriété - Lire le règlement avant le devis** : Le règlement peut imposer une couleur, un type de coffre, une position de fixation ou un vote en assemblée générale.
+- **Façade - Vérifier l’impact visible** : Une toile, un lambrequin ou un coffre visible depuis la rue peuvent être considérés comme une modification d’aspect extérieur.
+- **Dossier - Préparer des visuels simples** : Photo de façade, largeur, avancée, couleur de toile et type de coffre rendent la demande plus claire pour le syndic ou la mairie.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche indique que pergolas, clôtures, façades ou aménagements extérieurs peuvent nécessiter une déclaration selon le projet.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.

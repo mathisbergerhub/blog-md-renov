@@ -1,4 +1,4 @@
-﻿# Store banne motorisé ou solaire : quelle solution choisir ? Un guide pratique pour choisir entre branchement électrique, commande radio, capteurs et solution solaire.
+# Store banne motorisé ou solaire : quelle solution choisir ? Un guide pratique pour choisir entre branchement électrique, commande radio, capteurs et solution solaire.
 
 Source HTML : ./store-banne-motorise-ou-solaire.html
 
@@ -36,3 +36,19 @@ Un guide pratique pour choisir entre branchement électrique, commande radio, ca
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Choisir la motorisation selon l’alimentation disponible
+
+Le store motorisé filaire reste très fiable quand l’alimentation existe. Le solaire peut être intéressant quand tirer une ligne est compliqué, à condition que l’exposition et la batterie soient adaptées.
+
+- **Filaire - Le choix robuste si l’électricité est proche** : Il convient aux installations où l’on peut prévoir une arrivée propre et durable.
+- **Solaire - Pratique quand on évite les saignées** : Il faut vérifier orientation, accès au panneau, autonomie et possibilité de maintenance.
+- **Capteurs - Le vent doit être intégré au raisonnement** : Un capteur vent protège le store contre les oublis, surtout sur une terrasse exposée.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche aide à vérifier les autorisations lorsque l’installation change l’aspect extérieur.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.

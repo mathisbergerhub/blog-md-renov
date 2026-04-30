@@ -1,4 +1,4 @@
-﻿# BSO ou volet roulant : quelle protection solaire choisir ? Comparer brise-soleil orientable et volet roulant pour gérer chaleur, lumière, intimité et sécurité.
+# BSO ou volet roulant : quelle protection solaire choisir ? Comparer brise-soleil orientable et volet roulant pour gérer chaleur, lumière, intimité et sécurité.
 
 Source HTML : ./bso-ou-volet-roulant-protection-solaire.html
 
@@ -27,3 +27,19 @@ Comparer brise-soleil orientable et volet roulant pour gérer chaleur, lumière,
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Choisir selon la lumière, pas seulement selon la chaleur
+
+Un BSO et un volet roulant ne rendent pas le même service. Le premier module la lumière et protège du soleil en gardant une vue, le second occulte davantage et renforce la fermeture.
+
+- **BSO - Très utile pour les grandes façades vitrées** : Les lames orientables limitent l’éblouissement et la chaleur, surtout sur les expositions sud et ouest.
+- **Volet roulant - Plus efficace pour obscurité et fermeture** : Il convient mieux aux chambres, aux besoins d’occultation forte et aux ouvertures où la sécurité est prioritaire.
+- **Vent - Ne pas oublier l’exposition locale** : En Haute-Savoie, une façade exposée au vent demande une solution adaptée, avec automatismes et limites d’usage claires.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche aide à vérifier les autorisations lorsque l’installation change l’aspect extérieur.
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.

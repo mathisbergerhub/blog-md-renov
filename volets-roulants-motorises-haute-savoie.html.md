@@ -1,4 +1,4 @@
-﻿# Volets roulants motorisés : confort, sécurité et économies au quotidien Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.
+# Volets roulants motorisés : confort, sécurité et économies au quotidien Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.
 
 Source HTML : ./volets-roulants-motorises-haute-savoie.html
 
@@ -37,3 +37,19 @@ Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## La motorisation doit simplifier la vie, pas seulement ouvrir le volet
+
+Un volet roulant motorisé apporte du confort, de la sécurité et une meilleure gestion de la chaleur. Pour bien choisir, il faut regarder commande, alimentation, secours, centralisation et exposition.
+
+- **Commande - Filaire, radio ou centralisée selon l’usage** : Une chambre, une baie principale et une maison complète n’ont pas le même besoin de pilotage.
+- **Confort été - Fermer au bon moment change vraiment la température** : Automatismes et scénarios aident à bloquer le soleil avant que la chaleur n’entre.
+- **Sécurité - Prévoir le secours et la maintenance** : Manœuvre de secours, accès au coffre et SAV doivent être clairs dès le devis.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche aide à vérifier les autorisations lorsque l’installation change l’aspect extérieur.
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.

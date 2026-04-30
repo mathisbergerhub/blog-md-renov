@@ -1,4 +1,4 @@
-﻿# Double ou triple vitrage : dans quels cas le surcoût est vraiment utile ? Un guide concret pour choisir le bon vitrage selon l'exposition, l'altitude, le bruit et le confort attendu.
+# Double ou triple vitrage : dans quels cas le surcoût est vraiment utile ? Un guide concret pour choisir le bon vitrage selon l'exposition, l'altitude, le bruit et le confort attendu.
 
 Source HTML : ./double-vitrage-ou-triple-vitrage-haute-savoie.html
 
@@ -35,3 +35,22 @@ Un guide concret pour choisir le bon vitrage selon l'exposition, l'altitude, le 
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Le triple vitrage n’est utile que dans certains cas
+
+Le bon vitrage dépend de l’exposition, de l’altitude, du bruit, de la taille de l’ouverture et du niveau d’isolation du reste du logement. Le meilleur choix n’est pas toujours le plus épais.
+
+- **Thermique - Regarder Uw, pas seulement le nombre de vitrages** : Une fenêtre performante dépend du vitrage, mais aussi du cadre, de l’intercalaire et de la qualité de pose.
+- **Apports solaires - Trop isoler peut réduire les gains gratuits** : Sur une façade bien exposée, le facteur solaire compte pour garder de la lumière et de la chaleur en hiver.
+- **Acoustique - Triple vitrage ne veut pas dire silence** : Pour le bruit, un vitrage asymétrique et les entrées d’air acoustiques sont souvent plus importants.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.
+- [ADEME - réduire les nuisances sonores dans le logement](https://agirpourlatransition.ademe.fr/particuliers/maison/emmenagement/isolation-phonique-mur-sol-plafond-comment-reduire-nuisances-sonores) : Cette ressource rappelle qu’un traitement acoustique se raisonne avec la fenêtre, les joints, les entrées d’air et les parois autour.
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche permet de vérifier si un changement de menuiserie visible doit être déclaré en mairie.
+- [ADEME - choisir un système de ventilation](https://agirpourlatransition.ademe.fr/particuliers/maison/renovation/systeme-ventilation-choisir) : Cette ressource rappelle qu’un logement rénové doit rester correctement ventilé pour limiter humidité, condensation et inconfort.
+- [ADEME - assainir l’air intérieur](https://agirpourlatransition.ademe.fr/particuliers/maison/menage/comment-assainir-lair-partout-maison) : Cette page explique pourquoi l’humidité et l’air intérieur doivent être traités en même temps que les menuiseries.

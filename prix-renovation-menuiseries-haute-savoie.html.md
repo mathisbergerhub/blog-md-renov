@@ -1,4 +1,4 @@
-﻿# Budget menuiseries : comment comparer deux devis sans se tromper ? Fenêtres, porte, volets, portail : la méthode pour comparer les devis sur la pose, les performances, les options et les garanties.
+# Budget menuiseries : comment comparer deux devis sans se tromper ? Fenêtres, porte, volets, portail : la méthode pour comparer les devis sur la pose, les performances, les options et les garanties.
 
 Source HTML : ./prix-renovation-menuiseries-haute-savoie.html
 
@@ -36,3 +36,21 @@ Fenêtres, porte, volets, portail : la méthode pour comparer les devis sur la p
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Comparer un devis, ce n’est pas comparer une ligne de prix
+
+Deux devis peuvent afficher le même produit en apparence et pourtant ne pas couvrir la même pose, les mêmes finitions, les mêmes garanties ou les mêmes démarches. Il faut comparer le périmètre complet.
+
+- **Produit - Dimensions, vitrage et quincaillerie changent tout** : Le type d’ouverture, le vitrage, la couleur, les poignées, les seuils et les accessoires font varier le prix.
+- **Pose - La méthode doit être écrite** : Rénovation sur dormant, dépose totale, habillages, étanchéité et reprises intérieures ne coûtent pas la même chose.
+- **Aides - Ne pas déduire une aide non validée** : MaPrimeRénov’, CEE ou TVA réduite doivent être vérifiées avant de considérer le reste à charge comme définitif.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.

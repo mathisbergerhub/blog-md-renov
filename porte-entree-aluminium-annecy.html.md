@@ -1,4 +1,4 @@
-﻿# Porte d'entrée aluminium : sécurité, isolation et style à vérifier Les critères importants avant de remplacer une porte d'entrée : panneau, serrure, seuil, vitrage, isolation et pose.
+# Porte d'entrée aluminium : sécurité, isolation et style à vérifier Les critères importants avant de remplacer une porte d'entrée : panneau, serrure, seuil, vitrage, isolation et pose.
 
 Source HTML : ./porte-entree-aluminium-annecy.html
 
@@ -38,3 +38,21 @@ Les critères importants avant de remplacer une porte d'entrée : panneau, serru
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Une porte d’entrée doit être jugée sur quatre points
+
+Le style compte, mais une porte d’entrée doit surtout protéger, isoler, durer et rester confortable tous les jours. Le panneau seul ne suffit pas à comparer deux devis.
+
+- **Isolation - Lire la performance de la porte complète** : Le panneau, le dormant, le seuil et la pose participent tous au confort thermique.
+- **Sécurité - Regarder serrure, cylindre et paumelles** : Une belle porte avec une quincaillerie faible ne répond pas au même niveau de sécurité.
+- **Façade - Vérifier couleur et vitrage visible** : Une porte différente peut modifier l’aspect extérieur et demander une vérification en mairie ou copropriété.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.

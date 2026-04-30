@@ -1,4 +1,4 @@
-﻿# Prix d'un store banne : ce qui fait vraiment varier le devis Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliquent les écarts de prix.
+# Prix d'un store banne : ce qui fait vraiment varier le devis Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliquent les écarts de prix.
 
 Source HTML : ./prix-store-banne-annecy.html
 
@@ -34,3 +34,19 @@ Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliq
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Ce qui explique l’écart entre deux prix de store
+
+Le prix d’un store banne dépend de la largeur, de l’avancée, du type de coffre, de la toile, de la motorisation, des capteurs et surtout de la fixation sur la façade.
+
+- **Dimensions - Largeur et avancée structurent le prix** : Plus le store couvre large et loin, plus les bras, la toile et les efforts au vent deviennent importants.
+- **Protection - Coffre intégral ou semi-coffre selon exposition** : Un store très exposé mérite plus de protection qu’un store sous avancée ou balcon.
+- **Pose - Le support vaut autant que l’option** : Isolation extérieure, béton, brique, pierre ou balcon imposent des fixations adaptées.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche aide à vérifier les autorisations lorsque l’installation change l’aspect extérieur.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.

@@ -1,4 +1,4 @@
-﻿# Pergola bioclimatique : comment savoir si elle a du sens chez vous ? Orientation, lames, pluie légère, options et autorisations : les points à valider avant de commander une pergola.
+# Pergola bioclimatique : comment savoir si elle a du sens chez vous ? Orientation, lames, pluie légère, options et autorisations : les points à valider avant de commander une pergola.
 
 Source HTML : ./pergola-bioclimatique-haute-savoie.html
 
@@ -36,3 +36,19 @@ Orientation, lames, pluie légère, options et autorisations : les points à val
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Savoir si la pergola correspond vraiment à votre terrasse
+
+Une pergola bioclimatique devient intéressante quand elle répond à un vrai usage : protéger du soleil, prolonger les repas dehors, gérer la pluie légère et valoriser la terrasse sans transformer l’espace en véranda.
+
+- **Orientation - Les lames doivent répondre au soleil réel** : Une terrasse sud, ouest ou encaissée ne demandera pas le même réglage ni la même implantation.
+- **Eau et vent - Évacuation et exposition sont décisives** : La gestion des eaux, la résistance au vent et les fixations doivent être prévues avant de parler options.
+- **Autorisation - La surface change le cadre** : Selon dimensions, localisation et règles locales, une déclaration préalable peut être nécessaire.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche indique que pergolas, clôtures, façades ou aménagements extérieurs peuvent nécessiter une déclaration selon le projet.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.

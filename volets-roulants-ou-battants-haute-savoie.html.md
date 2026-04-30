@@ -1,4 +1,4 @@
-﻿# Volets roulants ou battants : quel choix selon la façade ? Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.
+# Volets roulants ou battants : quel choix selon la façade ? Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.
 
 Source HTML : ./volets-roulants-ou-battants-haute-savoie.html
 
@@ -34,3 +34,19 @@ Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécur
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Le bon volet respecte la façade et l’usage quotidien
+
+Les volets roulants apportent confort et automatisation. Les volets battants gardent un caractère traditionnel et peuvent mieux respecter certaines façades. Le choix doit croiser esthétique, PLU, entretien et usage.
+
+- **Façade - Le style de la maison compte** : En centre ancien, en copropriété ou dans une zone encadrée, l’aspect extérieur peut limiter le choix.
+- **Usage - Le roulant simplifie le quotidien** : Motorisation, centralisation et fermeture rapide sont utiles pour grandes ouvertures ou maisons occupées toute l’année.
+- **Entretien - Le battant demande plus de suivi** : Peinture, ferrures, arrêts et exposition météo doivent être pris en compte sur le long terme.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.

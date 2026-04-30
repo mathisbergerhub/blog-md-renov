@@ -1,4 +1,4 @@
-﻿# Baie coulissante ou galandage : quel choix pour ouvrir le séjour ? Clair de jour, seuil, isolation, passage, budget et travaux : le vrai comparatif entre coulissant et galandage.
+# Baie coulissante ou galandage : quel choix pour ouvrir le séjour ? Clair de jour, seuil, isolation, passage, budget et travaux : le vrai comparatif entre coulissant et galandage.
 
 Source HTML : ./baie-vitree-coulissante-ou-galandage.html
 
@@ -29,3 +29,19 @@ Clair de jour, seuil, isolation, passage, budget et travaux : le vrai comparatif
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Ce qui change vraiment entre coulissant et galandage
+
+Le galandage séduit parce qu’il libère complètement le passage, mais il demande un mur capable d’accueillir le refoulement des vantaux. Le coulissant classique est souvent plus simple, plus robuste et plus facile à intégrer en rénovation.
+
+- **Mur disponible - Le galandage a besoin d’un volume libre** : Radiateur, électricité, doublage, poteau ou mur porteur peuvent rendre le galandage impossible ou trop coûteux.
+- **Confort - Regarder seuil, étanchéité et vitrage** : Une grande baie doit être confortable en hiver, stable au vent, facile à manœuvrer et bien protégée contre la surchauffe.
+- **Budget - Comparer la pose autant que le produit** : La différence de prix ne vient pas seulement de la baie : préparation du mur, finitions intérieures et reprise des seuils pèsent beaucoup.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.

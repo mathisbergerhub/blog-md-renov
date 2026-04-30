@@ -1,4 +1,4 @@
-﻿# Comment savoir si vos fenêtres perdent de la chaleur ? Courants d'air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.
+# Comment savoir si vos fenêtres perdent de la chaleur ? Courants d'air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.
 
 Source HTML : ./fenetres-perdent-chaleur-haute-savoie.html
 
@@ -34,3 +34,20 @@ Courants d'air, condensation, paroi froide, bruit : les signes à observer avant
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Repérer si le problème vient vraiment des fenêtres
+
+Un inconfort près d’une fenêtre peut venir du vitrage, des joints, du dormant, de la pose, d’un coffre de volet, d’un mur froid ou d’un manque de ventilation. Il faut observer avant de remplacer.
+
+- **Signes utiles - Courants d’air, paroi froide, buée** : Chaque signe oriente vers une cause différente : défaut d’étanchéité, pont thermique, humidité ou ventilation insuffisante.
+- **Priorité - Comparer le coût au gain attendu** : Changer une fenêtre très ancienne est logique, mais si murs et combles sont faibles, le confort restera limité.
+- **Devis - Demander la solution complète** : Le devis doit préciser fenêtre, vitrage, pose, reprises périphériques, entrées d’air et traitement du coffre si nécessaire.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.
+- [ADEME - choisir un système de ventilation](https://agirpourlatransition.ademe.fr/particuliers/maison/renovation/systeme-ventilation-choisir) : Cette ressource rappelle qu’un logement rénové doit rester correctement ventilé pour limiter humidité, condensation et inconfort.
+- [ADEME - assainir l’air intérieur](https://agirpourlatransition.ademe.fr/particuliers/maison/menage/comment-assainir-lair-partout-maison) : Cette page explique pourquoi l’humidité et l’air intérieur doivent être traités en même temps que les menuiseries.

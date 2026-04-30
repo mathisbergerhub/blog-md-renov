@@ -1,4 +1,4 @@
-﻿# Porte de garage sectionnelle ou enroulable : quel modèle choisir ? Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.
+# Porte de garage sectionnelle ou enroulable : quel modèle choisir ? Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.
 
 Source HTML : ./porte-garage-sectionnelle-ou-enroulable.html
 
@@ -32,3 +32,21 @@ Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les cr
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Choisir selon le plafond, les murs et l’usage du garage
+
+La porte sectionnelle et la porte enroulable ne prennent pas la même place. Le choix dépend de la retombée de linteau, du plafond, des murs latéraux, de l’isolation et du besoin de motorisation.
+
+- **Sectionnelle - Idéale si le plafond est disponible** : Elle libère les côtés, s’isole bien et convient à beaucoup de garages résidentiels.
+- **Enroulable - Utile quand le plafond doit rester libre** : Elle demande un coffre adapté et peut être intéressante si des rangements ou équipements occupent le plafond.
+- **Confort - Penser accès piéton, lumière et sécurité** : Hublots, portillon, commande de secours et motorisation doivent être décidés au départ.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche indique que pergolas, clôtures, façades ou aménagements extérieurs peuvent nécessiter une déclaration selon le projet.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.

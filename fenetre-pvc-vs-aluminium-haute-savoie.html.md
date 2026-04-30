@@ -1,4 +1,4 @@
-﻿# Fenêtre PVC ou aluminium : quel choix pour une maison en Haute-Savoie ? Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai comparatif pour choisir sans se perdre.
+# Fenêtre PVC ou aluminium : quel choix pour une maison en Haute-Savoie ? Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai comparatif pour choisir sans se perdre.
 
 Source HTML : ./fenetre-pvc-vs-aluminium-haute-savoie.html
 
@@ -34,3 +34,23 @@ Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai co
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Comment arbitrer sans comparer seulement le prix
+
+Le PVC et l’aluminium peuvent tous les deux être de bons choix. Ce qui compte est l’ouverture concernée, le vitrage, la pose, les contraintes de façade et l’usage réel de la pièce.
+
+- **Petites ouvertures - Le PVC reste souvent rationnel** : Sur chambres, bureaux et fenêtres classiques, il offre souvent un bon équilibre entre isolation, entretien et budget.
+- **Grandes baies - L’aluminium prend l’avantage** : Sur de grandes dimensions, la rigidité, les profils fins et les possibilités de couleur deviennent décisives.
+- **Devis - Lire les performances et les finitions** : Uw, vitrage, dormant, tapées, habillage, seuil et garanties doivent être comparés ligne par ligne.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.
+- [ADEME - choisir un système de ventilation](https://agirpourlatransition.ademe.fr/particuliers/maison/renovation/systeme-ventilation-choisir) : Cette ressource rappelle qu’un logement rénové doit rester correctement ventilé pour limiter humidité, condensation et inconfort.
+- [ADEME - assainir l’air intérieur](https://agirpourlatransition.ademe.fr/particuliers/maison/menage/comment-assainir-lair-partout-maison) : Cette page explique pourquoi l’humidité et l’air intérieur doivent être traités en même temps que les menuiseries.

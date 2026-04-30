@@ -15,7 +15,6 @@ MaPrimeRénov’ peut aider à financer un projet de rénovation énergétique, 
 - Objectif 2026 : 150 000 rénovations par geste annoncées, en plus des rénovations d’ampleur.
 - Point bloquant : les travaux doivent être réalisés par une entreprise RGE.
 
-Sources : info.gouv.fr, réouverture de MaPrimeRénov’ en 2026 ; France Rénov’, MaPrimeRénov’ par geste.
 
 ## MaPrimeRénov’ : ce qu’il faut comprendre avant le devis
 
@@ -66,3 +65,18 @@ Le bon devis doit donc expliquer le produit, mais aussi la logique du choix : pe
 - info.gouv.fr : réouverture de MaPrimeRénov’ le 23 février 2026, budget 2026 et objectifs annoncés.
 - France Rénov’ : conditions MaPrimeRénov’ par geste, logement, revenus, entreprise RGE et aides cumulables.
 - France Rénov’ : rénovation d’ampleur, gain énergétique et rendez-vous obligatoire avec un conseiller.
+
+<!-- mdr-editorial-value-md -->
+## Ce qui change la décision avant de signer
+
+MaPrimeRénov’ peut aider, mais elle ne doit jamais être considérée comme acquise avant vérification. Le bon réflexe est de valider l’éligibilité, l’ordre des démarches et le type de projet avant tout engagement.
+
+- **Éligibilité - Le dossier dépend du foyer et du logement** : Revenus, résidence principale, ancienneté du logement, type de travaux et entreprise RGE changent le résultat.
+- **Démarche - La validation doit précéder la signature** : Signer trop tôt ou engager les travaux avant accord peut compromettre l’aide.
+- **Projet - Un geste isolé n’a pas le même effet qu’une rénovation globale** : Changer les fenêtres peut être pertinent, mais le gain énergétique global dépend aussi des murs, combles, ventilation et chauffage.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.

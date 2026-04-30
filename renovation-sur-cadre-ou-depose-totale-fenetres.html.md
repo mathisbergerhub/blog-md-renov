@@ -1,4 +1,4 @@
-﻿# Pose en rénovation ou dépose totale : que choisir pour remplacer ses fenêtres ? Dormant existant, perte de clair de jour, pont thermique, finitions : comment choisir la bonne méthode de pose.
+# Pose en rénovation ou dépose totale : que choisir pour remplacer ses fenêtres ? Dormant existant, perte de clair de jour, pont thermique, finitions : comment choisir la bonne méthode de pose.
 
 Source HTML : ./renovation-sur-cadre-ou-depose-totale-fenetres.html
 
@@ -29,3 +29,23 @@ Dormant existant, perte de clair de jour, pont thermique, finitions : comment ch
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Le choix dépend de l’état du dormant existant
+
+La pose en rénovation peut être efficace si l’ancien cadre est sain, bien fixé et correctement dimensionné. La dépose totale devient plus pertinente quand il faut récupérer de la lumière, traiter l’étanchéité ou repartir sur une base propre.
+
+- **Cadre existant - Sain, droit et stable : rénovation possible** : Si le dormant est abîmé, déformé ou mal isolé, le conserver peut limiter le résultat.
+- **Lumière - La rénovation peut réduire le clair de jour** : Ajouter un nouveau cadre sur l’ancien diminue parfois la surface vitrée, surtout sur de petites fenêtres.
+- **Finitions - La dépose totale demande plus de reprise** : Elle peut améliorer le résultat final, mais nécessite souvent davantage de protection, d’habillage et de finition intérieure.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.
+- [ADEME - choisir un système de ventilation](https://agirpourlatransition.ademe.fr/particuliers/maison/renovation/systeme-ventilation-choisir) : Cette ressource rappelle qu’un logement rénové doit rester correctement ventilé pour limiter humidité, condensation et inconfort.
+- [ADEME - assainir l’air intérieur](https://agirpourlatransition.ademe.fr/particuliers/maison/menage/comment-assainir-lair-partout-maison) : Cette page explique pourquoi l’humidité et l’air intérieur doivent être traités en même temps que les menuiseries.

@@ -1,4 +1,4 @@
-﻿# Portail motorisé, visiophone, digicode : que prévoir dès le départ ? Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d'un portail.
+# Portail motorisé, visiophone, digicode : que prévoir dès le départ ? Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d'un portail.
 
 Source HTML : ./portail-motorise-interphone-securite.html
 
@@ -34,3 +34,18 @@ Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Prévoir les équipements avant de couler les supports
+
+Motorisation, visiophone, digicode et éclairage doivent être anticipés. Les ajouter après coup coûte souvent plus cher et donne un résultat moins propre.
+
+- **Alimentation - Les gaines sont la base d’une installation propre** : Moteur, cellules, feu clignotant, interphone et éclairage peuvent nécessiter des passages dédiés.
+- **Usage - Penser aux visiteurs et aux livraisons** : Ouverture piétonne, clavier, visiophone ou badge changent vraiment le confort au quotidien.
+- **Sécurité - Les automatismes doivent rester maîtrisés** : Détection d’obstacle, déverrouillage manuel et réglages de course sont indispensables pour une utilisation sûre.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche indique que pergolas, clôtures, façades ou aménagements extérieurs peuvent nécessiter une déclaration selon le projet.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.

@@ -1,4 +1,4 @@
-﻿# Store banne coffre intégral : dans quels cas est-ce le bon choix ? Protection solaire, exposition, dimensions et durabilité : les critères utiles pour choisir un store banne.
+# Store banne coffre intégral : dans quels cas est-ce le bon choix ? Protection solaire, exposition, dimensions et durabilité : les critères utiles pour choisir un store banne.
 
 Source HTML : ./store-banne-coffre-integral-haute-savoie.html
 
@@ -34,3 +34,19 @@ Protection solaire, exposition, dimensions et durabilité : les critères utiles
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Le coffre intégral protège surtout quand le store est exposé
+
+Un coffre intégral abrite la toile, les bras et le moteur lorsque le store est fermé. Il devient intéressant quand la façade est exposée à la pluie, au vent, aux UV ou quand le store reste longtemps inutilisé.
+
+- **Exposition - Plus la façade est exposée, plus le coffre compte** : Une terrasse sans débord de toit justifie davantage un coffre intégral.
+- **Entretien - La toile reste mieux protégée fermée** : Le coffre limite l’encrassement et le vieillissement, mais ne remplace pas un bon usage par vent fort.
+- **Budget - Le semi-coffre peut suffire dans certains cas** : Sous balcon ou avancée de toit, une solution moins fermée peut rester cohérente.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [ADEME - garder son logement frais en période de chaleur](https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais) : Cette page confirme l’intérêt des protections solaires, volets et stores pour limiter la surchauffe avant qu’elle n’entre dans le logement.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche aide à vérifier les autorisations lorsque l’installation change l’aspect extérieur.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.

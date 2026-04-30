@@ -1,4 +1,4 @@
-﻿# PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ? Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.
+# PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ? Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.
 
 Source HTML : ./fenetre-bois-pvc-alu-mixte-comparatif.html
 
@@ -27,3 +27,21 @@ Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budge
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## La bonne matière dépend de la pièce et de la façade
+
+PVC, aluminium, bois ou mixte : aucun matériau n’est meilleur partout. Le bon arbitrage se fait selon dimensions, budget, style de maison, entretien accepté et performance attendue.
+
+- **PVC - Bon rapport isolation-prix** : Il convient souvent aux fenêtres classiques et aux budgets maîtrisés, avec peu d’entretien.
+- **Aluminium - Pertinent pour les grands formats** : Ses profils plus fins et sa rigidité sont utiles sur les baies, coulissants et façades contemporaines.
+- **Bois ou mixte - À choisir pour rendu et exigence** : Le bois apporte une chaleur visuelle, le mixte limite l’entretien extérieur tout en gardant un intérieur plus noble.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.

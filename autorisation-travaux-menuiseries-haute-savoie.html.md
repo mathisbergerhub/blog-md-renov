@@ -1,4 +1,4 @@
-﻿# Fenêtres, volets, porte, pergola : quelles autorisations avant travaux ? Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.
+# Fenêtres, volets, porte, pergola : quelles autorisations avant travaux ? Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.
 
 Source HTML : ./autorisation-travaux-menuiseries-haute-savoie.html
 
@@ -29,7 +29,6 @@ Déclaration préalable, copropriété, PLU : les règles à vérifier avant de 
 - Pergola, carport et abri : la surface, le PLU et la localisation peuvent changer l'autorisation nécessaire.
 - Copropriété : un élément visible depuis l'extérieur peut demander un accord du syndic ou de l'assemblée générale.
 
-Sources : Service Public, fenêtres, volets et portes ; pergola, carport et abri ; travaux en copropriété. En pratique, MD Rénov' vous aide à préparer les informations techniques du projet, puis la mairie ou le syndic confirme le cadre administratif applicable. Vous voulez éviter un blocage administratif ? On prépare les informations utiles avant devis et avant dépôt. Préparer mon projet
 
 ## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
 - Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
@@ -43,3 +42,19 @@ Sources : Service Public, fenêtres, volets et portes ; pergola, carport et abri
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Le bon ordre pour éviter un blocage administratif
+
+Fenêtre, volet, porte, pergola ou portail : le point commun est toujours l’aspect extérieur. Avant de commander, il faut savoir si le projet reste identique ou s’il modifie la façade, la couleur, les dimensions ou l’usage.
+
+- **Mairie - Vérifier le PLU avant la couleur** : Un gris anthracite, un changement de matériau ou une nouvelle forme peuvent être refusés dans certaines zones.
+- **Copropriété - Faire valider ce qui se voit** : Même sur une partie privative, une modification visible peut nécessiter l’accord de la copropriété.
+- **Commande - Ne pas lancer la fabrication trop tôt** : Les menuiseries étant fabriquées sur mesure, une erreur d’autorisation peut coûter cher et retarder tout le chantier.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.

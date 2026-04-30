@@ -1,4 +1,4 @@
-﻿# Portail battant ou coulissant : quel choix selon votre terrain ? Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.
+# Portail battant ou coulissant : quel choix selon votre terrain ? Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.
 
 Source HTML : ./portail-battant-ou-coulissant-haute-savoie.html
 
@@ -34,3 +34,18 @@ Pente, recul, largeur de passage, motorisation et PLU : les critères pour chois
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## Le terrain décide souvent avant le style
+
+Le portail battant ou coulissant se choisit d’abord avec la pente, le recul disponible, la largeur d’entrée, le vent et les usages quotidiens. Le rendu esthétique vient ensuite.
+
+- **Battant - Simple si le recul est disponible** : Il convient aux accès classiques, mais demande de l’espace d’ouverture et une pente compatible.
+- **Coulissant - Pratique quand l’entrée manque de profondeur** : Il demande un refoulement latéral suffisant et une maçonnerie adaptée.
+- **Sécurité - Motorisation et cellules se prévoient tôt** : Gaines, alimentation, photocellules et visiophone doivent être pensés avant les travaux de seuil ou de piliers.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche indique que pergolas, clôtures, façades ou aménagements extérieurs peuvent nécessiter une déclaration selon le projet.
+- [Service-Public.fr - déclaration préalable de travaux](https://www.service-public.fr/particuliers/vosdroits/F17578) : Cette fiche explique le rôle de la déclaration préalable et les démarches à effectuer avant les travaux.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche confirme qu’un accord de copropriété peut être nécessaire quand l’aspect extérieur ou les parties communes sont concernés.

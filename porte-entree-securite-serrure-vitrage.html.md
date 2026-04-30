@@ -1,4 +1,4 @@
-﻿# Porte d'entrée sécurisée : serrure, vitrage, panneau, que vérifier ? Les points concrets à comparer pour choisir une porte d'entrée rassurante sans sacrifier le style.
+# Porte d'entrée sécurisée : serrure, vitrage, panneau, que vérifier ? Les points concrets à comparer pour choisir une porte d'entrée rassurante sans sacrifier le style.
 
 Source HTML : ./porte-entree-securite-serrure-vitrage.html
 
@@ -31,3 +31,19 @@ Les points concrets à comparer pour choisir une porte d'entrée rassurante sans
 
 
 
+
+<!-- mdr-editorial-value-md -->
+## La sécurité vient de l’ensemble porte + pose
+
+Une porte d’entrée sécurisée ne se résume pas à une serrure multipoints. Le dormant, le cylindre, le vitrage, les paumelles, le seuil et la qualité de pose comptent autant.
+
+- **Serrure - Multiplier les points ne suffit pas** : Il faut aussi regarder le cylindre, la protection anti-perçage et la qualité de la quincaillerie.
+- **Vitrage - Un vitrage décoratif doit rester cohérent** : Si la porte est vitrée, le vitrage feuilleté et la conception du panneau doivent être vérifiés.
+- **Pose - Le dormant doit tenir aussi bien que le vantail** : Une porte solide perd son intérêt si le bâti, les fixations ou les réglages sont négligés.
+
+## Sources fiables utilisées pour vérifier ce guide
+
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
+- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
+- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [ADEME - réduire les nuisances sonores dans le logement](https://agirpourlatransition.ademe.fr/particuliers/maison/emmenagement/isolation-phonique-mur-sol-plafond-comment-reduire-nuisances-sonores) : Cette ressource rappelle qu’un traitement acoustique se raisonne avec la fenêtre, les joints, les entrées d’air et les parois autour.
