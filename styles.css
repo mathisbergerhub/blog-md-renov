@@ -1170,8 +1170,28 @@ h3 { margin: 0; color: var(--ink); letter-spacing: -0.04em;
 }
 
 @media (max-width: 900px) {
-  .mdr-value-grid {
+.mdr-value-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+.mdr-article-page .mdr-wrap,
+.mdr-article-page .mdr-stage {
+  overflow: visible;
+}
+
+@media (min-width: 1051px) {
+  .mdr-article-page .mdr-article-body {
+    align-items: start;
+  }
+
+  .mdr-article-page .mdr-sidebar {
+    position: sticky;
+    top: 1.25rem;
+    align-self: start;
+    height: max-content;
+    max-height: none;
+    overflow: visible;
   }
 }
 
