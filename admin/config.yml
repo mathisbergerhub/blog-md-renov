@@ -1,0 +1,135 @@
+# Back-office Decap CMS pour le blog MD Rénov'.
+# Dépôt GitHub utilisé par Decap CMS pour lire et écrire les articles.
+# Sur Vercel, il faut aussi brancher un fournisseur OAuth GitHub compatible Decap.
+
+backend:
+  name: github
+  repo: mathisbergerhub/blog-md-renov
+  branch: main
+  use_graphql: true
+
+site_url: https://blog.mdrenov-menuiserie.com
+display_url: https://blog.mdrenov-menuiserie.com
+logo:
+  src: /logo-mdr-site.svg
+  show_in_header: true
+locale: fr
+publish_mode: editorial_workflow
+show_preview_links: true
+search: true
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles du blog"
+    label_singular: "Article"
+    description: "Articles Markdown éditables. Les fichiers HTML du site statique doivent être régénérés après modification."
+    folder: "."
+    extension: "html.md"
+    format: "frontmatter"
+    filter:
+      field: "content_type"
+      value: "article"
+    create: true
+    delete: false
+    identifier_field: "title"
+    summary: "{{category_label}} · {{title}}"
+    preview_path: "{{source_html}}"
+    sortable_fields: ["date", "title", "category_label", "reading_time"]
+    view_filters:
+      - label: "Aides"
+        field: "category"
+        pattern: "aides"
+      - label: "Fenêtres"
+        field: "category"
+        pattern: "fenetres"
+      - label: "Isolation"
+        field: "category"
+        pattern: "isolation"
+      - label: "Volets et stores"
+        field: "category"
+        pattern: "volets-stores"
+      - label: "Portes et portails"
+        field: "category"
+        pattern: "portes-portails"
+      - label: "Extérieur"
+        field: "category"
+        pattern: "exterieur"
+    fields:
+      - label: "Type de contenu"
+        name: "content_type"
+        widget: "hidden"
+        default: "article"
+      - label: "Publié"
+        name: "published"
+        widget: "boolean"
+        default: true
+      - label: "Titre de l'article"
+        name: "title"
+        widget: "string"
+        hint: "Titre visible dans l'article. Garder clair, concret et orienté recherche client."
+      - label: "Titre SEO"
+        name: "seo_title"
+        widget: "string"
+        required: false
+        hint: "Idéalement 45 à 65 caractères."
+      - label: "Description SEO"
+        name: "description"
+        widget: "text"
+        required: true
+        hint: "Idéalement 120 à 160 caractères. Elle doit promettre une réponse concrète."
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Aides & Subventions", value: "aides" }
+          - { label: "Fenêtres & Vitrages", value: "fenetres" }
+          - { label: "Isolation thermique", value: "isolation" }
+          - { label: "Volets & Stores", value: "volets-stores" }
+          - { label: "Portes & Portails", value: "portes-portails" }
+          - { label: "Aménagements extérieurs", value: "exterieur" }
+      - label: "Libellé de catégorie"
+        name: "category_label"
+        widget: "string"
+        required: true
+      - label: "Date de publication"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+      - label: "Temps de lecture"
+        name: "reading_time"
+        widget: "string"
+        default: "5 min"
+      - label: "Image principale"
+        name: "featured_image"
+        widget: "image"
+        required: false
+        hint: "Format conseillé : 16:10, largeur 1600 px, poids idéal sous 300 Ko."
+      - label: "Texte alternatif de l'image"
+        name: "image_alt"
+        widget: "string"
+        required: false
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+      - label: "Page HTML liée"
+        name: "source_html"
+        widget: "string"
+        required: false
+        hint: "Exemple : ./maprimerenov-2026-haute-savoie.html"
+      - label: "Contenu"
+        name: "body"
+        widget: "markdown"
