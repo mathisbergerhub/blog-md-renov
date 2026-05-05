@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Condensation après changement de fenêtres : normal ou inquiétant ? Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilation et comment réagir sans mauvais diagnostic.'
+seo_title: 'Condensation fenêtres neuves : que faire ? | MD Rénov'''
+description: 'Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilation et comment réagir sans mauvais diagnostic.'
+category: 'isolation'
+category_label: 'Isolation'
+date: '2026-04-29'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Condensation et ventilation'
+source_html: './condensation-fenetres-neuves-ventilation.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Isolation'
+  - 'Savoie'
+---
+
 # Condensation après changement de fenêtres : normal ou inquiétant ? Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilation et comment réagir sans mauvais diagnostic.
 
-Source HTML : ./condensation-fenetres-neuves-ventilation.html
 
 ## Ce que ce guide vous aide à décider
 

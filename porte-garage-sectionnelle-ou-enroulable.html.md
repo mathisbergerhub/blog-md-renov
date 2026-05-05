@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Porte de garage sectionnelle ou enroulable : quel modèle choisir ? Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.'
+seo_title: 'Porte de garage sectionnelle ou enroulable | MD Rénov'''
+description: 'Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.'
+category: 'portes-portails'
+category_label: 'Portes'
+date: '2026-03-15'
+reading_time: '4 min'
+featured_image: ''
+image_alt: 'Porte de garage'
+source_html: './porte-garage-sectionnelle-ou-enroulable.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Portes'
+  - 'Savoie'
+---
+
 # Porte de garage sectionnelle ou enroulable : quel modèle choisir ? Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.
 
-Source HTML : ./porte-garage-sectionnelle-ou-enroulable.html
 
 ## Ce que ce guide vous aide à décider
 

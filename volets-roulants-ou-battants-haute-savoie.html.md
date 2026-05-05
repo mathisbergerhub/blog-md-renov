@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Volets roulants ou battants : quel choix selon la façade ? Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.'
+seo_title: 'Volets roulants ou battants | MD Rénov'''
+description: 'Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.'
+category: 'volets-stores'
+category_label: 'Volets'
+date: '2026-04-08'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Volets roulants et battants'
+source_html: './volets-roulants-ou-battants-haute-savoie.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Savoie'
+  - 'Volets'
+---
+
 # Volets roulants ou battants : quel choix selon la façade ? Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.
 
-Source HTML : ./volets-roulants-ou-battants-haute-savoie.html
 
 ## Ce que ce guide vous aide à décider
 

@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Porte d''entrée sécurisée : serrure, vitrage, panneau, que vérifier ? Les points concrets à comparer pour choisir une porte d''entrée rassurante sans sacrifier le style.'
+seo_title: 'Porte d’entrée sécurisée : que vérifier ? | MD Rénov'''
+description: 'Les points concrets à comparer pour choisir une porte d''entrée rassurante sans sacrifier le style.'
+category: 'portes-portails'
+category_label: 'Portes'
+date: '2026-04-29'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Serrure et porte d''entrée'
+source_html: './porte-entree-securite-serrure-vitrage.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Portes'
+  - 'Savoie'
+---
+
 # Porte d'entrée sécurisée : serrure, vitrage, panneau, que vérifier ? Les points concrets à comparer pour choisir une porte d'entrée rassurante sans sacrifier le style.
 
-Source HTML : ./porte-entree-securite-serrure-vitrage.html
 
 ## Ce que ce guide vous aide à décider
 

@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Bruit de route : comment améliorer l''isolation phonique des fenêtres ? Vitrage acoustique, entrées d''air, pose et coffres de volets : les vrais leviers pour réduire les nuisances sonores.'
+seo_title: 'Isolation phonique fenêtres : route et bruit | MD Rénov'''
+description: 'Vitrage acoustique, entrées d''air, pose et coffres de volets : les vrais leviers pour réduire les nuisances sonores.'
+category: 'isolation'
+category_label: 'Isolation'
+date: '2026-04-29'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Fenêtre et bruit routier'
+source_html: './isolation-phonique-fenetres-route.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Isolation'
+  - 'Savoie'
+---
+
 # Bruit de route : comment améliorer l'isolation phonique des fenêtres ? Vitrage acoustique, entrées d'air, pose et coffres de volets : les vrais leviers pour réduire les nuisances sonores.
 
-Source HTML : ./isolation-phonique-fenetres-route.html
 
 ## Ce que ce guide vous aide à décider
 

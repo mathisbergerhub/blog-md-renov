@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Volets roulants motorisés : confort, sécurité et économies au quotidien Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.'
+seo_title: 'Volets roulants motorisés | MD Rénov'''
+description: 'Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.'
+category: 'volets-stores'
+category_label: 'Volets'
+date: '2026-04-10'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Volet roulant et commande'
+source_html: './volets-roulants-motorises-haute-savoie.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Savoie'
+  - 'Volets'
+---
+
 # Volets roulants motorisés : confort, sécurité et économies au quotidien Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.
 
-Source HTML : ./volets-roulants-motorises-haute-savoie.html
 
 ## Ce que ce guide vous aide à décider
 

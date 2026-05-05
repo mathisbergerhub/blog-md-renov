@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Délais de pose : combien de temps prévoir pour fenêtres, volets ou portail ? Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d''un chantier de menuiseries.'
+seo_title: 'Délais de pose menuiseries | MD Rénov'''
+description: 'Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d''un chantier de menuiseries.'
+category: 'aides'
+category_label: 'Budget'
+date: '2026-04-29'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Planning chantier'
+source_html: './delais-pose-menuiseries-renovation.html'
+tags:
+  - 'Budget'
+  - 'Haute-Savoie'
+  - 'Savoie'
+---
+
 # Délais de pose : combien de temps prévoir pour fenêtres, volets ou portail ? Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d'un chantier de menuiseries.
 
-Source HTML : ./delais-pose-menuiseries-renovation.html
 
 ## Ce que ce guide vous aide à décider
 

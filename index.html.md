@@ -1,4 +1,23 @@
-﻿# Le blog MD Rénov'
+---
+content_type: 'page'
+published: true
+title: 'Le blog MD Rénov'''
+seo_title: 'Le blog MD Rénov'' | Conseils rénovation en Haute-Savoie'
+description: 'Guides concrets sur les fenêtres, volets, stores, pergolas, portes, portails, aides et démarches en Haute-Savoie.'
+category: 'exterieur'
+category_label: 'Conseils rénovation'
+date: '2026-04-29'
+reading_time: '5 min'
+featured_image: ''
+image_alt: ''
+source_html: './index.html'
+tags:
+  - 'Conseils rénovation'
+  - 'Haute-Savoie'
+  - 'Savoie'
+---
+
+# Le blog MD Rénov'
 
 Guides concrets sur les fenêtres, volets, stores, pergolas, portes, portails, aides et démarches en Haute-Savoie.
 

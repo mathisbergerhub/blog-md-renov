@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Comment savoir si vos fenêtres perdent de la chaleur ? Courants d''air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.'
+seo_title: 'Fenêtres qui perdent la chaleur | MD Rénov'''
+description: 'Courants d''air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.'
+category: 'isolation'
+category_label: 'Isolation'
+date: '2026-04-15'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Fenêtre froide et diagnostic'
+source_html: './fenetres-perdent-chaleur-haute-savoie.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Isolation'
+  - 'Savoie'
+---
+
 # Comment savoir si vos fenêtres perdent de la chaleur ? Courants d'air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.
 
-Source HTML : ./fenetres-perdent-chaleur-haute-savoie.html
 
 ## Ce que ce guide vous aide à décider
 

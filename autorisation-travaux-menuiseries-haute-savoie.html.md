@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Fenêtres, volets, porte, pergola : quelles autorisations avant travaux ? Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.'
+seo_title: 'Autorisations travaux menuiseries | MD Rénov'''
+description: 'Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.'
+category: 'exterieur'
+category_label: 'Démarches'
+date: '2026-03-10'
+reading_time: '4 min'
+featured_image: ''
+image_alt: 'Dossier mairie et façade'
+source_html: './autorisation-travaux-menuiseries-haute-savoie.html'
+tags:
+  - 'Démarches'
+  - 'Haute-Savoie'
+  - 'Savoie'
+---
+
 # Fenêtres, volets, porte, pergola : quelles autorisations avant travaux ? Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.
 
-Source HTML : ./autorisation-travaux-menuiseries-haute-savoie.html
 
 ## Ce que ce guide vous aide à décider
 

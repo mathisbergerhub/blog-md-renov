@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Volet roulant solaire : bonne idée ou fausse économie ? Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.'
+seo_title: 'Volet roulant solaire : bonne idée ? | MD Rénov'''
+description: 'Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.'
+category: 'volets-stores'
+category_label: 'Volets'
+date: '2026-04-29'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Volet roulant solaire'
+source_html: './volet-roulant-solaire-haute-savoie.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Savoie'
+  - 'Volets'
+---
+
 # Volet roulant solaire : bonne idée ou fausse économie ? Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.
 
-Source HTML : ./volet-roulant-solaire-haute-savoie.html
 
 ## Ce que ce guide vous aide à décider
 

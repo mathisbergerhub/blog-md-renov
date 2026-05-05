@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Fenêtre PVC ou aluminium : quel choix pour une maison en Haute-Savoie ? Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai comparatif pour choisir sans se perdre.'
+seo_title: 'Fenêtre PVC ou aluminium en Haute-Savoie | MD Rénov'''
+description: 'Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai comparatif pour choisir sans se perdre.'
+category: 'fenetres'
+category_label: 'Fenêtres'
+date: '2026-03-20'
+reading_time: '4 min'
+featured_image: ''
+image_alt: 'Menuiserie PVC et aluminium'
+source_html: './fenetre-pvc-vs-aluminium-haute-savoie.html'
+tags:
+  - 'Fenêtres'
+  - 'Haute-Savoie'
+  - 'Savoie'
+---
+
 # Fenêtre PVC ou aluminium : quel choix pour une maison en Haute-Savoie ? Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai comparatif pour choisir sans se perdre.
 
-Source HTML : ./fenetre-pvc-vs-aluminium-haute-savoie.html
 
 ## Ce que ce guide vous aide à décider
 

@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Pergola bioclimatique : comment savoir si elle a du sens chez vous ? Orientation, lames, pluie légère, options et autorisations : les points à valider avant de commander une pergola.'
+seo_title: 'Pergola bioclimatique Haute-Savoie | MD Rénov'''
+description: 'Orientation, lames, pluie légère, options et autorisations : les points à valider avant de commander une pergola.'
+category: 'exterieur'
+category_label: 'Pergolas'
+date: '2026-03-24'
+reading_time: '4 min'
+featured_image: ''
+image_alt: 'Pergola et terrasse'
+source_html: './pergola-bioclimatique-haute-savoie.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Pergolas'
+  - 'Savoie'
+---
+
 # Pergola bioclimatique : comment savoir si elle a du sens chez vous ? Orientation, lames, pluie légère, options et autorisations : les points à valider avant de commander une pergola.
 
-Source HTML : ./pergola-bioclimatique-haute-savoie.html
 
 ## Ce que ce guide vous aide à décider
 

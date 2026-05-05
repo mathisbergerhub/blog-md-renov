@@ -1,8 +1,26 @@
+---
+content_type: 'article'
+published: true
+title: 'Prix rénovation menuiseries : combien prévoir et quelles aides demander ?'
+seo_title: 'Prix rénovation menuiseries : aides 2026 et reste à charge | MD Rénov'''
+description: 'Fenêtres, porte d’entrée, volets, portail : les fourchettes à anticiper, les aides possibles en 2026 et la méthode pour comparer deux devis sans se tromper.'
+category: 'aides'
+category_label: 'Budget'
+date: '2026-03-05'
+reading_time: '7 min'
+featured_image: ''
+image_alt: 'Comparaison de devis'
+source_html: './prix-renovation-menuiseries-haute-savoie.html'
+tags:
+  - 'Budget'
+  - 'Haute-Savoie'
+  - 'Savoie'
+---
+
 # Prix rénovation menuiseries : combien prévoir et quelles aides demander ?
 
 Fenêtres, porte d’entrée, volets, portail : les fourchettes à anticiper, les aides possibles en 2026 et la méthode pour comparer deux devis sans se tromper.
 
-Source HTML : ./prix-renovation-menuiseries-haute-savoie.html
 
 ## Réponse directe
 

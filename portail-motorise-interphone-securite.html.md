@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Portail motorisé, visiophone, digicode : que prévoir dès le départ ? Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d''un portail.'
+seo_title: 'Portail motorisé : interphone et sécurité | MD Rénov'''
+description: 'Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d''un portail.'
+category: 'portes-portails'
+category_label: 'Portails'
+date: '2026-04-29'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Portail motorisé et interphone'
+source_html: './portail-motorise-interphone-securite.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Portails'
+  - 'Savoie'
+---
+
 # Portail motorisé, visiophone, digicode : que prévoir dès le départ ? Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d'un portail.
 
-Source HTML : ./portail-motorise-interphone-securite.html
 
 ## Ce que ce guide vous aide à décider
 

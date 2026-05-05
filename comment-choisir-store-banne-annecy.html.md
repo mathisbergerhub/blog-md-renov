@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Comment choisir un store banne à Annecy sans se tromper ? Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.'
+seo_title: 'Choisir un store banne à Annecy | MD Rénov'''
+description: 'Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.'
+category: 'volets-stores'
+category_label: 'Stores'
+date: '2026-04-01'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Terrasse ombragée'
+source_html: './comment-choisir-store-banne-annecy.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Savoie'
+  - 'Stores'
+---
+
 # Comment choisir un store banne à Annecy sans se tromper ? Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.
 
-Source HTML : ./comment-choisir-store-banne-annecy.html
 
 ## Ce que ce guide vous aide à décider
 

@@ -1,6 +1,24 @@
+---
+content_type: 'article'
+published: true
+title: 'Prix d''un store banne : ce qui fait vraiment varier le devis Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliquent les écarts de prix.'
+seo_title: 'Prix store banne à Annecy | MD Rénov'''
+description: 'Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliquent les écarts de prix.'
+category: 'volets-stores'
+category_label: 'Stores'
+date: '2026-03-30'
+reading_time: '3 min'
+featured_image: ''
+image_alt: 'Devis store banne'
+source_html: './prix-store-banne-annecy.html'
+tags:
+  - 'Haute-Savoie'
+  - 'Savoie'
+  - 'Stores'
+---
+
 # Prix d'un store banne : ce qui fait vraiment varier le devis Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliquent les écarts de prix.
 
-Source HTML : ./prix-store-banne-annecy.html
 
 ## Ce que ce guide vous aide à décider
 
