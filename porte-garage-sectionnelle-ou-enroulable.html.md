@@ -20,19 +20,18 @@ Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les cr
 
 ## Les détails qui changent le confort quotidien Avant de choisir, regardez comment vous utilisez le garage : voiture tous les jours, atelier, stockage, passage piéton, vélo ou accès à la maison. Une porte très isolante peut être prioritaire si le garage est accolé à une pièce chauffée, tandis que le gain de place peut primer dans un garage encombré. La motorisation, le déverrouillage de secours et la sécurité anti-obstacle doivent aussi être vérifiés, surtout si la porte devient l'accès principal de la maison.
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Sectionnelle ou enroulable : comment décider ?
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Quelle place au plafond ?** : La sectionnelle remonte sous plafond ; elle demande de vérifier rails, luminaires, poutres et rangements.
+- **Quelle hauteur disponible ?** : L’enroulable libère le plafond mais nécessite un coffre adapté au-dessus de l’ouverture.
+- **Le garage est-il chauffé ou attenant ?** : L’isolation de la porte devient importante si le garage communique avec la maison.
+- **La motorisation est-elle indispensable ?** : Sur une porte lourde ou utilisée tous les jours, la motorisation améliore nettement le confort.
 
+## Ce qui doit être vérifié avant commande
 
+Le devis doit préciser les dimensions, le type de refoulement, l’isolation, la motorisation, les sécurités, les commandes, la couleur et les adaptations nécessaires autour de l’ouverture.
 
-
-
+À retenir : le choix dépend surtout de l’espace disponible et de l’usage du garage. Le modèle le plus pratique n’est pas toujours le plus évident sur catalogue.
 <!-- mdr-editorial-value-md -->
 ## Choisir selon le plafond, les murs et l’usage du garage
 

@@ -30,19 +30,18 @@ Déclaration préalable, copropriété, PLU : les règles à vérifier avant de 
 - Copropriété : un élément visible depuis l'extérieur peut demander un accord du syndic ou de l'assemblée générale.
 
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Les cas où une autorisation devient importante
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Vous changez la couleur ou le matériau** : Passer du blanc au gris anthracite, du bois à l’aluminium ou modifier le dessin visible peut changer l’aspect extérieur.
+- **Vous modifiez une ouverture** : Agrandir, réduire, créer ou transformer une ouverture demande souvent une vérification en mairie.
+- **Vous êtes en copropriété** : Même une fenêtre privative peut nécessiter un accord si elle modifie l’harmonie de façade.
+- **Votre maison est en zone réglementée** : PLU, secteur protégé ou proximité d’un bâtiment remarquable peuvent imposer des contraintes de couleur, forme ou matériau.
 
+## Ce qui doit être validé avant fabrication
 
+Avant de lancer une fabrication sur mesure, il faut valider la couleur, le matériau, le dessin de façade, le type d’ouverture, les dimensions et les éventuelles obligations de déclaration préalable.
 
-
-
+À retenir : l’autorisation se vérifie avant la commande, pas après. Une menuiserie sur mesure refusée administrativement devient vite un vrai coût perdu.
 <!-- mdr-editorial-value-md -->
 ## Le bon ordre pour éviter un blocage administratif
 

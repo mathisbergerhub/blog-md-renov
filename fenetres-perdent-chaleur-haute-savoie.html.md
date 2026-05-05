@@ -22,19 +22,18 @@ Courants d'air, condensation, paroi froide, bruit : les signes à observer avant
 
 ## Réparer, régler ou remplacer ? Tout ne mérite pas un remplacement complet. Un réglage, un joint ou une reprise de quincaillerie peuvent suffire si la menuiserie est récente. En revanche, si les profils sont anciens, le vitrage peu performant et la pose dégradée, remplacer devient souvent plus rationnel. | | Symptôme | Action à envisager | Poignée dure | Réglage et contrôle quincaillerie | Vitrage embué à l'intérieur | Remplacement du vitrage ou de la menuiserie | Froid sur tout le mur | Vérifier aussi murs, ventilation et isolation globale Votre maison reste froide malgré le chauffage ? On distingue le simple réglage du vrai besoin de remplacement. Demander un diagnostic
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Les signes qui indiquent une vraie perte de chaleur
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Paroi froide près de la fenêtre** : Si l’on ressent le froid sans courant d’air net, le vitrage ou le dormant peuvent être insuffisants.
+- **Courant d’air localisé** : Le problème peut venir des joints, de la pose, des habillages ou d’un ancien dormant déformé.
+- **Condensation régulière** : Elle peut révéler un défaut de ventilation, un pont thermique ou un niveau d’humidité trop élevé.
+- **Bruit extérieur très présent** : Une fenêtre peut être correcte thermiquement mais trop faible acoustiquement selon l’environnement.
 
+## Ce qui doit être diagnostiqué avant de remplacer
 
+Avant de conclure qu’il faut tout changer, il faut distinguer vitrage insuffisant, défaut de pose, ventilation, pont thermique et usure des joints. Le devis doit répondre à la cause, pas seulement proposer un produit neuf.
 
-
-
+À retenir : un remplacement efficace part d’un diagnostic. Sinon, on risque de changer la fenêtre sans corriger le vrai problème de confort.
 <!-- mdr-editorial-value-md -->
 ## Repérer si le problème vient vraiment des fenêtres
 

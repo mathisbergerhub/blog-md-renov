@@ -25,19 +25,18 @@ Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.
 
 ## Centralisation et scénarios : utile ou gadget ? La centralisation devient utile dès que plusieurs volets sont concernés. Elle permet de fermer toute la maison le soir, de gérer la chaleur en été et de simuler une présence. Sur une seule ouverture, une commande simple peut suffire. Vous envisagez de motoriser vos volets ? On regarde l'accès, la façade et vos habitudes avant de choisir la solution. Demander mon devis
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Les vrais bénéfices d’un volet roulant motorisé
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Confort quotidien** : La motorisation devient très utile sur grandes baies, chambres, personnes âgées ou ouvertures difficiles d’accès.
+- **Confort d’été** : Un volet bien piloté limite la surchauffe avant que le soleil n’entre dans la pièce.
+- **Sécurité** : Le verrouillage, la résistance et la programmation de présence peuvent renforcer le sentiment de sécurité.
+- **Radio, filaire ou solaire** : Le choix dépend de l’électricité disponible, de l’usage et de la facilité de maintenance.
 
+## Ce qui doit être précisé sur le devis
 
+Le devis doit indiquer le type de volet, le tablier, le coffre, les coulisses, la motorisation, la commande, les sécurités, l’alimentation et les finitions.
 
-
-
+À retenir : un volet motorisé utile est un volet adapté à la pièce, à l’exposition et au mode de vie, pas seulement un moteur ajouté au devis.
 <!-- mdr-editorial-value-md -->
 ## La motorisation doit simplifier la vie, pas seulement ouvrir le volet
 

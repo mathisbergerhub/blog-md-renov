@@ -24,19 +24,18 @@ Un guide pratique pour choisir entre branchement électrique, commande radio, ca
 
 ## Ne pas oublier les automatismes La motorisation ne se limite pas à ouvrir et fermer le store. Un capteur vent peut replier automatiquement la toile en cas de rafales, et une commande bien placée évite de dépendre d'une seule télécommande. Ces options doivent être pensées dès le devis. La solution solaire est intéressante quand elle évite les câbles visibles, mais elle doit rester accessible pour l'entretien futur et adaptée à l'exposition de la façade.
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Filaire, radio ou solaire : comment choisir la motorisation ?
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **L’électricité est-elle déjà disponible ?** : Si une alimentation propre existe, le filaire ou la radio restent des choix robustes.
+- **Faut-il éviter des travaux électriques ?** : Le solaire peut éviter une saignée ou une arrivée électrique, à condition que l’exposition soit suffisante.
+- **La façade est-elle exposée au vent ?** : Un capteur vent est souvent plus important que le type exact de commande.
+- **Qui utilisera le store ?** : Télécommande, point mural ou automatisme doivent rester simples pour l’usage quotidien.
 
+## Ce qui doit être détaillé côté motorisation
 
+Le devis doit préciser le type de moteur, la commande, les capteurs, l’alimentation, l’emplacement du panneau solaire si besoin, la batterie et les conditions de maintenance.
 
-
-
+À retenir : le solaire est pratique quand l’électricité est compliquée, mais il doit être validé selon orientation, accès et usage.
 <!-- mdr-editorial-value-md -->
 ## Choisir la motorisation selon l’alimentation disponible
 

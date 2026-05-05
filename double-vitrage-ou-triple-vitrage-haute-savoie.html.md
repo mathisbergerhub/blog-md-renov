@@ -23,19 +23,18 @@ Un guide concret pour choisir le bon vitrage selon l'exposition, l'altitude, le 
 
 ## Quand le double vitrage reste le bon arbitrage Sur une façade sud ou ouest, le gain solaire peut compter. Sur une baie vitrée, le poids du vitrage et la facilité de manœuvre sont aussi à regarder. Dans beaucoup de rénovations, le vrai saut de confort vient surtout du passage d'anciennes menuiseries fatiguées à des fenêtres récentes, étanches et bien posées. | | Situation | Orientation conseillée | Maison ancienne avec fenêtres très usées | Priorité à une pose soignée et à un bon double vitrage | Pièce nord très froide | Triple vitrage à étudier | Grande baie de séjour | Comparer poids, apport lumineux et confort d'usage Vous hésitez sur le vitrage ? On regarde l'exposition et l'usage pièce par pièce avant de figer le devis. Faire vérifier mon projet
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Double ou triple vitrage : les bonnes questions
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **La pièce est-elle froide en hiver ?** : Une façade nord, une zone d’altitude ou une pièce peu chauffée peuvent justifier une performance thermique renforcée.
+- **Le bruit est-il le problème principal ?** : Contre la route, le vitrage acoustique peut être plus pertinent qu’un triple vitrage classique.
+- **La pièce manque-t-elle de lumière ?** : Un vitrage plus isolant peut aussi réduire les apports solaires et la transmission lumineuse : il faut arbitrer.
+- **La pose suivra-t-elle le niveau du vitrage ?** : Un très bon vitrage perd son intérêt si le dormant, l’étanchéité ou la ventilation ne suivent pas.
 
+## Ce qui doit apparaître sur le devis vitrage
 
+Demandez les valeurs Uw, Ug, Sw et TL quand elles sont disponibles, ainsi que le type d’intercalaire, l’épaisseur du vitrage, le traitement acoustique éventuel et la méthode de pose.
 
-
-
+À retenir : le triple vitrage n’est pas automatiquement supérieur. Le bon choix dépend de l’exposition, du bruit, de la lumière et de la qualité de pose.
 <!-- mdr-editorial-value-md -->
 ## Le triple vitrage n’est utile que dans certains cas
 

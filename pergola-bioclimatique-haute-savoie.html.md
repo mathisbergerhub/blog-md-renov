@@ -24,19 +24,18 @@ Orientation, lames, pluie légère, options et autorisations : les points à val
 
 ## Une pergola n'est pas une véranda La pergola bioclimatique protège du soleil et améliore l'usage de la terrasse, mais elle ne remplace pas une pièce isolée. Il faut donc cadrer l'attente : ombre, ventilation, pluie légère, confort extérieur, mais pas chauffage ni isolation comme une extension fermée. Vous envisagez une pergola ? On vérifie l'usage, la surface et les contraintes de façade avant le devis. Étudier ma terrasse
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Les questions à trancher avant une pergola bioclimatique
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Quelle orientation de terrasse ?** : Sud, ouest, vent dominant et soleil rasant changent le choix des lames, des stores latéraux et de l’implantation.
+- **Adossée ou indépendante ?** : La pergola adossée protège la façade ; l’autoportée demande une réflexion plus forte sur les poteaux et les fondations.
+- **Comment l’eau sera-t-elle évacuée ?** : Les gouttières intégrées, descentes et pentes doivent être prévues dès la conception.
+- **Quelles options sont réellement utiles ?** : Éclairage, stores latéraux, capteurs et chauffage ne se justifient pas de la même façon selon l’usage.
 
+## Ce qui doit être verrouillé dans le devis
 
+Le devis doit préciser dimensions, implantation, nombre de poteaux, type de lames, évacuation d’eau, motorisation, options, résistance au vent et démarches d’urbanisme éventuelles.
 
-
-
+À retenir : une pergola réussie se conçoit comme une pièce extérieure. L’orientation, l’eau et le vent sont aussi importants que le design.
 <!-- mdr-editorial-value-md -->
 ## Savoir si la pergola correspond vraiment à votre terrasse
 

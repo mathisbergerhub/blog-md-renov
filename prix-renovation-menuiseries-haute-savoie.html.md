@@ -1,56 +1,69 @@
-# Budget menuiseries : comment comparer deux devis sans se tromper ? Fenêtres, porte, volets, portail : la méthode pour comparer les devis sur la pose, les performances, les options et les garanties.
+# Prix rénovation menuiseries : combien prévoir et quelles aides demander ?
+
+Fenêtres, porte d’entrée, volets, portail : les fourchettes à anticiper, les aides possibles en 2026 et la méthode pour comparer deux devis sans se tromper.
 
 Source HTML : ./prix-renovation-menuiseries-haute-savoie.html
 
-## Ce que ce guide vous aide à décider
+## Réponse directe
 
-Fenêtres, porte, volets, portail : la méthode pour comparer les devis sur la pose, les performances, les options et les garanties.
+Pour une rénovation de menuiseries en Haute-Savoie, le budget dépend surtout du nombre d’ouvertures, du matériau, du vitrage, de la méthode de pose et des finitions. Les aides ne doivent pas être retirées du devis au hasard : MaPrimeRénov’, les CEE, la TVA réduite et l’éco-PTZ répondent chacun à des règles différentes.
 
 ## Repères rapides
 
-- Ce qui compose le prix : Produit + pose. Le devis dépend du matériau, des dimensions, de la pose et des finitions.
-- Ce qui peut aider : Aides à vérifier. Les aides dépendent du logement, des revenus, des travaux et de l’ordre des démarches.
-- Ce qu’il faut comparer : Lignes du devis. Deux prix ne se comparent pas sans vérifier les mêmes prestations.
-- La bonne méthode : Décider sans urgence. Cadrer le besoin avant signature évite les mauvaises surprises.
+- Recherche fréquente : combien ça coûte ? Un prix fiable se calcule par ouverture, par niveau de performance et par complexité de pose.
+- Aide 2026 : 40 à 100 € par fenêtre. MaPrimeRénov’ par geste peut aider une paroi vitrée remplaçant du simple vitrage, selon profil.
+- TVA réduite : 5,5 % possible. Elle peut s’appliquer aux parois vitrées, portes d’entrée, volets isolants et protections solaires éligibles.
+- Reste à charge : à calculer avant signature. Le bon calcul additionne MaPrimeRénov’, CEE, TVA, aides locales et financement éventuel.
 
+## Combien coûte une rénovation de menuiseries ?
 
-## Le moins cher n'est pas toujours le moins coûteux Un devis de menuiserie ne compare pas seulement un produit. Il compare une performance, une pose, des finitions, des garanties et une capacité à traiter les contraintes du chantier. Deux montants très différents peuvent cacher des prestations qui ne couvrent pas le même périmètre.
+La vraie question n’est pas seulement “quel est le prix d’une fenêtre ?”, mais “quel est le prix posé, fini et adapté à ma maison ?”. En rénovation, le prix varie fortement si l’on garde le dormant existant, si l’on dépose tout, si les tableaux doivent être repris ou si l’on ajoute une motorisation.
 
-## Les lignes à regarder - Type exact de produit, matériau, gamme et coloris.
-- Valeurs thermiques ou acoustiques quand elles sont importantes.
-- Mode de pose : rénovation, dépose totale, reprises périphériques.
-- Accessoires : seuil, habillage, motorisation, capteurs, moustiquaire.
-- Délais, garanties, SAV et conditions de paiement. | | Écart de prix | Question à poser | Produit moins cher | La gamme et les performances sont-elles équivalentes ? | Pose moins chère | Les finitions et reprises sont-elles incluses ? | Options absentes | Seront-elles nécessaires ensuite ? Vous avez deux devis difficiles à comparer ? On reprend les lignes importantes pour éviter les mauvaises surprises. Demander un avis
+| Projet courant | Ce qui fait varier le budget | Point de vigilance |
+| --- | --- | --- |
+| Fenêtres ou portes-fenêtres | Matériau, vitrage, dimensions, oscillo-battant, couleur, dépose totale ou pose en rénovation. | Comparer le prix posé avec finitions incluses, pas seulement le prix du châssis. |
+| Porte d’entrée | Aluminium, vitrage, niveau de sécurité, seuil, serrure, dimensions hors standard. | Regarder l’isolation, la serrure et les reprises autour de la porte. |
+| Volets roulants | Manuel, radio, solaire, coffre, tablier, accès électrique, nombre de points de commande. | Vérifier si la motorisation et les commandes sont comprises. |
+| Portail ou porte de garage | Dimensions, motorisation, maçonnerie, alimentation électrique, contrôle d’accès. | Ne pas oublier les accessoires, la sécurité et les contraintes d’accès. |
 
-## Comparer à périmètre égal Pour comparer deux devis, vérifiez que les mêmes postes sont inclus : dépose, évacuation, habillages, reprises intérieures, motorisation, accessoires, garanties et déplacement. Un devis peut paraître moins cher simplement parce qu'il laisse plusieurs finitions à part. Demandez aussi les performances indiquées sur les produits : vitrage, coefficient thermique, type de profil, sécurité et options de confort. Le prix seul ne raconte jamais toute l'histoire.
+## À combien d’aide ai-je droit pour changer mes fenêtres ?
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+La réponse dépend de votre revenu fiscal, du logement, du type de travaux et du moment où le dossier est déposé. Pour le remplacement de parois vitrées en simple vitrage, Service-Public indique en 2026 les montants MaPrimeRénov’ suivants en métropole : 100 € par équipement pour un ménage très modeste, 80 € pour un ménage modeste et 40 € pour un ménage intermédiaire, dans la limite de 1 000 € de dépense par équipement.
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+| Aide ou financement | Montant concret à retenir | Ce que cela veut dire pour un particulier |
+| --- | --- | --- |
+| MaPrimeRénov’ par geste | 100 €, 80 € ou 40 € par paroi vitrée selon profil, si remplacement de simple vitrage et conditions respectées. | Ce n’est pas une remise automatique. Le dossier doit être vérifié avant de signer. |
+| TVA réduite | 5,5 % possible au lieu de 20 % sur certains travaux d’amélioration énergétique. | Sur 10 000 € HT éligibles, l’écart entre 20 % et 5,5 % représente 1 450 € TTC. |
+| CEE | Prime variable selon les fournisseurs, les travaux, la zone et le dossier. | À demander avant engagement, sinon la prime peut être perdue. |
+| Éco-PTZ | Peut financer le reste à charge lié à MaPrimeRénov’, dans la limite de 50 000 €. | Ce n’est pas une aide versée : c’est un prêt sans intérêt pour lisser le budget. |
 
+Exemple simple : si vous remplacez 6 anciennes fenêtres en simple vitrage et que votre profil permet 80 € par équipement, MaPrimeRénov’ représenterait 480 € avant prise en compte des autres règles du dossier. Le gain principal peut ensuite venir de la TVA réduite, d’une prime CEE et éventuellement d’un financement du reste à charge.
 
+## Comment comparer deux devis sans se faire piéger ?
 
+Deux devis peuvent afficher le même produit en apparence et pourtant ne pas couvrir la même pose, les mêmes finitions, les mêmes garanties ou les mêmes démarches. Il faut comparer le périmètre complet, pas seulement le total TTC.
 
+- Produit : la gamme doit être identifiable. Matériau, vitrage, quincaillerie, coloris, seuil, sécurité et accessoires doivent être écrits clairement.
+- Pose : la méthode doit être détaillée. Rénovation sur dormant, dépose totale, habillages, étanchéité et reprises intérieures ne coûtent pas la même chose.
+- Aides : le reste à charge doit être prudent. MaPrimeRénov’, CEE, TVA réduite ou éco-PTZ doivent être confirmés avant d’être intégrés au budget final.
 
-<!-- mdr-editorial-value-md -->
-## Comparer un devis, ce n’est pas comparer une ligne de prix
+## Les recherches fréquentes auxquelles le devis doit répondre
 
-Deux devis peuvent afficher le même produit en apparence et pourtant ne pas couvrir la même pose, les mêmes finitions, les mêmes garanties ou les mêmes démarches. Il faut comparer le périmètre complet.
+- “Prix changement fenêtres maison ancienne” : le devis doit indiquer si l’on conserve l’ancien dormant ou si l’on repart sur une dépose totale. C’est souvent ce point qui explique un gros écart.
+- “Aide pour changer fenêtres simple vitrage” : le cas le plus clair concerne le remplacement de simple vitrage par une paroi vitrée isolante, avec montant MaPrimeRénov’ selon profil.
+- “Devis fenêtre PVC ou aluminium” : le PVC est souvent choisi pour le budget et l’isolation ; l’aluminium pour les grandes dimensions, la finesse et le rendu de façade.
+- “Combien reste-t-il à payer après les aides ?” : le reste à charge se calcule seulement après validation des aides, de la TVA applicable et des éventuelles primes CEE.
 
-- **Produit - Dimensions, vitrage et quincaillerie changent tout** : Le type d’ouverture, le vitrage, la couleur, les poignées, les seuils et les accessoires font varier le prix.
-- **Pose - La méthode doit être écrite** : Rénovation sur dormant, dépose totale, habillages, étanchéité et reprises intérieures ne coûtent pas la même chose.
-- **Aides - Ne pas déduire une aide non validée** : MaPrimeRénov’, CEE ou TVA réduite doivent être vérifiées avant de considérer le reste à charge comme définitif.
+## Ce qu’il faut vraiment demander avant de signer
+
+Demandez un devis qui précise la méthode de pose, les performances, les finitions, les accessoires, les délais, les garanties et les aides non encore validées. Si une ligne est floue, elle peut devenir une option payante, une finition absente ou un sujet de discussion en fin de chantier.
+
+À retenir : un bon devis ne promet pas une aide au hasard. Il distingue le prix réel des travaux, les aides déjà confirmées, les aides seulement possibles et le reste à charge estimatif.
 
 ## Sources fiables utilisées pour vérifier ce guide
 
-- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : Cette page précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
-- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : Cette page explique le cas d’une rénovation globale, avec gain énergétique et accompagnement obligatoire.
-- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : Cette page explique les primes CEE, souvent à comparer avec MaPrimeRénov’ et l’éco-prêt à taux zéro.
-- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : Cette fiche confirme qu’une déclaration préalable est nécessaire quand le remplacement change l’aspect extérieur du bâtiment.
-- [Service-Public.fr - travaux en copropriété](https://www.service-public.fr/particuliers/vosdroits/F31513) : Cette fiche rappelle que certains travaux privatifs doivent être autorisés s’ils touchent l’aspect extérieur ou des parties communes.
-- [Service-Public.fr - travaux extérieurs d’une maison](https://www.service-public.fr/particuliers/vosdroits/F31473) : Cette fiche sert de repère pour vérifier les cas où une autorisation d’urbanisme peut être demandée.
+- [Service-Public.fr - MaPrimeRénov’ 2026](https://www.service-public.gouv.fr/particuliers/vosdroits/F35083) : conditions, profils de revenus et montants MaPrimeRénov’ par geste, dont les parois vitrées remplaçant du simple vitrage.
+- [Service-Public Entreprendre - TVA réduite rénovation](https://entreprendre.service-public.gouv.fr/vosdroits/F23568) : taux réduit de TVA à 5,5 % pour certaines prestations d’amélioration énergétique.
+- [Service-Public.fr - cumul éco-PTZ et MaPrimeRénov’](https://www.service-public.gouv.fr/particuliers/vosdroits/F36448) : éco-PTZ possible pour financer le reste à charge lié à MaPrimeRénov’, dans la limite de 50 000 €.
+- [France Rénov’ - certificats d’économies d’énergie](https://france-renov.gouv.fr/aides/cee) : fonctionnement des primes CEE, à demander avant engagement.
+- [Service-Public.fr - remplacement de fenêtres, volets ou portes](https://www.service-public.fr/particuliers/vosdroits/F36762) : déclaration préalable nécessaire si le remplacement change l’aspect extérieur.

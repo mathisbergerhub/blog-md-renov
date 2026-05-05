@@ -22,19 +22,18 @@ Protection solaire, exposition, dimensions et durabilité : les critères utiles
 
 ## Le coffre intégral protège aussi l'investissement En protégeant la toile et les bras quand le store est fermé, le coffre intégral limite l'exposition aux intempéries et à l'encrassement. Il est particulièrement pertinent si la façade est exposée ou si le store reste en place toute l'année. Vous réfléchissez à protéger votre terrasse ? On cadre l'exposition, la largeur utile et le bon niveau d'équipement. Demander mon devis
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Quand le coffre intégral est vraiment pertinent
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Façade exposée à la pluie** : Le coffre intégral protège mieux la toile et les bras lorsque le store reste soumis aux intempéries.
+- **Terrasse très utilisée** : Plus le store est sollicité, plus la protection et la qualité mécanique comptent.
+- **Recherche d’un rendu propre** : Le coffre intégral donne souvent une finition plus nette sur une façade visible.
+- **Budget à arbitrer** : Sur une façade abritée, un semi-coffre peut parfois suffire si le besoin est plus simple.
 
+## Ce qui doit être comparé avec un semi-coffre
 
+Comparez la protection de la toile, la protection des bras, l’encombrement, la qualité de fixation, la motorisation, les capteurs et la garantie.
 
-
-
+À retenir : le coffre intégral est surtout un choix de protection et de finition. Il doit correspondre à l’exposition réelle de la terrasse.
 <!-- mdr-editorial-value-md -->
 ## Le coffre intégral protège surtout quand le store est exposé
 

@@ -22,19 +22,18 @@ Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai co
 
 ## Les questions que se posent souvent les particuliers Le PVC jaunit-il forcément ? Non, pas sur des gammes sérieuses et correctement entretenues. Le choix de la teinte et l'exposition restent importants. L'aluminium isole-t-il moins ? Les anciens aluminiums oui. Les menuiseries actuelles à rupture de pont thermique peuvent atteindre de très bonnes performances, mais il faut lire les valeurs du devis.
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## PVC ou aluminium : les questions qui changent vraiment le choix
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Quelle taille d’ouverture ?** : Le PVC est souvent rationnel sur les fenêtres classiques ; l’aluminium devient intéressant sur les grandes baies et les profils fins.
+- **Quel rendu de façade recherchez-vous ?** : L’aluminium offre plus de finesse et de coloris ; le PVC reste sobre, efficace et souvent plus accessible.
+- **La pièce est-elle exposée au froid ou au bruit ?** : Le matériau compte, mais le vitrage, la pose et l’étanchéité expliquent une grande partie du confort final.
+- **Faut-il harmoniser toute la maison ?** : On peut mixer PVC et aluminium si les coloris, profils et finitions restent cohérents.
 
+## Ce qui doit être comparé ligne par ligne
 
+Le devis doit préciser le matériau, la gamme, le vitrage, les performances, la couleur, les accessoires, la méthode de pose, les habillages et les garanties.
 
-
-
+À retenir : PVC ou aluminium n’est pas une question de mode. C’est un arbitrage entre budget, dimensions, esthétique, isolation et usage quotidien.
 <!-- mdr-editorial-value-md -->
 ## Comment arbitrer sans comparer seulement le prix
 

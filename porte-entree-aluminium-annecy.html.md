@@ -26,19 +26,18 @@ Les critères importants avant de remplacer une porte d'entrée : panneau, serru
 
 ## Plein, vitré ou semi-vitré : comment arbitrer ? Une porte pleine rassure et protège l'intimité. Une porte semi-vitrée apporte de la lumière dans une entrée sombre, à condition de choisir un vitrage adapté. Le bon compromis dépend de l'orientation, de la visibilité depuis la rue et du besoin de sécurité. L'aluminium permet de travailler des lignes contemporaines et des couleurs durables, mais le confort final dépend aussi du seuil, de la serrure, de l'étanchéité et de la qualité de pose.
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Les critères concrets pour choisir une porte d’entrée
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Isolation et étanchéité** : Une porte d’entrée doit limiter le froid, les infiltrations d’air et l’inconfort près du seuil.
+- **Sécurité au quotidien** : Serrure, paumelles, vitrage éventuel et panneau doivent être choisis selon le niveau de sécurité attendu.
+- **Lumière ou intimité** : Un vitrage apporte de la lumière mais doit être pensé avec le niveau d’opacité et la sécurité.
+- **Aspect extérieur** : Couleur, poignée, panneau et style doivent rester cohérents avec la façade et les règles éventuelles.
 
+## Ce qui doit apparaître sur le devis porte
 
+Le devis doit détailler le matériau, le panneau, le coefficient thermique, le type de serrure, le seuil, les dimensions, le vitrage, les poignées, la pose et les reprises de finition.
 
-
-
+À retenir : une porte d’entrée ne se choisit pas seulement au design. Isolation, sécurité, seuil et pose font la différence au quotidien.
 <!-- mdr-editorial-value-md -->
 ## Une porte d’entrée doit être jugée sur quatre points
 

@@ -22,19 +22,18 @@ Pente, recul, largeur de passage, motorisation et PLU : les critères pour chois
 
 ## Les erreurs de configuration à éviter Le portail battant peut devenir pénible si les vantaux ouvrent dans une pente, s'ils manquent de recul ou s'ils gênent le stationnement. Le coulissant demande de son côté un refoulement latéral suffisant et un support bien préparé. Avant de parler esthétique, mesurez la largeur utile, la pente, les dégagements et l'emplacement possible de la motorisation. C'est ce relevé qui évite les compromis coûteux.
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Battant ou coulissant : les contraintes qui décident
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Y a-t-il assez de recul ?** : Le portail battant demande un dégagement intérieur ou extérieur ; le coulissant demande un refoulement latéral.
+- **Le terrain est-il en pente ?** : Une pente peut compliquer l’ouverture battante et rendre le coulissant plus pertinent.
+- **La motorisation est-elle prévue ?** : Alimentation, sécurité, cellules, feu clignotant et commandes doivent être pensés dès le départ.
+- **La maçonnerie est-elle prête ?** : Piliers, seuil, rail, longrine et évacuation d’eau conditionnent la qualité de fonctionnement.
 
+## Ce qui doit être écrit avant de choisir
 
+Le devis doit préciser dimensions, type d’ouverture, remplissage, motorisation, accessoires de sécurité, maçonnerie nécessaire, alimentation électrique et finitions.
 
-
-
+À retenir : le meilleur portail est celui qui fonctionne bien avec le terrain. Recul, pente et maçonnerie comptent autant que le modèle.
 <!-- mdr-editorial-value-md -->
 ## Le terrain décide souvent avant le style
 

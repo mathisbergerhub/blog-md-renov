@@ -25,19 +25,18 @@ Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète po
 
 ## Le détail souvent oublié : l'ombre réelle La largeur du store ne suffit pas. Il faut regarder la course du soleil, l'avancée souhaitée, la hauteur de pose et les zones à protéger : table, baie vitrée, canapé extérieur ou passage. Une bonne projection évite de commander un store trop petit ou inutilement surdimensionné. Vous préparez un store banne ? On vérifie les mesures et l'exposition avant de figer le modèle. Préparer mon devis
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Les questions utiles pour choisir un store banne
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Quelle terrasse voulez-vous réellement ombrager ?** : Largeur, avancée et hauteur de pose doivent couvrir la zone de repas ou de passage, pas seulement la baie vitrée.
+- **La façade est-elle exposée au vent ?** : Autour du lac, en étage ou sur une façade dégagée, la résistance au vent et le capteur vent deviennent importants.
+- **Coffre intégral ou semi-coffre ?** : Le coffre intégral protège mieux la toile et les bras ; le semi-coffre peut suffire sur une façade déjà abritée.
+- **Motorisation ou manœuvre manuelle ?** : Sur un store large, la motorisation apporte un vrai confort et évite de laisser le store sorti trop longtemps.
 
+## Ce qui doit être clair avant de comparer les prix
 
+Le devis doit indiquer la largeur, l’avancée, la toile, le type de coffre, la classe de résistance, la motorisation, les capteurs, la pose et les conditions de fixation sur la façade.
 
-
-
+À retenir : un store banne se choisit d’abord selon l’usage, l’exposition et la fixation. Le prix seul ne dit pas si la terrasse sera réellement confortable.
 <!-- mdr-editorial-value-md -->
 ## La bonne question : quelle terrasse voulez-vous vraiment utiliser ?
 

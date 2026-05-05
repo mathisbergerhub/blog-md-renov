@@ -28,19 +28,18 @@ Règlement de copropriété, harmonie de façade, assemblée générale et mairi
 
 ## La bonne approche avec la copropriété Le plus simple est de présenter un dossier clair : dimensions, couleur de toile, type de coffre, emplacement et rendu de façade. Plus le projet est précis, plus le syndic ou l'assemblée générale peut décider sans bloquer sur des détails manquants. Vous habitez en copropriété ? On vous aide à cadrer le modèle et les informations utiles pour le syndic. Cadrer mon store
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Les questions à vérifier avant de poser un store en copropriété
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Le règlement autorise-t-il les stores visibles ?** : Certains immeubles imposent une couleur de toile, une couleur d’armature ou un type de coffre pour garder une façade homogène.
+- **Faut-il l’accord du syndic ou de l’assemblée générale ?** : Si la pose modifie l’aspect extérieur ou touche une partie commune, un accord peut être nécessaire avant commande.
+- **La mairie doit-elle être consultée ?** : En secteur protégé ou si la façade change clairement, une déclaration préalable peut être demandée.
+- **La fixation est-elle compatible avec la façade ?** : Un store banne tire fortement sur le support : béton, isolation extérieure, balcon et linteau ne se traitent pas de la même façon.
 
+## Ce qui doit être écrit sur le devis
 
+Le devis doit préciser les dimensions, l’avancée, le type de coffre, la couleur de toile, la couleur d’armature, la motorisation, les capteurs éventuels, le type de fixation et les réserves liées à la copropriété.
 
-
-
+À retenir : le bon ordre est copropriété, mairie si besoin, puis devis définitif. Commander un store sur mesure avant accord peut bloquer le projet.
 <!-- mdr-editorial-value-md -->
 ## Ce que le propriétaire doit clarifier avant de commander
 

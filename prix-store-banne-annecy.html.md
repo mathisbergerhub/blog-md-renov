@@ -18,23 +18,26 @@ Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliq
 
 ## Les postes qui font varier le devis | | Poste | Impact | Coffre intégral | Meilleure protection, prix supérieur | Motorisation | Confort d'usage, câblage à prévoir selon cas | Capteur vent | Sécurité utile sur façade exposée | Fixation | Support béton, isolation extérieure ou façade ancienne changent la pose
 
-## Le bon réflexe avant de demander un prix Préparez deux photos de la façade, une largeur approximative, l'orientation et l'usage recherché. Le devis sera plus fiable et les options seront plus faciles à arbitrer. Vous voulez un prix fiable ? On chiffre selon la façade, pas seulement selon une largeur théorique. Demander un prix
+## Le bon réflexe avant de demander un prix
+
+Ne demandez pas seulement “combien coûte un store banne ?”. Demandez un prix pour une largeur, une avancée, un type de coffre, une toile, une motorisation et une fixation précise. C’est ce périmètre qui permet de comparer deux devis sans mélanger un store simple et un store vraiment adapté à la terrasse.
+
+Vous voulez un prix fiable ? On chiffre selon la façade, pas seulement selon une largeur théorique. Demander un prix
 
 ## Ce qu'un devis sérieux doit préciser Pour comparer correctement, demandez le type de store, les dimensions, l'avancée, la gamme de toile, le type de moteur, les automatismes, les supports de fixation et la garantie. Sans ces informations, le prix le plus bas peut cacher une toile moins durable, une protection incomplète ou une pose plus limitée. Sur une façade exposée au vent, le capteur et la qualité de fixation ne sont pas des détails : ils protègent le matériel et évitent de mauvaises surprises en usage quotidien.
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Pourquoi deux stores bannes n’ont pas le même prix
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Largeur et avancée** : Plus le store est large et profond, plus la toile, les bras, la fixation et la motorisation doivent suivre.
+- **Type de coffre** : Un coffre intégral protège davantage la toile et les bras qu’un store monobloc ou semi-coffre.
+- **Toile et couleur** : La qualité de toile, le traitement, le grammage et le coloris influencent le confort et la tenue dans le temps.
+- **Options de sécurité** : Capteur vent, télécommande, éclairage et automatisme peuvent être utiles mais doivent être justifiés.
 
+## Ce qui doit expliquer le prix
 
+Le devis doit détailler dimensions, avancée, toile, coffre, armature, motorisation, capteurs, fixation, garantie et conditions de pose.
 
-
-
+À retenir : un store moins cher peut simplement être moins protégé, moins large, moins motorisé ou moins adapté au vent.
 <!-- mdr-editorial-value-md -->
 ## Ce qui explique l’écart entre deux prix de store
 

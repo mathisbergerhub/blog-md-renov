@@ -22,19 +22,18 @@ Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécur
 
 ## Le critère esthétique compte aussi Sur une maison ancienne, des volets battants peuvent préserver le caractère de la façade. Sur une maison récente, les volets roulants apportent souvent plus de confort et de simplicité. En secteur encadré, le PLU ou la copropriété peut orienter le choix avant même le budget. Vous voulez remplacer vos volets ? On vérifie le style de la maison, les contraintes de pose et les règles locales. Cadrer mon projet
 
-## Ce qu’il faut préparer avant un rendez-vous - Deux photos de la façade ou de l'ouverture concernée : une de loin, une de près.
-- Les dimensions approximatives, même si les cotes définitives seront reprises par un professionnel.
-- Les contraintes connues : copropriété, PLU, accès difficile, électricité, humidité, bruit ou exposition au vent.
-- Votre priorité réelle : budget, confort, sécurité, esthétique, lumière, chaleur d'été ou facilité d'usage.
+## Roulants ou battants : les critères qui comptent
 
-## Les erreurs à éviter - Demander un prix sans préciser le contexte de pose.
-- Comparer deux devis sans regarder les finitions, les garanties et les accessoires inclus.
-- Choisir une solution uniquement parce qu'elle est tendance, sans vérifier l'usage quotidien.
+- **Style de façade** : Les volets battants gardent un rendu traditionnel ; les roulants apportent un usage plus contemporain et pratique.
+- **Usage quotidien** : Si l’ouverture est fréquente ou difficile d’accès, le roulant motorisé devient souvent plus confortable.
+- **Isolation et occultation** : Les deux solutions peuvent être performantes, mais le coffre, les jeux et la pose changent le résultat.
+- **Règles locales** : PLU, copropriété ou secteur protégé peuvent imposer une forme, une couleur ou un type de volet.
 
+## Ce qui doit guider le choix final
 
+Le devis doit préciser matériau, couleur, mode d’ouverture, motorisation éventuelle, accessoires, fixation, reprises et compatibilité avec les règles de façade.
 
-
-
+À retenir : le bon volet est celui qui respecte la façade tout en simplifiant l’usage quotidien. Esthétique et confort doivent être décidés ensemble.
 <!-- mdr-editorial-value-md -->
 ## Le bon volet respecte la façade et l’usage quotidien
 
