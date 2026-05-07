@@ -2,13 +2,16 @@
 *::before,
 *::after { box-sizing: border-box;
 } html { scroll-behavior: smooth;
-} body { margin: 0; min-width: 320px;
+} body { margin: 0; min-width: 320px; color: #1a1a18; background: #f0ece4; font-family: "Lexend", sans-serif;
 } img { max-width: 100%;
 } a { color: inherit; text-decoration: none;
 } .skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 60; padding: 0.85rem 1rem; border-radius: 999px; color: #fff; background: #1a1a18; transform: translateY(-180%); transition: transform 160ms ease;
 } .skip-link:focus { transform: translateY(0);
 }
 .mdr-redesign-page,
+.mdr-home-page,
+.mdr-listing-page,
+.mdr-legal-page,
 .mdr-article-page { background: #f0ece4; font-family: "Lexend", sans-serif;
 } .mdr-stage { width: 100%; margin: 0;
 } .mdr-wrap { overflow: hidden; background: #f0ece4; min-height: 100vh;
