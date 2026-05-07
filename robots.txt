@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /admin/
-
-Sitemap: https://blog.mdrenov-menuiserie.com/sitemap.xml
+Disallow: /
