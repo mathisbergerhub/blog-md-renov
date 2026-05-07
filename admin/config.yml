@@ -7,6 +7,10 @@ backend:
   repo: mathisbergerhub/blog-md-renov
   branch: main
   use_graphql: true
+  site_domain: blog.mdrenov-menuiserie.com
+  base_url: https://blog.mdrenov-menuiserie.com
+  auth_endpoint: api/auth
+  auth_scope: repo
 
 site_url: https://blog.mdrenov-menuiserie.com
 display_url: https://blog.mdrenov-menuiserie.com
