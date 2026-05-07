@@ -28,28 +28,18 @@ function sendPopupMessage(res, status, payload) {
     (function () {
       var payload = ${safePayload};
       var status = ${JSON.stringify(status)};
-      var sent = false;
+      var message = "authorization:github:" + status + ":" + JSON.stringify(payload);
 
-      function send(targetOrigin) {
-        if (!window.opener || sent) return;
-        sent = true;
-        window.opener.postMessage(
-          "authorization:github:" + status + ":" + JSON.stringify(payload),
-          targetOrigin || "*"
-        );
-        window.setTimeout(function () { window.close(); }, 300);
-      }
-
-      function receiveMessage(message) {
+      function receiveMessage(event) {
         window.removeEventListener("message", receiveMessage, false);
-        send(message.origin);
+        window.opener.postMessage(message, event.origin);
+        window.setTimeout(function () { window.close(); }, 300);
       }
 
       window.addEventListener("message", receiveMessage, false);
 
       if (window.opener) {
         window.opener.postMessage("authorizing:github", "*");
-        window.setTimeout(function () { send("*"); }, 1500);
       }
     })();
   </script>
