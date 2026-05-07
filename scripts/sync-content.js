@@ -255,7 +255,8 @@ function updateHome(articles) {
   const homePath = path.join(ROOT, "index.html");
   let html = fs.readFileSync(homePath, "utf8");
   const cards = articles.slice(0, 6).map(card).join("\n");
-  html = replaceBetween(html, '<div class="mdr-home-grid">', "</div>\n</div>\n</div>\n<aside", cards);
+  const pattern = /<div class="mdr-home-grid">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>\s*<aside class="mdr-home-side">/;
+  html = html.replace(pattern, `<div class="mdr-home-grid">\n${cards}\n</div>\n</div>\n</div>\n<aside class="mdr-home-side">`);
   fs.writeFileSync(homePath, html, "utf8");
 }
 
