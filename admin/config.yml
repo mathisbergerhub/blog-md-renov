@@ -34,8 +34,8 @@ collections:
     label: "Articles du blog"
     label_singular: "Article"
     description: "Articles Markdown éditables. Les fichiers HTML du site statique doivent être régénérés après modification."
-    folder: "."
-    extension: "html.md"
+    folder: "content/articles"
+    extension: "md"
     format: "frontmatter"
     create: true
     delete: false
