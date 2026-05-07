@@ -1,3 +1,5 @@
+import { next } from "@vercel/functions";
+
 const PASSWORD_HASH = "8f9e5669280cd41a44674368ccb532d5b8f1070e58ad7bc9091216c62893b25e";
 const ACCESS_COOKIE = "mdr_blog_access";
 const ONE_WEEK = 60 * 60 * 24 * 7;
@@ -81,12 +83,12 @@ export default async function middleware(request) {
   const url = new URL(request.url);
 
   if (isPublicAsset(url.pathname)) {
-    return fetch(request);
+    return next();
   }
 
   const cookies = parseCookie(request.headers.get("cookie") || "");
   if (cookies[ACCESS_COOKIE] === PASSWORD_HASH) {
-    return fetch(request);
+    return next();
   }
 
   if (request.method === "POST") {
