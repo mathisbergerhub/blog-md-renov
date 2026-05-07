@@ -37,9 +37,6 @@ collections:
     folder: "."
     extension: "html.md"
     format: "frontmatter"
-    filter:
-      field: "content_type"
-      value: "article"
     create: true
     delete: false
     identifier_field: "title"
