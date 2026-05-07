@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Baie coulissante ou galandage : quel choix pour ouvrir le séjour ? Clair de jour, seuil, isolation, passage, budget et travaux : le vrai comparatif entre coulissant et galandage.'
-seo_title: 'Baie vitrée coulissante ou galandage | MD Rénov'''
+seo_title: 'Baie vitrée coulissante ou galandage | MD Rénov'
 description: 'Clair de jour, seuil, isolation, passage, budget et travaux : le vrai comparatif entre coulissant et galandage.'
 category: 'fenetres'
 category_label: 'Fenêtres'

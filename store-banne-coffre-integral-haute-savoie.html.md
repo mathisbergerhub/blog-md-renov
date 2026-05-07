@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Store banne coffre intégral : dans quels cas est-ce le bon choix ? Protection solaire, exposition, dimensions et durabilité : les critères utiles pour choisir un store banne.'
-seo_title: 'Store banne coffre intégral | MD Rénov'''
+seo_title: 'Store banne coffre intégral | MD Rénov'
 description: 'Protection solaire, exposition, dimensions et durabilité : les critères utiles pour choisir un store banne.'
 category: 'volets-stores'
 category_label: 'Stores'

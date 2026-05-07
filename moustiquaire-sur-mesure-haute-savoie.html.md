@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Moustiquaire fixe, enroulable ou plissée : laquelle choisir ? Fenêtre, porte-fenêtre, baie coulissante : choisir la moustiquaire selon l''usage, l''espace disponible et la fréquence de passage.'
-seo_title: 'Moustiquaire sur mesure : quel modèle ? | MD Rénov'''
+seo_title: 'Moustiquaire sur mesure : quel modèle ? | MD Rénov'
 description: 'Fenêtre, porte-fenêtre, baie coulissante : choisir la moustiquaire selon l''usage, l''espace disponible et la fréquence de passage.'
 category: 'exterieur'
 category_label: 'Moustiquaires'

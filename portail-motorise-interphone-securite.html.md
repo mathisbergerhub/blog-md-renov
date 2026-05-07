@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Portail motorisé, visiophone, digicode : que prévoir dès le départ ? Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d''un portail.'
-seo_title: 'Portail motorisé : interphone et sécurité | MD Rénov'''
+seo_title: 'Portail motorisé : interphone et sécurité | MD Rénov'
 description: 'Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d''un portail.'
 category: 'portes-portails'
 category_label: 'Portails'

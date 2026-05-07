@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Couleur des menuiseries : comment éviter l''erreur avec le PLU ? RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérifications avant de commander une couleur.'
-seo_title: 'Couleur menuiseries et PLU | MD Rénov'''
+seo_title: 'Couleur menuiseries et PLU | MD Rénov'
 description: 'RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérifications avant de commander une couleur.'
 category: 'exterieur'
 category_label: 'Démarches'

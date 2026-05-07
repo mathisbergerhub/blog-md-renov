@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Porte d''entrée sécurisée : serrure, vitrage, panneau, que vérifier ? Les points concrets à comparer pour choisir une porte d''entrée rassurante sans sacrifier le style.'
-seo_title: 'Porte d’entrée sécurisée : que vérifier ? | MD Rénov'''
+seo_title: 'Porte d’entrée sécurisée : que vérifier ? | MD Rénov'
 description: 'Les points concrets à comparer pour choisir une porte d''entrée rassurante sans sacrifier le style.'
 category: 'portes-portails'
 category_label: 'Portes'

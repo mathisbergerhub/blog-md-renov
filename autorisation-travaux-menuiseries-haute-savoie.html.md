@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Fenêtres, volets, porte, pergola : quelles autorisations avant travaux ? Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.'
-seo_title: 'Autorisations travaux menuiseries | MD Rénov'''
+seo_title: 'Autorisations travaux menuiseries | MD Rénov'
 description: 'Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.'
 category: 'exterieur'
 category_label: 'Démarches'

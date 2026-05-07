@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Volets roulants ou battants : quel choix selon la façade ? Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.'
-seo_title: 'Volets roulants ou battants | MD Rénov'''
+seo_title: 'Volets roulants ou battants | MD Rénov'
 description: 'Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.'
 category: 'volets-stores'
 category_label: 'Volets'

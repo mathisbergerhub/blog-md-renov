@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Comment choisir un store banne à Annecy sans se tromper ? Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.'
-seo_title: 'Choisir un store banne à Annecy | MD Rénov'''
+seo_title: 'Choisir un store banne à Annecy | MD Rénov'
 description: 'Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.'
 category: 'volets-stores'
 category_label: 'Stores'

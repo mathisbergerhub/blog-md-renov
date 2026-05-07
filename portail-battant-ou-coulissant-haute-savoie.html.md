@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Portail battant ou coulissant : quel choix selon votre terrain ? Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.'
-seo_title: 'Portail battant ou coulissant | MD Rénov'''
+seo_title: 'Portail battant ou coulissant | MD Rénov'
 description: 'Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.'
 category: 'portes-portails'
 category_label: 'Portails'

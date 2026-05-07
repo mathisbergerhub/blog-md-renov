@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Store banne motorisé ou solaire : quelle solution choisir ? Un guide pratique pour choisir entre branchement électrique, commande radio, capteurs et solution solaire.'
-seo_title: 'Store banne motorisé ou solaire | MD Rénov'''
+seo_title: 'Store banne motorisé ou solaire | MD Rénov'
 description: 'Un guide pratique pour choisir entre branchement électrique, commande radio, capteurs et solution solaire.'
 category: 'volets-stores'
 category_label: 'Stores'

@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'MaPrimeRénov’ 2026 : ce qu’il faut vérifier avant de changer ses fenêtres en Haute-Savoie'
-seo_title: 'MaPrimeRénov’ 2026 fenêtres Haute-Savoie | MD Rénov'''
+seo_title: 'MaPrimeRénov’ 2026 fenêtres Haute-Savoie | MD Rénov'
 description: 'Aides, conditions, démarches : tout ce qu’il faut savoir avant de lancer votre projet de menuiseries sans faire d’erreur.'
 category: 'aides'
 category_label: 'Aides & budget'

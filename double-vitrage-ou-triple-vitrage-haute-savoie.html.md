@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Double ou triple vitrage : dans quels cas le surcoût est vraiment utile ? Un guide concret pour choisir le bon vitrage selon l''exposition, l''altitude, le bruit et le confort attendu.'
-seo_title: 'Double ou triple vitrage en Haute-Savoie | MD Rénov'''
+seo_title: 'Double ou triple vitrage en Haute-Savoie | MD Rénov'
 description: 'Un guide concret pour choisir le bon vitrage selon l''exposition, l''altitude, le bruit et le confort attendu.'
 category: 'fenetres'
 category_label: 'Fenêtres'

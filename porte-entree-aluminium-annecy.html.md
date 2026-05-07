@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Porte d''entrée aluminium : sécurité, isolation et style à vérifier Les critères importants avant de remplacer une porte d''entrée : panneau, serrure, seuil, vitrage, isolation et pose.'
-seo_title: 'Porte d’entrée aluminium à Annecy | MD Rénov'''
+seo_title: 'Porte d’entrée aluminium à Annecy | MD Rénov'
 description: 'Les critères importants avant de remplacer une porte d''entrée : panneau, serrure, seuil, vitrage, isolation et pose.'
 category: 'portes-portails'
 category_label: 'Portes'

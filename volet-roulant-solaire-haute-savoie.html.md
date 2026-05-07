@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Volet roulant solaire : bonne idée ou fausse économie ? Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.'
-seo_title: 'Volet roulant solaire : bonne idée ? | MD Rénov'''
+seo_title: 'Volet roulant solaire : bonne idée ? | MD Rénov'
 description: 'Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.'
 category: 'volets-stores'
 category_label: 'Volets'

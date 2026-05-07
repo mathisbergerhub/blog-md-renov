@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Pose en rénovation ou dépose totale : que choisir pour remplacer ses fenêtres ? Dormant existant, perte de clair de jour, pont thermique, finitions : comment choisir la bonne méthode de pose.'
-seo_title: 'Pose rénovation ou dépose totale fenêtres | MD Rénov'''
+seo_title: 'Pose rénovation ou dépose totale fenêtres | MD Rénov'
 description: 'Dormant existant, perte de clair de jour, pont thermique, finitions : comment choisir la bonne méthode de pose.'
 category: 'fenetres'
 category_label: 'Fenêtres'

@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Prix rénovation menuiseries : combien prévoir et quelles aides demander ?'
-seo_title: 'Prix rénovation menuiseries : aides 2026 et reste à charge | MD Rénov'''
+seo_title: 'Prix rénovation menuiseries : aides 2026 et reste à charge | MD Rénov'
 description: 'Fenêtres, porte d’entrée, volets, portail : les fourchettes à anticiper, les aides possibles en 2026 et la méthode pour comparer deux devis sans se tromper.'
 category: 'aides'
 category_label: 'Budget'

@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Délais de pose : combien de temps prévoir pour fenêtres, volets ou portail ? Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d''un chantier de menuiseries.'
-seo_title: 'Délais de pose menuiseries | MD Rénov'''
+seo_title: 'Délais de pose menuiseries | MD Rénov'
 description: 'Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d''un chantier de menuiseries.'
 category: 'aides'
 category_label: 'Budget'

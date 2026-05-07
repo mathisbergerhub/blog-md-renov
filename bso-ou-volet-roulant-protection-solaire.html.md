@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'BSO ou volet roulant : quelle protection solaire choisir ? Comparer brise-soleil orientable et volet roulant pour gérer chaleur, lumière, intimité et sécurité.'
-seo_title: 'BSO ou volet roulant : protection solaire | MD Rénov'''
+seo_title: 'BSO ou volet roulant : protection solaire | MD Rénov'
 description: 'Comparer brise-soleil orientable et volet roulant pour gérer chaleur, lumière, intimité et sécurité.'
 category: 'volets-stores'
 category_label: 'Volets'

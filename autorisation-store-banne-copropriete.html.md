@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Store banne en copropriété : faut-il demander une autorisation ? Règlement de copropriété, harmonie de façade, assemblée générale et mairie : les bons réflexes avant de poser un store.'
-seo_title: 'Store banne en copropriété : autorisations | MD Rénov'''
+seo_title: 'Store banne en copropriété : autorisations | MD Rénov'
 description: 'Règlement de copropriété, harmonie de façade, assemblée générale et mairie : les bons réflexes avant de poser un store.'
 category: 'exterieur'
 category_label: 'Démarches'

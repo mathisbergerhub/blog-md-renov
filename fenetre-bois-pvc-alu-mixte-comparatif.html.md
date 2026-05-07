@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ? Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.'
-seo_title: 'PVC, alu, bois ou mixte : choisir ses fenêtres | MD Rénov'''
+seo_title: 'PVC, alu, bois ou mixte : choisir ses fenêtres | MD Rénov'
 description: 'Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.'
 category: 'fenetres'
 category_label: 'Fenêtres'

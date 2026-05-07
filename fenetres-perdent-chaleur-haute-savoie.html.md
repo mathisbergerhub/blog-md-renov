@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Comment savoir si vos fenêtres perdent de la chaleur ? Courants d''air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.'
-seo_title: 'Fenêtres qui perdent la chaleur | MD Rénov'''
+seo_title: 'Fenêtres qui perdent la chaleur | MD Rénov'
 description: 'Courants d''air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.'
 category: 'isolation'
 category_label: 'Isolation'

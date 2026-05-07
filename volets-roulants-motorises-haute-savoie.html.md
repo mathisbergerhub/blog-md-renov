@@ -2,7 +2,7 @@
 content_type: 'article'
 published: true
 title: 'Volets roulants motorisés : confort, sécurité et économies au quotidien Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.'
-seo_title: 'Volets roulants motorisés | MD Rénov'''
+seo_title: 'Volets roulants motorisés | MD Rénov'
 description: 'Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.'
 category: 'volets-stores'
 category_label: 'Volets'

@@ -37,7 +37,62 @@ Il faut aussi que l'utilisateur qui se connecte ait accès en écriture au dép�
 
 ## Authentification GitHub
 
-Decap CMS utilise GitHub pour se connecter et écrire les fichiers. D'après la documentation Decap, le backend GitHub exige un serveur d'authentification OAuth. Sur Vercel, il faudra donc brancher un fournisseur OAuth compatible Decap ou déployer un petit service OAuth dédié.
+Decap CMS utilise GitHub pour se connecter et écrire les fichiers. D'après la documentation Decap, le backend GitHub exige un serveur d'authentification OAuth.
+
+Le projet contient maintenant deux fonctions Vercel :
+
+- `/api/auth` : redirige vers GitHub pour autoriser Decap.
+- `/api/callback` : récupère le token GitHub et le renvoie à Decap.
+
+Dans `admin/config.yml`, Decap est configuré pour utiliser :
+
+```yaml
+base_url: https://blog.mdrenov-menuiserie.com
+auth_endpoint: api/auth
+auth_scope: repo
+```
+
+## Configuration GitHub OAuth à faire
+
+Dans GitHub, aller dans :
+
+`Settings` > `Developer settings` > `OAuth Apps` > `New OAuth App`
+
+Renseigner :
+
+- `Application name` : `MD Rénov Blog Decap`
+- `Homepage URL` : `https://blog.mdrenov-menuiserie.com`
+- `Authorization callback URL` : `https://blog.mdrenov-menuiserie.com/api/callback`
+
+Après création, copier :
+
+- `Client ID`
+- `Client Secret`
+
+## Variables d'environnement Vercel à ajouter
+
+Dans Vercel, projet du blog :
+
+`Settings` > `Environment Variables`
+
+Ajouter :
+
+```text
+GITHUB_CLIENT_ID=client_id_github
+GITHUB_CLIENT_SECRET=client_secret_github
+OAUTH_BASE_URL=https://blog.mdrenov-menuiserie.com
+GITHUB_OAUTH_SCOPE=repo
+```
+
+Ensuite, redéployer le site.
+
+## Test final
+
+Ouvrir :
+
+`https://blog.mdrenov-menuiserie.com/admin/`
+
+Le bouton de connexion ne doit plus ouvrir `api.netlify.com`. Il doit ouvrir GitHub, puis revenir sur `/api/callback`.
 
 Documentation utile :
 
