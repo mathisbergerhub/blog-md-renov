@@ -9,19 +9,16 @@ function sendJson(res, statusCode, payload) {
 }
 
 function readJson(req) {
+  if (req.body && typeof req.body === "object") return Promise.resolve(req.body);
+  if (typeof req.body === "string") {
+    try { return Promise.resolve(JSON.parse(req.body || "{}")); }
+    catch (error) { return Promise.reject(new Error("JSON invalide.")); }
+  }
+  if (typeof req.on !== "function") return Promise.reject(new Error("Corps de requête indisponible."));
   return new Promise((resolve, reject) => {
     let body = "";
-    req.on("data", (chunk) => {
-      body += chunk;
-      if (body.length > 120000) {
-        reject(new Error("Brief trop long."));
-        req.destroy();
-      }
-    });
-    req.on("end", () => {
-      try { resolve(JSON.parse(body || "{}")); }
-      catch (error) { reject(new Error("JSON invalide.")); }
-    });
+    req.on("data", (chunk) => { body += chunk; if (body.length > 120000) { reject(new Error("Brief trop long.")); req.destroy(); } });
+    req.on("end", () => { try { resolve(JSON.parse(body || "{}")); } catch (error) { reject(new Error("JSON invalide.")); } });
     req.on("error", reject);
   });
 }
@@ -33,12 +30,7 @@ function httpsJson(url, options, payload) {
     const request = https.request({ hostname: parsed.hostname, path: `${parsed.pathname}${parsed.search}`, method: options.method || "GET", headers: Object.assign({}, options.headers || {}, body ? { "Content-Length": Buffer.byteLength(body) } : {}) }, (response) => {
       let responseBody = "";
       response.on("data", (chunk) => { responseBody += chunk; });
-      response.on("end", () => {
-        let data = {};
-        try { data = responseBody ? JSON.parse(responseBody) : {}; }
-        catch (error) { data = { raw: responseBody }; }
-        resolve({ ok: response.statusCode >= 200 && response.statusCode < 300, status: response.statusCode, data });
-      });
+      response.on("end", () => { let data = {}; try { data = responseBody ? JSON.parse(responseBody) : {}; } catch (error) { data = { raw: responseBody }; } resolve({ ok: response.statusCode >= 200 && response.statusCode < 300, status: response.statusCode, data }); });
     });
     request.on("error", reject);
     if (body) request.write(body);
@@ -46,10 +38,7 @@ function httpsJson(url, options, payload) {
   });
 }
 
-function slugify(value = "") {
-  return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 82);
-}
-
+function slugify(value = "") { return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 82); }
 function yamlString(value = "") { return `'${String(value).replace(/'/g, "''")}'`; }
 function yamlList(values = []) { const list = values.map((value) => `  - ${yamlString(value)}`).join("\n"); return list || "  - 'MD Rénov'"; }
 function extractOutputText(response) { if (response.output_text) return response.output_text; const chunks = []; for (const item of response.output || []) for (const content of item.content || []) if (content.type === "output_text" && content.text) chunks.push(content.text); return chunks.join("\n").trim(); }
