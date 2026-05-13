@@ -38,7 +38,6 @@
     .actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
     .actions a, .actions button { min-height: 40px; border-radius: 999px; padding: 0 14px; font: 800 12px Lexend, sans-serif; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
     .view { background: #171715; color: white; }
-    .file { border: 1px solid var(--line); background: white; color: var(--ink); }
     .edit { background: var(--red); color: white; }
     .archive { background: var(--green); color: white; }
     .delete { background: var(--red); color: white; }
@@ -189,7 +188,6 @@
           <div class="actions">
             ${livePath && !item.archived ? `<a class="view" href="${escapeHtml(livePath)}" target="_blank" rel="noreferrer">Voir la page</a>` : ""}
             ${item.group === "articles" && !item.archived ? `<button class="edit" type="button" data-action="edit" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Modifier</button>` : ""}
-            <a class="file" href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noreferrer">Fichier source</a>
             ${item.archived ? "" : `<button class="archive" type="button" data-action="archive" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Archiver</button>`}
             <button class="delete" type="button" data-action="delete" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Supprimer</button>
           </div>
