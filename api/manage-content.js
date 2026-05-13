@@ -57,7 +57,7 @@ function readJson(req) {
     let body = "";
     req.on("data", (chunk) => {
       body += chunk;
-      if (body.length > 20000) {
+      if (body.length > 7000000) {
         reject(new Error("Requête trop longue."));
         req.destroy();
       }
@@ -163,6 +163,41 @@ function cleanYamlValue(value = "") {
   return trimmed;
 }
 
+function slugify(value = "") {
+  return String(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 72);
+}
+
+function yamlString(value = "") {
+  return `'${String(value).replace(/'/g, "''")}'`;
+}
+
+function pathExtension(value = "") {
+  const ext = String(value).toLowerCase().match(/\.(png|jpe?g|webp)$/);
+  return ext ? `.${ext[1] === "jpeg" ? "jpg" : ext[1]}` : ".jpg";
+}
+
+function safeFileName(value = "") {
+  const ext = pathExtension(value);
+  const base = slugify(String(value).replace(/\.[^.]+$/, "")) || "photo";
+  return `${base}${ext}`;
+}
+
+function parsePhoto(photo) {
+  const dataUrl = String(photo && photo.dataUrl ? photo.dataUrl : "");
+  const match = dataUrl.match(/^data:(image\/(?:png|jpeg|webp));base64,([A-Za-z0-9+/=]+)$/);
+  if (!match) return null;
+  return {
+    name: safeFileName(photo.name || "photo.jpg"),
+    base64: match[2],
+  };
+}
+
 function normalizeManagedPath(collection, filePath) {
   const config = allowedCollections[collection];
   const normalized = String(filePath || "").replace(/\\/g, "/").replace(/^\/+/, "");
@@ -250,6 +285,51 @@ async function createGithubFile({ repository, branch, token, filePath, content, 
   return response.data;
 }
 
+async function githubPathExists(repository, branch, token, filePath) {
+  const existing = await readGithubPath(repository, branch, token, filePath);
+  return Boolean(existing);
+}
+
+async function uniqueBriefPath(repository, branch, token, title) {
+  const day = new Date().toISOString().slice(0, 10);
+  const base = slugify(title) || `modification-${Date.now()}`;
+  let candidate = `content/briefs/${day}-${base}.md`;
+  let index = 2;
+  while (await githubPathExists(repository, branch, token, candidate)) {
+    candidate = `content/briefs/${day}-${base}-${index}.md`;
+    index += 1;
+  }
+  return candidate;
+}
+
+async function uploadRevisionPhotos({ repository, branch, token, briefPath, photos }) {
+  const parsedPhotos = Array.isArray(photos) ? photos.slice(0, 3).map(parsePhoto).filter(Boolean) : [];
+  const uploaded = [];
+  if (!parsedPhotos.length) return uploaded;
+
+  const briefSlug = briefPath.split("/").pop().replace(/\.md$/, "");
+  for (const [index, photo] of parsedPhotos.entries()) {
+    if (Buffer.byteLength(photo.base64, "base64") > 2500000) {
+      throw new Error(`La photo ${photo.name} dépasse 2,5 Mo.`);
+    }
+    const filePath = `uploads/briefs/${briefSlug}-${index + 1}-${photo.name}`;
+    await createGithubBinaryFile({
+      repository,
+      branch,
+      token,
+      filePath,
+      base64Content: photo.base64,
+      message: `Upload modification photo: ${filePath}`,
+    });
+    uploaded.push({
+      filePath,
+      publicPath: `/${filePath}`,
+      name: photo.name,
+    });
+  }
+  return uploaded;
+}
+
 async function deleteGithubFile({ repository, branch, token, filePath, sha, message }) {
   const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
   const response = await httpsJson(
@@ -258,6 +338,21 @@ async function deleteGithubFile({ repository, branch, token, filePath, sha, mess
     { message, branch, sha },
   );
   if (!response.ok) throw new Error(response.data.message || `Impossible de supprimer ${filePath}.`);
+  return response.data;
+}
+
+async function createGithubBinaryFile({ repository, branch, token, filePath, base64Content, message }) {
+  const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
+  const response = await httpsJson(
+    url,
+    { method: "PUT", headers: githubHeaders(token) },
+    {
+      message,
+      branch,
+      content: base64Content,
+    },
+  );
+  if (!response.ok) throw new Error(response.data.message || `Impossible de créer ${filePath}.`);
   return response.data;
 }
 
@@ -276,6 +371,7 @@ async function listManagedContent(repository, branch, token) {
       if (!content) continue;
       const fields = parseFrontmatter(content.content);
       if (collection === "article_mirrors" && fields.content_type !== "article") continue;
+      if (collection === "articles" && fields.source_html) continue;
       results.push({
         collection,
         group: config.group,
@@ -294,6 +390,105 @@ async function listManagedContent(repository, branch, token) {
   }
   results.sort((a, b) => String(b.date).localeCompare(String(a.date)) || a.title.localeCompare(b.title));
   return results;
+}
+
+async function readManagedContent({ repository, branch, token, collection, filePath }) {
+  const managedPath = normalizeManagedPath(collection, filePath);
+  const source = await readGithubPath(repository, branch, token, managedPath);
+  if (!source) throw new Error("Contenu introuvable.");
+  const fields = parseFrontmatter(source.content);
+  return {
+    collection,
+    title: fields.title || managedPath.split("/").pop().replace(/\.md$/, ""),
+    category: fields.category_label || fields.category || "",
+    main_keyword: fields.main_keyword || "",
+    filePath: managedPath,
+    htmlPath: allowedCollections[collection].group === "articles" ? rootHtmlPathFromArticle(managedPath, fields) : "",
+    markdown: source.content,
+    githubUrl: source.htmlUrl,
+  };
+}
+
+function buildRevisionBrief({ source, body, photos }) {
+  const createdAt = new Date().toISOString();
+  const title = String(body.title || source.title || "").trim();
+  const revisionTitle = `Modification - ${title}`;
+  const notes = String(body.notes || "").trim();
+  const proposedMarkdown = String(body.markdown || "").trim();
+  const sources = String(body.sources || "").trim();
+  const photoNotes = String(body.photo_notes || "").trim();
+
+  return `---
+content_type: 'article_revision_brief'
+status: 'pending'
+title: ${yamlString(revisionTitle)}
+original_title: ${yamlString(title)}
+category: ${yamlString(body.category || source.category || "")}
+main_keyword: ${yamlString(body.main_keyword || source.main_keyword || "")}
+original_file: ${yamlString(source.filePath)}
+original_html: ${yamlString(source.htmlPath || "")}
+created_at: ${yamlString(createdAt)}
+---
+
+# ${revisionTitle}
+
+## Article concerné
+- Fichier source : ${source.filePath}
+${source.htmlPath ? `- Page publique : /${source.htmlPath}` : "- Page publique : non précisée"}
+
+## Ce qu’il faut modifier
+${notes || "Relire les modifications proposées, améliorer le contenu, corriger le SEO et publier proprement."}
+
+## Sources ou informations à ajouter
+${sources || "Aucune source supplémentaire indiquée."}
+
+## Photos ajoutées
+${photos.length ? photos.map((photo, index) => `- Photo ${index + 1} : ${photo.publicPath}`).join("\n") : "Aucune photo ajoutée dans ce brief de modification."}
+
+## Consignes photo
+${photoNotes || "À décider pendant la mise en forme."}
+
+## Version proposée par le back-office
+\`\`\`markdown
+${proposedMarkdown || source.markdown}
+\`\`\`
+
+## Version actuelle avant modification
+\`\`\`markdown
+${source.markdown}
+\`\`\`
+
+## Consigne de traitement
+Transformer cette demande en article final propre : corriger le texte, garder l’UX du blog, renforcer le SEO, vérifier les sources, mettre à jour le maillage interne et publier seulement après validation “MAJ”.
+`;
+}
+
+async function createRevisionBrief({ repository, branch, token, collection, filePath, body }) {
+  const source = await readManagedContent({ repository, branch, token, collection, filePath });
+  if (allowedCollections[collection].group !== "articles" || allowedCollections[collection].archived) {
+    throw new Error("Seuls les articles publiés peuvent être envoyés en modification.");
+  }
+
+  const briefPath = await uniqueBriefPath(repository, branch, token, `modification-${source.title}`);
+  const photos = await uploadRevisionPhotos({ repository, branch, token, briefPath, photos: body.photos });
+  const markdown = buildRevisionBrief({ source, body, photos });
+  const github = await createGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: briefPath,
+    content: markdown,
+    message: `Create article modification brief: ${source.filePath}`,
+  });
+
+  return {
+    status: "pending",
+    filePath: briefPath,
+    title: `Modification - ${source.title}`,
+    photos,
+    markdown,
+    githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
+  };
 }
 
 async function archiveManagedContent({ repository, branch, token, collection, filePath }) {
@@ -414,6 +609,14 @@ module.exports = async function manageContent(req, res) {
     const branch = process.env.GITHUB_BRANCH || DEFAULT_BRANCH;
 
     if (req.method === "GET") {
+      const url = new URL(req.url, "https://blog.mdrenov-menuiserie.com");
+      const collection = url.searchParams.get("collection");
+      const filePath = url.searchParams.get("filePath");
+      if (collection && filePath) {
+        const item = await readManagedContent({ repository, branch, token, collection, filePath });
+        sendJson(res, 200, { ok: true, item });
+        return;
+      }
       const items = await listManagedContent(repository, branch, token);
       sendJson(res, 200, { ok: true, items });
       return;
@@ -442,6 +645,12 @@ module.exports = async function manageContent(req, res) {
         return;
       }
       const result = await deleteManagedContent({ repository, branch, token, collection, filePath });
+      sendJson(res, 200, { ok: true, action, ...result });
+      return;
+    }
+
+    if (action === "revision") {
+      const result = await createRevisionBrief({ repository, branch, token, collection, filePath, body });
       sendJson(res, 200, { ok: true, action, ...result });
       return;
     }
