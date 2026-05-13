@@ -95,9 +95,16 @@
   backdrop-filter: blur(10px);
 }
 
-.mdr-home-intents span,
-.mdr-home-shortcuts span {
+.mdr-home-intents span {
   color: #f0ece4;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mdr-home-shortcuts span {
+  color: #9b1c1c;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -180,8 +187,9 @@
 
 .mdr-home-shortcuts strong {
   color: #1a1a18;
-  font-size: 1rem;
-  line-height: 1.28;
+  font-size: clamp(1.05rem, 1.35vw, 1.18rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
 }
 
 .mdr-home-page .mdr-home-card h3 {
