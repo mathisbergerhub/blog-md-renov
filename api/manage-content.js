@@ -238,8 +238,7 @@ function archivePath(collection, filePath) {
   const today = new Date().toISOString().slice(0, 10);
   const fileName = filePath.split("/").pop();
   return `${config.archiveFolder}/${today}-${fileName}`;
-}
-
+}\n
 function archiveHtmlPath(filePath) {
   const today = new Date().toISOString().slice(0, 10);
   return `content/archive/html/${today}-${filePath.split("/").pop()}`;
@@ -353,6 +352,22 @@ async function createGithubBinaryFile({ repository, branch, token, filePath, bas
     },
   );
   if (!response.ok) throw new Error(response.data.message || `Impossible de créer ${filePath}.`);
+  return response.data;
+}
+
+async function updateGithubFile({ repository, branch, token, filePath, sha, content, message }) {
+  const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
+  const response = await httpsJson(
+    url,
+    { method: "PUT", headers: githubHeaders(token) },
+    {
+      message,
+      branch,
+      sha,
+      content: Buffer.from(content, "utf8").toString("base64"),
+    },
+  );
+  if (!response.ok) throw new Error(response.data.message || `Impossible de mettre à jour ${filePath}.`);
   return response.data;
 }
 
@@ -487,6 +502,40 @@ async function createRevisionBrief({ repository, branch, token, collection, file
     title: `Modification - ${source.title}`,
     photos,
     markdown,
+    githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
+  };
+}
+
+async function updatePendingBrief({ repository, branch, token, collection, filePath, body }) {
+  if (collection !== "briefs") {
+    throw new Error("Seuls les briefs en attente peuvent être modifiés ici.");
+  }
+  const managedPath = normalizeManagedPath(collection, filePath);
+  const source = await readGithubPath(repository, branch, token, managedPath);
+  if (!source) throw new Error("Brief introuvable.");
+  const fields = parseFrontmatter(source.content);
+  if (fields.status !== "pending") {
+    throw new Error("Ce brief n’est plus en attente.");
+  }
+  const markdown = String(body.markdown || "").trim();
+  if (!markdown || !markdown.startsWith("---")) {
+    throw new Error("Le contenu du brief doit conserver son en-tête de configuration.");
+  }
+
+  const github = await updateGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: managedPath,
+    sha: source.sha,
+    content: `${markdown}\n`,
+    message: `Update pending brief: ${managedPath}`,
+  });
+
+  return {
+    status: "pending",
+    filePath: managedPath,
+    title: parseFrontmatter(markdown).title || fields.title || managedPath.split("/").pop(),
     githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
   };
 }
@@ -651,6 +700,12 @@ module.exports = async function manageContent(req, res) {
 
     if (action === "revision") {
       const result = await createRevisionBrief({ repository, branch, token, collection, filePath, body });
+      sendJson(res, 200, { ok: true, action, ...result });
+      return;
+    }
+
+    if (action === "update_brief") {
+      const result = await updatePendingBrief({ repository, branch, token, collection, filePath, body });
       sendJson(res, 200, { ok: true, action, ...result });
       return;
     }
