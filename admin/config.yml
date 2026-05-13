@@ -30,10 +30,118 @@ media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
+  - name: "site_articles"
+    label: "Articles du site"
+    label_singular: "Article du site"
+    description: "Articles déjà visibles sur le blog. Modifier ici le contenu, le SEO, les catégories et les images."
+    folder: "."
+    extension: "html.md"
+    format: "frontmatter"
+    filter:
+      field: "content_type"
+      value: "article"
+    create: false
+    delete: false
+    identifier_field: "title"
+    summary: "{{category_label}} · {{title}}"
+    preview_path: "{{source_html}}"
+    sortable_fields: ["date", "title", "category_label", "reading_time"]
+    view_filters:
+      - label: "Aides"
+        field: "category"
+        pattern: "aides"
+      - label: "Fenêtres"
+        field: "category"
+        pattern: "fenetres"
+      - label: "Isolation"
+        field: "category"
+        pattern: "isolation"
+      - label: "Volets et stores"
+        field: "category"
+        pattern: "volets-stores"
+      - label: "Portes et portails"
+        field: "category"
+        pattern: "portes-portails"
+      - label: "Extérieur"
+        field: "category"
+        pattern: "exterieur"
+    fields:
+      - label: "Type de contenu"
+        name: "content_type"
+        widget: "hidden"
+        default: "article"
+      - label: "Publié"
+        name: "published"
+        widget: "boolean"
+        default: true
+      - label: "Titre de l'article"
+        name: "title"
+        widget: "string"
+        hint: "Titre visible dans l'article. Garder clair, concret et orienté recherche client."
+      - label: "Titre SEO"
+        name: "seo_title"
+        widget: "string"
+        required: false
+        hint: "Idéalement 45 à 65 caractères."
+      - label: "Description SEO"
+        name: "description"
+        widget: "text"
+        required: true
+        hint: "Idéalement 120 à 160 caractères. Elle doit promettre une réponse concrète."
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Aides & Subventions", value: "aides" }
+          - { label: "Fenêtres & Vitrages", value: "fenetres" }
+          - { label: "Isolation thermique", value: "isolation" }
+          - { label: "Volets & Stores", value: "volets-stores" }
+          - { label: "Portes & Portails", value: "portes-portails" }
+          - { label: "Aménagements extérieurs", value: "exterieur" }
+      - label: "Libellé de catégorie"
+        name: "category_label"
+        widget: "string"
+        required: true
+      - label: "Date de publication"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+      - label: "Temps de lecture"
+        name: "reading_time"
+        widget: "string"
+        default: "5 min"
+      - label: "Image principale"
+        name: "featured_image"
+        widget: "image"
+        required: false
+        hint: "Format conseillé : 16:10, largeur 1600 px, poids idéal sous 300 Ko."
+      - label: "Texte alternatif de l'image"
+        name: "image_alt"
+        widget: "string"
+        required: false
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "string"
+      - label: "Page HTML liée"
+        name: "source_html"
+        widget: "string"
+        required: false
+        hint: "Ne pas modifier sauf changement technique. Exemple : ./maprimerenov-2026-haute-savoie.html"
+      - label: "Contenu"
+        name: "body"
+        widget: "markdown"
+
   - name: "articles"
-    label: "Articles du blog"
+    label: "Nouveaux articles"
     label_singular: "Article"
-    description: "Articles Markdown éditables. Les fichiers HTML du site statique doivent être régénérés après modification."
+    description: "Nouveaux articles créés par le backoffice ou Decap. Ils servent aux prochains contenus."
     folder: "content/articles"
     extension: "md"
     format: "frontmatter"
