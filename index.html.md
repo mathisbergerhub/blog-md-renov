@@ -1,9 +1,9 @@
 ---
 content_type: 'page'
 published: true
-title: 'Le blog MD Rénov'
-seo_title: 'Le blog MD Rénov' | Conseils rénovation en Haute-Savoie'
-description: 'Guides concrets sur les fenêtres, volets, stores, pergolas, portes, portails, aides et démarches en Haute-Savoie.'
+title: 'Guides rénovation en Haute-Savoie'
+seo_title: "Guides rénovation en Haute-Savoie | Blog MD Rénov'"
+description: 'Des guides concrets pour choisir, budgéter et éviter les erreurs avant de rénover fenêtres, volets, stores, pergolas, portes, portails et isolation.'
 category: 'exterieur'
 category_label: 'Conseils rénovation'
 date: '2026-04-29'
@@ -17,13 +17,19 @@ tags:
   - 'Savoie'
 ---
 
-# Le blog MD Rénov'
+# Guides rénovation en Haute-Savoie
 
-Guides concrets sur les fenêtres, volets, stores, pergolas, portes, portails, aides et démarches en Haute-Savoie.
+Des guides courts et concrets pour comprendre vos options avant de demander un devis : fenêtres, vitrages, isolation, volets, stores, pergolas, portes, portails, aides et démarches locales.
+
+## Accès rapides
+
+- Budget : prix et aides possibles : ./prix-renovation-menuiseries-haute-savoie.html
+- Choix : PVC ou aluminium : ./fenetre-pvc-vs-aluminium-haute-savoie.html
+- Démarches : autorisations avant travaux : ./autorisation-travaux-menuiseries-haute-savoie.html
 
 ## À lire en premier
 
-- MaPrimeRénov’ 2026 : ce qu’il faut vérifier avant de changer ses fenêtres en Haute-Savoie : ./maprimerenov-2026-haute-savoie.html
+- MaPrimeRénov’ 2026 : ce qu’il faut vérifier avant de changer ses fenêtres : ./maprimerenov-2026-haute-savoie.html
 
 ## Articles récents
 
