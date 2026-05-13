@@ -303,6 +303,81 @@
       white-space: nowrap;
     }
 
+    .brief-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      place-items: center;
+      padding: 22px;
+      background: rgba(23, 23, 23, .52);
+    }
+
+    .modal.is-open { display: grid; }
+
+    .editor {
+      width: min(1080px, 100%);
+      max-height: min(900px, calc(100vh - 44px));
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--cream);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .28);
+    }
+
+    .editor-head {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(240, 236, 228, .96);
+      backdrop-filter: blur(12px);
+    }
+
+    .editor-head h2 {
+      margin: 6px 0 0;
+      font-size: clamp(26px, 4vw, 44px);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .editor-head h2 em {
+      color: var(--red);
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      letter-spacing: -.04em;
+    }
+
+    .editor-form {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+    }
+
+    .brief-editor {
+      min-height: 560px;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 13px;
+    }
+
+    .secondary {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--ink);
+    }
+
     .empty {
       border: 1px dashed var(--line);
       border-radius: 18px;
@@ -451,6 +526,30 @@
     </section>
   </div>
 
+  <div class="modal" id="edit-modal" aria-hidden="true">
+    <section class="editor" role="dialog" aria-modal="true" aria-labelledby="edit-title">
+      <div class="editor-head">
+        <div>
+          <div class="eyebrow">Brief en attente</div>
+          <h2 id="edit-title">Modifier le <em>brief</em></h2>
+          <p>Tu peux corriger le sujet, les questions, les sources ou les consignes. Le brief reste en attente jusqu’à ton “MAJ”.</p>
+        </div>
+        <button type="button" class="secondary" id="close-edit">Fermer</button>
+      </div>
+      <form class="editor-form" id="edit-form">
+        <label>
+          Contenu du brief
+          <textarea id="edit-markdown" class="brief-editor" required></textarea>
+        </label>
+        <div class="actions">
+          <button type="submit">Enregistrer le brief</button>
+          <button type="button" class="secondary" id="cancel-edit">Annuler</button>
+          <span id="edit-status" class="status">Le brief restera dans la file d’attente.</span>
+        </div>
+      </form>
+    </section>
+  </div>
+
   <script>
     const form = document.querySelector("#brief-form");
     const status = document.querySelector("#status");
@@ -459,6 +558,11 @@
     const preview = document.querySelector("#markdown-preview");
     const briefList = document.querySelector("#brief-list");
     const refreshBriefs = document.querySelector("#refresh-briefs");
+    const editModal = document.querySelector("#edit-modal");
+    const editForm = document.querySelector("#edit-form");
+    const editMarkdown = document.querySelector("#edit-markdown");
+    const editStatus = document.querySelector("#edit-status");
+    let editingBrief = null;
 
     function formatDate(value) {
       if (!value) return "date non précisée";
@@ -496,9 +600,38 @@
               <span>${escapeHtml(formatDate(brief.created_at))}</span>
             </div>
           </div>
-          <a class="brief-link" href="${escapeHtml(brief.githubUrl)}" target="_blank" rel="noreferrer">Voir le brief</a>
+          <div class="brief-actions">
+            <button type="button" class="brief-link" data-action="edit-brief" data-path="${escapeHtml(brief.filePath)}">Modifier le brief</button>
+          </div>
         </article>
       `).join("");
+    }
+
+    function closeEdit() {
+      editModal.classList.remove("is-open");
+      editModal.setAttribute("aria-hidden", "true");
+      editingBrief = null;
+      editForm.reset();
+      editStatus.textContent = "Le brief restera dans la file d’attente.";
+      editStatus.classList.remove("error");
+    }
+
+    async function openBriefEditor(filePath) {
+      editStatus.textContent = "Ouverture du brief...";
+      editStatus.classList.remove("error");
+      try {
+        const response = await fetch(`/api/manage-content?collection=briefs&filePath=${encodeURIComponent(filePath)}`);
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Impossible d’ouvrir ce brief.");
+        editingBrief = data.item;
+        editMarkdown.value = editingBrief.markdown || "";
+        editStatus.textContent = "Modifie le contenu, puis enregistre.";
+        editModal.classList.add("is-open");
+        editModal.setAttribute("aria-hidden", "false");
+      } catch (error) {
+        editStatus.textContent = error.message;
+        editStatus.classList.add("error");
+      }
     }
 
     async function loadBriefs() {
@@ -558,6 +691,43 @@
       }
     });
 
+    briefList.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-action='edit-brief']");
+      if (!button) return;
+      openBriefEditor(button.dataset.path);
+    });
+
+    editForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!editingBrief) return;
+      editStatus.textContent = "Enregistrement du brief...";
+      editStatus.classList.remove("error");
+      try {
+        const response = await fetch("/api/manage-content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "update_brief",
+            collection: "briefs",
+            filePath: editingBrief.filePath,
+            markdown: editMarkdown.value,
+          }),
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Impossible d’enregistrer ce brief.");
+        editStatus.textContent = "Brief enregistré. Il reste en attente pour la prochaine MAJ.";
+        await loadBriefs();
+      } catch (error) {
+        editStatus.textContent = error.message;
+        editStatus.classList.add("error");
+      }
+    });
+
+    document.querySelector("#close-edit").addEventListener("click", closeEdit);
+    document.querySelector("#cancel-edit").addEventListener("click", closeEdit);
+    editModal.addEventListener("click", (event) => {
+      if (event.target === editModal) closeEdit();
+    });
     refreshBriefs.addEventListener("click", loadBriefs);
     loadBriefs();
   </script>
