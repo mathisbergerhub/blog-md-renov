@@ -3,38 +3,11 @@ const DEFAULT_BRANCH = "main";
 const https = require("https");
 
 const allowedCollections = {
-  articles: {
-    folder: "content/articles",
-    archiveFolder: "content/archive/articles",
-    label: "Article",
-    group: "articles",
-  },
-  article_mirrors: {
-    folder: "",
-    archiveFolder: "content/archive/articles",
-    label: "Article du site",
-    group: "articles",
-  },
-  archived_articles: {
-    folder: "content/archive/articles",
-    archiveFolder: "content/archive/articles",
-    label: "Article archivé",
-    group: "archived",
-    archived: true,
-  },
-  archived_briefs: {
-    folder: "content/archive/briefs",
-    archiveFolder: "content/archive/briefs",
-    label: "Brief archivé",
-    group: "archived",
-    archived: true,
-  },
-  briefs: {
-    folder: "content/briefs",
-    archiveFolder: "content/archive/briefs",
-    label: "Brief",
-    group: "briefs",
-  },
+  articles: { folder: "content/articles", archiveFolder: "content/archive/articles", label: "Article", group: "articles" },
+  article_mirrors: { folder: "", archiveFolder: "content/archive/articles", label: "Article du site", group: "articles" },
+  archived_articles: { folder: "content/archive/articles", archiveFolder: "content/archive/articles", label: "Article archivé", group: "archived", archived: true },
+  archived_briefs: { folder: "content/archive/briefs", archiveFolder: "content/archive/briefs", label: "Brief archivé", group: "archived", archived: true },
+  briefs: { folder: "content/briefs", archiveFolder: "content/archive/briefs", label: "Brief", group: "briefs" },
 };
 
 function sendJson(res, statusCode, payload) {
@@ -45,14 +18,7 @@ function sendJson(res, statusCode, payload) {
 
 function readJson(req) {
   if (req.body && typeof req.body === "object") return Promise.resolve(req.body);
-  if (typeof req.body === "string") {
-    try {
-      return Promise.resolve(JSON.parse(req.body || "{}"));
-    } catch (error) {
-      return Promise.reject(new Error("JSON invalide."));
-    }
-  }
-
+  if (typeof req.body === "string") return Promise.resolve(JSON.parse(req.body || "{}"));
   return new Promise((resolve, reject) => {
     let body = "";
     req.on("data", (chunk) => {
@@ -63,11 +29,7 @@ function readJson(req) {
       }
     });
     req.on("end", () => {
-      try {
-        resolve(JSON.parse(body || "{}"));
-      } catch (error) {
-        reject(new Error("JSON invalide."));
-      }
+      try { resolve(JSON.parse(body || "{}")); } catch { reject(new Error("JSON invalide.")); }
     });
     req.on("error", reject);
   });
@@ -77,36 +39,20 @@ function httpsJson(url, options, payload) {
   return new Promise((resolve, reject) => {
     const parsed = new URL(url);
     const body = payload ? JSON.stringify(payload) : null;
-    const request = https.request(
-      {
-        hostname: parsed.hostname,
-        path: `${parsed.pathname}${parsed.search}`,
-        method: options.method || "GET",
-        headers: {
-          ...(options.headers || {}),
-          ...(body ? { "Content-Length": Buffer.byteLength(body) } : {}),
-        },
-      },
-      (response) => {
-        let responseBody = "";
-        response.on("data", (chunk) => {
-          responseBody += chunk;
-        });
-        response.on("end", () => {
-          let data = {};
-          try {
-            data = responseBody ? JSON.parse(responseBody) : {};
-          } catch (error) {
-            data = { raw: responseBody };
-          }
-          resolve({
-            ok: response.statusCode >= 200 && response.statusCode < 300,
-            status: response.statusCode,
-            data,
-          });
-        });
-      },
-    );
+    const request = https.request({
+      hostname: parsed.hostname,
+      path: `${parsed.pathname}${parsed.search}`,
+      method: options.method || "GET",
+      headers: { ...(options.headers || {}), ...(body ? { "Content-Length": Buffer.byteLength(body) } : {}) },
+    }, (response) => {
+      let responseBody = "";
+      response.on("data", (chunk) => { responseBody += chunk; });
+      response.on("end", () => {
+        let data = {};
+        try { data = responseBody ? JSON.parse(responseBody) : {}; } catch { data = { raw: responseBody }; }
+        resolve({ ok: response.statusCode >= 200 && response.statusCode < 300, status: response.statusCode, data });
+      });
+    });
     request.on("error", reject);
     if (body) request.write(body);
     request.end();
@@ -125,6 +71,16 @@ function githubHeaders(token) {
 
 function decodeBase64(value = "") {
   return Buffer.from(value.replace(/\n/g, ""), "base64").toString("utf8");
+}
+
+function cleanYamlValue(value = "") {
+  const trimmed = String(value).trim();
+  if ((trimmed.startsWith("'") && trimmed.endsWith("'")) || (trimmed.startsWith('"') && trimmed.endsWith('"'))) {
+    return trimmed.slice(1, -1).replace(/''/g, "'");
+  }
+  if (trimmed === "true") return true;
+  if (trimmed === "false") return false;
+  return trimmed;
 }
 
 function parseFrontmatter(markdown = "") {
@@ -153,24 +109,8 @@ function parseFrontmatter(markdown = "") {
   return fields;
 }
 
-function cleanYamlValue(value = "") {
-  const trimmed = String(value).trim();
-  if ((trimmed.startsWith("'") && trimmed.endsWith("'")) || (trimmed.startsWith('"') && trimmed.endsWith('"'))) {
-    return trimmed.slice(1, -1).replace(/''/g, "'");
-  }
-  if (trimmed === "true") return true;
-  if (trimmed === "false") return false;
-  return trimmed;
-}
-
 function slugify(value = "") {
-  return String(value)
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 72);
+  return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 72);
 }
 
 function yamlString(value = "") {
@@ -192,53 +132,37 @@ function parsePhoto(photo) {
   const dataUrl = String(photo && photo.dataUrl ? photo.dataUrl : "");
   const match = dataUrl.match(/^data:(image\/(?:png|jpeg|webp));base64,([A-Za-z0-9+/=]+)$/);
   if (!match) return null;
-  return {
-    name: safeFileName(photo.name || "photo.jpg"),
-    base64: match[2],
-  };
+  return { name: safeFileName(photo.name || "photo.jpg"), base64: match[2] };
 }
 
 function normalizeManagedPath(collection, filePath) {
   const config = allowedCollections[collection];
   const normalized = String(filePath || "").replace(/\\/g, "/").replace(/^\/+/, "");
-  if (!config || normalized.includes("..")) {
-    throw new Error("Chemin de contenu non autorisé.");
-  }
+  if (!config || normalized.includes("..")) throw new Error("Chemin de contenu non autorisé.");
   if (collection === "article_mirrors") {
-    if (normalized.includes("/") || !normalized.endsWith(".html.md")) {
-      throw new Error("Chemin d'article non autorisé.");
-    }
+    if (normalized.includes("/") || !normalized.endsWith(".html.md")) throw new Error("Chemin d'article non autorisé.");
     return normalized;
   }
   if (config.archived) {
-    if (!normalized.startsWith(`${config.folder}/`) || !normalized.endsWith(".md")) {
-      throw new Error("Chemin d'archive non autorisé.");
-    }
+    if (!normalized.startsWith(`${config.folder}/`) || !normalized.endsWith(".md")) throw new Error("Chemin d'archive non autorisé.");
     return normalized;
   }
-  if (!normalized.startsWith(`${config.folder}/`) || !normalized.endsWith(".md")) {
-    throw new Error("Chemin de contenu non autorisé.");
-  }
+  if (!normalized.startsWith(`${config.folder}/`) || !normalized.endsWith(".md")) throw new Error("Chemin de contenu non autorisé.");
   return normalized;
 }
 
 function rootHtmlPathFromArticle(filePath, fields) {
   const sourceHtml = String(fields.source_html || "").trim();
-  if (sourceHtml) {
-    return sourceHtml.replace(/^\.?\//, "").replace(/^\/+/, "");
-  }
-  if (filePath.endsWith(".html.md")) {
-    return filePath.replace(/\.md$/, "");
-  }
+  if (sourceHtml) return sourceHtml.replace(/^\.?\//, "").replace(/^\/+/, "");
+  if (filePath.endsWith(".html.md")) return filePath.replace(/\.md$/, "");
   return `${filePath.split("/").pop().replace(/\.md$/, "")}.html`;
 }
 
 function archivePath(collection, filePath) {
-  const config = allowedCollections[collection];
   const today = new Date().toISOString().slice(0, 10);
-  const fileName = filePath.split("/").pop();
-  return `${config.archiveFolder}/${today}-${fileName}`;
-}\n
+  return `${allowedCollections[collection].archiveFolder}/${today}-${filePath.split("/").pop()}`;
+}
+
 function archiveHtmlPath(filePath) {
   const today = new Date().toISOString().slice(0, 10);
   return `content/archive/html/${today}-${filePath.split("/").pop()}`;
@@ -249,44 +173,35 @@ async function readGithubPath(repository, branch, token, path) {
   const response = await httpsJson(url, { method: "GET", headers: githubHeaders(token) });
   if (response.status === 404) return null;
   if (!response.ok) throw new Error(response.data.message || `Impossible de lire ${path}.`);
-  return {
-    path,
-    name: response.data.name,
-    sha: response.data.sha,
-    htmlUrl: response.data.html_url,
-    content: response.data.content ? decodeBase64(response.data.content) : "",
-    type: response.data.type,
-  };
+  return { path, name: response.data.name, sha: response.data.sha, htmlUrl: response.data.html_url, content: response.data.content ? decodeBase64(response.data.content) : "", type: response.data.type };
 }
 
 async function listGithubFolder(repository, branch, token, folder) {
   const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(folder).replace(/%2F/g, "/")}?ref=${encodeURIComponent(branch)}`;
   const response = await httpsJson(url, { method: "GET", headers: githubHeaders(token) });
   if (response.status === 404) return [];
-  if (!response.ok || !Array.isArray(response.data)) {
-    throw new Error(response.data.message || `Impossible de lister ${folder}.`);
-  }
+  if (!response.ok || !Array.isArray(response.data)) throw new Error(response.data.message || `Impossible de lister ${folder}.`);
   return response.data;
 }
 
-async function createGithubFile({ repository, branch, token, filePath, content, message }) {
+async function putGithubFile({ repository, branch, token, filePath, content, base64Content, sha, message }) {
   const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
-  const response = await httpsJson(
-    url,
-    { method: "PUT", headers: githubHeaders(token) },
-    {
-      message,
-      branch,
-      content: Buffer.from(content, "utf8").toString("base64"),
-    },
-  );
-  if (!response.ok) throw new Error(response.data.message || `Impossible de créer ${filePath}.`);
+  const payload = { message, branch, content: base64Content || Buffer.from(content, "utf8").toString("base64") };
+  if (sha) payload.sha = sha;
+  const response = await httpsJson(url, { method: "PUT", headers: githubHeaders(token) }, payload);
+  if (!response.ok) throw new Error(response.data.message || `Impossible d'enregistrer ${filePath}.`);
+  return response.data;
+}
+
+async function deleteGithubFile({ repository, branch, token, filePath, sha, message }) {
+  const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
+  const response = await httpsJson(url, { method: "DELETE", headers: githubHeaders(token) }, { message, branch, sha });
+  if (!response.ok) throw new Error(response.data.message || `Impossible de supprimer ${filePath}.`);
   return response.data;
 }
 
 async function githubPathExists(repository, branch, token, filePath) {
-  const existing = await readGithubPath(repository, branch, token, filePath);
-  return Boolean(existing);
+  return Boolean(await readGithubPath(repository, branch, token, filePath));
 }
 
 async function uniqueBriefPath(repository, branch, token, title) {
@@ -304,82 +219,21 @@ async function uniqueBriefPath(repository, branch, token, title) {
 async function uploadRevisionPhotos({ repository, branch, token, briefPath, photos }) {
   const parsedPhotos = Array.isArray(photos) ? photos.slice(0, 3).map(parsePhoto).filter(Boolean) : [];
   const uploaded = [];
-  if (!parsedPhotos.length) return uploaded;
-
   const briefSlug = briefPath.split("/").pop().replace(/\.md$/, "");
   for (const [index, photo] of parsedPhotos.entries()) {
-    if (Buffer.byteLength(photo.base64, "base64") > 2500000) {
-      throw new Error(`La photo ${photo.name} dépasse 2,5 Mo.`);
-    }
+    if (Buffer.byteLength(photo.base64, "base64") > 2500000) throw new Error(`La photo ${photo.name} dépasse 2,5 Mo.`);
     const filePath = `uploads/briefs/${briefSlug}-${index + 1}-${photo.name}`;
-    await createGithubBinaryFile({
-      repository,
-      branch,
-      token,
-      filePath,
-      base64Content: photo.base64,
-      message: `Upload modification photo: ${filePath}`,
-    });
-    uploaded.push({
-      filePath,
-      publicPath: `/${filePath}`,
-      name: photo.name,
-    });
+    await putGithubFile({ repository, branch, token, filePath, base64Content: photo.base64, message: `Upload modification photo: ${filePath}` });
+    uploaded.push({ filePath, publicPath: `/${filePath}`, name: photo.name });
   }
   return uploaded;
-}
-
-async function deleteGithubFile({ repository, branch, token, filePath, sha, message }) {
-  const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
-  const response = await httpsJson(
-    url,
-    { method: "DELETE", headers: githubHeaders(token) },
-    { message, branch, sha },
-  );
-  if (!response.ok) throw new Error(response.data.message || `Impossible de supprimer ${filePath}.`);
-  return response.data;
-}
-
-async function createGithubBinaryFile({ repository, branch, token, filePath, base64Content, message }) {
-  const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
-  const response = await httpsJson(
-    url,
-    { method: "PUT", headers: githubHeaders(token) },
-    {
-      message,
-      branch,
-      content: base64Content,
-    },
-  );
-  if (!response.ok) throw new Error(response.data.message || `Impossible de créer ${filePath}.`);
-  return response.data;
-}
-
-async function updateGithubFile({ repository, branch, token, filePath, sha, content, message }) {
-  const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
-  const response = await httpsJson(
-    url,
-    { method: "PUT", headers: githubHeaders(token) },
-    {
-      message,
-      branch,
-      sha,
-      content: Buffer.from(content, "utf8").toString("base64"),
-    },
-  );
-  if (!response.ok) throw new Error(response.data.message || `Impossible de mettre à jour ${filePath}.`);
-  return response.data;
 }
 
 async function listManagedContent(repository, branch, token) {
   const results = [];
   for (const [collection, config] of Object.entries(allowedCollections)) {
     const files = await listGithubFolder(repository, branch, token, config.folder);
-    const managedFiles = files.filter((item) => {
-      if (item.type !== "file") return false;
-      if (collection === "article_mirrors") return item.name.endsWith(".html.md");
-      return item.name.endsWith(".md");
-    });
+    const managedFiles = files.filter((item) => item.type === "file" && (collection === "article_mirrors" ? item.name.endsWith(".html.md") : item.name.endsWith(".md")));
     for (const file of managedFiles) {
       if (file.name === ".gitkeep") continue;
       const content = await readGithubPath(repository, branch, token, file.path);
@@ -432,7 +286,6 @@ function buildRevisionBrief({ source, body, photos }) {
   const proposedMarkdown = String(body.markdown || "").trim();
   const sources = String(body.sources || "").trim();
   const photoNotes = String(body.photo_notes || "").trim();
-
   return `---
 content_type: 'article_revision_brief'
 status: 'pending'
@@ -474,125 +327,53 @@ ${source.markdown}
 \`\`\`
 
 ## Consigne de traitement
-Transformer cette demande en article final propre : corriger le texte, garder l’UX du blog, renforcer le SEO, vérifier les sources, mettre à jour le maillage interne et publier seulement après validation “MAJ”.
+Transformer cette demande en article final propre : corriger le texte, garder l'UX du blog, renforcer le SEO, vérifier les sources, mettre à jour le maillage interne et publier seulement après validation “MAJ”.
 `;
 }
 
 async function createRevisionBrief({ repository, branch, token, collection, filePath, body }) {
   const source = await readManagedContent({ repository, branch, token, collection, filePath });
-  if (allowedCollections[collection].group !== "articles" || allowedCollections[collection].archived) {
-    throw new Error("Seuls les articles publiés peuvent être envoyés en modification.");
-  }
-
+  if (allowedCollections[collection].group !== "articles" || allowedCollections[collection].archived) throw new Error("Seuls les articles publiés peuvent être envoyés en modification.");
   const briefPath = await uniqueBriefPath(repository, branch, token, `modification-${source.title}`);
   const photos = await uploadRevisionPhotos({ repository, branch, token, briefPath, photos: body.photos });
   const markdown = buildRevisionBrief({ source, body, photos });
-  const github = await createGithubFile({
-    repository,
-    branch,
-    token,
-    filePath: briefPath,
-    content: markdown,
-    message: `Create article modification brief: ${source.filePath}`,
-  });
-
-  return {
-    status: "pending",
-    filePath: briefPath,
-    title: `Modification - ${source.title}`,
-    photos,
-    markdown,
-    githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
-  };
+  const github = await putGithubFile({ repository, branch, token, filePath: briefPath, content: markdown, message: `Create article modification brief: ${source.filePath}` });
+  return { status: "pending", filePath: briefPath, title: `Modification - ${source.title}`, photos, markdown, githubUrl: github.content && github.content.html_url ? github.content.html_url : null };
 }
 
 async function updatePendingBrief({ repository, branch, token, collection, filePath, body }) {
-  if (collection !== "briefs") {
-    throw new Error("Seuls les briefs en attente peuvent être modifiés ici.");
-  }
+  if (collection !== "briefs") throw new Error("Seuls les briefs en attente peuvent être modifiés ici.");
   const managedPath = normalizeManagedPath(collection, filePath);
   const source = await readGithubPath(repository, branch, token, managedPath);
   if (!source) throw new Error("Brief introuvable.");
   const fields = parseFrontmatter(source.content);
-  if (fields.status !== "pending") {
-    throw new Error("Ce brief n’est plus en attente.");
-  }
+  if (fields.status !== "pending") throw new Error("Ce brief n'est plus en attente.");
   const markdown = String(body.markdown || "").trim();
-  if (!markdown || !markdown.startsWith("---")) {
-    throw new Error("Le contenu du brief doit conserver son en-tête de configuration.");
-  }
-
-  const github = await updateGithubFile({
-    repository,
-    branch,
-    token,
-    filePath: managedPath,
-    sha: source.sha,
-    content: `${markdown}\n`,
-    message: `Update pending brief: ${managedPath}`,
-  });
-
-  return {
-    status: "pending",
-    filePath: managedPath,
-    title: parseFrontmatter(markdown).title || fields.title || managedPath.split("/").pop(),
-    githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
-  };
+  if (!markdown || !markdown.startsWith("---")) throw new Error("Le contenu du brief doit conserver son en-tête de configuration.");
+  const github = await putGithubFile({ repository, branch, token, filePath: managedPath, sha: source.sha, content: `${markdown}\n`, message: `Update pending brief: ${managedPath}` });
+  return { status: "pending", filePath: managedPath, title: parseFrontmatter(markdown).title || fields.title || managedPath.split("/").pop(), githubUrl: github.content && github.content.html_url ? github.content.html_url : null };
 }
 
 async function archiveManagedContent({ repository, branch, token, collection, filePath }) {
   const managedPath = normalizeManagedPath(collection, filePath);
   const source = await readGithubPath(repository, branch, token, managedPath);
   if (!source) throw new Error("Contenu introuvable.");
-
   const archivedMdPath = archivePath(collection, managedPath);
-  await createGithubFile({
-    repository,
-    branch,
-    token,
-    filePath: archivedMdPath,
-    content: source.content,
-    message: `Archive ${managedPath}`,
-  });
-  await deleteGithubFile({
-    repository,
-    branch,
-    token,
-    filePath: managedPath,
-    sha: source.sha,
-    message: `Remove archived ${managedPath}`,
-  });
-
+  await putGithubFile({ repository, branch, token, filePath: archivedMdPath, content: source.content, message: `Archive ${managedPath}` });
+  await deleteGithubFile({ repository, branch, token, filePath: managedPath, sha: source.sha, message: `Remove archived ${managedPath}` });
   const archived = [archivedMdPath];
   const deleted = [managedPath];
-
   if (allowedCollections[collection].group === "articles") {
-    const fields = parseFrontmatter(source.content);
-    const htmlPath = rootHtmlPathFromArticle(managedPath, fields);
+    const htmlPath = rootHtmlPathFromArticle(managedPath, parseFrontmatter(source.content));
     const html = await readGithubPath(repository, branch, token, htmlPath);
     if (html && html.type === "file") {
       const archivedHtmlPath = archiveHtmlPath(htmlPath);
-      await createGithubFile({
-        repository,
-        branch,
-        token,
-        filePath: archivedHtmlPath,
-        content: html.content,
-        message: `Archive ${htmlPath}`,
-      });
-      await deleteGithubFile({
-        repository,
-        branch,
-        token,
-        filePath: htmlPath,
-        sha: html.sha,
-        message: `Remove archived ${htmlPath}`,
-      });
+      await putGithubFile({ repository, branch, token, filePath: archivedHtmlPath, content: html.content, message: `Archive ${htmlPath}` });
+      await deleteGithubFile({ repository, branch, token, filePath: htmlPath, sha: html.sha, message: `Remove archived ${htmlPath}` });
       archived.push(archivedHtmlPath);
       deleted.push(htmlPath);
     }
   }
-
   return { archived, deleted };
 }
 
@@ -600,60 +381,31 @@ async function deleteManagedContent({ repository, branch, token, collection, fil
   const managedPath = normalizeManagedPath(collection, filePath);
   const source = await readGithubPath(repository, branch, token, managedPath);
   if (!source) throw new Error("Contenu introuvable.");
-  await deleteGithubFile({
-    repository,
-    branch,
-    token,
-    filePath: managedPath,
-    sha: source.sha,
-    message: `Delete ${managedPath}`,
-  });
-
+  await deleteGithubFile({ repository, branch, token, filePath: managedPath, sha: source.sha, message: `Delete ${managedPath}` });
   const deleted = [managedPath];
   if (collection === "archived_articles" && managedPath.endsWith(".html.md")) {
-    const archivedHtmlPath = managedPath
-      .replace(/^content\/archive\/articles\//, "content/archive/html/")
-      .replace(/\.md$/, "");
+    const archivedHtmlPath = managedPath.replace(/^content\/archive\/articles\//, "content/archive/html/").replace(/\.md$/, "");
     const archivedHtml = await readGithubPath(repository, branch, token, archivedHtmlPath);
     if (archivedHtml && archivedHtml.type === "file") {
-      await deleteGithubFile({
-        repository,
-        branch,
-        token,
-        filePath: archivedHtmlPath,
-        sha: archivedHtml.sha,
-        message: `Delete ${archivedHtmlPath}`,
-      });
+      await deleteGithubFile({ repository, branch, token, filePath: archivedHtmlPath, sha: archivedHtml.sha, message: `Delete ${archivedHtmlPath}` });
       deleted.push(archivedHtmlPath);
     }
   }
   if (allowedCollections[collection].group === "articles") {
-    const fields = parseFrontmatter(source.content);
-    const htmlPath = rootHtmlPathFromArticle(managedPath, fields);
+    const htmlPath = rootHtmlPathFromArticle(managedPath, parseFrontmatter(source.content));
     const html = await readGithubPath(repository, branch, token, htmlPath);
     if (html && html.type === "file") {
-      await deleteGithubFile({
-        repository,
-        branch,
-        token,
-        filePath: htmlPath,
-        sha: html.sha,
-        message: `Delete ${htmlPath}`,
-      });
+      await deleteGithubFile({ repository, branch, token, filePath: htmlPath, sha: html.sha, message: `Delete ${htmlPath}` });
       deleted.push(htmlPath);
     }
   }
-
   return { deleted };
 }
 
 module.exports = async function manageContent(req, res) {
   try {
     const token = process.env.GITHUB_CONTENT_TOKEN || process.env.GITHUB_TOKEN;
-    if (!token) {
-      sendJson(res, 500, { error: "GITHUB_CONTENT_TOKEN est manquant dans les variables d'environnement Vercel." });
-      return;
-    }
+    if (!token) return sendJson(res, 500, { error: "GITHUB_CONTENT_TOKEN est manquant dans les variables d'environnement Vercel." });
     const repository = process.env.GITHUB_REPO || DEFAULT_REPO;
     const branch = process.env.GITHUB_BRANCH || DEFAULT_BRANCH;
 
@@ -661,20 +413,13 @@ module.exports = async function manageContent(req, res) {
       const url = new URL(req.url, "https://blog.mdrenov-menuiserie.com");
       const collection = url.searchParams.get("collection");
       const filePath = url.searchParams.get("filePath");
-      if (collection && filePath) {
-        const item = await readManagedContent({ repository, branch, token, collection, filePath });
-        sendJson(res, 200, { ok: true, item });
-        return;
-      }
-      const items = await listManagedContent(repository, branch, token);
-      sendJson(res, 200, { ok: true, items });
-      return;
+      if (collection && filePath) return sendJson(res, 200, { ok: true, item: await readManagedContent({ repository, branch, token, collection, filePath }) });
+      return sendJson(res, 200, { ok: true, items: await listManagedContent(repository, branch, token) });
     }
 
     if (req.method !== "POST") {
       res.setHeader("Allow", "GET, POST");
-      sendJson(res, 405, { error: "Méthode non autorisée." });
-      return;
+      return sendJson(res, 405, { error: "Méthode non autorisée." });
     }
 
     const body = await readJson(req);
@@ -682,36 +427,16 @@ module.exports = async function manageContent(req, res) {
     const collection = String(body.collection || "");
     const filePath = String(body.filePath || "");
 
-    if (action === "archive") {
-      const result = await archiveManagedContent({ repository, branch, token, collection, filePath });
-      sendJson(res, 200, { ok: true, action, ...result });
-      return;
-    }
-
+    if (action === "archive") return sendJson(res, 200, { ok: true, action, ...(await archiveManagedContent({ repository, branch, token, collection, filePath })) });
     if (action === "delete") {
-      if (body.confirm !== "SUPPRIMER") {
-        sendJson(res, 400, { error: "Confirmation requise : écris SUPPRIMER." });
-        return;
-      }
-      const result = await deleteManagedContent({ repository, branch, token, collection, filePath });
-      sendJson(res, 200, { ok: true, action, ...result });
-      return;
+      if (body.confirm !== "SUPPRIMER") return sendJson(res, 400, { error: "Confirmation requise : écris SUPPRIMER." });
+      return sendJson(res, 200, { ok: true, action, ...(await deleteManagedContent({ repository, branch, token, collection, filePath })) });
     }
+    if (action === "revision") return sendJson(res, 200, { ok: true, action, ...(await createRevisionBrief({ repository, branch, token, collection, filePath, body })) });
+    if (action === "update_brief") return sendJson(res, 200, { ok: true, action, ...(await updatePendingBrief({ repository, branch, token, collection, filePath, body })) });
 
-    if (action === "revision") {
-      const result = await createRevisionBrief({ repository, branch, token, collection, filePath, body });
-      sendJson(res, 200, { ok: true, action, ...result });
-      return;
-    }
-
-    if (action === "update_brief") {
-      const result = await updatePendingBrief({ repository, branch, token, collection, filePath, body });
-      sendJson(res, 200, { ok: true, action, ...result });
-      return;
-    }
-
-    sendJson(res, 400, { error: "Action inconnue." });
+    return sendJson(res, 400, { error: "Action inconnue." });
   } catch (error) {
-    sendJson(res, 500, { error: error.message || "Erreur serveur." });
+    return sendJson(res, 500, { error: error.message || "Erreur serveur." });
   }
 };
