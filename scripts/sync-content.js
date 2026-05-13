@@ -164,7 +164,10 @@ function mediaBlock(article, variant = "article") {
   const src = normalizeAsset(article.featured_image || "");
   const alt = escapeHtml(article.image_alt || article.title);
   const label = escapeHtml(article.image_alt || article.category_label || "Visuel article");
-  const className = variant === "card" ? "mdr-home-media mdr-home-media--card" : "mdr-media mdr-media--article";
+  const className =
+    variant === "card"
+      ? "mdr-home-media mdr-home-media--card"
+      : "mdr-media mdr-media--article";
   if (src) {
     return `<div class="${className} mdr-media--image"><img src="${escapeHtml(src)}" alt="${alt}" loading="${variant === "article" ? "eager" : "lazy"}"></div>`;
   }
@@ -290,35 +293,58 @@ function mdToHtml(markdown) {
   return html.join("\n");
 }
 
+function articleFromMarkdown(filePath, fileName) {
+  const { data, body } = readFrontmatter(filePath);
+  if (data.content_type && data.content_type !== "article") return null;
+
+  const isMirror = fileName.endsWith(".html.md");
+  const slug = isMirror ? fileName.replace(/\.html\.md$/, "") : fileName.replace(/\.md$/, "");
+  const sourceHtml = String(data.source_html || "").trim();
+  const htmlFile = sourceHtml
+    ? sourceHtml.replace(/^\.?\//, "").replace(/^\/+/, "")
+    : isMirror
+      ? fileName.replace(/\.md$/, "")
+      : `${slug}.html`;
+
+  return {
+    ...data,
+    body,
+    slug,
+    htmlFile,
+    title: data.title || slug,
+    description: data.description || excerptFrom(body, ""),
+    excerpt: excerptFrom(body, data.description),
+    category: data.category || "exterieur",
+    category_label: data.category_label || "Conseils",
+    date: data.date || "2026-04-29",
+    reading_time: data.reading_time || estimatedReadingTime(body),
+    image_alt: data.image_alt || data.title || slug,
+    featured_image: data.featured_image || "",
+    tags: Array.isArray(data.tags) ? data.tags : [],
+    source_html: data.source_html || "",
+    published: data.published !== false,
+    isGeneratedArticle: !isMirror && !sourceHtml,
+  };
+}
+
 function loadArticles() {
-  if (!fs.existsSync(CONTENT_DIR)) return [];
-  return fs
-    .readdirSync(CONTENT_DIR)
-    .filter((name) => name.endsWith(".md"))
-    .map((name) => {
-      const { data, body } = readFrontmatter(path.join(CONTENT_DIR, name));
-      const slug = name.replace(/\.md$/, "");
-      return {
-        ...data,
-        body,
-        slug,
-        htmlFile: `${slug}.html`,
-        title: data.title || slug,
-        description: data.description || excerptFrom(body, ""),
-        excerpt: excerptFrom(body, data.description),
-        category: data.category || "exterieur",
-        category_label: data.category_label || "Conseils",
-        date: data.date || "2026-04-29",
-        reading_time: data.reading_time || estimatedReadingTime(body),
-        image_alt: data.image_alt || data.title || slug,
-        featured_image: data.featured_image || "",
-        tags: Array.isArray(data.tags) ? data.tags : [],
-        source_html: data.source_html || "",
-        published: data.published !== false,
-      };
-    })
-    .filter((article) => article.published && !article.source_html)
-    .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+  const byHtmlFile = new Map();
+
+  for (const name of fs.readdirSync(ROOT).filter((fileName) => fileName.endsWith(".html.md"))) {
+    const article = articleFromMarkdown(path.join(ROOT, name), name);
+    if (article && article.published) byHtmlFile.set(article.htmlFile, article);
+  }
+
+  if (fs.existsSync(CONTENT_DIR)) {
+    for (const name of fs.readdirSync(CONTENT_DIR).filter((fileName) => fileName.endsWith(".md"))) {
+      const article = articleFromMarkdown(path.join(CONTENT_DIR, name), name);
+      if (article && article.published) byHtmlFile.set(article.htmlFile, article);
+    }
+  }
+
+  return Array.from(byHtmlFile.values()).sort(
+    (a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title),
+  );
 }
 
 function generatedCard(article) {
@@ -351,7 +377,9 @@ function generatedArticlePage(article, allArticles) {
   const articleUrl = `${SITE_URL}/${article.htmlFile}`;
   const image = absoluteUrl(article.featured_image || "apple-touch-icon.png");
   const headings = extractHeadings(article.body);
-  const related = allArticles.filter((item) => item.slug !== article.slug && item.category === article.category).slice(0, 4);
+  const related = allArticles
+    .filter((item) => item.slug !== article.slug && item.category === article.category)
+    .slice(0, 4);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -423,7 +451,10 @@ function generateArticlePages(articles) {
 }
 
 function updateSitemap(articles) {
-  const htmlFiles = fs.readdirSync(ROOT).filter((name) => name.endsWith(".html")).map((name) => (name === "index.html" ? "" : name));
+  const htmlFiles = fs
+    .readdirSync(ROOT)
+    .filter((name) => name.endsWith(".html"))
+    .map((name) => (name === "index.html" ? "" : name));
   const urls = Array.from(new Set([...htmlFiles, ...articles.map((article) => article.htmlFile)]));
   const today = new Date().toISOString().slice(0, 10);
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((file) => `  <url><loc>${SITE_URL}${file ? `/${file}` : ""}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`;
@@ -444,12 +475,13 @@ function updateLlms(articles) {
 }
 
 const articles = loadArticles();
+const generatedArticles = articles.filter((article) => article.isGeneratedArticle);
 generateArticlePages(articles);
-injectCards("index.html", articles);
+injectCards("index.html", generatedArticles);
 for (const [category, fileName] of Object.entries(categoryFiles)) {
-  injectCards(fileName, articles.filter((article) => article.category === category));
+  injectCards(fileName, generatedArticles.filter((article) => article.category === category));
 }
 updateSitemap(articles);
 updateLlms(articles);
 
-console.log(`Synchro Decap terminée : ${articles.length} article(s) backoffice publié(s), pages existantes préservées.`);
+console.log(`Synchro Decap terminée : ${articles.length} article(s) éditable(s), ${generatedArticles.length} nouveau(x) article(s) injecté(s) dans les listings.`);
