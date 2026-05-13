@@ -1,0 +1,243 @@
+.mdr-home-page .mdr-home-hero--editorial {
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  justify-items: stretch;
+  align-items: center;
+  gap: clamp(1.2rem, 4vw, 3rem);
+  padding: clamp(1.6rem, 4.2vw, 3.5rem) clamp(1.25rem, 4vw, 3rem);
+  text-align: left;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(155, 28, 28, 0.08), transparent 34%),
+    linear-gradient(135deg, #f4efe7 0%, #eee8df 58%, #e7dfd3 100%);
+}
+
+.mdr-home-page .mdr-home-hero__copy {
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+}
+
+.mdr-home-page .mdr-home-hero--editorial .mdr-home-badge {
+  width: fit-content;
+  border: 1px solid rgba(155, 28, 28, 0.16);
+  background: rgba(155, 28, 28, 0.1);
+  color: #9b1c1c;
+}
+
+.mdr-home-page .mdr-home-hero--editorial h1 {
+  max-width: 13.5ch;
+  margin: 0;
+  font-size: clamp(3rem, 6.1vw, 6.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+}
+
+.mdr-home-page .mdr-home-hero--editorial p {
+  max-width: 54rem;
+  color: #54514d;
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+}
+
+.mdr-home-intents {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.mdr-home-intents a {
+  display: grid;
+  gap: 0.25rem;
+  min-height: 92px;
+  padding: 0.95rem;
+  border: 1px solid rgba(155, 28, 28, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+  color: #1a1a18;
+  font-weight: 750;
+  line-height: 1.25;
+  box-shadow: 0 14px 34px rgba(36, 25, 13, 0.06);
+}
+
+.mdr-home-intents span,
+.mdr-home-shortcuts span {
+  color: #9b1c1c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mdr-home-hero__visual {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-content: end;
+  min-height: clamp(320px, 31vw, 500px);
+  overflow: hidden;
+  padding: clamp(1.2rem, 2.6vw, 2rem);
+  border: 1px solid rgba(155, 28, 28, 0.16);
+  border-radius: 26px;
+  background:
+    linear-gradient(180deg, rgba(23, 23, 21, 0.06), rgba(23, 23, 21, 0.72)),
+    linear-gradient(135deg, #d8d0c2 0%, #eee7dc 45%, #b9a995 100%);
+  color: #fff;
+  box-shadow: 0 30px 80px rgba(39, 24, 10, 0.16);
+}
+
+.mdr-home-hero__visual::before {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.2) 49%, transparent 51%),
+    linear-gradient(0deg, transparent 48%, rgba(255, 255, 255, 0.17) 49%, transparent 51%);
+  opacity: 0.72;
+}
+
+.mdr-home-hero__visual strong {
+  display: block;
+  max-width: 18rem;
+  margin-top: 0.55rem;
+  font-size: clamp(1.35rem, 2vw, 2.1rem);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+}
+
+.mdr-home-hero__visual small {
+  max-width: 23rem;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+}
+
+.mdr-home-visual__label {
+  width: fit-content;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #9b1c1c;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mdr-home-page .mdr-home-cats {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 12px 30px rgba(26, 26, 24, 0.05);
+}
+
+.mdr-home-page .mdr-home-content {
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  padding-top: 1.15rem;
+}
+
+.mdr-home-page .mdr-home-featured {
+  min-height: 300px;
+  border-radius: 22px;
+}
+
+.mdr-home-page .mdr-home-media--featured {
+  background:
+    radial-gradient(circle at 35% 32%, rgba(255, 255, 255, 0.16), transparent 28%),
+    linear-gradient(135deg, #2b2a27 0%, #171715 100%);
+}
+
+.mdr-home-page .mdr-home-featured__body h2 {
+  max-width: 18ch;
+  font-size: clamp(1.85rem, 2.6vw, 3.1rem);
+}
+
+.mdr-home-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.mdr-home-shortcuts a {
+  display: grid;
+  gap: 0.45rem;
+  min-height: 126px;
+  padding: 1rem;
+  border: 1px solid #ddd9d0;
+  border-radius: 16px;
+  background: #fffaf3;
+  box-shadow: 0 12px 28px rgba(20, 14, 8, 0.04);
+}
+
+.mdr-home-shortcuts strong {
+  color: #1a1a18;
+  font-size: 1rem;
+  line-height: 1.28;
+}
+
+.mdr-home-page .mdr-home-card h3 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.mdr-home-page .mdr-home-card p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.mdr-home-page .mdr-home-side {
+  position: sticky;
+  top: 5.2rem;
+}
+
+.mdr-home-page .mdr-home-cta {
+  min-height: 0;
+  padding: 1.25rem;
+}
+
+@media (max-width: 980px) {
+  .mdr-home-page .mdr-home-hero--editorial {
+    grid-template-columns: 1fr;
+  }
+
+  .mdr-home-intents,
+  .mdr-home-shortcuts {
+    grid-template-columns: 1fr;
+  }
+
+  .mdr-home-page .mdr-home-side {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .mdr-home-page .mdr-home-hero--editorial {
+    padding: 1.35rem 1rem 1.55rem;
+  }
+
+  .mdr-home-page .mdr-home-hero--editorial h1 {
+    max-width: none;
+    font-size: clamp(2.6rem, 14vw, 4.3rem);
+  }
+
+  .mdr-home-hero__visual {
+    min-height: 260px;
+    border-radius: 20px;
+  }
+
+  .mdr-home-page .mdr-home-cats {
+    position: static;
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .mdr-home-page .mdr-home-cats a {
+    white-space: nowrap;
+  }
+}
