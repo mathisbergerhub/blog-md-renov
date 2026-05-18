@@ -8,48 +8,42 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root { --cream:#f0ece4; --paper:#fffaf3; --ink:#171717; --muted:#69635c; --red:#9b1c1c; --green:#174f31; --line:#ded6ca; }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--cream); color: var(--ink); font-family: Lexend, system-ui, sans-serif; }
     .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 48px; }
-    header { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
+    header, .toolbar, .item, .editor-head, .editor-actions { display: flex; gap: 14px; align-items: center; justify-content: space-between; }
+    header { margin-bottom: 24px; }
     .brand img { width: 168px; height: auto; display: block; }
-    .nav { display: flex; flex-wrap: wrap; gap: 10px; }
-    .nav a, button { min-height: 42px; border: 0; border-radius: 999px; padding: 0 16px; font: 800 13px Lexend, sans-serif; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
-    .nav a { border: 1px solid var(--line); background: white; color: var(--ink); }
-    .hero { border: 1px solid var(--line); border-radius: 28px; background: rgba(255,250,243,.88); padding: clamp(24px, 4vw, 44px); box-shadow: 0 20px 60px rgba(23,23,23,.08); margin-bottom: 22px; }
-    .eyebrow { color: var(--red); font-size: 13px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    h1 { margin: 12px 0 14px; max-width: 880px; font-size: clamp(40px, 6vw, 76px); line-height: .96; letter-spacing: -.07em; }
-    h1 em { color: var(--red); font-family: "Playfair Display", serif; font-style: italic; letter-spacing: -.04em; }
-    p { margin: 0; color: var(--muted); line-height: 1.65; }
-    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin: 0 0 16px; }
-    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
-    .filters button, .refresh { background: white; color: var(--ink); border: 1px solid var(--line); }
+    .nav, .filters, .actions, .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+    a, button { min-height: 40px; border: 0; border-radius: 999px; padding: 0 15px; font: 800 13px Lexend, sans-serif; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+    .nav a, .filters button, .secondary { border: 1px solid var(--line); background: white; color: var(--ink); }
     .filters button.is-active { background: var(--ink); color: white; border-color: var(--ink); }
-    .refresh { background: var(--red); color: white; border-color: var(--red); }
-    .status { color: var(--muted); font-size: 14px; font-weight: 700; }
-    .list { display: grid; gap: 12px; }
-    .item { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 18px; align-items: center; border: 1px solid var(--line); border-radius: 20px; background: white; padding: 18px; }
-    .item h2 { margin: 0 0 8px; font-size: 20px; line-height: 1.25; }
-    .meta { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 13px; font-weight: 700; }
-    .meta span { border: 1px solid var(--line); border-radius: 999px; background: var(--cream); padding: 6px 10px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
-    .actions a, .actions button { min-height: 40px; border-radius: 999px; padding: 0 14px; font: 800 12px Lexend, sans-serif; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+    .hero { border: 1px solid var(--line); border-radius: 28px; background: rgba(255,250,243,.88); padding: clamp(24px,4vw,42px); box-shadow: 0 20px 60px rgba(23,23,23,.08); margin-bottom: 20px; }
+    .eyebrow { color: var(--red); font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 10px 0 12px; font-size: clamp(38px,6vw,72px); line-height: .96; letter-spacing: -.07em; }
+    h2 { margin: 0; font-size: 21px; line-height: 1.25; }
+    p { margin: 0; color: var(--muted); line-height: 1.65; }
+    .toolbar { margin: 0 0 14px; }
+    .refresh, .edit { background: var(--red); color: white; }
     .view { background: #171715; color: white; }
-    .edit { background: var(--red); color: white; }
     .archive { background: var(--green); color: white; }
     .delete { background: var(--red); color: white; }
+    .status { color: var(--muted); font-size: 14px; font-weight: 700; }
+    .list { display: grid; gap: 12px; }
+    .item { align-items: center; border: 1px solid var(--line); border-radius: 20px; background: white; padding: 18px; }
+    .item-main { min-width: 0; }
+    .item h2 { margin-bottom: 9px; }
+    .meta span { border: 1px solid var(--line); border-radius: 999px; background: var(--cream); padding: 6px 10px; color: var(--muted); font-size: 13px; font-weight: 700; }
     .empty { border: 1px dashed var(--line); border-radius: 18px; padding: 18px; background: rgba(255,255,255,.58); color: var(--muted); font-weight: 700; }
     .error { color: var(--red); }
     .modal { position: fixed; inset: 0; z-index: 20; display: none; place-items: center; padding: 22px; background: rgba(23,23,23,.52); }
     .modal.is-open { display: grid; }
     .editor { width: min(1120px, 100%); max-height: min(900px, calc(100vh - 44px)); overflow: auto; border: 1px solid var(--line); border-radius: 28px; background: var(--cream); box-shadow: 0 30px 90px rgba(0,0,0,.28); }
-    .editor-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding: 22px; border-bottom: 1px solid var(--line); background: rgba(240,236,228,.96); backdrop-filter: blur(12px); }
-    .editor-head h2 { margin: 6px 0 0; font-size: clamp(26px, 4vw, 44px); line-height: 1; letter-spacing: -.05em; }
-    .editor-head h2 em { color: var(--red); font-family: "Playfair Display", serif; font-style: italic; letter-spacing: -.04em; }
-    .close { background: white; color: var(--ink); border: 1px solid var(--line); }
+    .editor-head { position: sticky; top: 0; z-index: 2; align-items: flex-start; padding: 22px; border-bottom: 1px solid var(--line); background: rgba(240,236,228,.96); backdrop-filter: blur(12px); }
+    .editor-head h2 { margin-top: 6px; font-size: clamp(26px,4vw,44px); letter-spacing: -.05em; line-height: 1; }
     .editor-form { display: grid; gap: 16px; padding: 22px; }
     .editor-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     label { display: grid; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -57,11 +51,7 @@
     textarea { min-height: 120px; resize: vertical; line-height: 1.55; }
     .markdown-editor { min-height: 520px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 13px; }
     .wide { grid-column: 1 / -1; }
-    .editor-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-    .editor-actions button { background: var(--red); color: white; }
-    .editor-actions .secondary { background: white; color: var(--ink); border: 1px solid var(--line); }
-    @media (max-width: 760px) { header, .item { grid-template-columns: 1fr; align-items: start; } header { flex-direction: column; } .actions { justify-content: flex-start; } }
-    @media (max-width: 760px) { .editor-grid { grid-template-columns: 1fr; } .wide { grid-column: auto; } }
+    @media (max-width: 820px) { header, .toolbar, .item { align-items: flex-start; flex-direction: column; } .actions { justify-content: flex-start; } .editor-grid { grid-template-columns: 1fr; } .wide { grid-column: auto; } }
   </style>
 </head>
 <body>
@@ -69,15 +59,15 @@
     <header>
       <a class="brand" href="./"><img src="../logo-mdr-site.svg" alt="MD Rénov'" /></a>
       <nav class="nav" aria-label="Navigation admin">
-        <a href="./brief.html">Brief article</a>
+        <a href="./brief.html">Créer un brief</a>
         <a href="../">Voir le blog</a>
       </nav>
     </header>
 
     <section class="hero">
       <div class="eyebrow">Gestion éditoriale</div>
-      <h1>Gérer et modifier les <em>contenus</em>.</h1>
-      <p>Tu peux préparer une modification d’article sans publier directement. La demande part en attente, puis quand tu me dis “MAJ”, je relis, mets en forme, optimise le SEO et publie proprement.</p>
+      <h1>Gérer et modifier les contenus.</h1>
+      <p>Les articles publiés créent une demande de modification avant MAJ. Les briefs en attente se modifient directement ici.</p>
     </section>
 
     <div class="toolbar">
@@ -97,73 +87,58 @@
     <section class="editor" role="dialog" aria-modal="true" aria-labelledby="edit-title">
       <div class="editor-head">
         <div>
-          <div class="eyebrow">Modification en attente</div>
-          <h2 id="edit-title">Modifier un <em>article</em></h2>
-          <p>Corrige le texte, ajoute tes remarques ou joins des photos. À la validation, rien n’est publié tout de suite : cela crée un brief de modification.</p>
+          <div class="eyebrow" id="edit-eyebrow">Modification</div>
+          <h2 id="edit-title">Modifier le contenu</h2>
+          <p id="edit-help">Ouvre le contenu, modifie ce qu’il faut, puis enregistre.</p>
         </div>
-        <button type="button" class="close" id="close-edit">Fermer</button>
+        <button type="button" class="secondary" id="close-edit">Fermer</button>
       </div>
       <form class="editor-form" id="edit-form">
         <div class="editor-grid">
-          <label>
-            Titre
-            <input id="edit-title-input" name="title" required />
-          </label>
-          <label>
-            Mot-clé principal
-            <input id="edit-keyword" name="main_keyword" placeholder="Ex : prix fenêtre PVC Haute-Savoie" />
-          </label>
-          <label class="wide">
-            Ce qu’il faut changer
-            <textarea id="edit-notes" name="notes" placeholder="Ex : ajouter des prix concrets, clarifier les aides, enlever un passage, intégrer une photo, renforcer la conclusion..."></textarea>
-          </label>
-          <label class="wide">
-            Sources ou infos à ajouter
-            <textarea id="edit-sources" name="sources" placeholder="Colle ici les liens ou informations utiles pour que je vérifie et rédige proprement."></textarea>
-          </label>
-          <label class="wide">
-            Texte actuel à modifier
-            <textarea id="edit-markdown" name="markdown" class="markdown-editor" required></textarea>
-          </label>
-          <label>
-            Photos à ajouter
-            <input id="edit-photos" name="photos" type="file" accept="image/png,image/jpeg,image/webp" multiple />
-          </label>
-          <label>
-            Consignes photo
-            <textarea id="edit-photo-notes" name="photo_notes" placeholder="Ex : mettre cette photo en image principale, remplacer le placeholder, recadrer en 16:10..."></textarea>
-          </label>
+          <label>Titre <input id="edit-title-input" name="title" required /></label>
+          <label>Mot-clé principal <input id="edit-keyword" name="main_keyword" placeholder="Ex : prix fenêtre PVC Haute-Savoie" /></label>
+          <label class="wide">Ce qu’il faut changer <textarea id="edit-notes" name="notes" placeholder="Pour un article publié : indique les changements attendus. Pour un brief : tu peux laisser vide."></textarea></label>
+          <label class="wide">Sources ou infos à ajouter <textarea id="edit-sources" name="sources" placeholder="Liens, infos, consignes, éléments clients..."></textarea></label>
+          <label class="wide">Contenu Markdown <textarea id="edit-markdown" name="markdown" class="markdown-editor" required></textarea></label>
+          <label>Photos à ajouter <input id="edit-photos" name="photos" type="file" accept="image/png,image/jpeg,image/webp" multiple /></label>
+          <label>Consignes photo <textarea id="edit-photo-notes" name="photo_notes" placeholder="Image principale, recadrage 16:10, remplacement d’un placeholder..."></textarea></label>
         </div>
         <div class="editor-actions">
-          <button type="submit">Envoyer en attente de MAJ</button>
+          <button type="submit" class="edit" id="save-edit">Enregistrer</button>
           <button type="button" class="secondary" id="cancel-edit">Annuler</button>
-          <span id="edit-status" class="status">La modification sera enregistrée comme brief.</span>
+          <span id="edit-status" class="status">En attente.</span>
         </div>
       </form>
     </section>
   </div>
 
   <script>
-    const list = document.querySelector("#list");
-    const status = document.querySelector("#status");
-    const refresh = document.querySelector("#refresh");
+    const $ = (selector) => document.querySelector(selector);
+    const list = $("#list");
+    const status = $("#status");
     const filters = [...document.querySelectorAll("[data-filter]")];
-    const editModal = document.querySelector("#edit-modal");
-    const editForm = document.querySelector("#edit-form");
-    const editStatus = document.querySelector("#edit-status");
-    const editTitleInput = document.querySelector("#edit-title-input");
-    const editKeyword = document.querySelector("#edit-keyword");
-    const editMarkdown = document.querySelector("#edit-markdown");
-    const editNotes = document.querySelector("#edit-notes");
-    const editSources = document.querySelector("#edit-sources");
-    const editPhotos = document.querySelector("#edit-photos");
-    const editPhotoNotes = document.querySelector("#edit-photo-notes");
+    const editModal = $("#edit-modal");
+    const editForm = $("#edit-form");
+    const editStatus = $("#edit-status");
+    const fields = {
+      title: $("#edit-title-input"),
+      keyword: $("#edit-keyword"),
+      notes: $("#edit-notes"),
+      sources: $("#edit-sources"),
+      markdown: $("#edit-markdown"),
+      photos: $("#edit-photos"),
+      photoNotes: $("#edit-photo-notes"),
+    };
     let items = [];
     let activeFilter = "all";
     let editingItem = null;
 
     function escapeHtml(value) {
       return String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    function isEditable(item) {
+      return !item.archived && (item.group === "articles" || item.group === "briefs");
     }
 
     function render() {
@@ -174,9 +149,8 @@
       }
       list.innerHTML = visible.map((item) => {
         const livePath = item.htmlPath ? `../${item.htmlPath}` : "";
-        return `
-        <article class="item">
-          <div>
+        return `<article class="item">
+          <div class="item-main">
             <h2>${escapeHtml(item.title)}</h2>
             <div class="meta">
               <span>${escapeHtml(item.typeLabel)}</span>
@@ -187,12 +161,11 @@
           </div>
           <div class="actions">
             ${livePath && !item.archived ? `<a class="view" href="${escapeHtml(livePath)}" target="_blank" rel="noreferrer">Voir la page</a>` : ""}
-            ${item.group === "articles" && !item.archived ? `<button class="edit" type="button" data-action="edit" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Modifier</button>` : ""}
+            ${isEditable(item) ? `<button class="edit" type="button" data-action="edit" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Modifier</button>` : ""}
             ${item.archived ? "" : `<button class="archive" type="button" data-action="archive" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Archiver</button>`}
             <button class="delete" type="button" data-action="delete" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Supprimer</button>
           </div>
-        </article>
-      `;
+        </article>`;
       }).join("");
     }
 
@@ -218,16 +191,11 @@
       editModal.setAttribute("aria-hidden", "true");
       editingItem = null;
       editForm.reset();
-      editStatus.textContent = "La modification sera enregistrée comme brief.";
-      editStatus.classList.remove("error");
     }
 
     function readPhoto(file) {
       return new Promise((resolve, reject) => {
-        if (file.size > 2500000) {
-          reject(new Error(`La photo ${file.name} dépasse 2,5 Mo.`));
-          return;
-        }
+        if (file.size > 2500000) return reject(new Error(`La photo ${file.name} dépasse 2,5 Mo.`));
         const reader = new FileReader();
         reader.onload = () => resolve({ name: file.name, type: file.type, dataUrl: reader.result });
         reader.onerror = () => reject(new Error(`Impossible de lire la photo ${file.name}.`));
@@ -239,25 +207,31 @@
       const collection = button.dataset.collection;
       const filePath = button.dataset.path;
       button.disabled = true;
-      status.textContent = "Ouverture de l’article...";
-      status.classList.remove("error");
+      status.textContent = "Ouverture du contenu...";
       try {
         const response = await fetch(`/api/manage-content?collection=${encodeURIComponent(collection)}&filePath=${encodeURIComponent(filePath)}`);
         const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Impossible d’ouvrir cet article.");
+        if (!response.ok) throw new Error(data.error || "Impossible d’ouvrir ce contenu.");
         editingItem = data.item;
-        editTitleInput.value = editingItem.title || "";
-        editKeyword.value = editingItem.main_keyword || "";
-        editMarkdown.value = editingItem.markdown || "";
-        editNotes.value = "";
-        editSources.value = "";
-        editPhotoNotes.value = "";
-        editPhotos.value = "";
-        editStatus.textContent = "Modifie ce qu’il faut, puis envoie en attente de MAJ.";
+        const isBrief = editingItem.collection === "briefs";
+        $("#edit-eyebrow").textContent = isBrief ? "Brief en attente" : "Article publié";
+        $("#edit-title").textContent = isBrief ? "Modifier le brief" : "Préparer une modification";
+        $("#edit-help").textContent = isBrief
+          ? "Le brief sera mis à jour directement et restera dans la file d’attente."
+          : "L’article publié ne sera pas remplacé tout de suite : une demande de modification sera créée.";
+        $("#save-edit").textContent = isBrief ? "Enregistrer le brief" : "Envoyer en attente de MAJ";
+        fields.title.value = editingItem.title || "";
+        fields.keyword.value = editingItem.main_keyword || "";
+        fields.markdown.value = editingItem.markdown || "";
+        fields.notes.value = "";
+        fields.sources.value = "";
+        fields.photoNotes.value = "";
+        fields.photos.value = "";
+        editStatus.textContent = isBrief ? "Tu peux modifier ce brief directement." : "La modification sera enregistrée comme brief.";
         editStatus.classList.remove("error");
         editModal.classList.add("is-open");
         editModal.setAttribute("aria-hidden", "false");
-        status.textContent = "Article ouvert en modification.";
+        status.textContent = "Contenu ouvert.";
       } catch (error) {
         status.textContent = error.message;
         status.classList.add("error");
@@ -268,27 +242,18 @@
 
     async function runAction(button) {
       const action = button.dataset.action;
-      const collection = button.dataset.collection;
-      const filePath = button.dataset.path;
-      const verb = action === "archive" ? "archiver" : "supprimer";
-      const confirmText = action === "delete"
-        ? "SUPPRIMER"
-        : "ARCHIVER";
-      const answer = window.prompt(`Pour ${verb} ce contenu, écris ${confirmText}.`);
+      const confirmText = action === "delete" ? "SUPPRIMER" : "ARCHIVER";
+      const answer = window.prompt(`Pour confirmer, écris ${confirmText}.`);
       if (answer !== confirmText) return;
-
       button.disabled = true;
-      status.textContent = action === "archive" ? "Archivage en cours..." : "Suppression en cours...";
-      status.classList.remove("error");
       try {
         const response = await fetch("/api/manage-content", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action, collection, filePath, confirm: answer }),
+          body: JSON.stringify({ action, collection: button.dataset.collection, filePath: button.dataset.path, confirm: answer }),
         });
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Action impossible.");
-        status.textContent = action === "archive" ? "Contenu archivé." : "Contenu supprimé.";
         await loadItems();
       } catch (error) {
         status.textContent = error.message;
@@ -304,55 +269,53 @@
         render();
       });
     });
+
     list.addEventListener("click", (event) => {
       const button = event.target.closest("button[data-action]");
       if (!button) return;
-      if (button.dataset.action === "edit") {
-        openEdit(button);
-        return;
-      }
-      runAction(button);
+      if (button.dataset.action === "edit") return openEdit(button);
+      return runAction(button);
     });
+
     editForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!editingItem) return;
-      editStatus.textContent = "Création du brief de modification...";
+      const isBrief = editingItem.collection === "briefs";
+      editStatus.textContent = isBrief ? "Enregistrement du brief..." : "Création du brief de modification...";
       editStatus.classList.remove("error");
       try {
-        const files = [...editPhotos.files].slice(0, 3);
-        const photos = files.length ? await Promise.all(files.map(readPhoto)) : [];
+        const photos = fields.photos.files.length ? await Promise.all([...fields.photos.files].slice(0, 3).map(readPhoto)) : [];
         const response = await fetch("/api/manage-content", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            action: "revision",
+            action: isBrief ? "update_brief" : "revision",
             collection: editingItem.collection,
             filePath: editingItem.filePath,
-            title: editTitleInput.value,
-            main_keyword: editKeyword.value,
+            title: fields.title.value,
+            main_keyword: fields.keyword.value,
             category: editingItem.category,
-            notes: editNotes.value,
-            sources: editSources.value,
-            markdown: editMarkdown.value,
-            photo_notes: editPhotoNotes.value,
+            notes: fields.notes.value,
+            sources: fields.sources.value,
+            markdown: fields.markdown.value,
+            photo_notes: fields.photoNotes.value,
             photos,
           }),
         });
         const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Impossible de créer le brief de modification.");
-        editStatus.textContent = "Modification enregistrée en attente. Dis-moi “MAJ” quand tu veux que je la publie.";
+        if (!response.ok) throw new Error(data.error || (isBrief ? "Impossible d’enregistrer le brief." : "Impossible de créer le brief de modification."));
+        editStatus.textContent = isBrief ? "Brief enregistré. Il reste en attente pour la prochaine MAJ." : "Modification enregistrée en attente.";
         await loadItems();
       } catch (error) {
         editStatus.textContent = error.message;
         editStatus.classList.add("error");
       }
     });
-    document.querySelector("#close-edit").addEventListener("click", closeEdit);
-    document.querySelector("#cancel-edit").addEventListener("click", closeEdit);
-    editModal.addEventListener("click", (event) => {
-      if (event.target === editModal) closeEdit();
-    });
-    refresh.addEventListener("click", loadItems);
+
+    $("#close-edit").addEventListener("click", closeEdit);
+    $("#cancel-edit").addEventListener("click", closeEdit);
+    editModal.addEventListener("click", (event) => { if (event.target === editModal) closeEdit(); });
+    $("#refresh").addEventListener("click", loadItems);
     loadItems();
   </script>
 </body>
