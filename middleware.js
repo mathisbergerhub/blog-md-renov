@@ -87,7 +87,7 @@ function loginPage({ admin = false, error = false } = {}) {
   const title = admin ? "Administration du blog" : "Le blog MD Rénov' arrive bientôt.";
   const eyebrow = admin ? "Espace sécurisé" : "Accès privé";
   const description = admin
-    ? "Cet espace permet de créer, modifier, archiver ou préparer des articles. Il est réservé aux personnes autorisées par MD Rénov'."
+    ? "Connexion réservée à l'équipe MD Rénov' pour préparer les briefs, suivre les contenus et piloter les mises à jour du blog."
     : "Nous préparons une nouvelle interface avec des guides pratiques sur les fenêtres, volets, stores, portes, portails, pergolas et aides à la rénovation en Haute-Savoie et Savoie.";
   const label = admin ? "Mot de passe administrateur" : "Mot de passe";
   const button = admin ? "Accéder au back-office" : "Accéder au blog";
@@ -119,29 +119,37 @@ function loginPage({ admin = false, error = false } = {}) {
         font-family: Lexend, system-ui, sans-serif;
       }
       main {
-        width: min(${admin ? "560px" : "980px"}, 100%);
+        width: min(${admin ? "1020px" : "980px"}, 100%);
         display: grid;
-        grid-template-columns: ${admin ? "1fr" : "1.05fr .95fr"};
+        grid-template-columns: ${admin ? "1.02fr .98fr" : "1.05fr .95fr"};
         overflow: hidden;
         border: 1px solid #ded6ca;
-        border-radius: 30px;
+        border-radius: 34px;
         background: #fffaf3;
-        box-shadow: 0 28px 80px rgba(23, 23, 23, .10);
+        box-shadow: 0 30px 90px rgba(23, 23, 23, .12);
       }
-      .intro, .panel { padding: clamp(30px, 6vw, 64px); }
-      .intro { border-right: ${admin ? "0" : "1px solid #ded6ca"}; }
+      .intro, .panel { padding: clamp(28px, 5vw, 58px); }
+      .intro {
+        display: grid;
+        align-content: center;
+        min-height: ${admin ? "620px" : "auto"};
+        border-right: 1px solid #ded6ca;
+        background:
+          radial-gradient(circle at 22% 20%, rgba(155, 28, 28, .08), transparent 28%),
+          #fffaf3;
+      }
       .panel {
         display: grid;
         align-content: center;
         gap: 20px;
-        background: ${admin ? "#fffaf3" : "#161614"};
-        color: ${admin ? "#171717" : "#fff"};
+        background: ${admin ? "#171717" : "#161614"};
+        color: #fff;
       }
       img {
-        width: 220px;
+        width: ${admin ? "210px" : "220px"};
         max-width: 78%;
         height: auto;
-        margin-bottom: 38px;
+        margin-bottom: ${admin ? "42px" : "38px"};
       }
       .eyebrow {
         color: #9b1c1c;
@@ -153,8 +161,8 @@ function loginPage({ admin = false, error = false } = {}) {
       h1 {
         margin: 12px 0 16px;
         color: ${admin ? "#171717" : "#174f31"};
-        font-size: clamp(34px, 6vw, 70px);
-        line-height: .98;
+        font-size: clamp(${admin ? "42px" : "34px"}, 6vw, ${admin ? "66px" : "70px"});
+        line-height: ${admin ? ".92" : ".98"};
         letter-spacing: -.06em;
       }
       h1 em {
@@ -164,14 +172,62 @@ function loginPage({ admin = false, error = false } = {}) {
       }
       p {
         margin: 0;
-        color: ${admin ? "#6f6a63" : "rgba(255, 255, 255, .78)"};
+        color: ${admin ? "#625d56" : "rgba(255, 255, 255, .78)"};
         font-size: clamp(16px, 2vw, 20px);
         line-height: 1.7;
       }
       .intro p { color: #6f6a63; }
-      form { display: grid; gap: 12px; margin-top: 6px; }
+      .admin-card {
+        display: grid;
+        gap: 22px;
+        width: 100%;
+        max-width: 430px;
+        justify-self: center;
+      }
+      .admin-card h2 {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.05;
+        letter-spacing: -.05em;
+      }
+      .admin-card p {
+        color: rgba(255, 255, 255, .72);
+        font-size: 15px;
+      }
+      .admin-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 28px;
+      }
+      .admin-pills span {
+        border: 1px solid #ded6ca;
+        border-radius: 999px;
+        padding: 8px 11px;
+        background: rgba(155, 28, 28, .06);
+        color: #9b1c1c;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .admin-lock {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, .14);
+        border-radius: 999px;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, .08);
+        color: rgba(255, 255, 255, .72);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      form { display: grid; gap: 12px; margin-top: 4px; }
       label {
-        color: ${admin ? "#9b1c1c" : "rgba(255, 255, 255, .74)"};
+        color: rgba(255, 255, 255, .74);
         font-size: 12px;
         font-weight: 800;
         letter-spacing: .14em;
@@ -179,17 +235,17 @@ function loginPage({ admin = false, error = false } = {}) {
       }
       input {
         width: 100%;
-        border: 1px solid ${admin ? "#ded6ca" : "rgba(255, 255, 255, .18)"};
+        border: 1px solid rgba(255, 255, 255, .18);
         border-radius: 16px;
         padding: 17px 18px;
-        background: ${admin ? "#fff" : "rgba(255, 255, 255, .08)"};
-        color: ${admin ? "#171717" : "#fff"};
+        background: rgba(255, 255, 255, .08);
+        color: #fff;
         font: 700 18px Lexend, system-ui, sans-serif;
         outline: none;
       }
       input:focus {
-        border-color: ${admin ? "#9b1c1c" : "#fff"};
-        box-shadow: 0 0 0 4px ${admin ? "rgba(155, 28, 28, .10)" : "rgba(255, 255, 255, .10)"};
+        border-color: #fff;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, .10);
       }
       button {
         border: 0;
@@ -199,16 +255,22 @@ function loginPage({ admin = false, error = false } = {}) {
         color: white;
         cursor: pointer;
         font: 800 16px Lexend, system-ui, sans-serif;
+        box-shadow: 0 18px 38px rgba(155, 28, 28, .22);
       }
+      button:hover { background: #861818; }
       .error {
-        color: ${admin ? "#9b1c1c" : "#ffd6d6"};
+        color: #ffd6d6;
         font-size: 14px;
         font-weight: 800;
       }
       @media (max-width: 820px) {
         body { padding: 14px; }
         main { grid-template-columns: 1fr; border-radius: 22px; }
-        .intro { border-right: 0; border-bottom: ${admin ? "0" : "1px solid #ded6ca"}; }
+        .intro {
+          min-height: auto;
+          border-right: 0;
+          border-bottom: 1px solid #ded6ca;
+        }
       }
     </style>
   </head>
@@ -219,15 +281,18 @@ function loginPage({ admin = false, error = false } = {}) {
         <div class="eyebrow">${eyebrow}</div>
         <h1>${admin ? title : "Le blog MD Rénov' arrive <em>bientôt</em>."}</h1>
         <p>${description}</p>
+        ${admin ? '<div class="admin-pills"><span>Briefs</span><span>Articles</span><span>Archives</span><span>Photos</span></div>' : ""}
       </section>
       <section class="panel" aria-label="${admin ? "Connexion administrateur" : "Accès interne"}">
-        ${admin ? "" : "<h1>Validation interne uniquement.</h1><p>Le blog n'est pas encore accessible au public. Les personnes autorisées peuvent entrer avec le mot de passe transmis par MD Rénov'.</p>"}
-        <form method="post">
-          <label for="password">${label}</label>
-          <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
-          <button type="submit">${button}</button>
-          ${error ? '<div class="error">Mot de passe incorrect.</div>' : ""}
-        </form>
+        <div class="${admin ? "admin-card" : ""}">
+          ${admin ? '<span class="admin-lock">Accès privé</span><h2>Connexion équipe</h2><p>Entrez le mot de passe pour accéder à l’espace de gestion du blog.</p>' : "<h1>Validation interne uniquement.</h1><p>Le blog n'est pas encore accessible au public. Les personnes autorisées peuvent entrer avec le mot de passe transmis par MD Rénov'.</p>"}
+          <form method="post">
+            <label for="password">${label}</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+            <button type="submit">${button}</button>
+            ${error ? '<div class="error">Mot de passe incorrect.</div>' : ""}
+          </form>
+        </div>
       </section>
     </main>
   </body>
