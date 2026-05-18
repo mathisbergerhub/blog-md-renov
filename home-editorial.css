@@ -106,8 +106,8 @@
 .mdr-home-shortcuts span {
   display: inline-flex;
   width: fit-content;
-  margin-bottom: 1.55rem;
-  padding: 0.34rem 0.55rem;
+  margin-bottom: 0.65rem;
+  padding: 0.28rem 0.5rem;
   border: 1px solid rgba(155, 28, 28, 0.18);
   border-radius: 999px;
   background: rgba(155, 28, 28, 0.07);
@@ -156,7 +156,9 @@
 
 .mdr-home-page .mdr-home-content {
   grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  padding-top: 1.15rem;
+  gap: 1rem 1.35rem;
+  padding-top: 1rem;
+  padding-bottom: 1.2rem;
 }
 
 .mdr-home-page .mdr-home-featured {
@@ -178,14 +180,16 @@
 .mdr-home-shortcuts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .mdr-home-shortcuts a {
   display: grid;
-  gap: 0.45rem;
-  min-height: 126px;
-  padding: 1rem;
+  align-content: start;
+  gap: 0.25rem;
+  min-height: 104px;
+  padding: 0.85rem 0.95rem 0.9rem;
   border: 1px solid #ddd9d0;
   border-radius: 16px;
   background: #fffaf3;
@@ -194,9 +198,13 @@
 
 .mdr-home-shortcuts strong {
   color: #1a1a18;
-  font-size: clamp(1.08rem, 1.45vw, 1.26rem);
+  font-size: clamp(1rem, 1.28vw, 1.16rem);
   line-height: 1.16;
   letter-spacing: -0.02em;
+}
+
+.mdr-home-page .mdr-home-heading {
+  margin: 0.35rem 0 0.75rem;
 }
 
 .mdr-home-page .mdr-home-card h3 {
@@ -216,11 +224,36 @@
 .mdr-home-page .mdr-home-side {
   position: sticky;
   top: 5.2rem;
+  gap: 0.75rem;
 }
 
 .mdr-home-page .mdr-home-cta {
   min-height: 0;
-  padding: 1.25rem;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.mdr-home-page .mdr-home-cta h2 {
+  font-size: clamp(1.45rem, 1.85vw, 1.85rem);
+  line-height: 1.05;
+}
+
+.mdr-home-page .mdr-home-cta p {
+  line-height: 1.5;
+}
+
+.mdr-home-page .mdr-home-panel {
+  gap: 0.75rem;
+  padding: 0.95rem 1rem 1rem;
+}
+
+.mdr-home-page .mdr-home-universes {
+  gap: 0.55rem;
+}
+
+.mdr-home-page .mdr-home-universes a {
+  min-height: 34px;
+  padding: 0.42rem 0.65rem;
 }
 
 @media (max-width: 980px) {
