@@ -14,7 +14,7 @@
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--cream); color: var(--ink); font-family: Lexend, system-ui, sans-serif; }
     .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 48px; }
-    header, .toolbar, .editor-head, .editor-actions { display: flex; gap: 14px; align-items: center; justify-content: space-between; }
+    header, .toolbar, .item, .editor-head, .editor-actions { display: flex; gap: 14px; align-items: center; justify-content: space-between; }
     header { margin-bottom: 24px; }
     .brand img { width: 168px; height: auto; display: block; }
     .nav, .filters, .actions, .meta { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -176,7 +176,7 @@
             ${livePath && !item.archived ? `<a class="view" href="${escapeHtml(livePath)}" target="_blank" rel="noreferrer">Voir la page</a>` : ""}
             ${isEditable(item) ? `<button class="edit" type="button" data-action="edit" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Modifier</button>` : ""}
             ${item.archived ? "" : `<button class="archive" type="button" data-action="archive" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Archiver</button>`}
-            <button class="delete" type="button" data-action="delete" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Supprimer</button>
+            ${item.archived ? `<button class="delete" type="button" data-action="delete" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Supprimer</button>` : ""}
           </div>
         </article>`;
       }).join("");
