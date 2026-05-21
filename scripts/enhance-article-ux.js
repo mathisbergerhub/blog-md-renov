@@ -5,12 +5,15 @@ const ROOT = path.resolve(__dirname, "..");
 const HANDCRAFTED = new Set(["maprimerenov-2026-haute-savoie.html"]);
 
 function esc(value = "") {
-  return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function categoryKey(label = "") {
   const value = label.toLowerCase();
-  if (value.includes("démarch")) return "demarches";
   if (value.includes("aide") || value.includes("budget")) return "aides";
   if (value.includes("fen")) return "fenetres";
   if (value.includes("isol")) return "isolation";
@@ -20,12 +23,6 @@ function categoryKey(label = "") {
 }
 
 const facts = {
-  demarches: [
-    ["Déclencheur", "Aspect extérieur", "Couleur, matériau, dimensions ou ajout visible peuvent imposer une vérification avant travaux."],
-    ["Mairie", "PLU et secteur", "La commune peut fixer des règles sur les teintes, les formes, les hauteurs ou les matériaux."],
-    ["Copropriété", "Accord à prévoir", "Un élément visible depuis l'extérieur peut demander un accord même s'il est privatif."],
-    ["Commande", "Valider avant fabrication", "Une menuiserie sur mesure commandée trop tôt peut devenir coûteuse à corriger."]
-  ],
   aides: [
     ["À vérifier", "Éligibilité réelle", "Les aides dépendent du foyer, du logement, des travaux et de l'ordre des démarches."],
     ["Budget", "Reste à charge", "Le montant utile est celui qui reste à payer après aides, options, pose et finitions."],
@@ -65,11 +62,6 @@ const facts = {
 };
 
 const decisions = {
-  demarches: [
-    ["Mairie", "Vérifier avant la couleur", "Un changement visible peut demander une déclaration préalable ou une validation du PLU."],
-    ["Copropriété", "Faire valider ce qui se voit", "Fenêtres, volets, stores ou portes peuvent modifier l'harmonie de façade."],
-    ["Fabrication", "Ne pas lancer trop tôt", "La commande sur mesure doit venir après les validations utiles, pas avant."]
-  ],
   aides: [
     ["Montant", "Estimer les aides possibles", "Le bon chiffrage distingue l'aide théorique, le devis réel et le reste à charge."],
     ["Dossier", "Vérifier avant signature", "Le calendrier des demandes compte autant que le choix du produit."],
@@ -116,7 +108,6 @@ function footerHtml() {
 
 function accentTitle(html, key) {
   const words = {
-    demarches: ["autorisations", "autorisation", "PLU", "copropriété"],
     aides: ["aide", "aides", "budget", "MaPrimeRénov", "MaPrimeRenov"],
     fenetres: ["fenêtres", "fenêtre", "vitrage", "PVC", "aluminium"],
     isolation: ["isolation", "chaleur", "condensation", "bruit"],
@@ -147,7 +138,7 @@ function convertSourceLists(html) {
 }
 
 function convertUsefulLists(html) {
-  return html.replace(/(<h2 id="[^"]*(?:erreur|eviter|question|preparer|ordre|blocage)[^"]*">[\s\S]*?<\/h2>\s*)<ul>([\s\S]*?)<\/ul>/g, (match, head, list) => {
+  return html.replace(/(<h2 id="[^"]*(?:erreur|eviter|question|preparer|checklist)[^"]*">[\s\S]*?<\/h2>\s*)<ul>([\s\S]*?)<\/ul>/g, (match, head, list) => {
     const converted = list.replace(/<li><span><strong>([\s\S]*?)<\/strong>\s*:?\s*([\s\S]*?)<\/span><\/li>/g, `<li><strong>$1</strong><span>$2</span></li>`);
     return `${head}<ul class="mdr-check-grid">${converted}</ul>`;
   });
@@ -177,12 +168,10 @@ function enhance(file) {
   html = html.replace(/<link rel="stylesheet" href="\.\/decap\.css" \/>\n?/, "");
   html = html.replace(/<nav class="mdr-article-toc"[\s\S]*?<\/nav>\s*/g, "");
   html = accentTitle(html, key);
-  if (!html.includes("mdr-keyfacts")) {
-    html = html.replace(/<div class="mdr-article-leadbox"><p>([\s\S]*?)<\/p><\/div>/, `<div class="mdr-article-leadbox"><strong>Le point important</strong><p>$1</p></div>\n${keyFactsHtml(key)}`);
-  }
+  html = html.replace(/<div class="mdr-article-leadbox"><p>([\s\S]*?)<\/p><\/div>/, `<div class="mdr-article-leadbox"><strong>Le point important</strong><p>$1</p></div>\n${keyFactsHtml(key)}`);
   html = convertSourceLists(html);
   html = convertUsefulLists(html);
-  if (!html.includes("mdr-editorial-value")) html = html.replace(/<div class="mdr-prose-cta">/, `${decisionHtml(key)}\n<div class="mdr-prose-cta">`);
+  html = html.replace(/<div class="mdr-prose-cta">/, `${decisionHtml(key)}\n<div class="mdr-prose-cta">`);
   html = html.replace(/Vous avez un projet en Haute-Savoie ou Savoie \?/g, "Vous voulez cadrer votre projet avant de signer ?");
   html = html.replace(/On vous aide à cadrer le besoin, le budget et les démarches avant le devis\./g, "MD Rénov' vous aide à choisir la solution utile, adaptée au logement et au budget.");
   html = html.replace(/Demander un devis/g, "Faire le point");
