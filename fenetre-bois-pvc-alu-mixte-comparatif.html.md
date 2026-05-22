@@ -1,7 +1,7 @@
 ---
 content_type: 'article'
 published: true
-title: 'PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ? Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.'
+title: 'PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ?'
 seo_title: 'PVC, alu, bois ou mixte : choisir ses fenêtres | MD Rénov'
 description: 'Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.'
 category: 'fenetres'
@@ -17,12 +17,7 @@ tags:
   - 'Savoie'
 ---
 
-# PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ? Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.
-
-
-## Ce que ce guide vous aide à décider
-
-Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.
+# PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ?
 
 ## Repères rapides
 
@@ -31,20 +26,32 @@ Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budge
 - Ce qui change le confort : Froid, bruit, lumière. Le bon choix dépend autant du confort attendu que du style de la maison.
 - À lire sur le devis : Performances + options. Uw, vitrage, dormant, accessoires, finitions et garanties doivent être indiqués.
 
+## Chaque matériau a une vraie logique d'usage
 
-## Chaque matériau a une vraie logique d'usage Le PVC est souvent choisi pour son rapport performance/prix et son entretien simple. L'aluminium est apprécié pour les profils fins, les grands formats et les couleurs. Le bois reste chaleureux et adapté à certains bâtiments de caractère, mais demande plus d'entretien. Le mixte bois-aluminium vise le meilleur des deux mondes : chaleur intérieure et protection extérieure.
+Le PVC est souvent choisi pour son rapport performance/prix et son entretien simple. L'aluminium est apprécié pour les profils fins, les grands formats et les couleurs. Le bois reste chaleureux et adapté à certains bâtiments de caractère, mais demande plus d'entretien. Le mixte bois-aluminium vise le meilleur des deux mondes: chaleur intérieure et protection extérieure.
 
-## Comparatif simple | | Matériau | À privilégier si... | Point de vigilance | PVC | Budget maîtrisé, bonne isolation, entretien réduit | Profils plus épais et grands formats à étudier | Aluminium | Grandes baies, style contemporain, couleur précise | Prix plus élevé et performance à vérifier | Bois | Cachet, rénovation traditionnelle, ambiance intérieure | Entretien régulier nécessaire | Mixte | Projet premium, confort intérieur, durabilité extérieure | Budget supérieur
+## Comparatif simple
 
-## Le vrai arbitrage : façade, usage et cohérence Une maison contemporaine avec grandes baies ne pose pas les mêmes questions qu'une ferme rénovée ou qu'un appartement en copropriété. Le matériau doit rester cohérent avec la façade, le PLU, l'exposition et le niveau d'entretien accepté.
+| Matériau | À privilégier si... | Point de vigilance |
+|---|---|---|
+| PVC | Vous cherchez un budget maîtrisé, une bonne isolation et peu d'entretien. | Les profils peuvent être plus épais ; sur très grands formats, il faut vérifier la rigidité et le clair de jour. |
+| Aluminium | Vous avez de grandes baies, un style contemporain, une couleur précise ou un besoin de profils fins. | Le prix est souvent plus élevé ; il faut vérifier la rupture de pont thermique et la performance Uw complète. |
+| Bois | Vous rénovez une maison de caractère ou vous cherchez un rendu chaleureux à l'intérieur. | L'entretien régulier est à anticiper, surtout sur les façades exposées à la pluie, au soleil ou au gel. |
+| Mixte bois-aluminium | Vous voulez le rendu du bois côté intérieur avec une protection aluminium côté extérieur. | C'est souvent la solution la plus premium ; elle doit être justifiée par le niveau de finition attendu. |
 
-## Les questions que se posent souvent les particuliers Le bois isole-t-il mieux ? Il peut être très performant, mais la performance finale dépend aussi du vitrage, de la fabrication et de la pose. L'aluminium est-il froid ? Les menuiseries aluminium modernes utilisent des ruptures de pont thermique. Il faut lire les valeurs, pas se fier aux idées anciennes. Peut-on mélanger PVC et aluminium ? Oui, si la cohérence couleur et les lignes de façade sont maîtrisées.
+Le bon choix n'est donc pas seulement une question de goût. Il dépend du format des ouvertures, du style de façade, du budget, de l'exposition et du niveau d'entretien que vous acceptez sur la durée.
 
-## Quel matériau selon la pièce ? Dans une chambre ou un bureau, le PVC peut être très cohérent si l'objectif principal est l'isolation et le budget. Dans un séjour avec grande baie, l'aluminium apporte souvent plus de finesse et de lumière. Sur une façade ancienne ou une rénovation de caractère, le bois ou le mixte peuvent mieux respecter l'esprit du bâti. Le bon choix n'est donc pas forcément uniforme sur toute la maison. On peut mixer les matériaux si les couleurs, les proportions et les lignes restent cohérentes depuis l'extérieur. Vous hésitez entre plusieurs matériaux ? On compare selon la façade, le budget, le vitrage et l'entretien réel. Comparer mon projet
+## Le vrai arbitrage : façade, usage et cohérence
 
+Une maison contemporaine avec grandes baies ne pose pas les mêmes questions qu'une ferme rénovée ou qu'un appartement en copropriété. Le matériau doit rester cohérent avec la façade, le PLU, l'exposition et le niveau d'entretien accepté.
 
+## Les questions que se posent souvent les particuliers
 
+Le bois isole-t-il mieux ? Il peut être très performant, mais la performance finale dépend aussi du vitrage, de la fabrication et de la pose. L'aluminium est-il froid ? Les menuiseries aluminium modernes utilisent des ruptures de pont thermique. Il faut lire les valeurs, pas se fier aux idées anciennes. Peut-on mélanger PVC et aluminium ? Oui, si la cohérence couleur et les lignes de façade sont maîtrisées.
 
+## Quel matériau selon la pièce ?
+
+Dans une chambre ou un bureau, le PVC peut être très cohérent si l'objectif principal est l'isolation et le budget. Dans un séjour avec grande baie, l'aluminium apporte souvent plus de finesse et de lumière. Sur une façade ancienne ou une rénovation de caractère, le bois ou le mixte peuvent mieux respecter l'esprit du bâti. Le bon choix n'est donc pas forcément uniforme sur toute la maison. On peut mixer les matériaux si les couleurs, les proportions et les lignes restent cohérentes depuis l'extérieur. Vous hésitez entre plusieurs matériaux ? La façade, le budget, le vitrage et l'entretien réel doivent être comparés ensemble.
 
 <!-- mdr-editorial-value-md -->
 ## La bonne matière dépend de la pièce et de la façade
