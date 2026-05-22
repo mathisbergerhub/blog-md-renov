@@ -47,7 +47,10 @@ Une maison contemporaine avec grandes baies ne pose pas les mêmes questions qu'
 
 ## Les questions que se posent souvent les particuliers
 
-Le bois isole-t-il mieux ? Il peut être très performant, mais la performance finale dépend aussi du vitrage, de la fabrication et de la pose. L'aluminium est-il froid ? Les menuiseries aluminium modernes utilisent des ruptures de pont thermique. Il faut lire les valeurs, pas se fier aux idées anciennes. Peut-on mélanger PVC et aluminium ? Oui, si la cohérence couleur et les lignes de façade sont maîtrisées.
+- **Le bois isole-t-il mieux ?** : Il peut être très performant, mais la performance finale dépend aussi du vitrage, de la fabrication et de la pose.
+- **L'aluminium est-il froid ?** : Les menuiseries aluminium modernes utilisent des ruptures de pont thermique. Il faut lire les valeurs Uw et ne pas se fier aux anciennes idées reçues.
+- **Peut-on mélanger PVC et aluminium ?** : Oui, si les couleurs, les proportions et les lignes de façade restent cohérentes depuis l'extérieur.
+- **Quel matériau choisir pour une grande baie ?** : L'aluminium est souvent pertinent pour les grands formats, mais le devis doit préciser le vitrage, le seuil, la pose et la performance complète.
 
 ## Quel matériau selon la pièce ?
 
