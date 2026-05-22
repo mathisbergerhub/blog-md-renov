@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "node scripts/sync-content.js && node scripts/enhance-article-ux.js"
+    "build": "node scripts/sync-content.js && node scripts/repair-article-ui.js"
   },
   "dependencies": {
     "@vercel/functions": "latest"
