@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex,nofollow" />
-  <title>GÃ©rer les contenus | Blog MD RÃ©nov'</title>
+  <title>Gérer les contenus | Blog MD Rénov'</title>
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,17 +63,17 @@
 <body>
   <div class="shell">
     <header>
-      <a class="brand" href="./"><img src="../logo-mdr-site.svg" alt="MD RÃ©nov'" /></a>
+      <a class="brand" href="./"><img src="../logo-mdr-site.svg" alt="MD Rénov'" /></a>
       <nav class="nav" aria-label="Navigation admin">
-        <a href="./brief.html">CrÃ©er un brief</a>
+        <a href="./brief.html">Créer un brief</a>
         <a href="../">Voir le blog</a>
       </nav>
     </header>
 
     <section class="hero">
-      <div class="eyebrow">Gestion Ã©ditoriale</div>
-      <h1>GÃ©rer et modifier les contenus.</h1>
-      <p>Les articles publiÃ©s crÃ©ent une demande de modification avant MAJ. Les briefs en attente se modifient directement ici.</p>
+      <div class="eyebrow">Gestion éditoriale</div>
+      <h1>Gérer et modifier les contenus.</h1>
+      <p>Les articles publiés créent une demande de modification avant MAJ. Les briefs en attente se modifient directement ici.</p>
     </section>
 
     <div class="toolbar">
@@ -81,7 +81,7 @@
         <button type="button" class="is-active" data-filter="all">Tous</button>
         <button type="button" data-filter="articles">Articles</button>
         <button type="button" data-filter="briefs">Briefs</button>
-        <button type="button" data-filter="archived">ArchivÃ©s</button>
+        <button type="button" data-filter="archived">Archivés</button>
       </div>
       <button type="button" class="refresh" id="refresh">Actualiser</button>
     </div>
@@ -95,19 +95,19 @@
         <div>
           <div class="eyebrow" id="edit-eyebrow">Modification</div>
           <h2 id="edit-title">Modifier le contenu</h2>
-          <p id="edit-help">Ouvre le contenu, modifie ce quâ€™il faut, puis enregistre.</p>
+          <p id="edit-help">Ouvre le contenu, modifie ce qu’il faut, puis enregistre.</p>
         </div>
         <button type="button" class="secondary" id="close-edit">Fermer</button>
       </div>
       <form class="editor-form" id="edit-form">
         <div class="editor-grid">
           <label>Titre <input id="edit-title-input" name="title" required /></label>
-          <label>Mot-clÃ© principal <input id="edit-keyword" name="main_keyword" placeholder="Ex : prix fenÃªtre PVC Haute-Savoie" /></label>
-          <label class="wide">Ce quâ€™il faut changer <textarea id="edit-notes" name="notes" placeholder="Pour un article publiÃ© : indique les changements attendus. Pour un brief : tu peux laisser vide."></textarea></label>
-          <label class="wide">Sources ou infos Ã  ajouter <textarea id="edit-sources" name="sources" placeholder="Liens, infos, consignes, Ã©lÃ©ments clients..."></textarea></label>
+          <label>Mot-clé principal <input id="edit-keyword" name="main_keyword" placeholder="Ex : prix fenêtre PVC Haute-Savoie" /></label>
+          <label class="wide">Ce qu’il faut changer <textarea id="edit-notes" name="notes" placeholder="Pour un article publié : indique les changements attendus. Pour un brief : tu peux laisser vide."></textarea></label>
+          <label class="wide">Sources ou infos à ajouter <textarea id="edit-sources" name="sources" placeholder="Liens, infos, consignes, éléments clients..."></textarea></label>
           <label class="wide">Contenu Markdown <textarea id="edit-markdown" name="markdown" class="markdown-editor" required></textarea></label>
-          <label>Photos Ã  ajouter <input id="edit-photos" name="photos" type="file" accept="image/png,image/jpeg,image/webp" multiple /></label>
-          <label>Consignes photo <textarea id="edit-photo-notes" name="photo_notes" placeholder="Image principale, recadrage 16:10, remplacement dâ€™un placeholder..."></textarea></label>
+          <label>Photos à ajouter <input id="edit-photos" name="photos" type="file" accept="image/png,image/jpeg,image/webp" multiple /></label>
+          <label>Consignes photo <textarea id="edit-photo-notes" name="photo_notes" placeholder="Image principale, recadrage 16:10, remplacement d’un placeholder..."></textarea></label>
         </div>
         <div class="editor-actions">
           <button type="submit" class="edit" id="save-edit">Enregistrer</button>
@@ -167,7 +167,7 @@
             <h2>${escapeHtml(item.title)}</h2>
             <div class="meta">
               <span>${escapeHtml(item.typeLabel)}</span>
-              <span>${escapeHtml(item.category || "sans catÃ©gorie")}</span>
+              <span>${escapeHtml(item.category || "sans catégorie")}</span>
               <span>${escapeHtml(item.status || "sans statut")}</span>
               <span>${escapeHtml(item.filePath)}</span>
             </div>
@@ -190,7 +190,7 @@
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Impossible de charger les contenus.");
         items = data.items || [];
-        status.textContent = `${items.length} contenu(s) trouvÃ©(s).`;
+        status.textContent = `${items.length} contenu(s) trouvé(s).`;
         render();
       } catch (error) {
         status.textContent = error.message;
@@ -208,7 +208,7 @@
 
     function readPhoto(file) {
       return new Promise((resolve, reject) => {
-        if (file.size > 2500000) return reject(new Error(`La photo ${file.name} dÃ©passe 2,5 Mo.`));
+        if (file.size > 2500000) return reject(new Error(`La photo ${file.name} dépasse 2,5 Mo.`));
         const reader = new FileReader();
         reader.onload = () => resolve({ name: file.name, type: file.type, dataUrl: reader.result });
         reader.onerror = () => reject(new Error(`Impossible de lire la photo ${file.name}.`));
@@ -224,14 +224,14 @@
       try {
         const response = await fetch(`/api/manage-content?collection=${encodeURIComponent(collection)}&filePath=${encodeURIComponent(filePath)}`);
         const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Impossible dâ€™ouvrir ce contenu.");
+        if (!response.ok) throw new Error(data.error || "Impossible d’ouvrir ce contenu.");
         editingItem = data.item;
         const isBrief = editingItem.collection === "briefs";
-        $("#edit-eyebrow").textContent = isBrief ? "Brief en attente" : "Article publiÃ©";
-        $("#edit-title").textContent = isBrief ? "Modifier le brief" : "PrÃ©parer une modification";
+        $("#edit-eyebrow").textContent = isBrief ? "Brief en attente" : "Article publié";
+        $("#edit-title").textContent = isBrief ? "Modifier le brief" : "Préparer une modification";
         $("#edit-help").textContent = isBrief
-          ? "Le brief sera mis Ã  jour directement et restera dans la file dâ€™attente."
-          : "Lâ€™article publiÃ© ne sera pas remplacÃ© tout de suite : une demande de modification sera crÃ©Ã©e.";
+          ? "Le brief sera mis à jour directement et restera dans la file d’attente."
+          : "L’article publié ne sera pas remplacé tout de suite : une demande de modification sera créée.";
         $("#save-edit").textContent = isBrief ? "Enregistrer le brief" : "Envoyer en attente de MAJ";
         fields.title.value = editingItem.title || "";
         fields.keyword.value = editingItem.main_keyword || "";
@@ -240,7 +240,7 @@
         fields.sources.value = "";
         fields.photoNotes.value = "";
         fields.photos.value = "";
-        editStatus.textContent = isBrief ? "Tu peux modifier ce brief directement." : "La modification sera enregistrÃ©e comme brief.";
+        editStatus.textContent = isBrief ? "Tu peux modifier ce brief directement." : "La modification sera enregistrée comme brief.";
         editStatus.classList.remove("error");
         editModal.classList.add("is-open");
         editModal.setAttribute("aria-hidden", "false");
@@ -256,7 +256,7 @@
     async function runAction(button) {
       const action = button.dataset.action;
       const confirmText = action === "delete" ? "SUPPRIMER" : "ARCHIVER";
-      const answer = window.prompt(`Pour confirmer, Ã©cris ${confirmText}.`);
+      const answer = window.prompt(`Pour confirmer, écris ${confirmText}.`);
       if (answer !== confirmText) return;
       button.disabled = true;
       try {
@@ -294,7 +294,7 @@
       event.preventDefault();
       if (!editingItem) return;
       const isBrief = editingItem.collection === "briefs";
-      editStatus.textContent = isBrief ? "Enregistrement du brief..." : "CrÃ©ation du brief de modification...";
+      editStatus.textContent = isBrief ? "Enregistrement du brief..." : "Création du brief de modification...";
       editStatus.classList.remove("error");
       try {
         const photos = fields.photos.files.length ? await Promise.all([...fields.photos.files].slice(0, 3).map(readPhoto)) : [];
@@ -316,8 +316,8 @@
           }),
         });
         const data = await response.json();
-        if (!response.ok) throw new Error(data.error || (isBrief ? "Impossible dâ€™enregistrer le brief." : "Impossible de crÃ©er le brief de modification."));
-        editStatus.textContent = isBrief ? "Brief enregistrÃ©. Il reste en attente pour la prochaine MAJ." : "Modification enregistrÃ©e en attente.";
+        if (!response.ok) throw new Error(data.error || (isBrief ? "Impossible d’enregistrer le brief." : "Impossible de créer le brief de modification."));
+        editStatus.textContent = isBrief ? "Brief enregistré. Il reste en attente pour la prochaine MAJ." : "Modification enregistrée en attente.";
         await loadItems();
       } catch (error) {
         editStatus.textContent = error.message;
