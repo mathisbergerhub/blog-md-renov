@@ -44,7 +44,7 @@ function ctaFor(label = "", title = "") {
 
 function blockFor(label, pageTitle) {
   const [title, text, button] = ctaFor(label, pageTitle);
-  return `<section class="mdr-cta-box"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p><a class="mdr-btn mdr-btn--white" href="${CONTACT_URL}" target="_blank" rel="noopener noreferrer">${escapeHtml(button)}</a><div class="mdr-cta-box__badges"><span>Certifié RGE FERVAM</span><span>Annecy · Aix-les-Bains · Chambéry</span></div></section>`;
+  return `<section class="mdr-cta-box"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p><a class="mdr-btn mdr-btn--white" href="${CONTACT_URL}" target="_blank" rel="noopener noreferrer">${escapeHtml(button)}</a><div class="mdr-cta-box__badges"><span>Certifié RGE et FERVAM</span><span>Annecy · Aix-les-Bains · Chambéry</span></div></section>`;
 }
 
 let count = 0;
