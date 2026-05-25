@@ -113,7 +113,7 @@ function loginPage({ admin = false, error = false } = {}) {
         padding: 24px;
         background:
           radial-gradient(circle at 16% 14%, rgba(155, 28, 28, .12), transparent 30%),
-          radial-gradient(circle at 86% 8%, rgba(23, 79, 49, .12), transparent 28%),
+          radial-gradient(circle at 86% 8%, rgba(155, 28, 28, .08), transparent 28%),
           #f0ece4;
         color: #171717;
         font-family: Lexend, system-ui, sans-serif;
@@ -160,10 +160,13 @@ function loginPage({ admin = false, error = false } = {}) {
       }
       h1 {
         margin: 12px 0 16px;
-        color: ${admin ? "#171717" : "#174f31"};
+        color: #171717;
         font-size: clamp(${admin ? "42px" : "34px"}, 6vw, ${admin ? "66px" : "70px"});
         line-height: ${admin ? ".92" : ".98"};
         letter-spacing: -.06em;
+      }
+      .panel h1 {
+        color: #fff;
       }
       h1 em {
         color: #9b1c1c;
