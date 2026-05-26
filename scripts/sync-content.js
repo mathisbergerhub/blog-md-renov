@@ -4,6 +4,14 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://blog.mdrenov-menuiserie.com";
 const HANDCRAFTED_PAGES = new Set(["maprimerenov-2026-haute-savoie.html"]);
+const CATEGORY_LISTINGS = {
+  "aides-subventions.html": { slug: "aides-subventions", categories: ["aides"] },
+  "fenetres-vitrages.html": { slug: "fenetres-vitrages", categories: ["fenetres"] },
+  "isolation-thermique.html": { slug: "isolation-thermique", categories: ["isolation"] },
+  "volets-stores.html": { slug: "volets-stores", categories: ["volets-stores"] },
+  "portes-portails.html": { slug: "portes-portails", categories: ["portes-portails"] },
+  "tous-les-articles-exterieur.html": { slug: "tous-les-articles-exterieur", categories: ["exterieur"] },
+};
 
 function e(value = "") {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -308,6 +316,59 @@ function renderFooter() {
 </footer>`;
 }
 
+function cardTags(article, pageSlug) {
+  return Array.from(new Set([
+    pageSlug,
+    slugify(article.category_label || ""),
+    ...article.tags.map(slugify),
+  ].filter(Boolean))).join(" ");
+}
+
+function listingCard(article, pageSlug) {
+  const mediaLabel = e(article.image_alt || article.category_label || "Guide MD Rénov'");
+  return `<article class="mdr-home-card" data-tags="${e(cardTags(article, pageSlug))}">
+<div class="mdr-home-media mdr-home-media--card"><strong>${mediaLabel}</strong></div>
+<div class="mdr-home-card__body">
+<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">${e(article.category_label)}</span><span class="mdr-home-card__date">${e(formatDate(article.date))}</span></div>
+<h3>${e(article.title)}</h3>
+<p>${e(article.description)}</p>
+<div class="mdr-home-card__foot"><a class="mdr-link" href="./${e(article.htmlFile)}">Lire</a><span class="mdr-home-card__time">${e(article.reading_time)}</span></div>
+</div>
+</article>`;
+}
+
+function updateCategoryListings(articles) {
+  for (const [fileName, config] of Object.entries(CATEGORY_LISTINGS)) {
+    const pagePath = path.join(ROOT, fileName);
+    if (!fs.existsSync(pagePath)) continue;
+
+    const listingArticles = articles
+      .filter((article) => config.categories.includes(article.category))
+      .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+    const grid = `<section class="mdr-listing-content">
+<div class="mdr-home-grid">
+${listingArticles.map((article) => listingCard(article, config.slug)).join("\n")}
+</div>
+</section>`;
+    const html = fs.readFileSync(pagePath, "utf8");
+    const updated = html.replace(/<section class="mdr-listing-content">\s*<div class="mdr-home-grid">[\s\S]*?<\/div>\s*<\/section>/, grid);
+    fs.writeFileSync(pagePath, updated, "utf8");
+  }
+}
+
+function categoryPage(article) {
+  const category = String(article.category || "").toLowerCase();
+  const label = String(article.category_label || "").toLowerCase();
+
+  if (category === "aides" || label.includes("budget") || label.includes("aides")) return "./aides-subventions.html";
+  if (category === "fenetres" || label.includes("fenêtre") || label.includes("vitrage")) return "./fenetres-vitrages.html";
+  if (category === "isolation" || label.includes("isolation")) return "./isolation-thermique.html";
+  if (category === "volets-stores" || label.includes("volet") || label.includes("store")) return "./volets-stores.html";
+  if (category === "portes-portails" || label.includes("porte") || label.includes("portail")) return "./portes-portails.html";
+
+  return "./tous-les-articles-exterieur.html";
+}
+
 function articlePage(article, allArticles) {
   const articleUrl = `${SITE_URL}/${article.htmlFile}`;
   const related = allArticles.filter((item) => item.htmlFile !== article.htmlFile && item.category === article.category).slice(0, 3).map((item) => ({ ...item, title: shortenText(item.title, 74) }));
@@ -340,7 +401,7 @@ ${headAssets()}
 <a class="skip-link" href="#contenu">Aller au contenu</a>
 <main id="contenu" class="mdr-stage"><div class="mdr-wrap">
 <header class="mdr-nav"><a class="mdr-nav__brand" href="./index.html" aria-label="Retour au blog"><img src="./logo-mdr-site.svg" alt="Logo MD Rénov'" width="241" height="54" /></a><nav class="mdr-nav__links" aria-label="Navigation article"><a href="./index.html">Retour au blog</a><span>${e(article.category_label)}</span></nav><a class="mdr-btn mdr-btn--primary" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Devis gratuit</a></header>
-<section class="mdr-article-head"><div class="mdr-breadcrumb"><a href="./index.html">Accueil</a><span>Blog</span><span>${e(article.category_label)}</span></div><div class="mdr-article-head__meta"><span class="mdr-card__tag">${e(article.category_label)}</span><span class="mdr-card__date">${e(formatDate(article.date))}</span><span class="mdr-card__time">${e(article.reading_time)} de lecture</span></div><h1>${accentTitle(article.title, article)}</h1><p class="mdr-article-head__excerpt">${e(article.description)}</p></section>
+<section class="mdr-article-head"><div class="mdr-breadcrumb"><a href="./index.html">Accueil</a><span>Blog</span><span><a href="${categoryPage(article)}">${e(article.category_label)}</a></span></div><div class="mdr-article-head__meta"><span class="mdr-card__tag">${e(article.category_label)}</span><span class="mdr-card__date">${e(formatDate(article.date))}</span><span class="mdr-card__time">${e(article.reading_time)} de lecture</span></div><h1>${accentTitle(article.title, article)}</h1><p class="mdr-article-head__excerpt">${e(article.description)}</p></section>
 <section class="mdr-article-body"><article class="mdr-prose">
 ${mediaBlock(article)}
 <div class="mdr-article-leadbox"><strong>Le point important</strong><p>${e(lead)}</p></div>
@@ -372,6 +433,7 @@ for (const article of articles) {
   if (HANDCRAFTED_PAGES.has(article.htmlFile)) continue;
   fs.writeFileSync(path.join(ROOT, article.htmlFile), articlePage(article, articles), "utf8");
 }
+updateCategoryListings(articles);
 updateSitemap(articles);
 updateLlms(articles);
 console.log(`Build éditorial terminé : ${articles.length} article(s), ${HANDCRAFTED_PAGES.size} page(s) protégée(s).`);

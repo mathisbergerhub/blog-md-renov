@@ -1,33 +1,34 @@
-# Le blog MD Rénov' > Blog éditorial MD Rénov' autour de la rénovation, des menuiseries, des protections solaires, des aides et du confort de l'habitat en Haute-Savoie. ## Priorité de lecture - [Accueil du blog](https://blog.mdrenov-menuiserie.com/index.html.md) ## Articles - [MaPrimeRénov’ 2026 : vérifier les aides avant de changer ses fenêtres](https://blog.mdrenov-menuiserie.com/maprimerenov-2026-haute-savoie.html.md)
-- [Fenêtre PVC ou aluminium : quel choix pour une maison en Haute-Savoie ?](https://blog.mdrenov-menuiserie.com/fenetre-pvc-vs-aluminium-haute-savoie.html.md)
-- [Double ou triple vitrage : dans quels cas le surcoût est vraiment utile ?](https://blog.mdrenov-menuiserie.com/double-vitrage-ou-triple-vitrage-haute-savoie.html.md)
-- [Comment savoir si vos fenêtres perdent de la chaleur ?](https://blog.mdrenov-menuiserie.com/fenetres-perdent-chaleur-haute-savoie.html.md)
-- [Volets roulants motorisés : confort, sécurité et économies au quotidien](https://blog.mdrenov-menuiserie.com/volets-roulants-motorises-haute-savoie.html.md)
-- [Volets roulants ou battants : quel choix selon la façade ?](https://blog.mdrenov-menuiserie.com/volets-roulants-ou-battants-haute-savoie.html.md)
-- [Store banne coffre intégral : dans quels cas est-ce le bon choix ?](https://blog.mdrenov-menuiserie.com/store-banne-coffre-integral-haute-savoie.html.md)
-- [Store banne motorisé ou solaire : quelle solution choisir ?](https://blog.mdrenov-menuiserie.com/store-banne-motorise-ou-solaire.html.md)
-- [Comment choisir un store banne à Annecy sans se tromper ?](https://blog.mdrenov-menuiserie.com/comment-choisir-store-banne-annecy.html.md)
-- [Prix d'un store banne : ce qui fait vraiment varier le devis](https://blog.mdrenov-menuiserie.com/prix-store-banne-annecy.html.md)
-- [Pergola bioclimatique : comment savoir si elle a du sens chez vous ?](https://blog.mdrenov-menuiserie.com/pergola-bioclimatique-haute-savoie.html.md)
-- [Moustiquaire fixe, enroulable ou plissée : laquelle choisir ?](https://blog.mdrenov-menuiserie.com/moustiquaire-sur-mesure-haute-savoie.html.md)
-- [Porte d'entrée aluminium : sécurité, isolation et style à vérifier](https://blog.mdrenov-menuiserie.com/porte-entree-aluminium-annecy.html.md)
-- [Porte de garage sectionnelle ou enroulable : quel modèle choisir ?](https://blog.mdrenov-menuiserie.com/porte-garage-sectionnelle-ou-enroulable.html.md)
-- [Portail battant ou coulissant : quel choix selon votre terrain ?](https://blog.mdrenov-menuiserie.com/portail-battant-ou-coulissant-haute-savoie.html.md)
-- [Fenêtres, volets, porte, pergola : quelles autorisations avant travaux ?](https://blog.mdrenov-menuiserie.com/autorisation-travaux-menuiseries-haute-savoie.html.md)
-- [Store banne en copropriété : faut-il demander une autorisation ?](https://blog.mdrenov-menuiserie.com/autorisation-store-banne-copropriete.html.md)
-- [Prix rénovation menuiseries : combien prévoir et quelles aides demander ?](https://blog.mdrenov-menuiserie.com/prix-renovation-menuiseries-haute-savoie.html.md)
-- [Pose en rénovation ou dépose totale : que choisir pour remplacer ses fenêtres ?](https://blog.mdrenov-menuiserie.com/renovation-sur-cadre-ou-depose-totale-fenetres.html.md)
-- [PVC, aluminium, bois ou mixte : quel matériau de fenêtre choisir ?](https://blog.mdrenov-menuiserie.com/fenetre-bois-pvc-alu-mixte-comparatif.html.md)
-- [Baie coulissante ou galandage : quel choix pour ouvrir le séjour ?](https://blog.mdrenov-menuiserie.com/baie-vitree-coulissante-ou-galandage.html.md)
-- [Bruit de route : comment améliorer l'isolation phonique des fenêtres ?](https://blog.mdrenov-menuiserie.com/isolation-phonique-fenetres-route.html.md)
-- [Condensation après changement de fenêtres : normal ou inquiétant ?](https://blog.mdrenov-menuiserie.com/condensation-fenetres-neuves-ventilation.html.md)
-- [Volet roulant solaire : bonne idée ou fausse économie ?](https://blog.mdrenov-menuiserie.com/volet-roulant-solaire-haute-savoie.html.md)
-- [BSO ou volet roulant : quelle protection solaire choisir ?](https://blog.mdrenov-menuiserie.com/bso-ou-volet-roulant-protection-solaire.html.md)
-- [Porte d'entrée sécurisée : serrure, vitrage, panneau, que vérifier ?](https://blog.mdrenov-menuiserie.com/porte-entree-securite-serrure-vitrage.html.md)
-- [Portail motorisé, visiophone, digicode : que prévoir dès le départ ?](https://blog.mdrenov-menuiserie.com/portail-motorise-interphone-securite.html.md)
-- [Couleur des menuiseries : comment éviter l'erreur avec le PLU ?](https://blog.mdrenov-menuiserie.com/couleurs-menuiseries-ral-plu.html.md)
-- [Délais de pose : combien de temps prévoir pour fenêtres, volets ou portail ?](https://blog.mdrenov-menuiserie.com/delais-pose-menuiseries-renovation.html.md) ## Pages légales - [Mentions légales](https://blog.mdrenov-menuiserie.com/mentions-legales)
-- [Politique de confidentialité](https://blog.mdrenov-menuiserie.com/politique-confidentialite)
-- [Politique cookies](https://blog.mdrenov-menuiserie.com/politique-cookies)
-- [Conditions d'utilisation](https://blog.mdrenov-menuiserie.com/conditions-utilisation) ## Optional - [Site principal MD Rénov'](https://www.mdrenov-menuiserie.com)
-- [Contact MD Rénov'](https://www.mdrenov-menuiserie.com/contact#Contact-Form)
+# Blog MD Rénov'
+
+Guides rénovation, menuiseries, aides, isolation, volets, stores, pergolas, portes et portails en Haute-Savoie et Savoie.
+
+## Articles
+- [Baie coulissante ou galandage: quel choix pour ouvrir le séjour?](https://blog.mdrenov-menuiserie.com/baie-vitree-coulissante-ou-galandage.html) - Clair de jour, seuil, isolation, passage, budget et travaux : le vrai comparatif entre coulissant et galandage.
+- [Bruit de route: comment améliorer l'isolation phonique des fenêtres?](https://blog.mdrenov-menuiserie.com/isolation-phonique-fenetres-route.html) - Vitrage acoustique, entrées d'air, pose et coffres de volets : les vrais leviers pour réduire les nuisances sonores.
+- [BSO ou volet roulant: quelle protection solaire choisir?](https://blog.mdrenov-menuiserie.com/bso-ou-volet-roulant-protection-solaire.html) - Comparer brise-soleil orientable et volet roulant pour gérer chaleur, lumière, intimité et sécurité.
+- [Condensation après changement de fenêtres: normal ou inquiétant?](https://blog.mdrenov-menuiserie.com/condensation-fenetres-neuves-ventilation.html) - Pourquoi des fenêtres plus étanches peuvent révéler un problème de ventilation et comment réagir sans mauvais diagnostic.
+- [Couleur des menuiseries: comment éviter l'erreur avec le PLU?](https://blog.mdrenov-menuiserie.com/couleurs-menuiseries-ral-plu.html) - RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérifications avant de commander une couleur.
+- [Délais de pose: combien de temps prévoir pour fenêtres, volets ou portail?](https://blog.mdrenov-menuiserie.com/delais-pose-menuiseries-renovation.html) - Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d'un chantier de menuiseries.
+- [MaPrimeRénov’ 2026: ce qu’il faut vérifier avant de changer ses fenêtres en Haute-Savoie](https://blog.mdrenov-menuiserie.com/maprimerenov-2026-haute-savoie.html) - Aides, conditions, démarches : tout ce qu’il faut savoir avant de lancer votre projet de menuiseries sans faire d’erreur.
+- [Portail motorisé, visiophone, digicode: que prévoir dès le départ?](https://blog.mdrenov-menuiserie.com/portail-motorise-interphone-securite.html) - Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d'un portail.
+- [Porte d'entrée sécurisée: serrure, vitrage, panneau, que vérifier?](https://blog.mdrenov-menuiserie.com/porte-entree-securite-serrure-vitrage.html) - Les points concrets à comparer pour choisir une porte d'entrée rassurante sans sacrifier le style.
+- [Pose en rénovation ou dépose totale: que choisir pour remplacer ses fenêtres?](https://blog.mdrenov-menuiserie.com/renovation-sur-cadre-ou-depose-totale-fenetres.html) - Dormant existant, perte de clair de jour, pont thermique, finitions : comment choisir la bonne méthode de pose.
+- [PVC, aluminium, bois ou mixte: quel matériau de fenêtre choisir?](https://blog.mdrenov-menuiserie.com/fenetre-bois-pvc-alu-mixte-comparatif.html) - Un comparatif clair entre PVC, aluminium, bois et mixte pour choisir selon budget, style, entretien et performances.
+- [Volet roulant solaire: bonne idée ou fausse économie?](https://blog.mdrenov-menuiserie.com/volet-roulant-solaire-haute-savoie.html) - Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet solaire est pertinent.
+- [Double ou triple vitrage: dans quels cas le surcoût est vraiment utile?](https://blog.mdrenov-menuiserie.com/double-vitrage-ou-triple-vitrage-haute-savoie.html) - Le triple vitrage n'est utile que dans certains cas : exposition nord, altitude, pièce froide ou projet très isolé. Dans beaucoup de rénovations, un bon double vitrage bien posé suffit.
+- [Comment savoir si vos fenêtres perdent de la chaleur?](https://blog.mdrenov-menuiserie.com/fenetres-perdent-chaleur-haute-savoie.html) - Courants d'air, condensation, paroi froide, bruit : les signes à observer avant de remplacer.
+- [Volets roulants motorisés: confort, sécurité et économies au quotidien](https://blog.mdrenov-menuiserie.com/volets-roulants-motorises-haute-savoie.html) - Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.
+- [Volets roulants ou battants: quel choix selon la façade?](https://blog.mdrenov-menuiserie.com/volets-roulants-ou-battants-haute-savoie.html) - Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécurité et contraintes de pose.
+- [Store banne coffre intégral: dans quels cas est-ce le bon choix?](https://blog.mdrenov-menuiserie.com/store-banne-coffre-integral-haute-savoie.html) - Protection solaire, exposition, dimensions et durabilité : les critères utiles pour choisir un store banne.
+- [Store banne motorisé ou solaire: quelle solution choisir?](https://blog.mdrenov-menuiserie.com/store-banne-motorise-ou-solaire.html) - Un guide pratique pour choisir entre branchement électrique, commande radio, capteurs et solution solaire.
+- [Comment choisir un store banne à Annecy sans se tromper?](https://blog.mdrenov-menuiserie.com/comment-choisir-store-banne-annecy.html) - Largeur, avancée, toile, coffre, vent et orientation : la méthode concrète pour cadrer un store banne.
+- [Prix d'un store banne: ce qui fait vraiment varier le devis](https://blog.mdrenov-menuiserie.com/prix-store-banne-annecy.html) - Largeur, coffre, motorisation, toile, capteurs et pose : les facteurs qui expliquent les écarts de prix.
+- [Pergola bioclimatique: comment savoir si elle a du sens chez vous?](https://blog.mdrenov-menuiserie.com/pergola-bioclimatique-haute-savoie.html) - Orientation, lames, pluie légère, options et autorisations : les points à valider avant de commander une pergola.
+- [Fenêtre PVC ou aluminium: quel choix pour une maison en Haute-Savoie?](https://blog.mdrenov-menuiserie.com/fenetre-pvc-vs-aluminium-haute-savoie.html) - Prix, isolation, finesse des profils, entretien et rendu de façade : le vrai comparatif pour choisir sans se perdre.
+- [Moustiquaire fixe, enroulable ou plissée: laquelle choisir?](https://blog.mdrenov-menuiserie.com/moustiquaire-sur-mesure-haute-savoie.html) - Fenêtre, porte-fenêtre, baie coulissante : choisir la moustiquaire selon l'usage, l'espace disponible et la fréquence de passage.
+- [Porte d'entrée aluminium: sécurité, isolation et style à vérifier](https://blog.mdrenov-menuiserie.com/porte-entree-aluminium-annecy.html) - Les critères importants avant de remplacer une porte d'entrée : panneau, serrure, seuil, vitrage, isolation et pose.
+- [Porte de garage sectionnelle ou enroulable: quel modèle choisir?](https://blog.mdrenov-menuiserie.com/porte-garage-sectionnelle-ou-enroulable.html) - Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.
+- [Portail battant ou coulissant: quel choix selon votre terrain?](https://blog.mdrenov-menuiserie.com/portail-battant-ou-coulissant-haute-savoie.html) - Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.
+- [Fenêtres, volets, porte, pergola: quelles autorisations vérifier avant travaux?](https://blog.mdrenov-menuiserie.com/autorisation-travaux-menuiseries-haute-savoie.html) - Déclaration préalable, copropriété, PLU : les règles à vérifier avant de modifier une façade ou créer un aménagement extérieur.
+- [Store banne en copropriété: faut-il demander une autorisation?](https://blog.mdrenov-menuiserie.com/autorisation-store-banne-copropriete.html) - Règlement de copropriété, harmonie de façade, assemblée générale et mairie : les bons réflexes avant de poser un store.
+- [Prix rénovation menuiseries: combien prévoir et quelles aides demander?](https://blog.mdrenov-menuiserie.com/prix-renovation-menuiseries-haute-savoie.html) - Fenêtres, porte d’entrée, volets, portail : les fourchettes à anticiper, les aides possibles en 2026 et la méthode pour comparer deux devis sans se tromper.

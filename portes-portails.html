@@ -29,6 +29,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="./styles.css" />
+<style id="mdr-article-ui-patch">
+.mdr-prose .mdr-check-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))!important;align-items:stretch!important}
+.mdr-prose .mdr-check-grid li{min-height:auto!important;padding:.95rem!important}
+.mdr-prose .mdr-check-grid li strong{display:block;margin-bottom:.35rem}
+.mdr-prose h2 + .mdr-check-grid{margin-top:.35rem}
+.mdr-prose .mdr-table-wrap{margin:1rem 0 1.25rem!important;border:1px solid #ded7cd!important;border-radius:18px!important;background:#fff!important;box-shadow:0 18px 38px rgba(26,26,24,.07)!important;overflow:hidden!important}
+.mdr-prose .mdr-table-wrap table{width:100%!important;margin:0!important;border:0!important;border-collapse:separate!important;border-spacing:0!important;background:#fff!important}
+.mdr-prose .mdr-decision-table th{padding:.85rem 1rem!important;border:0!important;background:#9b1c1c!important;color:#fff!important;font-size:.72rem!important;font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+.mdr-prose .mdr-decision-table td{padding:1rem!important;border:0!important;border-bottom:1px solid #eee5da!important;color:#333!important;line-height:1.58!important}
+.mdr-prose .mdr-decision-table tbody tr:nth-child(even){background:#fbf7f1!important}
+.mdr-prose .mdr-decision-table tbody tr:last-child td{border-bottom:0!important}
+.mdr-prose .mdr-decision-table td:first-child{width:24%!important;color:#9b1c1c!important;font-weight:800!important}
+@media (max-width:720px){
+  .mdr-prose .mdr-table-wrap{border:0!important;box-shadow:none!important;background:transparent!important;overflow:visible!important}
+  .mdr-prose .mdr-decision-table,.mdr-prose .mdr-decision-table thead,.mdr-prose .mdr-decision-table tbody,.mdr-prose .mdr-decision-table tr,.mdr-prose .mdr-decision-table td{display:block!important;width:100%!important}
+  .mdr-prose .mdr-decision-table thead{display:none!important}
+  .mdr-prose .mdr-decision-table tr{margin:0 0 .75rem!important;border:1px solid #ded7cd!important;border-radius:16px!important;background:#fff!important;box-shadow:0 12px 24px rgba(26,26,24,.06)!important;overflow:hidden!important}
+  .mdr-prose .mdr-decision-table td{display:grid!important;grid-template-columns:minmax(7.5rem,38%) 1fr!important;gap:.8rem!important;padding:.85rem .95rem!important;border-bottom:1px solid #eee5da!important}
+  .mdr-prose .mdr-decision-table td::before{content:attr(data-label);color:#9b1c1c;font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+  .mdr-prose .mdr-decision-table td:first-child{background:#fbf7f1!important;color:#1a1a18!important}
+}
+</style>
 </head>
 <body class="site-page mdr-listing-page">
 <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -60,67 +82,49 @@
 </section>
 <section class="mdr-listing-content">
 <div class="mdr-home-grid">
-<article class="mdr-home-card" data-tags="portes-portails portes porte-entree aluminium securite isolation">
-<div class="mdr-home-media mdr-home-media--card"><strong>Porte d'entrée aluminium</strong></div>
-<div class="mdr-home-card__body">
-<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portes</span><span class="mdr-home-card__date">18 mars 2026</span></div>
-<h3>Porte d'entrée aluminium : sécurité, isolation et style à vérifier</h3>
-<p>Les critères importants avant de remplacer une porte d'entrée : panneau, serrure, seuil, vitrage, isolation et pose.</p>
-<div class="mdr-home-card__foot"><a class="mdr-link" href="./porte-entree-aluminium-annecy.html">Lire</a><span class="mdr-home-card__time">4 min</span></div>
-</div>
-</article>
-<article class="mdr-home-card" data-tags="portes-portails portes securite serrure vitrage">
-<div class="mdr-home-media mdr-home-media--card"><strong>Serrure et porte d'entrée</strong></div>
-<div class="mdr-home-card__body">
-<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portes</span><span class="mdr-home-card__date">29 avril 2026</span></div>
-<h3>Porte d'entrée sécurisée : serrure, vitrage, panneau, que vérifier ?</h3>
-<p>Les points concrets à comparer pour choisir une porte d'entrée rassurante sans sacrifier le style.</p>
-<div class="mdr-home-card__foot"><a class="mdr-link" href="./porte-entree-securite-serrure-vitrage.html">Lire</a><span class="mdr-home-card__time">3 min</span></div>
-</div>
-</article>
-<article class="mdr-home-card" data-tags="portes-portails portes porte-garage sectionnelle enroulable">
-<div class="mdr-home-media mdr-home-media--card"><strong>Porte de garage</strong></div>
-<div class="mdr-home-card__body">
-<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portes</span><span class="mdr-home-card__date">15 mars 2026</span></div>
-<h3>Porte de garage sectionnelle ou enroulable : quel modèle choisir ?</h3>
-<p>Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.</p>
-<div class="mdr-home-card__foot"><a class="mdr-link" href="./porte-garage-sectionnelle-ou-enroulable.html">Lire</a><span class="mdr-home-card__time">4 min</span></div>
-</div>
-</article>
-<article class="mdr-home-card" data-tags="portes-portails tous-les-articles-exterieur portails portail battant coulissant">
-<div class="mdr-home-media mdr-home-media--card"><strong>Portail aluminium</strong></div>
-<div class="mdr-home-card__body">
-<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portails</span><span class="mdr-home-card__date">12 mars 2026</span></div>
-<h3>Portail battant ou coulissant : quel choix selon votre terrain ?</h3>
-<p>Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.</p>
-<div class="mdr-home-card__foot"><a class="mdr-link" href="./portail-battant-ou-coulissant-haute-savoie.html">Lire</a><span class="mdr-home-card__time">3 min</span></div>
-</div>
-</article>
-<article class="mdr-home-card" data-tags="portes-portails tous-les-articles-exterieur portails motorisation securite">
+<article class="mdr-home-card" data-tags="portes-portails portails haute-savoie savoie">
 <div class="mdr-home-media mdr-home-media--card"><strong>Portail motorisé et interphone</strong></div>
 <div class="mdr-home-card__body">
 <div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portails</span><span class="mdr-home-card__date">29 avril 2026</span></div>
-<h3>Portail motorisé, visiophone, digicode : que prévoir dès le départ ?</h3>
+<h3>Portail motorisé, visiophone, digicode: que prévoir dès le départ?</h3>
 <p>Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton : les points à anticiper avant la pose d'un portail.</p>
 <div class="mdr-home-card__foot"><a class="mdr-link" href="./portail-motorise-interphone-securite.html">Lire</a><span class="mdr-home-card__time">3 min</span></div>
 </div>
 </article>
-<article class="mdr-home-card" data-tags="aides-subventions demarches plu facade couleurs">
-<div class="mdr-home-media mdr-home-media--card"><strong>Nuancier et façade</strong></div>
+<article class="mdr-home-card" data-tags="portes-portails portes haute-savoie savoie">
+<div class="mdr-home-media mdr-home-media--card"><strong>Serrure et porte d'entrée</strong></div>
 <div class="mdr-home-card__body">
-<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Démarches</span><span class="mdr-home-card__date">29 avril 2026</span></div>
-<h3>Couleur des menuiseries : comment éviter l'erreur avec le PLU ?</h3>
-<p>RAL, bicoloration, harmonie de façade, copropriété et mairie : les vérifications avant de commander une couleur.</p>
-<div class="mdr-home-card__foot"><a class="mdr-link" href="./couleurs-menuiseries-ral-plu.html">Lire</a><span class="mdr-home-card__time">3 min</span></div>
+<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portes</span><span class="mdr-home-card__date">29 avril 2026</span></div>
+<h3>Porte d'entrée sécurisée: serrure, vitrage, panneau, que vérifier?</h3>
+<p>Les points concrets à comparer pour choisir une porte d'entrée rassurante sans sacrifier le style.</p>
+<div class="mdr-home-card__foot"><a class="mdr-link" href="./porte-entree-securite-serrure-vitrage.html">Lire</a><span class="mdr-home-card__time">3 min</span></div>
 </div>
 </article>
-<article class="mdr-home-card" data-tags="aides-subventions budget planning chantier menuiseries">
-<div class="mdr-home-media mdr-home-media--card"><strong>Planning chantier</strong></div>
+<article class="mdr-home-card" data-tags="portes-portails portes haute-savoie savoie">
+<div class="mdr-home-media mdr-home-media--card"><strong>Porte d'entrée aluminium</strong></div>
 <div class="mdr-home-card__body">
-<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Budget</span><span class="mdr-home-card__date">29 avril 2026</span></div>
-<h3>Délais de pose : combien de temps prévoir pour fenêtres, volets ou portail ?</h3>
-<p>Commande, fabrication, autorisations, pose et finitions : les étapes qui expliquent le calendrier d'un chantier de menuiseries.</p>
-<div class="mdr-home-card__foot"><a class="mdr-link" href="./delais-pose-menuiseries-renovation.html">Lire</a><span class="mdr-home-card__time">3 min</span></div>
+<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portes</span><span class="mdr-home-card__date">18 mars 2026</span></div>
+<h3>Porte d'entrée aluminium: sécurité, isolation et style à vérifier</h3>
+<p>Les critères importants avant de remplacer une porte d'entrée : panneau, serrure, seuil, vitrage, isolation et pose.</p>
+<div class="mdr-home-card__foot"><a class="mdr-link" href="./porte-entree-aluminium-annecy.html">Lire</a><span class="mdr-home-card__time">4 min</span></div>
+</div>
+</article>
+<article class="mdr-home-card" data-tags="portes-portails portes haute-savoie savoie">
+<div class="mdr-home-media mdr-home-media--card"><strong>Porte de garage</strong></div>
+<div class="mdr-home-card__body">
+<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portes</span><span class="mdr-home-card__date">15 mars 2026</span></div>
+<h3>Porte de garage sectionnelle ou enroulable: quel modèle choisir?</h3>
+<p>Hauteur disponible, plafond, isolation, motorisation et usage quotidien : les critères pour choisir la bonne porte de garage.</p>
+<div class="mdr-home-card__foot"><a class="mdr-link" href="./porte-garage-sectionnelle-ou-enroulable.html">Lire</a><span class="mdr-home-card__time">4 min</span></div>
+</div>
+</article>
+<article class="mdr-home-card" data-tags="portes-portails portails haute-savoie savoie">
+<div class="mdr-home-media mdr-home-media--card"><strong>Portail aluminium</strong></div>
+<div class="mdr-home-card__body">
+<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">Portails</span><span class="mdr-home-card__date">12 mars 2026</span></div>
+<h3>Portail battant ou coulissant: quel choix selon votre terrain?</h3>
+<p>Pente, recul, largeur de passage, motorisation et PLU : les critères pour choisir un portail fiable.</p>
+<div class="mdr-home-card__foot"><a class="mdr-link" href="./portail-battant-ou-coulissant-haute-savoie.html">Lire</a><span class="mdr-home-card__time">3 min</span></div>
 </div>
 </article>
 </div>

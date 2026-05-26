@@ -30,6 +30,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="./styles.css" />
+<style id="mdr-article-ui-patch">
+.mdr-prose .mdr-check-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))!important;align-items:stretch!important}
+.mdr-prose .mdr-check-grid li{min-height:auto!important;padding:.95rem!important}
+.mdr-prose .mdr-check-grid li strong{display:block;margin-bottom:.35rem}
+.mdr-prose h2 + .mdr-check-grid{margin-top:.35rem}
+.mdr-prose .mdr-table-wrap{margin:1rem 0 1.25rem!important;border:1px solid #ded7cd!important;border-radius:18px!important;background:#fff!important;box-shadow:0 18px 38px rgba(26,26,24,.07)!important;overflow:hidden!important}
+.mdr-prose .mdr-table-wrap table{width:100%!important;margin:0!important;border:0!important;border-collapse:separate!important;border-spacing:0!important;background:#fff!important}
+.mdr-prose .mdr-decision-table th{padding:.85rem 1rem!important;border:0!important;background:#9b1c1c!important;color:#fff!important;font-size:.72rem!important;font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+.mdr-prose .mdr-decision-table td{padding:1rem!important;border:0!important;border-bottom:1px solid #eee5da!important;color:#333!important;line-height:1.58!important}
+.mdr-prose .mdr-decision-table tbody tr:nth-child(even){background:#fbf7f1!important}
+.mdr-prose .mdr-decision-table tbody tr:last-child td{border-bottom:0!important}
+.mdr-prose .mdr-decision-table td:first-child{width:24%!important;color:#9b1c1c!important;font-weight:800!important}
+@media (max-width:720px){
+  .mdr-prose .mdr-table-wrap{border:0!important;box-shadow:none!important;background:transparent!important;overflow:visible!important}
+  .mdr-prose .mdr-decision-table,.mdr-prose .mdr-decision-table thead,.mdr-prose .mdr-decision-table tbody,.mdr-prose .mdr-decision-table tr,.mdr-prose .mdr-decision-table td{display:block!important;width:100%!important}
+  .mdr-prose .mdr-decision-table thead{display:none!important}
+  .mdr-prose .mdr-decision-table tr{margin:0 0 .75rem!important;border:1px solid #ded7cd!important;border-radius:16px!important;background:#fff!important;box-shadow:0 12px 24px rgba(26,26,24,.06)!important;overflow:hidden!important}
+  .mdr-prose .mdr-decision-table td{display:grid!important;grid-template-columns:minmax(7.5rem,38%) 1fr!important;gap:.8rem!important;padding:.85rem .95rem!important;border-bottom:1px solid #eee5da!important}
+  .mdr-prose .mdr-decision-table td::before{content:attr(data-label);color:#9b1c1c;font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+  .mdr-prose .mdr-decision-table td:first-child{background:#fbf7f1!important;color:#1a1a18!important}
+}
+</style>
 </head>
 <body class="site-page mdr-article-page">
 <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -41,7 +63,7 @@
 <a class="mdr-btn mdr-btn--primary" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Devis gratuit</a>
 </header>
 <section class="mdr-article-head">
-<div class="mdr-breadcrumb"><a href="./index.html">Accueil</a><span>Blog</span><span>Aides & budget</span></div>
+<div class="mdr-breadcrumb"><a href="./index.html">Accueil</a><span>Blog</span><span><a href="./aides-subventions.html">Aides & budget</a></span></div>
 <div class="mdr-article-head__meta"><span class="mdr-card__tag">Aides & budget</span><span class="mdr-card__date">29 avril 2026</span><span class="mdr-card__time">4 min de lecture</span></div>
 <h1>MaPrimeRénov’ 2026 : ce qu’il faut vérifier avant de changer ses <span class="mdr-title-accent">fenêtres</span> en Haute-Savoie</h1>
 <p class="mdr-article-head__excerpt">Aides, conditions, démarches : tout ce qu’il faut savoir avant de lancer votre projet de menuiseries sans faire d’erreur.</p>
@@ -63,15 +85,12 @@
 <p>MaPrimeRénov’ dépend de votre situation et du type de travaux. France Rénov’ indique que l’aide varie selon les revenus du foyer et le projet engagé. Pour une rénovation par geste, elle concerne notamment le chauffage et l’isolation ; pour une rénovation d’ampleur, le projet doit viser un gain énergétique beaucoup plus important.</p>
 <p>Pour des fenêtres, la question n’est donc pas seulement “combien vais-je toucher ?”. La bonne question est plutôt : <strong>mon projet entre-t-il dans un parcours d’aide, et dans quelles conditions ?</strong></p>
 <h2>Fenêtres seules ou rénovation globale : le bon réflexe</h2>
-<table class="mdr-decision-table">
-<thead><tr><th>Votre situation</th><th>Ce que cela implique</th><th>À vérifier avant de signer</th></tr></thead>
-<tbody>
-<tr><td><strong>Ancien simple vitrage</strong></td><td>Le remplacement peut être étudié dans une logique d’isolation.</td><td>Éligibilité exacte, revenus, performance de la nouvelle menuiserie, entreprise RGE.</td></tr>
-<tr><td><strong>Logement froid ou énergivore</strong></td><td>Une rénovation plus globale peut être plus pertinente qu’un changement isolé de fenêtres.</td><td>DPE, ventilation, toiture, murs, chauffage et ordre des travaux.</td></tr>
-<tr><td><strong>Appartement en copropriété</strong></td><td>Le projet peut dépendre du règlement de copropriété et de l’aspect extérieur.</td><td>Accord de copropriété, couleur, matériau, dimensions, éventuelle autorisation d’urbanisme.</td></tr>
-<tr><td><strong>Projet d’ampleur</strong></td><td>France Rénov’ annonce un rendez-vous obligatoire avec un conseiller avant dépôt.</td><td>Conseiller France Rénov’, accompagnement, gain énergétique minimal et devis cohérents.</td></tr>
-</tbody>
-</table>
+<table class="mdr-decision-table"><thead><tr><th scope="col">Votre situation</th><th scope="col">Ce que cela implique</th><th scope="col">À vérifier avant de signer</th></tr></thead><tbody>
+<tr><td data-label="Votre situation"><strong>Ancien simple vitrage</strong></td><td data-label="Ce que cela implique">Le remplacement peut être étudié dans une logique d’isolation.</td><td data-label="À vérifier avant de signer">Éligibilité exacte, revenus, performance de la nouvelle menuiserie, entreprise RGE.</td></tr>
+<tr><td data-label="Votre situation"><strong>Logement froid ou énergivore</strong></td><td data-label="Ce que cela implique">Une rénovation plus globale peut être plus pertinente qu’un changement isolé de fenêtres.</td><td data-label="À vérifier avant de signer">DPE, ventilation, toiture, murs, chauffage et ordre des travaux.</td></tr>
+<tr><td data-label="Votre situation"><strong>Appartement en copropriété</strong></td><td data-label="Ce que cela implique">Le projet peut dépendre du règlement de copropriété et de l’aspect extérieur.</td><td data-label="À vérifier avant de signer">Accord de copropriété, couleur, matériau, dimensions, éventuelle autorisation d’urbanisme.</td></tr>
+<tr><td data-label="Votre situation"><strong>Projet d’ampleur</strong></td><td data-label="Ce que cela implique">France Rénov’ annonce un rendez-vous obligatoire avec un conseiller avant dépôt.</td><td data-label="À vérifier avant de signer">Conseiller France Rénov’, accompagnement, gain énergétique minimal et devis cohérents.</td></tr>
+</tbody></table>
 <h2>Le parcours simple en 5 étapes</h2>
 <div class="mdr-steps">
 <div><span>1</span><strong>Décrire le projet</strong><p>Fenêtres, portes-fenêtres, volets, contraintes de façade, bruit, froid, condensation.</p></div>
@@ -118,12 +137,7 @@
 </ul>
 </div></article>
 <aside class="mdr-sidebar">
-<section class="mdr-cta-box">
-<h3>Un projet en Haute-Savoie ou Savoie ?</h3>
-<p>Devis gratuit sous 48h, conseils clairs et accompagnement local en Haute-Savoie et Savoie par MD Rénov'.</p>
-<a class="mdr-btn mdr-btn--white" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Demander mon devis</a>
-<div class="mdr-cta-box__badges"><span>RGE certifié</span><span>Annecy · Chambéry · Savoie</span></div>
-</section>
+<section class="mdr-cta-box"><h3>Besoin de chiffrer votre projet ?</h3><p>Aides, budget, priorités de travaux : MD Rénov' vous aide à cadrer les bons postes avant de demander un devis.</p><a class="mdr-btn mdr-btn--white" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Faire le point budget</a><div class="mdr-cta-box__badges"><span>Certifié RGE et FERVAM</span><span>Annecy · Aix-les-Bains · Chambéry</span></div></section>
 <section class="mdr-sidepanel">
 <h4>Articles similaires</h4>
 <div class="mdr-sidelinks">

@@ -102,6 +102,8 @@
 } .mdr-breadcrumb span::before { content: ">"; margin-right: 0.45rem; color: #c1baad;
 } .mdr-breadcrumb span:first-of-type::before { content: ""; margin: 0;
 } .mdr-breadcrumb a { color: #9b1c1c;
+} .mdr-breadcrumb span a { color: inherit;
+} .mdr-breadcrumb span a:hover, .mdr-breadcrumb span a:focus-visible { color: #9b1c1c;
 } .mdr-article-head h1 { max-width: 28ch; color: #1a1a18; font-family: "Lexend", sans-serif; font-size: clamp(1.9rem, 3vw, 3.45rem); font-style: normal; font-weight: 700; line-height: 1.03; letter-spacing: -0.045em; text-wrap: balance;
 } .mdr-article-head__excerpt { max-width: 48rem; margin-top: 0.7rem; font-size: 0.98rem;
 } .mdr-article-body { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 1.5rem; padding: 1.25rem 1.75rem 2rem; background: #f0ece4;
@@ -652,6 +654,70 @@
   .mdr-steps span {
     width: 34px;
     min-height: 34px;
+  }
+}
+
+@media (max-width: 760px) {
+  html,
+  body,
+  .mdr-article-page,
+  .mdr-article-page .mdr-stage,
+  .mdr-article-page .mdr-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .mdr-article-page .mdr-stage {
+    margin-top: 0;
+  }
+
+  .mdr-article-page .mdr-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.8rem;
+  }
+
+  .mdr-article-page .mdr-nav__brand,
+  .mdr-article-page .mdr-nav__links,
+  .mdr-article-page .mdr-nav .mdr-btn {
+    max-width: 100%;
+  }
+
+  .mdr-article-page .mdr-nav__links {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .mdr-article-page .mdr-article-head,
+  .mdr-article-page .mdr-article-body,
+  .mdr-article-page .mdr-prose,
+  .mdr-article-page .mdr-sidebar,
+  .mdr-article-page .mdr-cta-box,
+  .mdr-article-page .mdr-sidepanel {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .mdr-article-page .mdr-article-head {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mdr-article-page .mdr-article-head__excerpt,
+  .mdr-article-page .mdr-prose p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .mdr-article-page .mdr-article-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mdr-article-page .mdr-prose {
+    padding: 1.15rem;
   }
 }
 
