@@ -8,8 +8,8 @@ category: 'aides'
 category_label: 'Aides & budget'
 date: '2026-04-29'
 reading_time: '4 min'
-featured_image: ''
-image_alt: 'Maison, fenêtres, devis et aides'
+featured_image: '/uploads/briefs/2026-05-27-image-maprimerenov-2026-1-maprimerenov-2026-aide-renovation.png'
+image_alt: 'Conseiller MD Rénov’ expliquant les aides MaPrimeRénov’ devant une fenêtre à rénover'
 source_html: './maprimerenov-2026-haute-savoie.html'
 tags:
   - 'Aides & budget'
@@ -20,7 +20,6 @@ tags:
 # MaPrimeRénov’ 2026 : ce qu’il faut vérifier avant de changer ses fenêtres en Haute-Savoie
 
 Aides, conditions, démarches : tout ce qu’il faut savoir avant de lancer votre projet de menuiseries sans faire d’erreur.
-
 
 ## Le point important
 
@@ -33,8 +32,7 @@ MaPrimeRénov’ peut aider à financer un projet de rénovation énergétique, 
 - Objectif 2026 : 150 000 rénovations par geste annoncées, en plus des rénovations d’ampleur.
 - Point bloquant : les travaux doivent être réalisés par une entreprise RGE.
 
-
-## MaPrimeRénov’ : ce qu’il faut comprendre avant le devis
+## MaPrimeRénov’: ce qu’il faut comprendre avant le devis
 
 MaPrimeRénov’ dépend de votre situation et du type de travaux. France Rénov’ indique que l’aide varie selon les revenus du foyer et le projet engagé. Pour une rénovation par geste, elle concerne notamment le chauffage et l’isolation ; pour une rénovation d’ampleur, le projet doit viser un gain énergétique beaucoup plus important.
 
