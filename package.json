@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "node scripts/sync-content.js && node scripts/fix-listing-images.js && node scripts/compact-listing-images.js && node scripts/repair-article-ui.js && node scripts/contextual-cta.js"
+    "build": "node scripts/sync-content.js && node scripts/fix-listing-images.js && node scripts/compact-listing-images.js && node scripts/enhance-article-media.js && node scripts/repair-article-ui.js && node scripts/contextual-cta.js"
   },
   "dependencies": {
     "@vercel/functions": "latest"
