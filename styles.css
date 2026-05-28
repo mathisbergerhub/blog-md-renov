@@ -731,3 +731,26 @@
 .mdr-home-media--featured.mdr-media--image img {
   object-position: center 38%;
 }
+
+
+/* Home featured image: full-bleed cover inside rounded card. */
+.mdr-home-page .mdr-home-featured > .mdr-home-media--featured.mdr-media--image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  padding: 0 !important;
+  overflow: hidden;
+  background: #171715;
+}
+
+.mdr-home-page .mdr-home-featured > .mdr-home-media--featured.mdr-media--image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
