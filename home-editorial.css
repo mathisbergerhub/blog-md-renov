@@ -300,3 +300,7 @@
     white-space: nowrap;
   }
 }
+
+.mdr-home-page .mdr-home-media--featured.mdr-media--image img {
+  object-position: center 38%;
+}
