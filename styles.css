@@ -726,3 +726,8 @@
   color: inherit;
 }
 
+
+
+.mdr-home-media--featured.mdr-media--image img {
+  object-position: center 38%;
+}
