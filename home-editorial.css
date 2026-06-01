@@ -375,12 +375,39 @@
   }
 
   .mdr-home-page .mdr-home-hero--editorial {
-    padding: 1.35rem 1rem 1.55rem;
+    padding: 1.35rem 1rem 1rem;
   }
 
   .mdr-home-page .mdr-home-hero--editorial h1 {
     max-width: none;
     font-size: clamp(2.6rem, 14vw, 4.3rem);
+  }
+
+  .mdr-home-intents {
+    display: flex;
+    grid-template-columns: none;
+    gap: 0.55rem;
+    overflow-x: auto;
+    padding-bottom: 0.1rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .mdr-home-intents::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mdr-home-intents a {
+    flex: 0 0 min(72vw, 230px);
+    min-height: 58px;
+    padding: 0.62rem 0.72rem;
+    border-radius: 14px;
+    scroll-snap-align: start;
+  }
+
+  .mdr-home-intents span {
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
   }
 
   .mdr-home-page .mdr-home-cats {
