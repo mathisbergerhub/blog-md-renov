@@ -1001,6 +1001,13 @@
   .mdr-article-page .mdr-article-figure figcaption {
     padding: 0.85rem 1rem;
   }
+
+  .mdr-article-page .mdr-sidebar,
+  .mdr-article-page .mdr-article-body > .mdr-source-card {
+    width: calc(100% - 2rem);
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 ::selection {
