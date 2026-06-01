@@ -412,6 +412,34 @@
   }
 }
 
+.mdr-home-card {
+  position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.mdr-home-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.mdr-home-card .mdr-link {
+  position: relative;
+  z-index: 2;
+}
+
+.mdr-home-card:has(.mdr-home-card__overlay:hover),
+.mdr-home-card:has(.mdr-home-card__overlay:focus-visible) {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(20, 14, 8, 0.08);
+}
+
+.mdr-home-card__overlay:focus-visible {
+  outline: 3px solid rgba(155, 28, 28, 0.32);
+  outline-offset: -3px;
+}
+
 .mdr-nav__links a:first-child {
   display: inline-flex;
   align-items: center;

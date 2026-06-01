@@ -327,6 +327,7 @@ function cardTags(article, pageSlug) {
 function listingCard(article, pageSlug) {
   const mediaLabel = e(article.image_alt || article.category_label || "Guide MD Rénov'");
   return `<article class="mdr-home-card" data-tags="${e(cardTags(article, pageSlug))}">
+<a class="mdr-home-card__overlay" href="./${e(article.htmlFile)}" aria-label="Lire : ${e(article.title)}"></a>
 <div class="mdr-home-media mdr-home-media--card"><strong>${mediaLabel}</strong></div>
 <div class="mdr-home-card__body">
 <div class="mdr-home-card__meta"><span class="mdr-home-card__tag">${e(article.category_label)}</span><span class="mdr-home-card__date">${e(formatDate(article.date))}</span></div>
