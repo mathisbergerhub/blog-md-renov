@@ -226,8 +226,8 @@
 .mdr-home-page .mdr-home-cta h2 {
   max-width: 13ch;
   color: #fff;
-  font-size: clamp(1.35rem, 1.65vw, 1.68rem);
-  line-height: 1.05;
+  font-size: clamp(1.8rem, 2.35vw, 2.35rem);
+  line-height: 0.98;
 }
 
 .mdr-home-page .mdr-home-cta p {
