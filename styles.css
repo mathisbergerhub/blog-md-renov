@@ -1036,6 +1036,29 @@
   object-position: center 38%;
 }
 
+.mdr-home-page .mdr-home-cta {
+  min-height: 0;
+  gap: 0.85rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(123, 18, 28, 0.26);
+  background: #9b1c1c;
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(55, 19, 13, 0.12);
+}
+
+.mdr-home-page .mdr-home-cta h2 {
+  color: #fff;
+  font-size: clamp(1.45rem, 1.75vw, 1.8rem);
+}
+
+.mdr-home-page .mdr-home-cta p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.mdr-home-page .mdr-home-cta__eyebrow {
+  color: rgba(255, 255, 255, 0.92);
+}
+
 @media (max-width: 720px) {
   body.mdr-article-page .mdr-prose table.mdr-decision-table,
   body.mdr-article-page .mdr-prose table.mdr-decision-table thead,
