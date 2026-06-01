@@ -358,6 +358,60 @@
   }
 }
 
+/* Desktop: fixed trust bar. Mobile: marquee to keep the bar compact. */
+.mdr-trust {
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  padding: 0.7rem 1rem;
+  white-space: normal;
+}
+
+.mdr-trust__track {
+  display: block;
+  width: auto;
+  animation: none;
+}
+
+.mdr-trust__group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem 2rem;
+  padding: 0;
+}
+
+.mdr-trust__group[aria-hidden="true"] {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .mdr-trust {
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  .mdr-trust__track {
+    display: flex;
+    width: max-content;
+    animation: mdr-trust-marquee 24s linear infinite;
+    will-change: transform;
+  }
+
+  .mdr-trust__group,
+  .mdr-trust__group[aria-hidden="true"] {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.35rem;
+    padding: 0.38rem 1.35rem;
+  }
+}
+
 .mdr-nav__links a:first-child {
   display: inline-flex;
   align-items: center;
