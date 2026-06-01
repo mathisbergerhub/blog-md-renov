@@ -203,24 +203,24 @@
   position: relative;
   overflow: hidden;
   min-height: 0;
-  gap: 0.5rem;
-  padding: 0.9rem 0.95rem 1rem;
-  border: 1px solid rgba(155, 28, 28, 0.18);
-  background: #fffaf3;
-  color: #1a1a18;
-  box-shadow: 0 14px 30px rgba(20, 14, 8, 0.06);
+  gap: 0.42rem;
+  padding: 0.86rem 0.95rem 0.95rem;
+  border: 1px solid rgba(123, 18, 28, 0.28);
+  background: #9b1c1c;
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(55, 19, 13, 0.14);
 }
 
 .mdr-home-page .mdr-home-cta::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
-  height: 5px;
-  background: #9b1c1c;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .mdr-home-page .mdr-home-cta__eyebrow {
-  color: #9b1c1c;
+  color: rgba(255, 255, 255, 0.92);
   font-size: 0.7rem;
   font-weight: 850;
   letter-spacing: 0.14em;
@@ -229,22 +229,22 @@
 
 .mdr-home-page .mdr-home-cta h2 {
   max-width: 14ch;
-  color: #1a1a18;
+  color: #fff;
   font-size: clamp(1.45rem, 1.9vw, 1.95rem);
   line-height: 1.02;
 }
 
 .mdr-home-page .mdr-home-cta p {
-  color: #5f5b55;
+  color: rgba(255, 255, 255, 0.86);
   font-size: 0.9rem;
   line-height: 1.38;
 }
 
 .mdr-home-page .mdr-home-cta .mdr-btn--white {
   margin-top: 0.1rem;
-  background: #9b1c1c;
-  color: #fff;
-  box-shadow: 0 10px 22px rgba(155, 28, 28, 0.14);
+  background: #fff;
+  color: #9b1c1c;
+  box-shadow: 0 10px 22px rgba(55, 19, 13, 0.16);
 }
 
 .mdr-home-page .mdr-home-panel {
