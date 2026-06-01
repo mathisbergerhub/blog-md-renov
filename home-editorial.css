@@ -1,7 +1,7 @@
 .mdr-home-page .mdr-home-hero--editorial {
   --mdr-home-hero-photo:
-    linear-gradient(115deg, rgba(23, 23, 21, 0.82), rgba(23, 23, 21, 0.28) 46%, rgba(155, 28, 28, 0.35)),
-    linear-gradient(135deg, #7d766b 0%, #ded4c5 46%, #a88f78 100%);
+    linear-gradient(115deg, rgba(23, 23, 21, 0.82), rgba(23, 23, 21, 0.24) 46%, rgba(155, 28, 28, 0.26)),
+    url("./uploads/articles/pergola-md-renov-couverture.jpg");
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -116,35 +116,6 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.mdr-home-hero__photo-note {
-  position: absolute;
-  right: clamp(1.25rem, 4vw, 4rem);
-  bottom: clamp(1.25rem, 4vw, 3.5rem);
-  max-width: 260px;
-  padding: 0.85rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 18px;
-  background: rgba(23, 23, 21, 0.46);
-  color: #fff;
-  backdrop-filter: blur(10px);
-}
-
-.mdr-home-hero__photo-note span {
-  display: block;
-  margin-bottom: 0.35rem;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.mdr-home-hero__photo-note strong {
-  display: block;
-  font-size: 0.9rem;
-  line-height: 1.35;
 }
 
 .mdr-home-page .mdr-home-cats {
@@ -272,11 +243,6 @@
     position: static;
   }
 
-  .mdr-home-hero__photo-note {
-    position: static;
-    max-width: none;
-    margin-top: 1rem;
-  }
 }
 
 @media (max-width: 760px) {
