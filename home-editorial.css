@@ -203,71 +203,36 @@
   position: relative;
   overflow: hidden;
   min-height: 0;
-  gap: 0.7rem;
-  padding: 1.05rem;
-  border: 1px solid rgba(155, 28, 28, 0.18);
-  background:
-    linear-gradient(135deg, rgba(155, 28, 28, 0.07), transparent 42%),
-    #fffaf3;
-  color: #1a1a18;
-  box-shadow: 0 16px 34px rgba(20, 14, 8, 0.06);
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 0;
+  background: #9b1c1c;
+  color: #fff;
+  box-shadow: 0 16px 34px rgba(155, 28, 28, 0.14);
 }
 
 .mdr-home-page .mdr-home-cta::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 5px;
-  background: #9b1c1c;
-}
-
-.mdr-home-page .mdr-home-cta__eyebrow {
-  color: #9b1c1c;
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  content: none;
 }
 
 .mdr-home-page .mdr-home-cta h2 {
-  max-width: 12ch;
-  color: #1a1a18;
-  font-size: clamp(1.45rem, 1.7vw, 1.72rem);
-  line-height: 1.04;
+  max-width: 13ch;
+  color: #fff;
+  font-size: clamp(1.35rem, 1.65vw, 1.68rem);
+  line-height: 1.05;
 }
 
 .mdr-home-page .mdr-home-cta p {
-  color: #5f5b55;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.92rem;
-  line-height: 1.48;
-}
-
-.mdr-home-page .mdr-home-cta__proof {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.45rem;
-  margin-top: 0.1rem;
-}
-
-.mdr-home-page .mdr-home-cta__proof span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  padding: 0.35rem 0.4rem;
-  border: 1px solid rgba(155, 28, 28, 0.16);
-  border-radius: 8px;
-  background: #fff;
-  color: #7a1515;
-  font-size: 0.74rem;
-  font-weight: 800;
+  line-height: 1.45;
 }
 
 .mdr-home-page .mdr-home-cta .mdr-btn--white {
-  margin-top: 0.05rem;
-  background: #9b1c1c;
-  color: #fff;
-  box-shadow: 0 12px 24px rgba(155, 28, 28, 0.16);
+  margin-top: 0;
+  background: #fff;
+  color: #9b1c1c;
+  box-shadow: none;
 }
 
 .mdr-home-page .mdr-home-panel {
