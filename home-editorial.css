@@ -215,6 +215,14 @@
   content: none;
 }
 
+.mdr-home-page .mdr-home-cta__eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .mdr-home-page .mdr-home-cta h2 {
   max-width: 13ch;
   color: #fff;
