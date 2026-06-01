@@ -319,6 +319,45 @@
   }
 }
 
+@media (max-width: 760px) {
+  .mdr-topnav {
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem 0.85rem;
+    padding: 0.72rem 1rem 0.8rem;
+  }
+
+  .mdr-topnav__brand {
+    order: 1;
+    flex: 0 1 min(44vw, 158px);
+    max-width: min(44vw, 158px);
+  }
+
+  .mdr-topnav > .mdr-btn {
+    order: 2;
+    flex: 0 0 auto;
+    min-height: 38px;
+    padding: 0.68rem 0.9rem;
+    font-size: 0.86rem;
+  }
+
+  .mdr-topnav__links {
+    order: 3;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-top: 0.08rem;
+    font-size: 0.88rem;
+    scrollbar-width: none;
+  }
+
+  .mdr-topnav__links::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .mdr-nav__links a:first-child {
   display: inline-flex;
   align-items: center;
