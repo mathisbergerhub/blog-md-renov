@@ -1084,3 +1084,7 @@
     line-height: 1.24 !important;
   }
 }
+
+.mdr-article-page .mdr-breadcrumb span:last-child {
+  display: none;
+}
