@@ -879,6 +879,7 @@
 
   .mdr-article-page .mdr-nav {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 0.7rem 0.85rem;
@@ -909,6 +910,7 @@
   .mdr-article-page .mdr-nav__links {
     order: 3;
     width: 100%;
+    align-items: center;
     justify-content: flex-start;
     gap: 0.45rem;
     overflow-x: auto;
@@ -923,7 +925,7 @@
     display: none;
   }
 
-  .mdr-article-page .mdr-nav__links a {
+  .mdr-article-page .mdr-nav__links > * {
     display: inline-flex;
     flex: 0 0 auto;
     align-items: center;
@@ -942,6 +944,10 @@
   .mdr-article-page .mdr-nav__links a:focus-visible {
     border-color: rgba(155, 28, 28, 0.32);
     color: #9b1c1c;
+  }
+
+  .mdr-article-page .mdr-nav__links span {
+    font-weight: 600;
   }
 
   .mdr-article-page .mdr-article-head,
