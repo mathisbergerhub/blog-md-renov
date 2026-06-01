@@ -791,6 +791,10 @@
   background: #fffdf8;
 }
 
+.mdr-article-body > .mdr-source-card {
+  grid-column: 1 / -1;
+}
+
 .mdr-source-list {
   display: grid;
   gap: 0.75rem;
