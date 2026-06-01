@@ -275,6 +275,25 @@
   padding: 0.95rem 1rem 1rem;
 }
 
+.mdr-home-page .mdr-home-side-guides {
+  gap: 0.55rem;
+}
+
+.mdr-home-page .mdr-home-side-guides .mdr-home-list__item {
+  gap: 0.25rem;
+  padding: 0.72rem 0;
+}
+
+.mdr-home-page .mdr-home-side-guides .mdr-home-list__item strong {
+  font-size: 0.94rem;
+  line-height: 1.24;
+}
+
+.mdr-home-page .mdr-home-side-guides .mdr-home-list__item strong::after {
+  content: "→";
+  top: 0.05rem;
+}
+
 .mdr-home-page .mdr-home-universes {
   gap: 0.55rem;
 }
