@@ -1013,3 +1013,74 @@
   object-fit: cover;
   object-position: center 38%;
 }
+
+@media (max-width: 720px) {
+  body.mdr-article-page .mdr-prose table.mdr-decision-table,
+  body.mdr-article-page .mdr-prose table.mdr-decision-table thead,
+  body.mdr-article-page .mdr-prose table.mdr-decision-table tbody,
+  body.mdr-article-page .mdr-prose table.mdr-decision-table tr,
+  body.mdr-article-page .mdr-prose table.mdr-decision-table td {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table thead {
+    display: none !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table {
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table tr {
+    margin: 0 0 0.85rem !important;
+    border: 1px solid #ded7cd !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: 0 10px 22px rgba(26, 26, 24, 0.055) !important;
+    overflow: hidden !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table td {
+    padding: 0.82rem 0.95rem !important;
+    border: 0 !important;
+    border-bottom: 1px solid #eee5da !important;
+    color: #1a1a18 !important;
+    font-size: 0.98rem !important;
+    line-height: 1.48 !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table td:last-child {
+    border-bottom: 0 !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table td::before {
+    content: attr(data-label);
+    display: block !important;
+    margin: 0 0 0.28rem !important;
+    color: #9b1c1c !important;
+    font-size: 0.66rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.07em !important;
+    line-height: 1.25 !important;
+    text-transform: uppercase !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table td:first-child {
+    padding: 0.95rem !important;
+    background: #fbf7f1 !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table td:first-child::before {
+    display: none !important;
+  }
+
+  body.mdr-article-page .mdr-prose table.mdr-decision-table td:first-child strong {
+    display: block !important;
+    color: #8f263d !important;
+    font-size: 1.08rem !important;
+    line-height: 1.24 !important;
+  }
+}
