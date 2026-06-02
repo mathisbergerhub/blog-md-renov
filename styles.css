@@ -736,6 +736,10 @@
   text-underline-offset: 0.18em;
 }
 
+.mdr-article-figure figcaption {
+  display: none;
+}
+
 .mdr-editorial-value {
   display: grid;
   gap: 1rem;
