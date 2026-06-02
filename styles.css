@@ -1055,12 +1055,14 @@
   object-position: center 38%;
 }
 
-.mdr-home-page .mdr-topnav__menu {
+.mdr-home-page .mdr-topnav__menu,
+.mdr-listing-page .mdr-topnav__menu {
   display: none;
 }
 
 @media (max-width: 760px) {
-  .mdr-home-page .mdr-topnav {
+  .mdr-home-page .mdr-topnav,
+  .mdr-listing-page .mdr-topnav {
     position: relative;
     flex-wrap: nowrap;
     align-items: center;
@@ -1069,24 +1071,29 @@
     padding: 0.72rem 1rem;
   }
 
-  .mdr-home-page .mdr-topnav__brand {
+  .mdr-home-page .mdr-topnav__brand,
+  .mdr-listing-page .mdr-topnav__brand {
     order: 1;
     flex: 0 1 min(58vw, 176px);
     max-width: min(58vw, 176px);
   }
 
   .mdr-home-page .mdr-topnav__links,
-  .mdr-home-page .mdr-topnav > .mdr-btn {
+  .mdr-listing-page .mdr-topnav__links,
+  .mdr-home-page .mdr-topnav > .mdr-btn,
+  .mdr-listing-page .mdr-topnav > .mdr-btn {
     display: none;
   }
 
-  .mdr-home-page .mdr-topnav__menu {
+  .mdr-home-page .mdr-topnav__menu,
+  .mdr-listing-page .mdr-topnav__menu {
     display: block;
     order: 2;
     flex: 0 0 auto;
   }
 
-  .mdr-home-page .mdr-topnav__menu summary {
+  .mdr-home-page .mdr-topnav__menu summary,
+  .mdr-listing-page .mdr-topnav__menu summary {
     display: grid;
     place-items: center;
     gap: 0;
@@ -1100,11 +1107,13 @@
     list-style: none;
   }
 
-  .mdr-home-page .mdr-topnav__menu summary::-webkit-details-marker {
+  .mdr-home-page .mdr-topnav__menu summary::-webkit-details-marker,
+  .mdr-listing-page .mdr-topnav__menu summary::-webkit-details-marker {
     display: none;
   }
 
-  .mdr-home-page .mdr-topnav__menu summary span {
+  .mdr-home-page .mdr-topnav__menu summary span,
+  .mdr-listing-page .mdr-topnav__menu summary span {
     display: block;
     width: 22px;
     height: 3px;
@@ -1113,7 +1122,8 @@
     background: #9b1c1c;
   }
 
-  .mdr-home-page .mdr-topnav__drawer {
+  .mdr-home-page .mdr-topnav__drawer,
+  .mdr-listing-page .mdr-topnav__drawer {
     position: absolute;
     top: calc(100% + 0.55rem);
     right: 1rem;
@@ -1128,7 +1138,8 @@
     box-shadow: 0 20px 45px rgba(26, 26, 24, 0.18);
   }
 
-  .mdr-home-page .mdr-topnav__drawer a {
+  .mdr-home-page .mdr-topnav__drawer a,
+  .mdr-listing-page .mdr-topnav__drawer a {
     display: flex;
     align-items: center;
     min-height: 42px;
@@ -1139,12 +1150,15 @@
   }
 
   .mdr-home-page .mdr-topnav__drawer a:hover,
-  .mdr-home-page .mdr-topnav__drawer a:focus-visible {
+  .mdr-home-page .mdr-topnav__drawer a:focus-visible,
+  .mdr-listing-page .mdr-topnav__drawer a:hover,
+  .mdr-listing-page .mdr-topnav__drawer a:focus-visible {
     background: #fbf4ec;
     color: #9b1c1c;
   }
 
-  .mdr-home-page .mdr-topnav__drawer .mdr-topnav__drawer-cta {
+  .mdr-home-page .mdr-topnav__drawer .mdr-topnav__drawer-cta,
+  .mdr-listing-page .mdr-topnav__drawer .mdr-topnav__drawer-cta {
     justify-content: center;
     margin-top: 0.25rem;
     background: #9b1c1c;
