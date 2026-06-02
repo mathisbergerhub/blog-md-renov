@@ -76,6 +76,8 @@
 } .mdr-card__meta,
 .mdr-article-head__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.55rem; margin-bottom: 0.45rem;
 } .mdr-card__tag { display: inline-flex; align-items: center; min-height: 28px; padding: 0.2rem 0.65rem; border: 1px solid #f0d8cc; border-radius: 999px; background: #fdf6f0; color: #9b1c1c; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+} a.mdr-card__tag { text-decoration: none;
+} a.mdr-card__tag:hover { border-color: rgba(155, 28, 28, 0.45); background: #fff1e9;
 } .mdr-card__date,
 .mdr-card__time { color: #999; font-size: 0.78rem;
 } .mdr-card h3 { font-size: 1.16rem; line-height: 1.28;
