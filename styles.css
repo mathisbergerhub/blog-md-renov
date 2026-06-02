@@ -1095,8 +1095,8 @@
   .mdr-home-page .mdr-topnav__menu summary span {
     display: block;
     width: 22px;
-    height: 2px;
-    margin: 1px 0;
+    height: 3px;
+    margin: 0.5px 0;
     border-radius: 999px;
     background: #9b1c1c;
   }
