@@ -309,9 +309,21 @@
     min-height: auto;
   }
 
-  .mdr-home-intents,
   .mdr-home-shortcuts {
     grid-template-columns: 1fr;
+  }
+
+  .mdr-home-intents {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+
+  .mdr-home-intents a {
+    min-height: 66px;
+    padding: 0.65rem 0.7rem;
+    border-radius: 13px;
+    font-size: 0.9rem;
+    line-height: 1.16;
   }
 
   .mdr-home-page .mdr-home-side {

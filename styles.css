@@ -1067,7 +1067,7 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   display: none;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1120px) {
   .mdr-home-page .mdr-topnav,
   .mdr-listing-page .mdr-topnav {
     position: relative;
