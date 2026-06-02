@@ -421,6 +421,17 @@
   }
 }
 
+@media (max-width: 520px) {
+  .mdr-home-page .mdr-home-hero--editorial .mdr-home-badge {
+    max-width: calc(100vw - 2rem);
+    min-height: 30px;
+    padding: 0.28rem 0.68rem;
+    font-size: clamp(0.56rem, 2.2vw, 0.66rem);
+    letter-spacing: 0.055em;
+    white-space: nowrap;
+  }
+}
+
 .mdr-home-page .mdr-home-media--featured.mdr-media--image img {
   object-position: center 38%;
 }
