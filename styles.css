@@ -733,10 +733,10 @@
 .mdr-editorial-value {
   display: grid;
   gap: 1rem;
-  padding: clamp(1.05rem, 2.2vw, 1.4rem);
-  border: 1px solid #e2d6c7;
-  border-radius: 18px;
-  background: #fffdf8;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .mdr-editorial-value h2 {
