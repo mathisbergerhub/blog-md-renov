@@ -53,7 +53,7 @@ for (const file of fs.readdirSync(ROOT).filter((name) => name.endsWith(".html"))
   let html = fs.readFileSync(filePath, "utf8");
   if (!html.includes('class="mdr-cta-box"')) continue;
 
-  const label = html.match(/<span class="mdr-card__tag">([^<]+)<\/span>/)?.[1] || "";
+  const label = html.match(/<a class="mdr-card__tag"[^>]*>([^<]+)<\/a>/)?.[1] || html.match(/<span class="mdr-card__tag">([^<]+)<\/span>/)?.[1] || "";
   const pageTitle = html.match(/<h1>([\s\S]*?)<\/h1>/)?.[1]?.replace(/<[^>]+>/g, " ") || "";
   const next = html.replace(/<section class="mdr-cta-box">[\s\S]*?<\/section>/, blockFor(label, pageTitle));
 
