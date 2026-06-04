@@ -1304,7 +1304,7 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   }
 
   html:has(link[rel="canonical"][href*="maprimerenov-2026-haute-savoie"]) body.mdr-article-page .mdr-article-head {
-    padding: 0.78rem 1rem 0.82rem !important;
+    padding: 0.78rem 1rem 0.35rem !important;
     border-bottom: 0 !important;
   }
 
@@ -1321,13 +1321,13 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   }
 
   html:has(link[rel="canonical"][href*="maprimerenov-2026-haute-savoie"]) body.mdr-article-page .mdr-article-head__excerpt {
-    margin-top: 0.46rem !important;
+    margin: 0.46rem 0 0 !important;
     font-size: 0.9rem !important;
     line-height: 1.42 !important;
   }
 
   html:has(link[rel="canonical"][href*="maprimerenov-2026-haute-savoie"]) body.mdr-article-page .mdr-article-body {
-    padding-top: 1rem !important;
+    padding-top: 0.45rem !important;
   }
 
   html:has(link[rel="canonical"][href*="maprimerenov-2026-haute-savoie"]) body.mdr-article-page .mdr-prose {
