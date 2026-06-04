@@ -1090,7 +1090,7 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   }
 
   .mdr-article-page .mdr-article-body {
-    padding-top: 0.8rem;
+    padding-top: 1rem;
   }
 
   .mdr-article-page .mdr-prose {
@@ -1099,8 +1099,8 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   }
 
   .mdr-article-page .mdr-prose > .mdr-media--article:first-child,
-  .mdr-article-page .mdr-article-figure {
-    margin-top: 0;
+  .mdr-article-page .mdr-prose > .mdr-article-figure:first-child {
+    margin-top: 0.55rem !important;
   }
 }
 
