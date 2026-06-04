@@ -986,6 +986,7 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   .mdr-article-page .mdr-article-head {
     padding-left: 1rem;
     padding-right: 1rem;
+    border-bottom: 0;
   }
 
   .mdr-article-page .mdr-article-head__excerpt,
@@ -1001,6 +1002,7 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 
   .mdr-article-page .mdr-prose {
     padding: 1rem;
+    border-top: 0;
     border-right: 0;
     border-left: 0;
     border-radius: 0;
