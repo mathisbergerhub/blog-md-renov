@@ -42,10 +42,8 @@ mobileMenus.forEach((menu) => {
           closeMobileMenu(other);
         }
       });
-      window.requestAnimationFrame(() => {
-        summary.setAttribute('aria-expanded', 'true');
-        summary.setAttribute('aria-label', 'Fermer le menu');
-      });
+      summary.setAttribute('aria-expanded', 'true');
+      summary.setAttribute('aria-label', 'Fermer le menu');
       return;
     }
 
