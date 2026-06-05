@@ -3,6 +3,7 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://blog.mdrenov-menuiserie.com";
+const ASSET_VERSION = "menu-20260605";
 const HANDCRAFTED_PAGES = new Set(["maprimerenov-2026-haute-savoie.html"]);
 const CATEGORY_LISTINGS = {
   "aides-subventions.html": { slug: "aides-subventions", categories: ["aides"] },
@@ -174,7 +175,11 @@ function headAssets() {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="./styles.css" />`;
+<link rel="stylesheet" href="./styles.css?v=${ASSET_VERSION}" />`;
+}
+
+function bodyAssets() {
+  return `<script src="./script.js?v=${ASSET_VERSION}" defer></script>`;
 }
 
 function mediaBlock(article) {
@@ -413,6 +418,7 @@ ${hasCustomEditorialBlock ? "" : ""}
 </article><aside class="mdr-sidebar"><section class="mdr-cta-box"><h3>Un projet en Haute-Savoie ou Savoie ?</h3><p>Devis gratuit sous 48h, conseils clairs et accompagnement local en Haute-Savoie et Savoie par MD Rénov'.</p><a class="mdr-btn mdr-btn--white" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Demander mon devis</a><div class="mdr-cta-box__badges"><span>RGE certifié</span><span>Annecy · Chambéry · Savoie</span></div></section>${related.length ? `<section class="mdr-sidepanel"><h4>Articles similaires</h4><div class="mdr-sidelinks">${related.map((item) => `<a class="mdr-sidelink" href="./${e(item.htmlFile)}"><span class="mdr-sidelink__cat">${e(item.category_label)}</span><strong>${e(item.title)}</strong></a>`).join("")}</div></section>` : ""}</aside></section>
 ${renderFooter()}
 </div></main>
+${bodyAssets()}
 </body>
 </html>`;
 }
