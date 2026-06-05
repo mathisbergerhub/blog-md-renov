@@ -1176,19 +1176,27 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 
   .mdr-home-page .mdr-topnav__menu summary,
   .mdr-listing-page .mdr-topnav__menu summary {
+    position: relative;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3px;
-    width: 38px;
-    height: 38px;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(155, 28, 28, 0.16);
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fff 0%, #fff8f5 100%);
+    box-shadow: 0 10px 24px rgba(55, 19, 13, 0.08);
     cursor: pointer;
     list-style: none;
+    outline: none;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
   }
 
   .mdr-home-page .mdr-topnav__menu summary::-webkit-details-marker,
@@ -1196,41 +1204,161 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
     display: none;
   }
 
+  .mdr-home-page .mdr-topnav__menu summary::before,
+  .mdr-listing-page .mdr-topnav__menu summary::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 9px;
+    background: rgba(155, 28, 28, 0.08);
+    opacity: 0;
+    transform: scale(0.72);
+    transition:
+      opacity 180ms ease,
+      transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .mdr-home-page .mdr-topnav__menu summary:hover,
+  .mdr-home-page .mdr-topnav__menu summary:focus-visible,
+  .mdr-listing-page .mdr-topnav__menu summary:hover,
+  .mdr-listing-page .mdr-topnav__menu summary:focus-visible,
+  .mdr-home-page .mdr-topnav__menu[open] summary,
+  .mdr-listing-page .mdr-topnav__menu[open] summary {
+    border-color: rgba(155, 28, 28, 0.32);
+    box-shadow: 0 12px 26px rgba(55, 19, 13, 0.12);
+  }
+
+  .mdr-home-page .mdr-topnav__menu summary:hover::before,
+  .mdr-home-page .mdr-topnav__menu summary:focus-visible::before,
+  .mdr-listing-page .mdr-topnav__menu summary:hover::before,
+  .mdr-listing-page .mdr-topnav__menu summary:focus-visible::before,
+  .mdr-home-page .mdr-topnav__menu[open] summary::before,
+  .mdr-listing-page .mdr-topnav__menu[open] summary::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .mdr-home-page .mdr-topnav__menu summary:active,
+  .mdr-listing-page .mdr-topnav__menu summary:active {
+    transform: translateY(1px) scale(0.98);
+  }
+
   .mdr-home-page .mdr-topnav__menu summary span,
   .mdr-listing-page .mdr-topnav__menu summary span {
+    position: relative;
+    z-index: 1;
     display: block;
-    width: 22px;
+    width: 20px;
     height: 2px;
     margin: 0;
     border-radius: 999px;
     background: #9b1c1c;
+    transform-origin: center;
+    transition:
+      opacity 150ms ease,
+      transform 230ms cubic-bezier(0.22, 1, 0.36, 1),
+      width 180ms ease;
+  }
+
+  .mdr-home-page .mdr-topnav__menu[open] summary span:nth-child(1),
+  .mdr-listing-page .mdr-topnav__menu[open] summary span:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  .mdr-home-page .mdr-topnav__menu[open] summary span:nth-child(2),
+  .mdr-listing-page .mdr-topnav__menu[open] summary span:nth-child(2) {
+    width: 10px;
+    opacity: 0;
+    transform: scaleX(0.4);
+  }
+
+  .mdr-home-page .mdr-topnav__menu[open] summary span:nth-child(3),
+  .mdr-listing-page .mdr-topnav__menu[open] summary span:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
   }
 
   .mdr-home-page .mdr-topnav__drawer,
   .mdr-listing-page .mdr-topnav__drawer {
     position: absolute;
-    top: calc(100% + 0.55rem);
-    right: 1rem;
+    top: calc(100% + 0.65rem);
+    right: 0.85rem;
     z-index: 30;
     display: grid;
-    gap: 0.35rem;
-    width: min(82vw, 300px);
-    padding: 0.75rem;
-    border: 1px solid #ddd9d0;
-    border-radius: 16px;
+    gap: 0.28rem;
+    width: min(calc(100vw - 2rem), 336px);
+    padding: 0.62rem;
+    border: 1px solid rgba(155, 28, 28, 0.14);
+    border-radius: 14px;
     background: #fff;
-    box-shadow: 0 20px 45px rgba(26, 26, 24, 0.18);
+    box-shadow: 0 22px 46px rgba(26, 26, 24, 0.18);
+    transform-origin: top right;
+    overflow: hidden;
+  }
+
+  .mdr-home-page .mdr-topnav__drawer::before,
+  .mdr-listing-page .mdr-topnav__drawer::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: #9b1c1c;
+  }
+
+  .mdr-home-page .mdr-topnav__menu[open] .mdr-topnav__drawer,
+  .mdr-listing-page .mdr-topnav__menu[open] .mdr-topnav__drawer {
+    animation: mdr-menu-drawer-in 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .mdr-home-page .mdr-topnav__menu.is-closing .mdr-topnav__drawer,
+  .mdr-listing-page .mdr-topnav__menu.is-closing .mdr-topnav__drawer {
+    animation: mdr-menu-drawer-out 160ms ease both;
   }
 
   .mdr-home-page .mdr-topnav__drawer a,
   .mdr-listing-page .mdr-topnav__drawer a {
     display: flex;
     align-items: center;
-    min-height: 42px;
-    padding: 0.55rem 0.75rem;
-    border-radius: 10px;
+    min-height: 40px;
+    padding: 0.54rem 0.72rem;
+    border-radius: 9px;
     color: #34322f;
     font-weight: 700;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .mdr-home-page .mdr-topnav__menu[open] .mdr-topnav__drawer a,
+  .mdr-listing-page .mdr-topnav__menu[open] .mdr-topnav__drawer a {
+    animation: mdr-menu-item-in 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .mdr-home-page .mdr-topnav__drawer a:nth-child(2),
+  .mdr-listing-page .mdr-topnav__drawer a:nth-child(2) {
+    animation-delay: 25ms;
+  }
+
+  .mdr-home-page .mdr-topnav__drawer a:nth-child(3),
+  .mdr-listing-page .mdr-topnav__drawer a:nth-child(3) {
+    animation-delay: 50ms;
+  }
+
+  .mdr-home-page .mdr-topnav__drawer a:nth-child(4),
+  .mdr-listing-page .mdr-topnav__drawer a:nth-child(4) {
+    animation-delay: 75ms;
+  }
+
+  .mdr-home-page .mdr-topnav__drawer a:nth-child(5),
+  .mdr-listing-page .mdr-topnav__drawer a:nth-child(5) {
+    animation-delay: 100ms;
+  }
+
+  .mdr-home-page .mdr-topnav__drawer a:nth-child(6),
+  .mdr-listing-page .mdr-topnav__drawer a:nth-child(6) {
+    animation-delay: 125ms;
   }
 
   .mdr-home-page .mdr-topnav__drawer a:hover,
@@ -1239,6 +1367,7 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   .mdr-listing-page .mdr-topnav__drawer a:focus-visible {
     background: #fbf4ec;
     color: #9b1c1c;
+    transform: translateX(2px);
   }
 
   .mdr-home-page .mdr-topnav__drawer .mdr-topnav__drawer-cta,
@@ -1247,6 +1376,70 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
     margin-top: 0.25rem;
     background: #9b1c1c;
     color: #fff;
+  }
+
+  .mdr-home-page .mdr-topnav__drawer .mdr-topnav__drawer-cta:hover,
+  .mdr-home-page .mdr-topnav__drawer .mdr-topnav__drawer-cta:focus-visible,
+  .mdr-listing-page .mdr-topnav__drawer .mdr-topnav__drawer-cta:hover,
+  .mdr-listing-page .mdr-topnav__drawer .mdr-topnav__drawer-cta:focus-visible {
+    background: #7f1515;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  @keyframes mdr-menu-drawer-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes mdr-menu-drawer-out {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-6px) scale(0.98);
+    }
+  }
+
+  @keyframes mdr-menu-item-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mdr-home-page .mdr-topnav__menu summary,
+    .mdr-home-page .mdr-topnav__menu summary::before,
+    .mdr-home-page .mdr-topnav__menu summary span,
+    .mdr-home-page .mdr-topnav__drawer,
+    .mdr-home-page .mdr-topnav__drawer a,
+    .mdr-listing-page .mdr-topnav__menu summary,
+    .mdr-listing-page .mdr-topnav__menu summary::before,
+    .mdr-listing-page .mdr-topnav__menu summary span,
+    .mdr-listing-page .mdr-topnav__drawer,
+    .mdr-listing-page .mdr-topnav__drawer a {
+      animation: none;
+      transition: none;
+    }
+
+    .mdr-home-page .mdr-topnav__drawer a,
+    .mdr-listing-page .mdr-topnav__drawer a {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
