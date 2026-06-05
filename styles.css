@@ -1177,24 +1177,21 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   .mdr-home-page .mdr-topnav__menu summary,
   .mdr-listing-page .mdr-topnav__menu summary {
     position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(155, 28, 28, 0.16);
-    border-radius: 12px;
-    background: linear-gradient(180deg, #fff 0%, #fff8f5 100%);
-    box-shadow: 0 10px 24px rgba(55, 19, 13, 0.08);
+    display: inline-block;
+    width: 78px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid rgba(155, 28, 28, 0.28);
+    border-radius: 999px;
+    background: #fff;
+    color: #9b1c1c;
     cursor: pointer;
     list-style: none;
     outline: none;
     transition:
       border-color 180ms ease,
-      background-color 180ms ease,
-      box-shadow 180ms ease,
+      background 180ms ease,
+      color 180ms ease,
       transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
     -webkit-tap-highlight-color: transparent;
   }
@@ -1206,16 +1203,18 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 
   .mdr-home-page .mdr-topnav__menu summary::before,
   .mdr-listing-page .mdr-topnav__menu summary::before {
-    content: "";
+    content: "Menu";
     position: absolute;
-    inset: 5px;
-    border-radius: 9px;
-    background: rgba(155, 28, 28, 0.08);
-    opacity: 0;
-    transform: scale(0.72);
+    top: 50%;
+    right: 12px;
+    color: currentColor;
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1;
+    transform: translateY(-50%);
     transition:
-      opacity 180ms ease,
-      transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      opacity 140ms ease,
+      transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .mdr-home-page .mdr-topnav__menu summary:hover,
@@ -1224,18 +1223,15 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   .mdr-listing-page .mdr-topnav__menu summary:focus-visible,
   .mdr-home-page .mdr-topnav__menu[open] summary,
   .mdr-listing-page .mdr-topnav__menu[open] summary {
-    border-color: rgba(155, 28, 28, 0.32);
-    box-shadow: 0 12px 26px rgba(55, 19, 13, 0.12);
+    border-color: #9b1c1c;
+    background: #9b1c1c;
+    color: #fff;
   }
 
-  .mdr-home-page .mdr-topnav__menu summary:hover::before,
-  .mdr-home-page .mdr-topnav__menu summary:focus-visible::before,
-  .mdr-listing-page .mdr-topnav__menu summary:hover::before,
-  .mdr-listing-page .mdr-topnav__menu summary:focus-visible::before,
   .mdr-home-page .mdr-topnav__menu[open] summary::before,
   .mdr-listing-page .mdr-topnav__menu[open] summary::before {
-    opacity: 1;
-    transform: scale(1);
+    content: "Fermer";
+    right: 10px;
   }
 
   .mdr-home-page .mdr-topnav__menu summary:active,
@@ -1245,19 +1241,34 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 
   .mdr-home-page .mdr-topnav__menu summary span,
   .mdr-listing-page .mdr-topnav__menu summary span {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    left: 13px;
     display: block;
-    width: 20px;
+    width: 17px;
     height: 2px;
     margin: 0;
     border-radius: 999px;
-    background: #9b1c1c;
+    background: currentColor;
     transform-origin: center;
     transition:
       opacity 150ms ease,
       transform 230ms cubic-bezier(0.22, 1, 0.36, 1),
       width 180ms ease;
+  }
+
+  .mdr-home-page .mdr-topnav__menu summary span:nth-child(1),
+  .mdr-listing-page .mdr-topnav__menu summary span:nth-child(1) {
+    top: 13px;
+  }
+
+  .mdr-home-page .mdr-topnav__menu summary span:nth-child(2),
+  .mdr-listing-page .mdr-topnav__menu summary span:nth-child(2) {
+    top: 18px;
+  }
+
+  .mdr-home-page .mdr-topnav__menu summary span:nth-child(3),
+  .mdr-listing-page .mdr-topnav__menu summary span:nth-child(3) {
+    top: 23px;
   }
 
   .mdr-home-page .mdr-topnav__menu[open] summary span:nth-child(1),
@@ -1267,7 +1278,6 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 
   .mdr-home-page .mdr-topnav__menu[open] summary span:nth-child(2),
   .mdr-listing-page .mdr-topnav__menu[open] summary span:nth-child(2) {
-    width: 10px;
     opacity: 0;
     transform: scaleX(0.4);
   }
@@ -1280,28 +1290,25 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   .mdr-home-page .mdr-topnav__drawer,
   .mdr-listing-page .mdr-topnav__drawer {
     position: absolute;
-    top: calc(100% + 0.65rem);
-    right: 0.85rem;
+    top: calc(100% + 0.45rem);
+    right: 0.75rem;
+    left: 0.75rem;
     z-index: 30;
     display: grid;
-    gap: 0.28rem;
-    width: min(calc(100vw - 2rem), 336px);
-    padding: 0.62rem;
-    border: 1px solid rgba(155, 28, 28, 0.14);
-    border-radius: 14px;
+    gap: 0;
+    width: auto;
+    padding: 0.45rem;
+    border: 1px solid #e2ddd4;
+    border-radius: 10px;
     background: #fff;
-    box-shadow: 0 22px 46px rgba(26, 26, 24, 0.18);
-    transform-origin: top right;
+    box-shadow: 0 8px 8px rgba(26, 26, 24, 0.08);
+    transform-origin: top center;
     overflow: hidden;
   }
 
   .mdr-home-page .mdr-topnav__drawer::before,
   .mdr-listing-page .mdr-topnav__drawer::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    height: 3px;
-    background: #9b1c1c;
+    display: none;
   }
 
   .mdr-home-page .mdr-topnav__menu[open] .mdr-topnav__drawer,
@@ -1318,62 +1325,40 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   .mdr-listing-page .mdr-topnav__drawer a {
     display: flex;
     align-items: center;
-    min-height: 40px;
-    padding: 0.54rem 0.72rem;
-    border-radius: 9px;
+    justify-content: space-between;
+    min-height: 44px;
+    padding: 0.68rem 0.76rem;
+    border-radius: 7px;
     color: #34322f;
     font-weight: 700;
-    opacity: 0;
-    transform: translateY(-4px);
+    opacity: 1;
+    transform: none;
     transition:
       background-color 160ms ease,
       color 160ms ease,
       transform 160ms ease;
   }
 
-  .mdr-home-page .mdr-topnav__menu[open] .mdr-topnav__drawer a,
-  .mdr-listing-page .mdr-topnav__menu[open] .mdr-topnav__drawer a {
-    animation: mdr-menu-item-in 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  .mdr-home-page .mdr-topnav__drawer a:nth-child(2),
-  .mdr-listing-page .mdr-topnav__drawer a:nth-child(2) {
-    animation-delay: 25ms;
-  }
-
-  .mdr-home-page .mdr-topnav__drawer a:nth-child(3),
-  .mdr-listing-page .mdr-topnav__drawer a:nth-child(3) {
-    animation-delay: 50ms;
-  }
-
-  .mdr-home-page .mdr-topnav__drawer a:nth-child(4),
-  .mdr-listing-page .mdr-topnav__drawer a:nth-child(4) {
-    animation-delay: 75ms;
-  }
-
-  .mdr-home-page .mdr-topnav__drawer a:nth-child(5),
-  .mdr-listing-page .mdr-topnav__drawer a:nth-child(5) {
-    animation-delay: 100ms;
-  }
-
-  .mdr-home-page .mdr-topnav__drawer a:nth-child(6),
-  .mdr-listing-page .mdr-topnav__drawer a:nth-child(6) {
-    animation-delay: 125ms;
+  .mdr-home-page .mdr-topnav__drawer a + a,
+  .mdr-listing-page .mdr-topnav__drawer a + a {
+    border-top: 1px solid #f0ece5;
   }
 
   .mdr-home-page .mdr-topnav__drawer a:hover,
   .mdr-home-page .mdr-topnav__drawer a:focus-visible,
   .mdr-listing-page .mdr-topnav__drawer a:hover,
   .mdr-listing-page .mdr-topnav__drawer a:focus-visible {
-    background: #fbf4ec;
+    background: #f8f3ec;
     color: #9b1c1c;
-    transform: translateX(2px);
+    transform: none;
   }
 
   .mdr-home-page .mdr-topnav__drawer .mdr-topnav__drawer-cta,
   .mdr-listing-page .mdr-topnav__drawer .mdr-topnav__drawer-cta {
     justify-content: center;
-    margin-top: 0.25rem;
+    min-height: 46px;
+    margin-top: 0.42rem;
+    border-top: 0;
     background: #9b1c1c;
     color: #fff;
   }
@@ -1384,39 +1369,32 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   .mdr-listing-page .mdr-topnav__drawer .mdr-topnav__drawer-cta:focus-visible {
     background: #7f1515;
     color: #fff;
-    transform: translateY(-1px);
+    transform: none;
   }
 
   @keyframes mdr-menu-drawer-in {
     from {
       opacity: 0;
-      transform: translateY(-8px) scale(0.97);
+      transform: translateY(-6px);
+      clip-path: inset(0 0 100% 0 round 10px);
     }
     to {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
+      clip-path: inset(0 0 0 0 round 10px);
     }
   }
 
   @keyframes mdr-menu-drawer-out {
     from {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
+      clip-path: inset(0 0 0 0 round 10px);
     }
     to {
-      opacity: 0;
-      transform: translateY(-6px) scale(0.98);
-    }
-  }
-
-  @keyframes mdr-menu-item-in {
-    from {
       opacity: 0;
       transform: translateY(-4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+      clip-path: inset(0 0 100% 0 round 10px);
     }
   }
 
