@@ -1228,6 +1228,11 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
     color: #fff;
   }
 
+  .mdr-home-page .mdr-topnav__menu[open] summary,
+  .mdr-listing-page .mdr-topnav__menu[open] summary {
+    width: 94px;
+  }
+
   .mdr-home-page .mdr-topnav__menu[open] summary::before,
   .mdr-listing-page .mdr-topnav__menu[open] summary::before {
     content: "Fermer";
