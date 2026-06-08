@@ -8,9 +8,7 @@ const STYLE = `<style id="${STYLE_ID}">
 .mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image img{width:100%!important;height:clamp(190px,27vw,340px)!important;min-height:0!important;display:block!important;border-radius:0!important;object-fit:cover!important;object-position:center!important}
 .mdr-article-page .mdr-article-figure{width:100%;margin:0 0 .45rem;padding:0;border:1px solid #ded6ca;border-radius:22px;background:#f4eee5;box-shadow:0 20px 50px rgba(26,26,24,.08);overflow:hidden}
 .mdr-article-page .mdr-article-figure img{width:100%;height:clamp(190px,27vw,340px);display:block;border-radius:0;object-fit:cover;object-position:center}
-.mdr-article-page .mdr-article-figure figcaption{display:flex;align-items:center;gap:.55rem;margin:0;padding:.72rem .95rem .82rem;color:#6d675f;font-size:.78rem;font-weight:650;line-height:1.45}
-.mdr-article-page .mdr-article-figure figcaption::before{content:"";width:8px;height:8px;border-radius:999px;background:#9b1c1c;flex:0 0 auto}
-@media (max-width:760px){.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image,.mdr-article-page .mdr-article-figure{border-radius:17px}.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image img,.mdr-article-page .mdr-article-figure img{height:190px}.mdr-article-page .mdr-article-figure figcaption{padding:.65rem .8rem .75rem;font-size:.74rem}}
+@media (max-width:760px){.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image,.mdr-article-page .mdr-article-figure{border-radius:17px}.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image img,.mdr-article-page .mdr-article-figure img{height:190px}}
 </style>`;
 
 function addStyle(html) {
@@ -21,7 +19,7 @@ function addStyle(html) {
 function enhanceFigures(html) {
   return html.replace(
     /<div class="mdr-media mdr-media--article mdr-media--image"><img src="([^"]+)" alt="([^"]*)" loading="eager"><\/div>/g,
-    (_match, src, alt) => `<figure class="mdr-article-figure"><img src="${src}" alt="${alt}" loading="eager"><figcaption>${alt}</figcaption></figure>`,
+    (_match, src, alt) => `<figure class="mdr-article-figure"><img src="${src}" alt="${alt}" loading="eager"></figure>`,
   );
 }
 
