@@ -46,12 +46,25 @@
   .mdr-prose .mdr-table-wrap{border:0!important;box-shadow:none!important;background:transparent!important;overflow:visible!important}
   .mdr-prose .mdr-decision-table,.mdr-prose .mdr-decision-table thead,.mdr-prose .mdr-decision-table tbody,.mdr-prose .mdr-decision-table tr,.mdr-prose .mdr-decision-table td{display:block!important;width:100%!important}
   .mdr-prose .mdr-decision-table thead{display:none!important}
-  .mdr-prose .mdr-decision-table tr{margin:0 0 .85rem!important;border:1px solid #ded7cd!important;border-radius:16px!important;background:#fff!important;box-shadow:0 10px 22px rgba(26,26,24,.055)!important;overflow:hidden!important}
-  .mdr-prose .mdr-decision-table td{display:block!important;padding:.85rem .95rem!important;border-bottom:1px solid #eee5da!important;font-size:.96rem!important;line-height:1.48!important}
-  .mdr-prose .mdr-decision-table td::before{content:attr(data-label);display:block!important;margin:0 0 .28rem!important;color:#9b1c1c;font-size:.66rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+  .mdr-prose .mdr-decision-table tr{margin:0 0 .75rem!important;border:1px solid #ded7cd!important;border-radius:16px!important;background:#fff!important;box-shadow:0 12px 24px rgba(26,26,24,.06)!important;overflow:hidden!important}
+  .mdr-prose .mdr-decision-table td{display:grid!important;grid-template-columns:minmax(7.5rem,38%) 1fr!important;gap:.8rem!important;padding:.85rem .95rem!important;border-bottom:1px solid #eee5da!important}
+  .mdr-prose .mdr-decision-table td::before{content:attr(data-label);color:#9b1c1c;font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
   .mdr-prose .mdr-decision-table td:first-child{background:#fbf7f1!important;color:#1a1a18!important}
-  .mdr-prose .mdr-decision-table td:first-child strong{display:block!important;color:#8f263d!important;font-size:1.05rem!important;line-height:1.24!important}
 }
+</style>
+<style id="mdr-compact-listing-images">
+.mdr-home-card .mdr-home-media.mdr-media--image{height:104px!important;min-height:104px!important;padding:0!important;overflow:hidden!important}
+.mdr-listing-page .mdr-home-card .mdr-home-media.mdr-media--image{height:124px!important;min-height:124px!important}
+.mdr-home-card .mdr-home-media.mdr-media--image img{width:100%!important;height:100%!important;min-height:0!important;display:block!important;object-fit:cover!important;object-position:center!important}
+</style>
+<style id="mdr-enhanced-article-media">
+.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image{display:block;width:100%!important;min-height:0!important;margin:0 0 .45rem;padding:0!important;border:1px solid #ded6ca!important;border-radius:22px!important;background:#f4eee5!important;box-shadow:0 20px 50px rgba(26,26,24,.08)!important;overflow:hidden!important}
+.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image img{width:100%!important;height:clamp(190px,27vw,340px)!important;min-height:0!important;display:block!important;border-radius:0!important;object-fit:cover!important;object-position:center!important}
+.mdr-article-page .mdr-article-figure{width:100%;margin:0 0 .45rem;padding:0;border:1px solid #ded6ca;border-radius:22px;background:#f4eee5;box-shadow:0 20px 50px rgba(26,26,24,.08);overflow:hidden}
+.mdr-article-page .mdr-article-figure img{width:100%;height:clamp(190px,27vw,340px);display:block;border-radius:0;object-fit:cover;object-position:center}
+.mdr-article-page .mdr-article-figure figcaption{display:flex;align-items:center;gap:.55rem;margin:0;padding:.72rem .95rem .82rem;color:#6d675f;font-size:.78rem;font-weight:650;line-height:1.45}
+.mdr-article-page .mdr-article-figure figcaption::before{content:"";width:8px;height:8px;border-radius:999px;background:#9b1c1c;flex:0 0 auto}
+@media (max-width:760px){.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image,.mdr-article-page .mdr-article-figure{border-radius:17px}.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image img,.mdr-article-page .mdr-article-figure img{height:190px}.mdr-article-page .mdr-article-figure figcaption{padding:.65rem .8rem .75rem;font-size:.74rem}}
 </style>
 </head>
 <body class="site-page mdr-article-page">
