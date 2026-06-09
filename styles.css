@@ -217,9 +217,9 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 } .mdr-home-footer__brand { color: #1a1a18; font-size: 1rem; font-weight: 700;
 } .mdr-home-footer__sub { color: #777; font-size: 0.84rem;
 } .mdr-footer-socials { display: flex; gap: 0.55rem; align-items: center;
-} .mdr-footer-socials a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #ddd9d0; border-radius: 999px; color: #9b1c1c; background: #fff; transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+} .mdr-footer-socials a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; color: #fff; background: rgba(255, 255, 255, 0.08); transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 } .mdr-footer-socials a:hover,
-.mdr-footer-socials a:focus-visible { transform: translateY(-2px); border-color: #9b1c1c; background: #f8f1eb;
+.mdr-footer-socials a:focus-visible { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.62); background: rgba(255, 255, 255, 0.14);
 } .mdr-footer-socials svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8;
 } .mdr-footer-socials svg path { fill: currentColor; stroke: none;
 } .mdr-footer-socials svg rect,
