@@ -246,9 +246,9 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 .mdr-site-footer__action,
 .mdr-site-footer__nav > div { min-width: 0;
 } .mdr-site-footer__eyebrow,
-.mdr-site-footer__nav p { margin: 0 0 0.72rem; color: #f1c6b8; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+.mdr-site-footer__nav p { margin: 0 0 0.72rem; color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
 } .mdr-site-footer--article .mdr-site-footer__eyebrow,
-.mdr-site-footer--article .mdr-site-footer__nav p { color: #f1c6b8;
+.mdr-site-footer--article .mdr-site-footer__nav p { color: #fff;
 } .mdr-site-footer__brand { color: #fff; font-size: clamp(1.35rem, 2vw, 1.75rem); font-weight: 800; line-height: 1;
 } .mdr-site-footer--article .mdr-site-footer__brand { color: #fff;
 } .mdr-site-footer__text { max-width: 34rem; margin: 0.75rem 0 0; color: rgba(255, 255, 255, 0.66); font-size: 0.95rem; line-height: 1.68;
