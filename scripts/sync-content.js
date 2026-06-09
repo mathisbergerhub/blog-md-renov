@@ -182,6 +182,42 @@ function bodyAssets() {
   return `<script src="./script.js?v=${ASSET_VERSION}" defer></script>`;
 }
 
+function footerSocialLinks(extraClass = "") {
+  return `<div class="mdr-footer-socials${extraClass ? ` ${extraClass}` : ""}" aria-label="Réseaux sociaux MD Rénov'">
+<a href="https://www.instagram.com/mdrenov.annecy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram MD Rénov'"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="3.5"></circle><circle class="mdr-social-dot" cx="17" cy="7" r="0.85"></circle></svg></a>
+<a href="https://www.facebook.com/profile.php?id=61561365092368&ref=PROFILE_EDIT_xav_ig_profile_page_web#" target="_blank" rel="noopener noreferrer" aria-label="Facebook MD Rénov'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5h2V5.2c-.35-.05-1.55-.16-2.95-.16-2.92 0-4.92 1.78-4.92 5.05v2.84H5.5v3.68h3.13V24h3.84v-7.39h3l.48-3.68h-3.48v-2.48c0-1.06.3-1.95 2.03-1.95Z"></path></svg></a>
+</div>`;
+}
+
+function renderSiteFooter(mode = "home") {
+  const isArticle = mode === "article";
+  return `<footer class="mdr-site-footer${isArticle ? " mdr-site-footer--article" : ""}">
+<div class="mdr-site-footer__main">
+<section class="mdr-site-footer__brandblock" aria-label="MD Rénov'">
+<p class="mdr-site-footer__eyebrow">Blog conseil menuiserie</p>
+<div class="mdr-site-footer__brand">MD Rénov'</div>
+<p class="mdr-site-footer__text">Guides courts pour choisir fenêtres, vitrages, isolation, volets, stores, portes et portails avant de demander un devis.</p>
+<div class="mdr-site-footer__trust" aria-label="Repères de confiance"><span>Certifié RGE</span><span>20 ans d'expérience</span><span>Haute-Savoie · Savoie · Pays de Gex</span></div>
+</section>
+<nav class="mdr-site-footer__nav" aria-label="Navigation pied de page">
+<div><p>Guides</p><a href="./fenetres-vitrages.html">Fenêtres & vitrages</a><a href="./isolation-thermique.html">Isolation</a><a href="./volets-stores.html">Volets & stores</a><a href="./portes-portails.html">Portes & portails</a></div>
+<div><p>À vérifier</p><a href="./prix-renovation-menuiseries-haute-savoie.html">Prix & budget</a><a href="./aides-subventions.html">Aides & subventions</a><a href="./autorisation-travaux-menuiseries-haute-savoie.html">Autorisations</a><a href="./delais-pose-menuiseries-renovation.html">Délais de pose</a></div>
+<div><p>MD Rénov'</p><a href="./index.html">Tous les articles</a><a href="https://www.mdrenov-menuiserie.com" target="_blank" rel="noopener noreferrer">Site principal</a><a href="./mentions-legales.html">Mentions légales</a><a href="./politique-confidentialite.html">Confidentialité</a></div>
+</nav>
+<section class="mdr-site-footer__action" aria-label="Demander un devis">
+<p>Un projet à cadrer ?</p>
+<a class="mdr-site-footer__cta" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Demander un devis</a>
+<span>Réponse sous 48h, sans engagement.</span>
+</section>
+</div>
+<div class="mdr-site-footer__bottom">
+<p>Meythet (Annecy) · Haute-Savoie · Savoie · Pays de Gex</p>
+${footerSocialLinks(isArticle ? "mdr-footer-socials--dark" : "")}
+<div class="mdr-site-footer__legal"><a href="./politique-cookies.html">Cookies</a><a href="./conditions-utilisation.html">Conditions d'utilisation</a></div>
+</div>
+</footer>`;
+}
+
 function mediaBlock(article) {
   const label = e(article.image_alt || article.category_label || "Visuel article");
   const src = String(article.featured_image || "").trim();
@@ -312,13 +348,7 @@ function mdToHtml(markdown = "") {
 }
 
 function renderFooter() {
-  return `<footer class="mdr-article-footer">
-<div><div class="mdr-article-footer__identity"><div class="mdr-article-footer__brand">MD Rénov'</div><div class="mdr-footer-socials mdr-footer-socials--dark" aria-label="Réseaux sociaux MD Rénov'">
-<a href="https://www.instagram.com/mdrenov.annecy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram MD Rénov'"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="3.5"></circle><circle class="mdr-social-dot" cx="17" cy="7" r="0.85"></circle></svg></a>
-<a href="https://www.facebook.com/profile.php?id=61561365092368&ref=PROFILE_EDIT_xav_ig_profile_page_web#" target="_blank" rel="noopener noreferrer" aria-label="Facebook MD Rénov'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5h2V5.2c-.35-.05-1.55-.16-2.95-.16-2.92 0-4.92 1.78-4.92 5.05v2.84H5.5v3.68h3.13V24h3.84v-7.39h3l.48-3.68h-3.48v-2.48c0-1.06.3-1.95 2.03-1.95Z"></path></svg></a>
-</div></div><div class="mdr-article-footer__sub">Meythet (Annecy) · Haute-Savoie · Savoie · Pays de Gex</div></div>
-<div class="mdr-article-footer__links"><a href="./index.html">Tous les articles</a><a href="https://www.mdrenov-menuiserie.com" target="_blank" rel="noopener noreferrer">Site principal</a><a href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Contact</a><a href="./mentions-legales.html">Mentions légales</a><a href="./politique-confidentialite.html">Confidentialité</a><a href="./politique-cookies.html">Cookies</a><a href="./conditions-utilisation.html">Conditions d'utilisation</a></div>
-</footer>`;
+  return renderSiteFooter("article");
 }
 
 function cardTags(article, pageSlug) {
@@ -359,6 +389,16 @@ ${listingArticles.map((article) => listingCard(article, config.slug)).join("\n")
     const html = fs.readFileSync(pagePath, "utf8");
     const updated = html.replace(/<section class="mdr-listing-content">\s*<div class="mdr-home-grid">[\s\S]*?<\/div>\s*<\/section>/, grid);
     fs.writeFileSync(pagePath, updated, "utf8");
+  }
+}
+
+function updateLegacyFooters() {
+  const footerPattern = /<footer class="(?:mdr-(home|article)-footer|mdr-site-footer( mdr-site-footer--article)?)">[\s\S]*?<\/footer>/g;
+  for (const fileName of fs.readdirSync(ROOT).filter((name) => name.endsWith(".html"))) {
+    const pagePath = path.join(ROOT, fileName);
+    const html = fs.readFileSync(pagePath, "utf8");
+    const updated = html.replace(footerPattern, (_match, kind, articleModifier) => renderSiteFooter(kind === "article" || articleModifier ? "article" : "home"));
+    if (updated !== html) fs.writeFileSync(pagePath, updated, "utf8");
   }
 }
 
@@ -441,6 +481,7 @@ for (const article of articles) {
   fs.writeFileSync(path.join(ROOT, article.htmlFile), articlePage(article, articles), "utf8");
 }
 updateCategoryListings(articles);
+updateLegacyFooters();
 updateSitemap(articles);
 updateLlms(articles);
 console.log(`Build éditorial terminé : ${articles.length} article(s), ${HANDCRAFTED_PAGES.size} page(s) protégée(s).`);
