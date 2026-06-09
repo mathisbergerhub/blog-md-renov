@@ -1183,6 +1183,12 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   object-position: center 38%;
 }
 
+.mdr-home-page .mdr-topnav {
+  border-top: 0;
+  border-bottom: 0;
+  background: #fff;
+}
+
 .mdr-home-page .mdr-topnav__menu,
 .mdr-listing-page .mdr-topnav__menu {
   display: none;
