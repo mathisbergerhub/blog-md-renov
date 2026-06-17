@@ -228,6 +228,13 @@ function mediaBlock(article) {
   return `<div class="mdr-media mdr-media--article" aria-label="Emplacement visuel 16:10 : ${label}"><strong>${label}</strong><span>Emplacement photo 16:10</span></div>`;
 }
 
+function articleImageUrl(article) {
+  const src = String(article.featured_image || "").trim();
+  if (!src) return `${SITE_URL}/apple-touch-icon.png`;
+  if (/^https?:\/\//i.test(src)) return src;
+  return `${SITE_URL}/${src.replace(/^\.?\//, "")}`;
+}
+
 function accentTitle(title = "", article = {}) {
   const wordsByCategory = {
     aides: ["aide", "aides", "budget", "MaPrimeRénov", "MaPrimeRenov"],
@@ -418,10 +425,11 @@ function categoryPage(article) {
 function articlePage(article, allArticles) {
   const articleUrl = `${SITE_URL}/${article.htmlFile}`;
   const related = allArticles.filter((item) => item.htmlFile !== article.htmlFile && item.category === article.category).slice(0, 3).map((item) => ({ ...item, title: shortenText(item.title, 74) }));
-  const image = `${SITE_URL}/apple-touch-icon.png`;
+  const image = articleImageUrl(article);
+  const publisherLogo = `${SITE_URL}/apple-touch-icon.png`;
   const lead = article.description || firstParagraph(article.body);
   const hasCustomEditorialBlock = /<!--\s*mdr-editorial-value-md\s*-->/.test(article.body);
-  const jsonLd = { "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description: article.description, image, datePublished: article.date, dateModified: article.date, author: { "@type": "Organization", name: "MD Rénov'" }, publisher: { "@type": "Organization", name: "MD Rénov'", logo: { "@type": "ImageObject", url: image } }, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl }, articleSection: article.category_label, keywords: article.tags.join(", "), inLanguage: "fr-FR" };
+  const jsonLd = { "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description: article.description, image, datePublished: article.date, dateModified: article.date, author: { "@type": "Organization", name: "MD Rénov'" }, publisher: { "@type": "Organization", name: "MD Rénov'", logo: { "@type": "ImageObject", url: publisherLogo } }, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl }, articleSection: article.category_label, keywords: article.tags.join(", "), inLanguage: "fr-FR" };
 
   return `<!DOCTYPE html>
 <html lang="fr">
