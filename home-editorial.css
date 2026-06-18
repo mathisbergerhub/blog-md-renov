@@ -195,13 +195,11 @@
 }
 
 .mdr-home-page .mdr-home-side {
-  position: sticky;
-  top: 5.2rem;
+  position: static;
   padding-top: 0;
   gap: 0.82rem;
-  max-height: calc(100vh - 6.2rem);
-  overflow: auto;
-  scrollbar-width: thin;
+  max-height: none;
+  overflow: visible;
 }
 
 .mdr-home-page .mdr-home-cta {
