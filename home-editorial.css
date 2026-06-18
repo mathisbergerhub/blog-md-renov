@@ -134,20 +134,6 @@
   padding-bottom: 1.2rem;
 }
 
-.mdr-home-page .mdr-home-main {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.mdr-home-page .mdr-home-recent {
-  grid-column: 1 / -1;
-  grid-row: 2;
-}
-
-.mdr-home-page .mdr-home-recent .mdr-home-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .mdr-home-page .mdr-home-featured {
   min-height: 300px;
   border-radius: 22px;
@@ -209,13 +195,13 @@
 }
 
 .mdr-home-page .mdr-home-side {
-  grid-column: 2;
-  grid-row: 1;
-  position: static;
+  position: sticky;
+  top: 5.2rem;
   padding-top: 0;
   gap: 0.82rem;
-  max-height: none;
-  overflow: visible;
+  max-height: calc(100vh - 6.2rem);
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
 .mdr-home-page .mdr-home-cta {
@@ -425,6 +411,63 @@
   padding: 0.42rem 0.65rem;
 }
 
+.mdr-home-faq {
+  gap: 0.45rem;
+}
+
+.mdr-home-faq details {
+  border-top: 1px solid #ebe4d8;
+}
+
+.mdr-home-faq details:first-of-type {
+  border-top: 0;
+}
+
+.mdr-home-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.72rem 0;
+  color: #1a1a18;
+  font-size: 0.94rem;
+  font-weight: 750;
+  line-height: 1.22;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mdr-home-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.mdr-home-faq summary::after {
+  content: "+";
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 1.55rem;
+  height: 1.55rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e4d8c8;
+  border-radius: 999px;
+  color: #9b1c1c;
+  background: #fffaf3;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.mdr-home-faq details[open] summary::after {
+  content: "−";
+}
+
+.mdr-home-faq p {
+  margin: -0.18rem 0 0.78rem;
+  color: #626967;
+  font-size: 0.84rem;
+  line-height: 1.54;
+}
+
 @media (max-width: 980px) {
   .mdr-home-page .mdr-home-content {
     grid-template-columns: minmax(0, 1fr);
@@ -434,24 +477,8 @@
   }
 
   .mdr-home-page .mdr-home-main,
-  .mdr-home-page .mdr-home-recent,
   .mdr-home-page .mdr-home-side {
     min-width: 0;
-  }
-
-  .mdr-home-page .mdr-home-recent {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .mdr-home-page .mdr-home-main,
-  .mdr-home-page .mdr-home-side {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .mdr-home-page .mdr-home-recent .mdr-home-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .mdr-home-page .mdr-home-featured {
@@ -498,10 +525,6 @@
 @media (max-width: 760px) {
   .mdr-home-page .mdr-home-content {
     padding: 0.9rem 0.85rem 1.2rem;
-  }
-
-  .mdr-home-page .mdr-home-recent .mdr-home-grid {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .mdr-home-page .mdr-home-featured {
