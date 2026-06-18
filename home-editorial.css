@@ -126,8 +126,10 @@
 }
 
 .mdr-home-page .mdr-home-content {
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  gap: 1rem 1.35rem;
+  grid-template-columns: minmax(0, 980px) minmax(320px, 380px);
+  justify-content: center;
+  align-items: start;
+  gap: 1rem 1.45rem;
   padding-top: 1rem;
   padding-bottom: 1.2rem;
 }
@@ -195,8 +197,11 @@
 .mdr-home-page .mdr-home-side {
   position: sticky;
   top: 5.2rem;
-  padding-top: 2.85rem;
-  gap: 0.75rem;
+  padding-top: 0;
+  gap: 0.82rem;
+  max-height: calc(100vh - 6.2rem);
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
 .mdr-home-page .mdr-home-cta {
@@ -246,6 +251,131 @@
   background: #fff;
   color: #9b1c1c;
   box-shadow: 0 10px 22px rgba(55, 19, 13, 0.16);
+}
+
+.mdr-home-rail {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(123, 18, 28, 0.3);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 42%),
+    #9b1c1c;
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(55, 19, 13, 0.16);
+}
+
+.mdr-home-rail::after {
+  content: "";
+  position: absolute;
+  inset: auto -18% -28% 28%;
+  height: 170px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.11);
+  pointer-events: none;
+}
+
+.mdr-home-rail > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mdr-home-rail__head {
+  display: grid;
+  gap: 0.34rem;
+}
+
+.mdr-home-rail__head > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.mdr-home-rail h2 {
+  max-width: 13ch;
+  color: #fff;
+  font-size: clamp(1.55rem, 2vw, 2.05rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.mdr-home-rail p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.9rem;
+  line-height: 1.42;
+}
+
+.mdr-home-rail .mdr-btn--white {
+  background: #fff;
+  color: #9b1c1c;
+  box-shadow: 0 10px 22px rgba(55, 19, 13, 0.16);
+}
+
+.mdr-home-rail__steps {
+  display: grid;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.mdr-home-rail__steps a {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: 0.2rem 0.72rem;
+  padding: 0.78rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.mdr-home-rail__steps a:last-child {
+  border-bottom: 0;
+}
+
+.mdr-home-rail__steps span {
+  grid-row: span 2;
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.mdr-home-rail__steps strong {
+  color: #fff;
+  font-size: 0.96rem;
+  line-height: 1.16;
+}
+
+.mdr-home-rail__steps small {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.mdr-home-rail__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+}
+
+.mdr-home-rail__trust span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.28rem 0.58rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .mdr-home-page .mdr-home-panel {
@@ -328,6 +458,8 @@
 
   .mdr-home-page .mdr-home-side {
     position: static;
+    max-height: none;
+    overflow: visible;
     padding-top: 0;
   }
 
@@ -360,11 +492,13 @@
     min-height: 190px;
   }
 
+  .mdr-home-rail,
   .mdr-home-page .mdr-home-cta,
   .mdr-home-page .mdr-home-panel {
     border-radius: 16px;
   }
 
+  .mdr-home-rail,
   .mdr-home-page .mdr-home-cta {
     gap: 0.36rem;
     padding: 0.74rem 0.86rem 0.82rem;
@@ -375,20 +509,27 @@
     letter-spacing: 0.12em;
   }
 
+  .mdr-home-rail h2,
   .mdr-home-page .mdr-home-cta h2 {
     max-width: none;
     font-size: clamp(1.35rem, 6.2vw, 1.75rem);
     line-height: 1;
   }
 
+  .mdr-home-rail p,
   .mdr-home-page .mdr-home-cta p {
     font-size: 0.84rem;
     line-height: 1.28;
   }
 
+  .mdr-home-rail .mdr-btn,
   .mdr-home-page .mdr-home-cta .mdr-btn {
     min-height: 40px;
     padding: 0.58rem 0.82rem;
+  }
+
+  .mdr-home-rail__steps a {
+    padding: 0.66rem 0;
   }
 
   .mdr-home-page .mdr-home-hero--editorial {
