@@ -197,11 +197,36 @@
 .mdr-home-page .mdr-home-side {
   position: sticky;
   top: 5.2rem;
-  padding-top: 0;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
   gap: 0.82rem;
-  max-height: calc(100vh - 6.2rem);
-  overflow: auto;
-  scrollbar-width: thin;
+  min-height: calc(100vh - 6.2rem);
+  max-height: none;
+  overflow: visible;
+  padding: 0.46rem;
+  isolation: isolate;
+}
+
+.mdr-home-page .mdr-home-side::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  min-height: calc(100vh - 6.2rem);
+  border: 1px solid rgba(221, 217, 208, 0.84);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fff 0%, #fffaf3 100%);
+  box-shadow: 0 18px 45px rgba(20, 14, 8, 0.06);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.mdr-home-page .mdr-home-side > .mdr-home-panel {
+  padding: 0.12rem 0.22rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .mdr-home-page .mdr-home-cta {
@@ -384,7 +409,12 @@
 }
 
 .mdr-home-page .mdr-home-side-guides {
+  display: none;
   gap: 0.55rem;
+}
+
+.mdr-home-page .mdr-home-side-universes {
+  display: none;
 }
 
 .mdr-home-page .mdr-home-side-guides .mdr-home-list__item {
@@ -412,6 +442,7 @@
 }
 
 .mdr-home-faq {
+  flex: 1;
   gap: 0.45rem;
 }
 
@@ -515,9 +546,28 @@
 
   .mdr-home-page .mdr-home-side {
     position: static;
+    display: grid;
+    min-height: 0;
     max-height: none;
     overflow: visible;
     padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+
+  .mdr-home-page .mdr-home-side::before {
+    display: none;
+  }
+
+  .mdr-home-page .mdr-home-side > .mdr-home-panel {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0.95rem 1rem 1rem;
+    border: 1px solid #ddd9d0;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 12px 26px rgba(20, 14, 8, 0.04);
   }
 
 }
