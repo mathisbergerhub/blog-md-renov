@@ -499,6 +499,91 @@
   line-height: 1.54;
 }
 
+@media (min-width: 981px) {
+  .mdr-home-page .mdr-home-side {
+    height: calc(100vh - 6.2rem);
+  }
+
+  .mdr-home-rail {
+    gap: 0.68rem;
+    padding: 0.88rem;
+  }
+
+  .mdr-home-rail__head {
+    gap: 0.26rem;
+  }
+
+  .mdr-home-rail h2 {
+    max-width: none;
+    font-size: clamp(1.28rem, 1.45vw, 1.55rem);
+    letter-spacing: -0.025em;
+    line-height: 1.03;
+  }
+
+  .mdr-home-rail p {
+    font-size: 0.82rem;
+    line-height: 1.3;
+  }
+
+  .mdr-home-rail__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.46rem;
+    border: 0;
+  }
+
+  .mdr-home-rail__steps a,
+  .mdr-home-rail__steps a:last-child {
+    grid-template-columns: 1.55rem minmax(0, 1fr);
+    gap: 0.05rem 0.45rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .mdr-home-rail__steps span {
+    width: 1.42rem;
+    height: 1.42rem;
+    font-size: 0.64rem;
+  }
+
+  .mdr-home-rail__steps strong {
+    align-self: center;
+    font-size: 0.82rem;
+  }
+
+  .mdr-home-rail__steps small,
+  .mdr-home-rail__trust {
+    display: none;
+  }
+
+  .mdr-home-rail .mdr-btn--wide {
+    min-height: 42px;
+    padding: 0.66rem 0.8rem;
+  }
+
+  .mdr-home-faq {
+    gap: 0.18rem;
+  }
+
+  .mdr-home-faq summary {
+    padding: 0.54rem 0;
+    font-size: 0.86rem;
+  }
+
+  .mdr-home-faq summary::after {
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 0.92rem;
+  }
+
+  .mdr-home-faq p {
+    margin: -0.08rem 0 0.56rem;
+    font-size: 0.78rem;
+    line-height: 1.38;
+  }
+}
+
 @media (max-width: 980px) {
   .mdr-home-page .mdr-home-content {
     grid-template-columns: minmax(0, 1fr);
