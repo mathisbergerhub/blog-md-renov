@@ -598,6 +598,10 @@
     gap: 0.28rem;
   }
 
+  .mdr-home-faq details[open] {
+    min-height: 6.25rem;
+  }
+
   .mdr-home-faq summary {
     padding: 0.46rem 0.56rem;
     font-size: 0.8rem;
