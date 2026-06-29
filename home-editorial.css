@@ -282,7 +282,7 @@
 .mdr-home-rail {
   position: relative;
   display: grid;
-  overflow: hidden;
+  overflow: visible;
   gap: 0.78rem;
   padding: 0.18rem 0 0.74rem;
   border-bottom: 1px solid #eadfd2;
@@ -536,6 +536,7 @@
   }
 
   .mdr-home-rail {
+    flex: 0 0 auto;
     gap: 0.62rem;
     padding: 0.16rem 0 0.62rem;
   }
@@ -554,13 +555,11 @@
 
   .mdr-home-rail p {
     font-size: 0.8rem;
-    line-height: 1.3;
+    line-height: 1.26;
   }
 
   .mdr-home-rail__steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.42rem;
-    border: 0;
+    display: none;
   }
 
   .mdr-home-rail__steps a,
@@ -595,25 +594,27 @@
   }
 
   .mdr-home-faq {
-    gap: 0.38rem;
+    min-height: 0;
+    gap: 0.28rem;
   }
 
   .mdr-home-faq summary {
-    padding: 0.58rem 0.62rem;
-    font-size: 0.86rem;
+    padding: 0.46rem 0.56rem;
+    font-size: 0.8rem;
+    line-height: 1.16;
   }
 
   .mdr-home-faq summary::after {
-    width: 1.35rem;
-    height: 1.35rem;
-    font-size: 0.92rem;
+    width: 1.18rem;
+    height: 1.18rem;
+    font-size: 0.86rem;
   }
 
   .mdr-home-faq p {
     margin: -0.08rem 0 0;
-    padding: 0 0.62rem 0.62rem;
-    font-size: 0.78rem;
-    line-height: 1.38;
+    padding: 0 0.56rem 0.56rem;
+    font-size: 0.74rem;
+    line-height: 1.34;
   }
 }
 
