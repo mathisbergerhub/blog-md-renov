@@ -848,3 +848,195 @@
   }
 }
 
+
+
+/* ============================================================
+   MD Rénov' — Refonte du bloc "Le bon ordre pour cadrer le projet"
+   (.mdr-home-rail) — frise verticale, responsive, à charger
+   APRÈS home-editorial.css.
+   ============================================================ */
+
+/* --- Carte conteneur --- */
+.mdr-home-page .mdr-home-rail {
+  position: relative;
+  overflow: hidden;
+  gap: 1rem;
+  padding: 1.4rem 1.3rem 1.5rem;
+  border: 1px solid #ece3d6;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fffdf9 0%, #fffaf3 100%);
+  box-shadow: 0 18px 42px rgba(26, 26, 24, 0.08);
+}
+
+/* Masque la barre rouge d'origine au-dessus de la carte */
+.mdr-home-page .mdr-home-rail::before {
+  display: none;
+}
+
+/* --- En-tête --- */
+.mdr-home-page .mdr-home-rail__head {
+  gap: 0.5rem;
+  padding-top: 0.55rem;
+}
+
+.mdr-home-page .mdr-home-rail .mdr-home-cta__eyebrow {
+  padding: 0.34rem 0.66rem;
+  border: 1px solid rgba(155, 28, 28, 0.22);
+  background: rgba(155, 28, 28, 0.07);
+  color: #9b1c1c;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mdr-home-page .mdr-home-rail h2 {
+  max-width: 20ch;
+  font-size: clamp(1.4rem, 1.7vw, 1.7rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.mdr-home-page .mdr-home-rail p {
+  color: #6b716e;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* --- Frise des étapes --- */
+.mdr-home-page .mdr-home-rail__steps {
+  position: relative;
+  display: grid;
+  gap: 0.2rem;
+}
+
+/* Ligne verticale de liaison (passe au centre des pastilles) */
+.mdr-home-page .mdr-home-rail__steps::before {
+  content: "";
+  position: absolute;
+  left: 1.7rem;
+  top: 1.9rem;
+  bottom: 1.9rem;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(#e9cccc, #efe3d4);
+  z-index: 0;
+}
+
+.mdr-home-page .mdr-home-rail__steps a {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: 0.15rem 0.9rem;
+  align-items: center;
+  padding: 0.72rem 0.65rem;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  text-decoration: none;
+  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.mdr-home-page .mdr-home-rail__steps a:hover,
+.mdr-home-page .mdr-home-rail__steps a:focus-visible {
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(26, 26, 24, 0.10);
+  transform: translateX(3px);
+  outline: none;
+}
+
+/* Pastille numérotée en relief */
+.mdr-home-page .mdr-home-rail__steps span {
+  grid-row: span 2;
+  align-self: start;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-top: 0.05rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #b3221f, #8c1717);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  box-shadow: 0 0 0 4px #fffdf9, 0 6px 14px rgba(140, 23, 23, 0.30);
+}
+
+.mdr-home-page .mdr-home-rail__steps a:hover span {
+  box-shadow: 0 0 0 4px #fff, 0 8px 18px rgba(140, 23, 23, 0.40);
+}
+
+.mdr-home-page .mdr-home-rail__steps strong {
+  align-self: end;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a18;
+}
+
+.mdr-home-page .mdr-home-rail__steps small {
+  align-self: start;
+  color: #6b726f;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* --- CTA --- */
+.mdr-home-page .mdr-home-rail .mdr-btn--white {
+  margin-top: 0.15rem;
+  border: 0;
+  background: linear-gradient(135deg, #b3221f, #8c1717);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(140, 23, 23, 0.26);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.mdr-home-page .mdr-home-rail .mdr-btn--white:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(140, 23, 23, 0.34);
+}
+
+/* --- Repères de confiance --- */
+.mdr-home-page .mdr-home-rail__trust {
+  gap: 0.45rem;
+  padding-top: 0.2rem;
+}
+
+.mdr-home-page .mdr-home-rail__trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  min-height: 30px;
+  padding: 0.3rem 0.66rem;
+  border: 1px solid rgba(155, 28, 28, 0.14);
+  border-radius: 999px;
+  background: rgba(155, 28, 28, 0.05);
+  color: #5e6664;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.mdr-home-page .mdr-home-rail__trust span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #9b1c1c;
+  flex: 0 0 auto;
+}
+
+/* --- Responsive : petits écrans --- */
+@media (max-width: 760px) {
+  .mdr-home-page .mdr-home-rail {
+    border-radius: 18px;
+    padding: 1.15rem 1.05rem 1.25rem;
+    gap: 0.85rem;
+  }
+  .mdr-home-page .mdr-home-rail__steps a {
+    padding: 0.7rem 0.55rem;
+  }
+  .mdr-home-page .mdr-home-rail__steps::before {
+    left: 1.6rem;
+  }
+}
