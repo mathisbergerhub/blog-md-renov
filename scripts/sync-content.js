@@ -3,7 +3,7 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://blog.mdrenov-menuiserie.com";
-const ASSET_VERSION = "menu-20260605e";
+const ASSET_VERSION = "menu-20260630a";
 const HANDCRAFTED_PAGES = new Set(["maprimerenov-2026-haute-savoie.html"]);
 const CATEGORY_LISTINGS = {
   "aides-subventions.html": { slug: "aides-subventions", categories: ["aides"] },

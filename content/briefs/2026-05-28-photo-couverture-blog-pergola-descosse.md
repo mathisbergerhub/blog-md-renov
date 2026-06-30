@@ -7,7 +7,7 @@ main_keyword: 'photo couverture blog'
 product: 'Pergola'
 location: 'Haute-Savoie et Savoie'
 intent: 'interne'
-featured_image: '/uploads/briefs/2026-05-28-photo-couverture-blog-pergola-descosse-1-couverture-blog-pergola-descosse.jpg'
+featured_image: '/uploads/briefs/2026-05-28-photo-couverture-blog-pergola-descosse-1-couverture-blog-pergola-descosse.webp'
 photo_notes: 'Photo de couverture principale du blog.'
 created_at: '2026-05-28T15:36:12.260Z'
 ---
@@ -27,7 +27,7 @@ Image de couverture du blog
 À compléter.
 
 ## Photos fournies
-- Photo 1 : /uploads/briefs/2026-05-28-photo-couverture-blog-pergola-descosse-1-couverture-blog-pergola-descosse.jpg
+- Photo 1 : /uploads/briefs/2026-05-28-photo-couverture-blog-pergola-descosse-1-couverture-blog-pergola-descosse.webp
 
 ## Consignes photo
 Photo de couverture principale du blog.

@@ -11,9 +11,10 @@ const STYLE = `<style id="${STYLE_ID}">
 @media (max-width:760px){.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image,.mdr-article-page .mdr-article-figure{border-radius:17px}.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image img,.mdr-article-page .mdr-article-figure img{height:190px}}
 </style>`;
 
+// Le CSS est désormais dans styles.css : on se contente de purger
+// d'éventuels anciens blocs <style> inline.
 function addStyle(html) {
-  html = html.replace(new RegExp(`<style id="${STYLE_ID}">[\\s\\S]*?<\\/style>\\s*`, "g"), "");
-  return html.includes("</head>") ? html.replace("</head>", `${STYLE}\n</head>`) : html;
+  return html.replace(new RegExp(`<style id="${STYLE_ID}">[\\s\\S]*?<\\/style>\\s*`, "g"), "");
 }
 
 function enhanceFigures(html) {

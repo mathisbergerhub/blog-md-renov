@@ -8,7 +8,7 @@ category: 'aides'
 category_label: 'Budget'
 date: '2026-03-05'
 reading_time: '8 min'
-featured_image: '/uploads/briefs/2026-05-26-modification-prix-renovation-menuiseries-combien-prevoir-et-quelles-aide-3-1-chatgpt-image-26-mai-2026-16-39-55.png'
+featured_image: '/uploads/briefs/2026-05-26-modification-prix-renovation-menuiseries-combien-prevoir-et-quelles-aide-3-1-chatgpt-image-26-mai-2026-16-39-55.webp'
 image_alt: 'Estimation du budget pour une rénovation de menuiseries'
 source_html: './prix-renovation-menuiseries-haute-savoie.html'
 tags:

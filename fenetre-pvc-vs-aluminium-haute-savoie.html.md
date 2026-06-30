@@ -8,7 +8,7 @@ category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-03-20'
 reading_time: '5 min'
-featured_image: 'uploads/articles/fenetre-pvc-vs-aluminium-haute-savoie.png'
+featured_image: 'uploads/articles/fenetre-pvc-vs-aluminium-haute-savoie.webp'
 image_alt: 'Fenêtre aluminium anthracite sur une maison avec vue montagne'
 source_html: './fenetre-pvc-vs-aluminium-haute-savoie.html'
 tags:

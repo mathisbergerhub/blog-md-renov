@@ -35,6 +35,10 @@ mobileMenus.forEach((menu) => {
   summary?.setAttribute('aria-expanded', menu.open ? 'true' : 'false');
   summary?.setAttribute('aria-label', menu.open ? 'Fermer le menu' : 'Ouvrir le menu');
 
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => closeMobileMenu(menu));
+  });
+
   summary?.addEventListener('click', (event) => {
     if (!menu.open) {
       mobileMenus.forEach((other) => {

@@ -8,7 +8,7 @@ category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-04-29'
 reading_time: '5 min'
-featured_image: 'uploads/articles/pose-renovation-depose-totale-fenetres.png'
+featured_image: 'uploads/articles/pose-renovation-depose-totale-fenetres.webp'
 image_alt: 'Remplacement de fenêtres en rénovation avec préparation du chantier'
 source_html: './renovation-sur-cadre-ou-depose-totale-fenetres.html'
 tags:

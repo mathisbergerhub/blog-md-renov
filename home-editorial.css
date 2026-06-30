@@ -1,7 +1,7 @@
 .mdr-home-page .mdr-home-hero--editorial {
   --mdr-home-hero-photo:
     linear-gradient(115deg, rgba(23, 23, 21, 0.82), rgba(23, 23, 21, 0.24) 46%, rgba(155, 28, 28, 0.26)),
-    url("./uploads/articles/pergola-md-renov-couverture.jpg");
+    url("./uploads/articles/pergola-md-renov-couverture.webp");
   position: relative;
   isolation: isolate;
   overflow: hidden;

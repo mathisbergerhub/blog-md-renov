@@ -8,7 +8,7 @@ category: 'aides'
 category_label: 'Budget'
 date: '2026-04-29'
 reading_time: '3 min'
-featured_image: 'uploads/articles/delais-pose-menuiseries-renovation.png'
+featured_image: 'uploads/articles/delais-pose-menuiseries-renovation.webp'
 image_alt: 'Planning de chantier avec fenêtres prêtes à poser devant une maison'
 source_html: './delais-pose-menuiseries-renovation.html'
 tags:

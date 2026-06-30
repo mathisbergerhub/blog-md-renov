@@ -8,7 +8,7 @@ category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-04-29'
 reading_time: '3 min'
-featured_image: '/uploads/articles/salon-lumineux-vue-montagnes.png'
+featured_image: '/uploads/articles/salon-lumineux-vue-montagnes.webp'
 image_alt: 'Salon lumineux ouvert sur une terrasse avec vue montagne'
 source_html: './baie-vitree-coulissante-ou-galandage.html'
 tags:

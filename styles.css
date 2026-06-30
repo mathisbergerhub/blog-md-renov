@@ -1579,3 +1579,43 @@ body.mdr-home-page {
 .mdr-article-page .mdr-breadcrumb span:last-child {
   display: none;
 }
+
+/* ============================================================
+   Consolidé depuis les scripts de build (compact-listing-images,
+   enhance-article-media, repair-article-ui) — 2026-06-30.
+   Auparavant injecté en <style> sur chaque page.
+   ============================================================ */
+
+/* --- Images compactes des listings --- */
+.mdr-home-card .mdr-home-media.mdr-media--image{height:104px!important;min-height:104px!important;padding:0!important;overflow:hidden!important}
+.mdr-listing-page .mdr-home-card .mdr-home-media.mdr-media--image{height:124px!important;min-height:124px!important}
+.mdr-home-card .mdr-home-media.mdr-media--image img{width:100%!important;height:100%!important;min-height:0!important;display:block!important;object-fit:cover!important;object-position:center!important}
+
+/* --- Médias d'article (figure / image héro) --- */
+.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image{display:block;width:100%!important;min-height:0!important;margin:0 0 .45rem;padding:0!important;border:1px solid #ded6ca!important;border-radius:22px!important;background:#f4eee5!important;box-shadow:0 20px 50px rgba(26,26,24,.08)!important;overflow:hidden!important}
+.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image img{width:100%!important;height:clamp(190px,27vw,340px)!important;min-height:0!important;display:block!important;border-radius:0!important;object-fit:cover!important;object-position:center!important}
+.mdr-article-page .mdr-article-figure{width:100%;margin:0 0 .45rem;padding:0;border:1px solid #ded6ca;border-radius:22px;background:#f4eee5;box-shadow:0 20px 50px rgba(26,26,24,.08);overflow:hidden}
+.mdr-article-page .mdr-article-figure img{width:100%;height:clamp(190px,27vw,340px);display:block;border-radius:0;object-fit:cover;object-position:center}
+@media (max-width:760px){.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image,.mdr-article-page .mdr-article-figure{border-radius:17px}.mdr-article-page .mdr-prose>.mdr-media--article.mdr-media--image img,.mdr-article-page .mdr-article-figure img{height:190px}}
+
+/* --- Correctifs UX prose (check-grid + tableaux de décision) --- */
+.mdr-prose .mdr-check-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))!important;align-items:stretch!important}
+.mdr-prose .mdr-check-grid li{min-height:auto!important;padding:.95rem!important}
+.mdr-prose .mdr-check-grid li strong{display:block;margin-bottom:.35rem}
+.mdr-prose h2 + .mdr-check-grid{margin-top:.35rem}
+.mdr-prose .mdr-table-wrap{margin:1rem 0 1.25rem!important;border:1px solid #ded7cd!important;border-radius:18px!important;background:#fff!important;box-shadow:0 18px 38px rgba(26,26,24,.07)!important;overflow:hidden!important}
+.mdr-prose .mdr-table-wrap table{width:100%!important;margin:0!important;border:0!important;border-collapse:separate!important;border-spacing:0!important;background:#fff!important}
+.mdr-prose .mdr-decision-table th{padding:.85rem 1rem!important;border:0!important;background:#9b1c1c!important;color:#fff!important;font-size:.72rem!important;font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+.mdr-prose .mdr-decision-table td{padding:1rem!important;border:0!important;border-bottom:1px solid #eee5da!important;color:#333!important;line-height:1.58!important}
+.mdr-prose .mdr-decision-table tbody tr:nth-child(even){background:#fbf7f1!important}
+.mdr-prose .mdr-decision-table tbody tr:last-child td{border-bottom:0!important}
+.mdr-prose .mdr-decision-table td:first-child{width:24%!important;color:#9b1c1c!important;font-weight:800!important}
+@media (max-width:720px){
+  .mdr-prose .mdr-table-wrap{border:0!important;box-shadow:none!important;background:transparent!important;overflow:visible!important}
+  .mdr-prose .mdr-decision-table,.mdr-prose .mdr-decision-table thead,.mdr-prose .mdr-decision-table tbody,.mdr-prose .mdr-decision-table tr,.mdr-prose .mdr-decision-table td{display:block!important;width:100%!important}
+  .mdr-prose .mdr-decision-table thead{display:none!important}
+  .mdr-prose .mdr-decision-table tr{margin:0 0 .75rem!important;border:1px solid #ded7cd!important;border-radius:16px!important;background:#fff!important;box-shadow:0 12px 24px rgba(26,26,24,.06)!important;overflow:hidden!important}
+  .mdr-prose .mdr-decision-table td{display:grid!important;grid-template-columns:minmax(7.5rem,38%) 1fr!important;gap:.8rem!important;padding:.85rem .95rem!important;border-bottom:1px solid #eee5da!important}
+  .mdr-prose .mdr-decision-table td::before{content:attr(data-label);color:#9b1c1c;font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+  .mdr-prose .mdr-decision-table td:first-child{background:#fbf7f1!important;color:#1a1a18!important}
+}

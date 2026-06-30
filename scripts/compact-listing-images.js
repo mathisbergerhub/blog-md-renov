@@ -9,15 +9,13 @@ const STYLE = `<style id="${STYLE_ID}">
 .mdr-home-card .mdr-home-media.mdr-media--image img{width:100%!important;height:100%!important;min-height:0!important;display:block!important;object-fit:cover!important;object-position:center!important}
 </style>`;
 
+// Le CSS est désormais dans styles.css. Ce script ne fait plus que purger
+// d'éventuels anciens blocs <style> inline restants.
 for (const fileName of fs.readdirSync(ROOT).filter((name) => name.endsWith(".html"))) {
   const filePath = path.join(ROOT, fileName);
-  let html = fs.readFileSync(filePath, "utf8");
-
-  html = html.replace(new RegExp(`<style id="${STYLE_ID}">[\\s\\S]*?<\\/style>\\s*`, "g"), "");
-  if (!html.includes("</head>")) continue;
-
-  html = html.replace("</head>", `${STYLE}\n</head>`);
-  fs.writeFileSync(filePath, html, "utf8");
+  const before = fs.readFileSync(filePath, "utf8");
+  const after = before.replace(new RegExp(`<style id="${STYLE_ID}">[\\s\\S]*?<\\/style>\\s*`, "g"), "");
+  if (after !== before) fs.writeFileSync(filePath, after, "utf8");
 }
 
-console.log("Format compact des images de listing appliqué.");
+console.log("Format compact des images de listing : CSS dans styles.css.");

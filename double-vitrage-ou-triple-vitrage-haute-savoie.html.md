@@ -8,7 +8,7 @@ category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-04-18'
 reading_time: '6 min'
-featured_image: 'uploads/articles/double-triple-vitrage-surcout-utile.png'
+featured_image: 'uploads/articles/double-triple-vitrage-surcout-utile.webp'
 image_alt: 'Comparatif double et triple vitrage pour améliorer le confort thermique'
 source_html: './double-vitrage-ou-triple-vitrage-haute-savoie.html'
 tags:

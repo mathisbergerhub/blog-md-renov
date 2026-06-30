@@ -8,7 +8,7 @@ category: 'isolation'
 category_label: 'Isolation'
 date: '2026-04-29'
 reading_time: '3 min'
-featured_image: '/uploads/articles/salon-moderne-cosy-vue-route.png'
+featured_image: '/uploads/articles/salon-moderne-cosy-vue-route.webp'
 image_alt: 'Salon calme avec fenêtres donnant sur une route de montagne'
 source_html: './isolation-phonique-fenetres-route.html'
 tags:

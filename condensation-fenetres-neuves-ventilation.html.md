@@ -8,7 +8,7 @@ category: 'isolation'
 category_label: 'Isolation'
 date: '2026-04-29'
 reading_time: '3 min'
-featured_image: 'uploads/articles/condensation-apres-changement-fenetres.png'
+featured_image: 'uploads/articles/condensation-apres-changement-fenetres.webp'
 image_alt: 'Condensation sur une fenêtre récente dans un salon ventilé'
 source_html: './condensation-fenetres-neuves-ventilation.html'
 tags:

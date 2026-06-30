@@ -8,7 +8,7 @@ category: 'aides'
 category_label: 'Aides & budget'
 date: '2026-04-29'
 reading_time: '4 min'
-featured_image: '/uploads/briefs/2026-05-27-image-maprimerenov-2026-1-maprimerenov-2026-aide-renovation.png'
+featured_image: '/uploads/briefs/2026-05-27-image-maprimerenov-2026-1-maprimerenov-2026-aide-renovation.webp'
 image_alt: 'Conseiller MD Rénov’ expliquant les aides MaPrimeRénov’ devant une fenêtre à rénover'
 source_html: './maprimerenov-2026-haute-savoie.html'
 tags:

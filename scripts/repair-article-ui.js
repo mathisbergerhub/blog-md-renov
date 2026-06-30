@@ -109,11 +109,10 @@ function enhanceTables(html) {
   });
 }
 
+// Le CSS est désormais dans styles.css : on se contente de purger
+// d'éventuels anciens blocs <style> inline.
 function injectPatch(html) {
-  if (html.includes('id="mdr-article-ui-patch"')) {
-    return html.replace(/<style id="mdr-article-ui-patch">[\s\S]*?<\/style>/, UI_PATCH);
-  }
-  return html.replace("</head>", `${UI_PATCH}\n</head>`);
+  return html.replace(/<style id="mdr-article-ui-patch">[\s\S]*?<\/style>\s*/g, "");
 }
 
 let updated = 0;

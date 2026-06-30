@@ -8,7 +8,7 @@ category: 'volets-stores'
 category_label: 'Volets'
 date: '2026-04-29'
 reading_time: '3 min'
-featured_image: 'uploads/articles/bso-ou-volet-roulant-protection-solaire.png'
+featured_image: 'uploads/articles/bso-ou-volet-roulant-protection-solaire.webp'
 image_alt: 'Façade avec brise-soleil orientable et volet roulant face aux montagnes'
 source_html: './bso-ou-volet-roulant-protection-solaire.html'
 tags:

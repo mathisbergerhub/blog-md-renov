@@ -8,7 +8,7 @@ category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-04-29'
 reading_time: '4 min'
-featured_image: 'uploads/articles/pvc-aluminium-bois-mixte-materiau-fenetre.png'
+featured_image: 'uploads/articles/pvc-aluminium-bois-mixte-materiau-fenetre.webp'
 image_alt: 'Échantillons de menuiseries PVC, aluminium, bois et mixte'
 source_html: './fenetre-bois-pvc-alu-mixte-comparatif.html'
 tags:
