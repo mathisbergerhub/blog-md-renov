@@ -18,6 +18,21 @@ function e(value = "") {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+// Pages whose absolute URL is built without the .html extension (clean URLs are
+// enabled in vercel.json, so /article is the canonical form served by Vercel).
+const SITEMAP_EXCLUDE = new Set(["maprimerenov-2025-haute-savoie.html"]);
+
+function cleanPath(htmlFile = "") {
+  const name = String(htmlFile).replace(/^\.?\//, "");
+  if (name === "index.html") return "";
+  return name.replace(/\.html$/, "");
+}
+
+function pageUrl(htmlFile = "") {
+  const clean = cleanPath(htmlFile);
+  return clean ? `${SITE_URL}/${clean}` : SITE_URL;
+}
+
 function unquote(value = "") {
   const trimmed = String(value).trim();
   if ((trimmed.startsWith("'") && trimmed.endsWith("'")) || (trimmed.startsWith('"') && trimmed.endsWith('"'))) {
@@ -423,7 +438,7 @@ function categoryPage(article) {
 }
 
 function articlePage(article, allArticles) {
-  const articleUrl = `${SITE_URL}/${article.htmlFile}`;
+  const articleUrl = pageUrl(article.htmlFile);
   const related = allArticles.filter((item) => item.htmlFile !== article.htmlFile && item.category === article.category).slice(0, 3).map((item) => ({ ...item, title: shortenText(item.title, 74) }));
   const image = articleImageUrl(article);
   const publisherLogo = `${SITE_URL}/apple-touch-icon.png`;
@@ -472,14 +487,19 @@ ${bodyAssets()}
 }
 
 function updateSitemap(articles) {
-  const htmlFiles = fs.readdirSync(ROOT).filter((name) => name.endsWith(".html")).map((name) => (name === "index.html" ? "" : name));
-  const urls = Array.from(new Set([...htmlFiles, ...articles.map((article) => article.htmlFile)]));
+  const htmlFiles = fs.readdirSync(ROOT)
+    .filter((name) => name.endsWith(".html") && !SITEMAP_EXCLUDE.has(name))
+    .map(cleanPath);
+  const articlePaths = articles
+    .filter((article) => !SITEMAP_EXCLUDE.has(article.htmlFile))
+    .map((article) => cleanPath(article.htmlFile));
+  const urls = Array.from(new Set([...htmlFiles, ...articlePaths]));
   const today = new Date().toISOString().slice(0, 10);
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((file) => `  <url><loc>${SITE_URL}${file ? `/${file}` : ""}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`, "utf8");
 }
 
 function updateLlms(articles) {
-  const lines = ["# Blog MD Rénov'", "", "Guides rénovation, menuiseries, aides, isolation, volets, stores, pergolas, portes et portails en Haute-Savoie et Savoie.", "", "## Articles", ...articles.map((article) => `- [${article.title}](${SITE_URL}/${article.htmlFile}) - ${article.description}`), ""];
+  const lines = ["# Blog MD Rénov'", "", "Guides rénovation, menuiseries, aides, isolation, volets, stores, pergolas, portes et portails en Haute-Savoie et Savoie.", "", "## Articles", ...articles.map((article) => `- [${article.title}](${pageUrl(article.htmlFile)}) - ${article.description}`), ""];
   fs.writeFileSync(path.join(ROOT, "llms.txt"), lines.join("\n"), "utf8");
 }
 

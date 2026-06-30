@@ -1,10 +1,14 @@
 import { next } from "@vercel/functions";
 
-const PASSWORD_HASH =
+// Secrets read from environment (set them in Vercel > Project > Settings > Environment Variables).
+// Fallbacks keep the current behaviour working until the env vars are configured.
+const FALLBACK_HASH =
   "8f9e5669280cd41a44674368ccb532d5b8f1070e58ad7bc9091216c62893b25e";
+const BLOG_PASSWORD_HASH = process.env.MDR_BLOG_PASSWORD_HASH || FALLBACK_HASH;
+const ADMIN_PASSWORD_HASH = process.env.MDR_ADMIN_PASSWORD_HASH || FALLBACK_HASH;
+const COOKIE_SECRET = process.env.MDR_COOKIE_SECRET || `mdr-fallback-${FALLBACK_HASH}`;
 const BLOG_ACCESS_COOKIE = "mdr_blog_access";
 const ADMIN_ACCESS_COOKIE = "mdr_admin_access";
-const ADMIN_PASSWORD_HASH = PASSWORD_HASH;
 const ONE_WEEK = 60 * 60 * 24 * 7;
 
 function parseCookie(header = "") {
@@ -28,6 +32,26 @@ async function sha256(value) {
   const data = new TextEncoder().encode(value);
   const hashBuffer = await crypto.subtle.digest("SHA-256", data);
   return [...new Uint8Array(hashBuffer)]
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+// Signed access token used as the cookie value. It is derived from a server-side
+// secret, so it cannot be forged from anything visible in the repository.
+async function accessToken(label) {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(COOKIE_SECRET),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+  const signature = await crypto.subtle.sign(
+    "HMAC",
+    key,
+    new TextEncoder().encode(label),
+  );
+  return [...new Uint8Array(signature)]
     .map((byte) => byte.toString(16).padStart(2, "0"))
     .join("");
 }
@@ -302,7 +326,7 @@ function loginPage({ admin = false, error = false } = {}) {
 </html>`;
 }
 
-async function handlePasswordPost(request, url, expectedHash, cookieName) {
+async function handlePasswordPost(request, url, expectedHash, cookieName, cookieToken) {
   const formData = await request.formData();
   const password = String(formData.get("password") || "");
   const passwordHash = await sha256(password);
@@ -315,7 +339,7 @@ async function handlePasswordPost(request, url, expectedHash, cookieName) {
     status: 303,
     headers: {
       Location: url.pathname + url.search,
-      "Set-Cookie": buildCookie(cookieName, expectedHash),
+      "Set-Cookie": buildCookie(cookieName, cookieToken),
     },
   });
 }
@@ -331,8 +355,11 @@ export default async function middleware(request) {
   const adminRoute = isAdminRoute(url.pathname);
   const adminApi = isAdminApi(url.pathname);
 
+  const blogToken = await accessToken("blog-access");
+  const adminToken = await accessToken("admin-access");
+
   if (adminRoute || adminApi) {
-    if (cookies[ADMIN_ACCESS_COOKIE] === ADMIN_PASSWORD_HASH) {
+    if (cookies[ADMIN_ACCESS_COOKIE] === adminToken) {
       return next();
     }
 
@@ -342,6 +369,7 @@ export default async function middleware(request) {
         url,
         ADMIN_PASSWORD_HASH,
         ADMIN_ACCESS_COOKIE,
+        adminToken,
       );
       return response || htmlResponse(loginPage({ admin: true, error: true }), 401);
     }
@@ -353,12 +381,18 @@ export default async function middleware(request) {
     return htmlResponse(loginPage({ admin: true }));
   }
 
-  if (cookies[BLOG_ACCESS_COOKIE] === PASSWORD_HASH) {
+  if (cookies[BLOG_ACCESS_COOKIE] === blogToken) {
     return next();
   }
 
   if (request.method === "POST") {
-    const response = await handlePasswordPost(request, url, PASSWORD_HASH, BLOG_ACCESS_COOKIE);
+    const response = await handlePasswordPost(
+      request,
+      url,
+      BLOG_PASSWORD_HASH,
+      BLOG_ACCESS_COOKIE,
+      blogToken,
+    );
     return response || htmlResponse(loginPage({ error: true }), 401);
   }
 
