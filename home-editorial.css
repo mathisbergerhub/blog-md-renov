@@ -11,7 +11,7 @@
   align-items: end;
   padding: clamp(2rem, 5vw, 4.5rem) clamp(1.25rem, 5vw, 5rem);
   text-align: left;
-  background: #171715;
+  background: var(--mdr-ink-deep);
 }
 
 .mdr-home-page .mdr-home-hero--editorial::before,
@@ -51,7 +51,7 @@
 .mdr-home-page .mdr-home-hero--editorial .mdr-home-badge {
   width: fit-content;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  background: #9b1c1c;
+  background: var(--mdr-red);
   color: #fff;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
 }
@@ -96,7 +96,7 @@
 }
 
 .mdr-home-intents span {
-  color: #f0ece4;
+  color: var(--mdr-paper);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -111,7 +111,7 @@
   border: 1px solid rgba(155, 28, 28, 0.18);
   border-radius: 999px;
   background: rgba(155, 28, 28, 0.07);
-  color: #9b1c1c;
+  color: var(--mdr-red);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -142,7 +142,7 @@
 .mdr-home-page .mdr-home-media--featured {
   background:
     radial-gradient(circle at 35% 32%, rgba(255, 255, 255, 0.16), transparent 28%),
-    linear-gradient(135deg, #2b2a27 0%, #171715 100%);
+    linear-gradient(135deg, #2b2a27 0%, var(--mdr-ink-deep) 100%);
 }
 
 .mdr-home-page .mdr-home-featured__body h2 {
@@ -163,14 +163,14 @@
   gap: 0.25rem;
   min-height: 104px;
   padding: 0.85rem 0.95rem 0.9rem;
-  border: 1px solid #ddd9d0;
+  border: 1px solid var(--mdr-line);
   border-radius: 16px;
   background: #fffaf3;
   box-shadow: 0 12px 28px rgba(20, 14, 8, 0.04);
 }
 
 .mdr-home-shortcuts strong {
-  color: #1a1a18;
+  color: var(--mdr-ink);
   font-size: clamp(1rem, 1.28vw, 1.16rem);
   line-height: 1.16;
   letter-spacing: -0.02em;
@@ -217,7 +217,7 @@
   display: grid;
   gap: 0.75rem;
   padding: 0.95rem 1rem 1rem;
-  border: 1px solid #ddd9d0;
+  border: 1px solid var(--mdr-line);
   border-radius: 16px;
   background: #fff;
   box-shadow: 0 12px 26px rgba(20, 14, 8, 0.04);
@@ -230,7 +230,7 @@
   gap: 0.26rem;
   padding: 0.82rem 0.95rem 0.88rem;
   border: 1px solid rgba(123, 18, 28, 0.28);
-  background: #9b1c1c;
+  background: var(--mdr-red);
   color: #fff;
   box-shadow: 0 14px 30px rgba(55, 19, 13, 0.14);
 }
@@ -268,7 +268,7 @@
 .mdr-home-page .mdr-home-cta .mdr-btn--white {
   margin-top: 0.2rem;
   background: #fff;
-  color: #9b1c1c;
+  color: var(--mdr-red);
   box-shadow: 0 10px 22px rgba(55, 19, 13, 0.16);
 }
 
@@ -279,7 +279,7 @@
   gap: 0.78rem;
   padding: 0.18rem 0 0.74rem;
   border-bottom: 1px solid #eadfd2;
-  color: #1a1a18;
+  color: var(--mdr-ink);
   box-shadow: none;
 }
 
@@ -289,7 +289,7 @@
   inset: 0 0 auto;
   height: 3px;
   border-radius: 999px;
-  background: #9b1c1c;
+  background: var(--mdr-red);
   pointer-events: none;
 }
 
@@ -315,7 +315,7 @@
 
 .mdr-home-rail h2 {
   max-width: 18ch;
-  color: #1a1a18;
+  color: var(--mdr-ink);
   font-size: clamp(1.36rem, 1.62vw, 1.72rem);
   line-height: 1.04;
   letter-spacing: -0.026em;
@@ -334,14 +334,14 @@
   border: 1px solid rgba(155, 28, 28, 0.22);
   border-radius: 999px;
   background: rgba(155, 28, 28, 0.06);
-  color: #9b1c1c;
+  color: var(--mdr-red);
   font-size: 0.66rem;
   letter-spacing: 0.1em;
 }
 
 .mdr-home-rail .mdr-btn--white {
-  border: 1px solid #9b1c1c;
-  background: #9b1c1c;
+  border: 1px solid var(--mdr-red);
+  background: var(--mdr-red);
   color: #fff;
   box-shadow: 0 4px 8px rgba(55, 19, 13, 0.13);
 }
@@ -375,13 +375,13 @@
   border: 1px solid rgba(155, 28, 28, 0.18);
   border-radius: 999px;
   background: rgba(155, 28, 28, 0.08);
-  color: #9b1c1c;
+  color: var(--mdr-red);
   font-size: 0.66rem;
   font-weight: 850;
 }
 
 .mdr-home-rail__steps strong {
-  color: #1a1a18;
+  color: var(--mdr-ink);
   font-size: 0.9rem;
   line-height: 1.16;
 }
@@ -475,7 +475,7 @@
   justify-content: space-between;
   gap: 0.72rem;
   padding: 0.68rem 0.72rem;
-  color: #1a1a18;
+  color: var(--mdr-ink);
   font-size: 0.9rem;
   font-weight: 750;
   line-height: 1.22;
@@ -498,14 +498,14 @@
   justify-content: center;
   border: 1px solid #e4d8c8;
   border-radius: 999px;
-  color: #9b1c1c;
+  color: var(--mdr-red);
   background: #fffaf3;
   font-size: 1rem;
   font-weight: 800;
 }
 
 .mdr-home-faq details[open] summary {
-  color: #9b1c1c;
+  color: var(--mdr-red);
 }
 
 .mdr-home-faq details[open] summary::after {
@@ -680,7 +680,7 @@
     display: grid;
     gap: 0.75rem;
     padding: 0.95rem 1rem 1rem;
-    border: 1px solid #ddd9d0;
+    border: 1px solid var(--mdr-line);
     border-radius: 16px;
     background: #fff;
     box-shadow: 0 12px 26px rgba(20, 14, 8, 0.04);
@@ -821,7 +821,7 @@
   min-height: 300px;
   padding: 0 !important;
   overflow: hidden;
-  background: #171715;
+  background: var(--mdr-ink-deep);
 }
 
 .mdr-home-page .mdr-home-featured > .mdr-home-media--featured.mdr-media--image img {
@@ -876,7 +876,7 @@
   padding: 0.34rem 0.66rem;
   border: 1px solid rgba(155, 28, 28, 0.22);
   background: rgba(155, 28, 28, 0.07);
-  color: #9b1c1c;
+  color: var(--mdr-red);
   font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -964,7 +964,7 @@
   font-size: 0.96rem;
   font-weight: 700;
   line-height: 1.2;
-  color: #1a1a18;
+  color: var(--mdr-ink);
 }
 
 .mdr-home-page .mdr-home-rail__steps small {
@@ -1015,7 +1015,7 @@
   width: 7px;
   height: 7px;
   border-radius: 999px;
-  background: #9b1c1c;
+  background: var(--mdr-red);
   flex: 0 0 auto;
 }
 
