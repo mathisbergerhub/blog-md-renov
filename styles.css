@@ -1680,3 +1680,507 @@ body.mdr-home-page {
 @media (prefers-reduced-motion: reduce) {
   .js-anim .mdr-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
+
+/* =========================================================================
+   REDESIGN 2026 — couche éditoriale (articles + home + listing + légales + gate)
+   Garde l'identité MD Rénov' (rouge, Lexend) ; promeut Playfair sur les titres,
+   supprime les cartes imbriquées, aère la lecture, ajoute sommaire + partage.
+   Chargée après tout le reste : ces règles gagnent la cascade.
+   ========================================================================= */
+
+:root {
+  --mdr-red: #9b1c1c;
+  --mdr-red-deep: #7f1717;
+  --mdr-red-tint: #fbf1ec;
+  --mdr-ink: #211d17;
+  --mdr-ink-soft: #433d34;
+  --mdr-paper: #f4f1ea;        /* canvas plus clair, moins saturé que l'ancien crème */
+  --mdr-surface: #ffffff;
+  --mdr-tint: #faf6ef;         /* insert chaud subtil */
+  --mdr-line: #e7e0d4;         /* filet plus doux */
+  --mdr-muted: #5c5549;
+  --mdr-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --mdr-shadow-sm: 0 1px 2px rgba(33, 24, 12, .05);
+  --mdr-shadow-md: 0 20px 44px -22px rgba(43, 30, 14, .28);
+  --mdr-measure: 68ch;
+  --mdr-z-sticky: 30;
+  --mdr-z-readbar: 55;
+  --mdr-z-gate: 200;
+}
+
+/* ---- Titres en Playfair (tout le site) -------------------------------- */
+.mdr-article-head h1,
+.mdr-hero h1,
+body.mdr-home-page .mdr-home-hero h1,
+body.mdr-listing-page .mdr-listing-hero h1,
+body.mdr-legal-page .mdr-legal-hero h1,
+.mdr-featured__body h2,
+body.mdr-home-page .mdr-home-featured__body h2,
+body.mdr-home-page .mdr-home-cta h2,
+.mdr-prose h2,
+body.mdr-legal-page .mdr-legal-card h2,
+.mdr-card h3,
+body.mdr-home-page .mdr-home-card h3,
+.mdr-cta-box h3 {
+  font-family: var(--mdr-serif);
+  font-style: normal;
+}
+
+/* ======================================================================
+   ARTICLE
+   ====================================================================== */
+
+body.mdr-article-page { background: var(--mdr-paper); }
+
+/* En-tête d'article — plus éditorial */
+body.mdr-article-page .mdr-article-head {
+  padding: 2.2rem 1.75rem 1.5rem;
+  background: var(--mdr-paper);
+  border-bottom: 1px solid var(--mdr-line);
+}
+body.mdr-article-page .mdr-article-head h1 {
+  font-family: var(--mdr-serif);
+  font-weight: 700;
+  font-size: clamp(2.05rem, 4.4vw, 3.4rem);
+  line-height: 1.09;
+  letter-spacing: -0.012em;
+  color: var(--mdr-ink);
+  max-width: 20ch;
+  text-wrap: balance;
+}
+body.mdr-article-page .mdr-article-head h1 .mdr-title-accent {
+  font-family: var(--mdr-serif);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--mdr-red);
+}
+body.mdr-article-page .mdr-article-head__excerpt {
+  font-family: var(--mdr-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  line-height: 1.5;
+  color: var(--mdr-ink-soft);
+  max-width: 46ch;
+  margin-top: 0.9rem;
+}
+body.mdr-article-page .mdr-article-head__meta { margin-bottom: 0.7rem; gap: 0.5rem 0.7rem; }
+
+/* Corps : on supprime la grosse carte blanche ; la prose respire sur la page */
+body.mdr-article-page .mdr-article-body {
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 2.6rem;
+  padding: 1.9rem 1.75rem 2.6rem;
+  background: var(--mdr-paper);
+}
+body.mdr-article-page .mdr-prose {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  max-width: 74ch;
+}
+body.mdr-article-page .mdr-prose p {
+  font-size: 1.03rem;
+  line-height: 1.82;
+  color: #34302a;
+  max-width: var(--mdr-measure);
+}
+body.mdr-article-page .mdr-prose > p:first-of-type,
+body.mdr-article-page .mdr-prose .mdr-article-leadbox + p { }
+
+/* H2 : serif + court filet rouge, hiérarchie franche */
+body.mdr-article-page .mdr-prose h2 {
+  font-family: var(--mdr-serif);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.6vw, 1.95rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--mdr-ink);
+  max-width: none;
+  margin: 2.5rem 0 0.3rem;
+  padding-top: 1.4rem;
+  position: relative;
+}
+body.mdr-article-page .mdr-prose h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--mdr-red);
+}
+body.mdr-article-page .mdr-prose > h2 + p { margin-top: 0.55rem; }
+
+/* Figure héro — cover généreux, ombre douce, filet discret */
+body.mdr-article-page .mdr-article-figure {
+  margin: 0 0 0.4rem;
+  border: 1px solid var(--mdr-line);
+  border-radius: 18px;
+  box-shadow: var(--mdr-shadow-md);
+  background: #efe9df;
+}
+body.mdr-article-page .mdr-article-figure img {
+  height: clamp(210px, 30vw, 380px);
+  border-radius: 0;
+}
+
+/* Encart "Le point important" — repère typographique, plus de boîte */
+body.mdr-article-page .mdr-article-leadbox {
+  border: 0;
+  border-top: 1px solid var(--mdr-line);
+  border-bottom: 1px solid var(--mdr-line);
+  border-radius: 0;
+  background: transparent;
+  padding: 1.15rem 0;
+  margin: 1.6rem 0;
+}
+body.mdr-article-page .mdr-article-leadbox p {
+  font-family: var(--mdr-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.9vw, 1.35rem);
+  line-height: 1.52;
+  color: var(--mdr-ink-soft);
+  margin: 0;
+}
+
+/* Keyfacts — un seul panneau, dividers internes (fini les 4 boîtes) */
+body.mdr-article-page .mdr-keyfacts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 1.5rem 0;
+  background: var(--mdr-surface);
+  border: 1px solid var(--mdr-line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--mdr-shadow-sm);
+}
+body.mdr-article-page .mdr-keyfacts > div {
+  border: 0;
+  border-right: 1px solid var(--mdr-line);
+  border-radius: 0;
+  background: transparent;
+  padding: 1.05rem 1.1rem;
+}
+body.mdr-article-page .mdr-keyfacts > div:last-child { border-right: 0; }
+body.mdr-article-page .mdr-keyfacts strong { color: var(--mdr-ink); }
+
+/* Tableaux de décision — en-tête ink profond, coins arrondis, ombre douce */
+body.mdr-article-page .mdr-prose table {
+  margin: 1.4rem 0;
+  border: 1px solid var(--mdr-line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--mdr-surface);
+  box-shadow: var(--mdr-shadow-sm);
+}
+body.mdr-article-page .mdr-prose th {
+  background: #211d17;
+  color: #f3ece0;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 0.86rem;
+  font-weight: 600;
+  border-color: rgba(255,255,255,.08);
+}
+body.mdr-article-page .mdr-prose td { border-color: var(--mdr-line); }
+body.mdr-article-page .mdr-prose tbody tr:nth-child(even) td { background: #faf7f1; }
+body.mdr-article-page .mdr-decision-table td:first-child { font-weight: 500; }
+
+/* Check-grid — cartes légères, coche rouge */
+body.mdr-article-page .mdr-check-grid li {
+  min-height: 0;
+  border: 1px solid var(--mdr-line);
+  border-radius: 12px;
+  background: var(--mdr-tint);
+  padding: 1rem 1.05rem;
+}
+body.mdr-article-page .mdr-check-grid strong {
+  position: relative;
+  padding-left: 1.7rem;
+  color: var(--mdr-ink);
+}
+body.mdr-article-page .mdr-check-grid strong::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: -0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: var(--mdr-red);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+body.mdr-article-page .mdr-check-grid span { padding-left: 1.7rem; }
+
+/* Sources — bloc réglé en haut, sans carte */
+body.mdr-article-page .mdr-source-card,
+body.mdr-article-page .mdr-source-card--rich {
+  border: 0;
+  border-top: 2px solid var(--mdr-ink);
+  border-radius: 0;
+  background: transparent;
+  padding: 1.2rem 0 0;
+  margin-top: 1.8rem;
+}
+
+/* Citation — pull-quote serif, guillemet rouge en tête (sans liseré latéral) */
+body.mdr-article-page .mdr-prose blockquote {
+  position: relative;
+  margin: 1.8rem 0;
+  padding: 1.6rem 0 0.2rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--mdr-ink);
+  font-family: var(--mdr-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.1vw, 1.5rem);
+  line-height: 1.48;
+  max-width: 52ch;
+}
+body.mdr-article-page .mdr-prose blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.35rem;
+  left: -0.1rem;
+  color: var(--mdr-red);
+  font-family: var(--mdr-serif);
+  font-size: 3.2rem;
+  line-height: 1;
+}
+
+/* CTA inline — calme (une seule zone rouge forte = la sidebar) */
+body.mdr-article-page .mdr-prose-cta {
+  background: var(--mdr-surface);
+  border: 1px solid var(--mdr-line);
+  border-radius: 14px;
+  box-shadow: var(--mdr-shadow-sm);
+  padding: 1.1rem 1.25rem;
+}
+body.mdr-article-page .mdr-prose-cta strong { color: var(--mdr-ink); font-size: 1rem; }
+body.mdr-article-page .mdr-prose-cta span { color: var(--mdr-muted); }
+body.mdr-article-page .mdr-prose-cta .mdr-btn--white {
+  background: var(--mdr-red);
+  color: #fff;
+}
+
+/* ---- Sidebar : sommaire (scroll-spy) + CTA + partage ------------------ */
+body.mdr-article-page .mdr-sidebar { gap: 1.25rem; }
+
+.mdr-toc {
+  padding: 0.2rem 0 0;
+}
+.mdr-toc__title {
+  margin: 0 0 0.7rem;
+  color: var(--mdr-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.mdr-toc__list { display: grid; gap: 0.12rem; }
+.mdr-toc__link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: #837b6e;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+.mdr-toc__link:hover { color: var(--mdr-ink); background: rgba(155, 28, 28, 0.05); }
+.mdr-toc__link.is-active {
+  color: var(--mdr-red);
+  font-weight: 600;
+  background: var(--mdr-red-tint);
+}
+
+.mdr-cta-box {
+  padding: 1.25rem 1.25rem 1.3rem;
+  border-radius: 16px;
+  background: var(--mdr-red);
+  box-shadow: 0 22px 44px -24px rgba(155, 28, 28, 0.55);
+}
+.mdr-cta-box h3 { font-family: var(--mdr-serif); font-weight: 700; font-size: 1.32rem; }
+
+.mdr-share { display: grid; gap: 0.55rem; }
+.mdr-share__label {
+  color: var(--mdr-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.mdr-share__row { display: flex; gap: 0.5rem; }
+.mdr-share__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--mdr-line);
+  border-radius: 999px;
+  background: var(--mdr-surface);
+  color: var(--mdr-ink-soft);
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+.mdr-share__btn:hover,
+.mdr-share__btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--mdr-red);
+  color: var(--mdr-red);
+  background: var(--mdr-red-tint);
+}
+.mdr-share__btn svg { width: 18px; height: 18px; fill: currentColor; }
+.mdr-share__btn.is-copied { color: #fff; background: var(--mdr-red); border-color: var(--mdr-red); }
+
+@media (max-width: 1050px) {
+  .mdr-toc { display: none; }        /* sommaire réservé au desktop (colonne) */
+}
+@media (max-width: 640px) {
+  body.mdr-article-page .mdr-keyfacts { grid-template-columns: 1fr 1fr; }
+  body.mdr-article-page .mdr-keyfacts > div:nth-child(2n) { border-right: 0; }
+  body.mdr-article-page .mdr-keyfacts > div:nth-child(-n+2) { border-bottom: 1px solid var(--mdr-line); }
+}
+@media (max-width: 460px) {
+  body.mdr-article-page .mdr-keyfacts { grid-template-columns: 1fr; }
+  body.mdr-article-page .mdr-keyfacts > div { border-right: 0; border-bottom: 1px solid var(--mdr-line); }
+  body.mdr-article-page .mdr-keyfacts > div:last-child { border-bottom: 0; }
+  body.mdr-article-page .mdr-check-grid { grid-template-columns: 1fr; }
+}
+
+/* ======================================================================
+   HOME + LISTING + LÉGALES — harmonisation (surface + serif via règles ci-dessus)
+   ====================================================================== */
+body.mdr-home-page .mdr-home-hero h1,
+body.mdr-listing-page .mdr-listing-hero h1,
+body.mdr-legal-page .mdr-legal-hero h1 {
+  font-family: var(--mdr-serif);
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+body.mdr-home-page .mdr-home-hero h1 .mdr-script-word {
+  color: var(--mdr-red);
+}
+body.mdr-home-page .mdr-home-card h3,
+body.mdr-legal-page .mdr-legal-card h2 {
+  font-family: var(--mdr-serif);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+body.mdr-legal-page .mdr-legal-card {
+  border-color: var(--mdr-line);
+  box-shadow: var(--mdr-shadow-sm);
+}
+
+/* ======================================================================
+   PAGE D'ACCÈS PRIVÉ (.auth-gate) — première impression publique soignée
+   ====================================================================== */
+.auth-locked { overflow: hidden; }
+.auth-gate {
+  position: fixed;
+  inset: 0;
+  z-index: var(--mdr-z-gate);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(120% 80% at 80% 0%, #3a1414 0%, #211008 55%, #17100a 100%);
+}
+.auth-gate__panel {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 0.35rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border-radius: 20px;
+  background: #fbf8f2;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.6);
+  text-align: left;
+}
+.auth-gate__brand {
+  font-family: var(--mdr-serif);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--mdr-red);
+  margin-bottom: 0.4rem;
+}
+.auth-gate__eyebrow {
+  margin: 0;
+  color: var(--mdr-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.auth-gate__panel h1 {
+  margin: 0.15rem 0 0;
+  font-family: var(--mdr-serif);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.5vw, 1.95rem);
+  line-height: 1.12;
+  color: var(--mdr-ink);
+}
+.auth-gate__text { margin: 0.55rem 0 1rem; color: var(--mdr-ink-soft); line-height: 1.6; font-size: 0.95rem; }
+.auth-gate__label {
+  color: var(--mdr-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.auth-gate__input {
+  margin-top: 0.4rem;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 1rem;
+  border: 1px solid #ddd4c6;
+  border-radius: 11px;
+  background: #fff;
+  color: var(--mdr-ink);
+  font-family: "Lexend", sans-serif;
+  font-size: 1rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.auth-gate__input:focus-visible {
+  outline: none;
+  border-color: var(--mdr-red);
+  box-shadow: 0 0 0 3px rgba(155, 28, 28, 0.16);
+}
+.auth-gate__error { margin: 0.6rem 0 0; min-height: 1.1rem; color: var(--mdr-red-deep); font-size: 0.86rem; font-weight: 600; }
+.auth-gate__button {
+  margin-top: 0.9rem;
+  min-height: 50px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--mdr-red);
+  color: #fff;
+  font-family: "Lexend", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 16px 30px -12px rgba(155, 28, 28, 0.6);
+}
+.auth-gate__button:hover,
+.auth-gate__button:focus-visible { transform: translateY(-1px); background: var(--mdr-red-deep); }
+
+/* ======================================================================
+   MOTION — respecte prefers-reduced-motion
+   ====================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .mdr-toc__link,
+  .mdr-share__btn,
+  .auth-gate__button,
+  .auth-gate__input { transition: none; }
+  .mdr-share__btn:hover,
+  .mdr-share__btn:focus-visible,
+  .auth-gate__button:hover { transform: none; }
+}
