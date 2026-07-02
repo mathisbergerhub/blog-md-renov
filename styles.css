@@ -186,7 +186,7 @@ a.mdr-sidelink__cat:focus-visible,
 } a.mdr-home-card__tag:hover,
 a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); background: #fff1e9;
 } .mdr-home-card__date,
-.mdr-home-card__time { color: #8b92a0; font-size: 0.8rem;
+.mdr-home-card__time { color: var(--mdr-meta); font-size: 0.8rem;
 } .mdr-home-card h3 { color: var(--mdr-ink); font-family: "Lexend", sans-serif; font-size: 1.08rem; font-weight: 700; line-height: 1.24; text-wrap: balance;
 } .mdr-home-card p { margin: 0.5rem 0 0.75rem; color: var(--mdr-muted); font-size: 0.94rem; line-height: 1.58; flex: 1;
 } .mdr-home-card__foot { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem; margin-top: auto;
