@@ -100,7 +100,7 @@ document.addEventListener('keydown', (event) => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.documentElement.classList.add('js-anim');
   const targets = document.querySelectorAll(
-    '.mdr-home-featured, .mdr-home-card, .mdr-home-shortcuts > a, .mdr-keyfacts > div, .mdr-value-grid > div, .mdr-prose > h2, .mdr-source-card'
+    '.mdr-home-featured, .mdr-home-card, .mdr-home-shortcuts > a, .mdr-keyfacts__grid > div, .mdr-value-grid > div, .mdr-prose > h2, .mdr-source-card'
   );
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

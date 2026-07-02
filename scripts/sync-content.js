@@ -240,7 +240,7 @@ function mediaBlock(article) {
     const normalized = /^https?:\/\//i.test(src) ? src : `./${src.replace(/^\.?\//, "")}`;
     return `<div class="mdr-media mdr-media--article mdr-media--image"><img src="${e(normalized)}" alt="${label}" loading="eager"></div>`;
   }
-  return `<div class="mdr-media mdr-media--article" aria-label="Emplacement visuel 16:10 : ${label}"><strong>${label}</strong><span>Emplacement photo 16:10</span></div>`;
+  return "";
 }
 
 function articleImageUrl(article) {
@@ -284,9 +284,12 @@ function categoryFacts(article) {
 }
 
 function renderKeyFacts(article) {
-  return `<div class="mdr-keyfacts mdr-keyfacts--compact" aria-label="Repères à retenir">
-${categoryFacts(article).map(([label, title, text]) => `<div><span>${e(label)}</span><strong>${e(title)}</strong><p>${e(text)}</p></div>`).join("\n")}
-</div>`;
+  return `<section class="mdr-keyfacts mdr-keyfacts--compact" aria-label="En bref">
+<p class="mdr-keyfacts__title">En bref</p>
+<div class="mdr-keyfacts__grid">
+${categoryFacts(article).slice(0, 3).map(([label, title, text]) => `<div><span>${e(label)}</span><strong>${e(title)}</strong><p>${e(text)}</p></div>`).join("\n")}
+</div>
+</section>`;
 }
 
 function listMode(sectionType) {
