@@ -94,28 +94,6 @@ document.addEventListener('keydown', (event) => {
   update();
 })();
 
-/* ---- Sticky mobile "Devis gratuit" CTA (article pages, thumb zone) ---- */
-(function () {
-  if (!document.body.classList.contains('mdr-article-page')) return;
-  const cta = document.createElement('a');
-  cta.className = 'mdr-stickycta';
-  cta.href = 'https://www.mdrenov-menuiserie.com/contact#Contact-Form';
-  cta.target = '_blank';
-  cta.rel = 'noopener noreferrer';
-  cta.textContent = 'Devis gratuit';
-  document.body.appendChild(cta);
-  // Hide it whenever a footer is on screen, so it never covers the footer CTA.
-  const footer = document.querySelector('.mdr-article-footer, .mdr-site-footer');
-  if (footer && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        document.body.classList.toggle('mdr-stickycta-hide', entry.isIntersecting);
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    io.observe(footer);
-  }
-})();
-
 /* ---- Entrance motion: progressive enhancement only (content is visible by default) ---- */
 (function () {
   if (!('IntersectionObserver' in window)) return;
@@ -167,12 +145,20 @@ document.addEventListener('keydown', (event) => {
   nav.setAttribute('aria-label', 'Sommaire de l’article');
 
   const pills = new Map();
+  const shortLabels = new Map([
+    ['le-delai-ne-commence-pas-seulement-le-jour-de-la-pose', 'Départ'],
+    ['ordres-de-grandeur-a-comprendre', 'Repères'],
+    ['ce-qui-rallonge-le-calendrier', 'Ce qui rallonge'],
+    ['comment-lire-un-delai-annonce-sans-mauvaise-surprise', 'Lire le délai'],
+    ['ce-qu-il-faut-bloquer-des-le-depart', 'À bloquer'],
+    ['ce-qui-fait-vraiment-varier-le-delai-d-un-chantier', 'Variations'],
+  ]);
   headings.forEach((h) => {
     const pill = document.createElement('a');
     pill.className = 'mdr-toc-pill';
     pill.href = '#' + h.id;
     const label = h.textContent.trim();
-    pill.textContent = label.length > 52 ? label.slice(0, 51).trimEnd() + '…' : label;
+    pill.textContent = shortLabels.get(h.id) || (label.length > 34 ? label.slice(0, 33).trimEnd() + '…' : label);
     pill.title = label;
     pill.addEventListener('click', (event) => {
       event.preventDefault();
@@ -187,11 +173,16 @@ document.addEventListener('keydown', (event) => {
   let currentId = null;
   const setActive = (id) => {
     if (id === currentId) return;
-    if (currentId && pills.has(currentId)) pills.get(currentId).classList.remove('is-active');
+    if (currentId && pills.has(currentId)) {
+      const current = pills.get(currentId);
+      current.classList.remove('is-active');
+      current.removeAttribute('aria-current');
+    }
     currentId = id;
     const pill = pills.get(id);
     if (!pill) return;
     pill.classList.add('is-active');
+    pill.setAttribute('aria-current', 'true');
     const target = pill.offsetLeft - nav.clientWidth / 2 + pill.offsetWidth / 2;
     nav.scrollTo({ left: Math.max(0, target), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
   };
@@ -210,6 +201,24 @@ document.addEventListener('keydown', (event) => {
     requestAnimationFrame(() => { pickCurrent(); ticking = false; });
   }, { passive: true });
   pickCurrent();
+})();
+
+/* ---- Sources compactes : visibles pour SEO, repliables pour lecture ---- */
+(function () {
+  if (!document.body.classList.contains('mdr-article-page')) return;
+  document.querySelectorAll('.mdr-source-card--rich').forEach((card) => {
+    const title = card.querySelector(':scope > strong');
+    const list = card.querySelector(':scope > ul');
+    if (!title || !list || card.querySelector('details')) return;
+
+    const details = document.createElement('details');
+    details.className = 'mdr-source-details';
+    const summary = document.createElement('summary');
+    summary.textContent = title.textContent.trim();
+    details.appendChild(summary);
+    details.appendChild(list);
+    title.replaceWith(details);
+  });
 })();
 
 /* ---- CTA final : rapatrie les badges de confiance de l'encart latéral ---- */

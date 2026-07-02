@@ -1653,22 +1653,6 @@ body.mdr-home-page {
   will-change: transform;
 }
 
-/* Sticky mobile quote CTA (thumb zone) */
-.mdr-stickycta {
-  position: fixed; left: 50%; bottom: max(0.9rem, env(safe-area-inset-bottom));
-  transform: translateX(-50%); z-index: 50;
-  display: none; align-items: center; justify-content: center;
-  min-height: 52px; padding: 0 1.7rem; border-radius: 999px;
-  background: var(--mdr-red); color: #fff; font-weight: 800; font-size: 1rem;
-  box-shadow: 0 14px 30px rgba(155, 28, 28, 0.34);
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
-}
-.mdr-stickycta:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
-@media (max-width: 720px) { .mdr-stickycta { display: inline-flex; } }
-.mdr-stickycta-hide .mdr-stickycta {
-  transform: translateX(-50%) translateY(160%); opacity: 0; pointer-events: none;
-}
-
 /* Entrance motion — hidden state applies ONLY when JS confirms it will animate */
 .js-anim .mdr-reveal {
   opacity: 0; transform: translateY(16px);
@@ -1769,22 +1753,28 @@ body.mdr-home-page {
   z-index: 30;
   display: flex;
   gap: 0.5rem;
-  padding: 0.7rem 1.75rem;
+  padding: 0.68rem 1.75rem;
   background: #fff;
   border-bottom: 1px solid var(--mdr-line);
   overflow-x: auto;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scroll-padding-inline: 1.75rem;
 }
-.mdr-toc-pills::-webkit-scrollbar { display: none; }
+.mdr-toc-pills::-webkit-scrollbar { height: 6px; }
+.mdr-toc-pills::-webkit-scrollbar-thumb { background: #d7cec2; border-radius: 999px; }
 .mdr-toc-pill {
   flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   border: 1px solid var(--mdr-line);
   border-radius: 999px;
   background: #faf8f4;
   color: #5f5a52;
   font-family: inherit;
   font-size: 0.84rem;
-  padding: 0.44rem 0.9rem;
+  padding: 0.54rem 0.98rem;
   cursor: pointer;
   transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
 }
@@ -1930,6 +1920,41 @@ body.mdr-home-page {
   padding: 1.1rem 0 0;
   margin-top: 1.7rem;
 }
+.mdr-article-page .mdr-source-details {
+  display: block;
+}
+.mdr-article-page .mdr-source-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--mdr-red);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.mdr-article-page .mdr-source-details summary::after {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid var(--mdr-line);
+  border-radius: 999px;
+  color: var(--mdr-red);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+.mdr-article-page .mdr-source-details[open] summary::after {
+  content: "-";
+}
+.mdr-article-page .mdr-source-details .mdr-source-list {
+  margin-top: 0.55rem;
+}
 
 /* ---- CTA final unique : bloc rouge fort (les badges RGE y sont déplacés
    par script.js depuis l'encart latéral, désormais masqué) -------------- */
@@ -1993,7 +2018,8 @@ body.mdr-home-page {
     min-height: clamp(240px, 62vw, 340px);
     padding: 2rem 1rem 1.5rem;
   }
-  .mdr-toc-pills { padding: 0.6rem 1rem; }
+  .mdr-toc-pills { padding: 0.55rem 1rem; scroll-padding-inline: 1rem; }
+  .mdr-toc-pill { min-height: 42px; padding: 0.5rem 0.86rem; font-size: 0.8rem; }
   .mdr-article-page .mdr-article-body { padding: 1.4rem 1rem 2.2rem; }
   .mdr-article-page .mdr-sidelinks { grid-template-columns: 1fr; }
 }

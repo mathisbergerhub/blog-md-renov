@@ -56,9 +56,13 @@ Commande, fabrication, autorisations, pose et finitions : les étapes qui expliq
 - Pour les volets motorisés, validez l'alimentation ou la solution solaire avant la commande.
 - Pour un portail, séparez bien la pose du portail, la motorisation et les éventuelles reprises de maçonnerie.
 
-## Ce qu'il faut bloquer dès le départ - La date limite souhaitée : emménagement, vente, vacances ou arrivée du froid.
+## Ce qu'il faut bloquer dès le départ
+
+- La date limite souhaitée : emménagement, vente, vacances ou arrivée du froid.
 - Les autorisations éventuelles : mairie, copropriété, lotissement.
-- Les points bloquants : accès, étage, électricité, seuils, maçonnerie ou finitions intérieures. Vous avez une date cible ? On cale le calendrier avec les autorisations, la fabrication et la pose. Planifier mon chantier
+- Les points bloquants : accès, étage, électricité, seuils, maçonnerie ou finitions intérieures.
+
+Vous avez une date cible ? On cale le calendrier avec les autorisations, la fabrication et la pose.
 
 
 
