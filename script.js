@@ -217,3 +217,26 @@ document.addEventListener('keydown', (event) => {
   const cta = document.querySelector('.mdr-prose-cta');
   if (badges && cta) cta.appendChild(badges);
 })();
+
+/* ---- Pages catégories : hero immersif (photo du 1er article) + compteur ---- */
+(function () {
+  if (!document.body.classList.contains('mdr-listing-page')) return;
+  const hero = document.querySelector('.mdr-listing-hero');
+  if (!hero) return;
+  hero.classList.add('mdr-listing-hero--immersive');
+  const img = document.querySelector('.mdr-home-grid .mdr-home-card img');
+  const src = img ? (img.currentSrc || img.src) : '';
+  if (src) hero.style.setProperty('--mdr-hero-img', 'url("' + src + '")');
+  const count = document.querySelectorAll('.mdr-home-grid .mdr-home-card').length;
+  if (count > 0) {
+    const meta = document.createElement('p');
+    meta.className = 'mdr-listing-hero__meta';
+    const guides = document.createElement('span');
+    guides.textContent = count + (count > 1 ? ' guides' : ' guide');
+    const zone = document.createElement('span');
+    zone.textContent = 'Haute-Savoie · Savoie · Pays de Gex';
+    meta.appendChild(guides);
+    meta.appendChild(zone);
+    hero.appendChild(meta);
+  }
+})();

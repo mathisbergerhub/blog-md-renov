@@ -2002,3 +2002,129 @@ body.mdr-home-page {
   .mdr-toc-pill,
   .mdr-article-page .mdr-sidelink { transition: none; }
 }
+
+/* =========================================================================
+   PAGES CATÉGORIES — même langue que l'article immersif (maquette B).
+   Hero photo (1er article de la catégorie, via script.js) avec repli sur
+   fond encre sombre ; pilules de catégories collantes ; cartes affinées.
+   Polices inchangées.
+   ========================================================================= */
+
+.mdr-listing-page .mdr-full,
+.mdr-listing-page .mdr-listing-content { background: #fff; }
+
+/* ---- Hero immersif de catégorie --------------------------------------- */
+.mdr-listing-page .mdr-listing-hero--immersive {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-content: end;
+  justify-items: start;
+  gap: 0.7rem;
+  min-height: clamp(230px, 30vw, 350px);
+  padding: 2.4rem 1.25rem 1.9rem;
+  border-bottom: 0;
+  background: #221e1a;
+}
+.mdr-listing-hero--immersive::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #221e1a;
+  background-image: var(--mdr-hero-img);
+  background-size: cover;
+  background-position: center;
+}
+.mdr-listing-hero--immersive::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(22, 18, 14, 0.45) 0%, rgba(22, 18, 14, 0.8) 80%);
+}
+.mdr-listing-page .mdr-listing-hero--immersive h1 {
+  color: #fff;
+  white-space: normal;
+  text-wrap: balance;
+  max-width: 24ch;
+}
+.mdr-listing-page .mdr-listing-hero--immersive p {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 52ch;
+}
+.mdr-listing-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin: 0;
+  font-size: 0.82rem;
+}
+.mdr-listing-page .mdr-listing-hero--immersive .mdr-listing-hero__meta { color: rgba(255, 255, 255, 0.72); }
+
+/* ---- Barre de catégories collante -------------------------------------- */
+.mdr-listing-page .mdr-home-cats {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0.7rem 1.25rem;
+}
+.mdr-listing-page .mdr-home-cats::-webkit-scrollbar { display: none; }
+@media (min-width: 1120px) {
+  .mdr-listing-page .mdr-home-cats { justify-content: center; }
+}
+.mdr-listing-page .mdr-home-cat {
+  flex: none;
+  background: #faf8f4;
+  color: #5f5a52;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.mdr-listing-page a.mdr-home-cat:hover,
+.mdr-listing-page a.mdr-home-cat:focus-visible {
+  border-color: var(--mdr-red);
+  color: var(--mdr-red);
+}
+.mdr-listing-page .mdr-home-cat--active {
+  background: var(--mdr-red);
+  border-color: var(--mdr-red);
+  color: #fff;
+}
+
+/* ---- Cartes : micro-polish -------------------------------------------- */
+.mdr-listing-page .mdr-home-card {
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+.mdr-listing-page .mdr-home-card:hover,
+.mdr-listing-page .mdr-home-card:focus-within {
+  transform: translateY(-2px);
+  border-color: rgba(155, 28, 28, 0.35);
+  box-shadow: 0 18px 34px rgba(20, 14, 8, 0.09);
+}
+.mdr-listing-page .mdr-link::after {
+  content: " \2192";
+  display: inline-block;
+  margin-left: 0.2rem;
+  transition: transform 160ms ease;
+}
+.mdr-listing-page .mdr-home-card:hover .mdr-link::after { transform: translateX(2px); }
+
+@media (max-width: 760px) {
+  .mdr-listing-page .mdr-listing-hero--immersive {
+    min-height: clamp(210px, 52vw, 300px);
+    padding: 1.9rem 1rem 1.5rem;
+  }
+  .mdr-listing-page .mdr-home-cats { padding: 0.6rem 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mdr-listing-page .mdr-home-card,
+  .mdr-listing-page .mdr-home-cat,
+  .mdr-listing-page .mdr-link::after { transition: none; }
+  .mdr-listing-page .mdr-home-card:hover,
+  .mdr-listing-page .mdr-home-card:focus-within { transform: none; }
+  .mdr-listing-page .mdr-home-card:hover .mdr-link::after { transform: none; }
+}
