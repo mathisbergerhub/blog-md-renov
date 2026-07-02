@@ -2128,3 +2128,11 @@ body.mdr-home-page {
   .mdr-listing-page .mdr-home-card:focus-within { transform: none; }
   .mdr-listing-page .mdr-home-card:hover .mdr-link::after { transform: none; }
 }
+
+/* =========================================================================
+   RETRAITS DEMANDÉS (02/07/2026) : bandeau défilant de confiance et bouton
+   "Devis gratuit" du header. Les CTA restants couvrent la conversion :
+   menu mobile, CTA de fin d'article, CTA sticky mobile et footer.
+   ========================================================================= */
+.mdr-trust { display: none; }
+.mdr-topnav > .mdr-btn--primary { display: none; }
