@@ -171,7 +171,9 @@ document.addEventListener('keydown', (event) => {
     const pill = document.createElement('a');
     pill.className = 'mdr-toc-pill';
     pill.href = '#' + h.id;
-    pill.textContent = h.textContent.trim();
+    const label = h.textContent.trim();
+    pill.textContent = label.length > 52 ? label.slice(0, 51).trimEnd() + '…' : label;
+    pill.title = label;
     pill.addEventListener('click', (event) => {
       event.preventDefault();
       h.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });

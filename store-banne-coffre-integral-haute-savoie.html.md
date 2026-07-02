@@ -36,7 +36,9 @@ Protection solaire, exposition, dimensions et durabilité : les critères utiles
 
 ## Pourquoi choisir un coffre intégral ? Le coffre intégral protège la toile, les bras et le mécanisme lorsque le store est fermé. Il est pertinent sur une façade exposée, quand l'esthétique compte ou quand on cherche une solution durable avec moins d'usure visible. | | Point à vérifier | Pourquoi c'est important | Orientation | Conditionne l'heure de protection solaire | Largeur utile | Définit la vraie zone d'ombre | Avancée | Évite un store trop court pour la terrasse | Vent | Détermine les automatismes et limites d'usage
 
-## Le bon store n'est pas toujours le plus grand Trop grand, il devient plus sensible au vent et plus lourd visuellement. Trop petit, il déçoit à l'usage. Le bon dimensionnement part de la façade, de l'orientation et des habitudes de vie.
+## Le bon store n'est pas toujours le plus grand
+
+Trop grand, il devient plus sensible au vent et plus lourd visuellement. Trop petit, il déçoit à l'usage. Le bon dimensionnement part de la façade, de l'orientation et des habitudes de vie.
 
 ## Le coffre intégral protège aussi l'investissement En protégeant la toile et les bras quand le store est fermé, le coffre intégral limite l'exposition aux intempéries et à l'encrassement. Il est particulièrement pertinent si la façade est exposée ou si le store reste en place toute l'année. Vous réfléchissez à protéger votre terrasse ? On cadre l'exposition, la largeur utile et le bon niveau d'équipement. Demander mon devis
 

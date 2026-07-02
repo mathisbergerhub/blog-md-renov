@@ -34,7 +34,9 @@ Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton
 
 ## La motorisation se prépare avant la pose du portail Un portail peut être motorisé plus tard, mais c'est rarement l'option la plus simple. Prévoir l'alimentation, les gaines, les cellules, le feu clignotant, le visiophone ou le digicode dès le départ évite des reprises coûteuses.
 
-## Les équipements à anticiper - Alimentation électrique jusqu'au pilier.
+## Les équipements à anticiper
+
+- Alimentation électrique jusqu'au pilier.
 - Cellules de sécurité et feu de signalisation si nécessaire.
 - Commande à distance, clavier, badge ou smartphone.
 - Visiophone ou interphone avec passage de câble.

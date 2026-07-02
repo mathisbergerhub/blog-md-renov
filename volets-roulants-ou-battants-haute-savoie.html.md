@@ -34,11 +34,22 @@ Un comparatif simple pour arbitrer entre esthétique, protection solaire, sécur
 
 ## Le choix dépend autant de la maison que du produit Le volet roulant est souvent apprécié pour son confort, sa motorisation et sa discrétion. Le volet battant garde une vraie force esthétique, surtout sur des façades traditionnelles ou des maisons où l'harmonie extérieure compte beaucoup.
 
-## Comparer les usages | | Besoin | Volet roulant | Volet battant | Motorisation | Très simple à intégrer | Possible, mais plus spécifique | Style traditionnel | Plus discret | Souvent plus cohérent | Occultation | Très efficace | Dépend du modèle et des jeux | Chaleur d'été | Bonne protection si utilisé avant la surchauffe | Protection intéressante selon orientation
+## Comparer les usages
 
-## Le point à ne pas oublier : la cohérence avec l'urbanisme Changer de couleur, de matériau ou de modèle peut modifier l'aspect extérieur. Sur certaines communes, en secteur protégé ou en copropriété, il faut vérifier les règles avant commande. C'est un sujet de confort, mais aussi de façade.
+| Besoin | Volet roulant | Volet battant |
+|---|---|---|
+| Motorisation | Très simple à intégrer | Possible, mais plus spécifique |
+| Style traditionnel | Plus discret | Souvent plus cohérent |
+| Occultation | Très efficace | Dépend du modèle et des jeux |
+| Chaleur d'été | Bonne protection si utilisé avant la surchauffe | Protection intéressante selon orientation |
 
-## Le critère esthétique compte aussi Sur une maison ancienne, des volets battants peuvent préserver le caractère de la façade. Sur une maison récente, les volets roulants apportent souvent plus de confort et de simplicité. En secteur encadré, le PLU ou la copropriété peut orienter le choix avant même le budget. Vous voulez remplacer vos volets ? On vérifie le style de la maison, les contraintes de pose et les règles locales. Cadrer mon projet
+## Le point à ne pas oublier : la cohérence avec l'urbanisme
+
+Changer de couleur, de matériau ou de modèle peut modifier l'aspect extérieur. Sur certaines communes, en secteur protégé ou en copropriété, il faut vérifier les règles avant commande. C'est un sujet de confort, mais aussi de façade.
+
+## Le critère esthétique compte aussi
+
+Sur une maison ancienne, des volets battants peuvent préserver le caractère de la façade. Sur une maison récente, les volets roulants apportent souvent plus de confort et de simplicité. En secteur encadré, le PLU ou la copropriété peut orienter le choix avant même le budget. Vous voulez remplacer vos volets ? On vérifie le style de la maison, les contraintes de pose et les règles locales. Cadrer mon projet
 
 ## Roulants ou battants : les critères qui comptent
 

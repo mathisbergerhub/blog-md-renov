@@ -34,7 +34,9 @@ Un guide pratique pour choisir entre branchement électrique, commande radio, ca
 
 ## La question centrale : peut-on alimenter proprement le store ? Un store motorisé classique est très confortable si l'alimentation électrique est facile à amener. La solution solaire devient intéressante lorsque le passage de câbles est compliqué, coûteux ou peu esthétique. Le choix doit se faire façade par façade.
 
-## Les critères concrets - Distance jusqu'à une alimentation électrique existante.
+## Les critères concrets
+
+- Distance jusqu'à une alimentation électrique existante.
 - Exposition solaire suffisante pour un panneau dédié.
 - Largeur du store et effort demandé au moteur.
 - Souhait d'une télécommande, d'une commande murale ou d'une centralisation.
