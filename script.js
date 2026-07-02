@@ -137,3 +137,83 @@ document.addEventListener('keydown', (event) => {
     io.observe(element);
   });
 })();
+
+/* ---- Article immersif : hero photo plein écran (progressive enhancement) ---- */
+(function () {
+  if (!document.body.classList.contains('mdr-article-page')) return;
+  const head = document.querySelector('.mdr-article-head');
+  const img = document.querySelector('.mdr-prose .mdr-article-figure img');
+  if (!head || !img) return;
+  const src = img.currentSrc || img.src;
+  if (!src) return;
+  head.classList.add('mdr-head-immersive');
+  head.style.setProperty('--mdr-hero-img', 'url("' + src + '")');
+  const figure = img.closest('.mdr-article-figure');
+  if (figure) figure.classList.add('mdr-figure-moved');
+})();
+
+/* ---- Sommaire en pilules horizontales, collant, avec scroll-spy ---- */
+(function () {
+  if (!document.body.classList.contains('mdr-article-page')) return;
+  const head = document.querySelector('.mdr-article-head');
+  const prose = document.querySelector('.mdr-prose');
+  if (!head || !prose) return;
+  const headings = Array.from(prose.querySelectorAll('h2[id]'));
+  if (headings.length < 3) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const nav = document.createElement('nav');
+  nav.className = 'mdr-toc-pills';
+  nav.setAttribute('aria-label', 'Sommaire de l’article');
+
+  const pills = new Map();
+  headings.forEach((h) => {
+    const pill = document.createElement('a');
+    pill.className = 'mdr-toc-pill';
+    pill.href = '#' + h.id;
+    pill.textContent = h.textContent.trim();
+    pill.addEventListener('click', (event) => {
+      event.preventDefault();
+      h.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + h.id);
+    });
+    nav.appendChild(pill);
+    pills.set(h.id, pill);
+  });
+  head.insertAdjacentElement('afterend', nav);
+
+  let currentId = null;
+  const setActive = (id) => {
+    if (id === currentId) return;
+    if (currentId && pills.has(currentId)) pills.get(currentId).classList.remove('is-active');
+    currentId = id;
+    const pill = pills.get(id);
+    if (!pill) return;
+    pill.classList.add('is-active');
+    const target = pill.offsetLeft - nav.clientWidth / 2 + pill.offsetWidth / 2;
+    nav.scrollTo({ left: Math.max(0, target), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+  };
+
+  const pickCurrent = () => {
+    let best = headings[0].id;
+    headings.forEach((h) => {
+      if (h.getBoundingClientRect().top <= 130) best = h.id;
+    });
+    setActive(best);
+  };
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { pickCurrent(); ticking = false; });
+  }, { passive: true });
+  pickCurrent();
+})();
+
+/* ---- CTA final : rapatrie les badges de confiance de l'encart latéral ---- */
+(function () {
+  if (!document.body.classList.contains('mdr-article-page')) return;
+  const badges = document.querySelector('.mdr-cta-box .mdr-cta-box__badges');
+  const cta = document.querySelector('.mdr-prose-cta');
+  if (badges && cta) cta.appendChild(badges);
+})();
