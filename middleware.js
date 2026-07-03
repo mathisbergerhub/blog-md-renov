@@ -2,10 +2,8 @@ import { next } from "@vercel/functions";
 
 // Secrets must be configured in Vercel environment variables.
 // No fallback is kept in source control: if a secret is missing, access fails closed.
-const BLOG_PASSWORD_HASH = process.env.MDR_BLOG_PASSWORD_HASH || "";
 const ADMIN_PASSWORD_HASH = process.env.MDR_ADMIN_PASSWORD_HASH || "";
 const COOKIE_SECRET = process.env.MDR_COOKIE_SECRET || "";
-const BLOG_ACCESS_COOKIE = "mdr_blog_access";
 const ADMIN_ACCESS_COOKIE = "mdr_admin_access";
 const ONE_WEEK = 60 * 60 * 24 * 7;
 
@@ -79,8 +77,8 @@ function isAdminApi(pathname) {
   return pathname.startsWith("/api/");
 }
 
-function missingSecret(admin = false) {
-  return !COOKIE_SECRET || (admin ? !ADMIN_PASSWORD_HASH : !BLOG_PASSWORD_HASH);
+function missingSecret() {
+  return !COOKIE_SECRET || !ADMIN_PASSWORD_HASH;
 }
 
 function buildCookie(name, value) {
@@ -357,13 +355,16 @@ export default async function middleware(request) {
   const adminRoute = isAdminRoute(url.pathname);
   const adminApi = isAdminApi(url.pathname);
 
-  if (missingSecret(adminRoute || adminApi)) {
+  if (!adminRoute && !adminApi) {
+    return next();
+  }
+
+  if (missingSecret()) {
     return adminApi
       ? jsonResponse("Configuration de sécurité manquante.", 503)
       : htmlResponse(loginPage({ admin: adminRoute, error: true }), 503);
   }
 
-  const blogToken = await accessToken("blog-access");
   const adminToken = await accessToken("admin-access");
 
   if (adminRoute || adminApi) {
@@ -389,22 +390,7 @@ export default async function middleware(request) {
     return htmlResponse(loginPage({ admin: true }));
   }
 
-  if (cookies[BLOG_ACCESS_COOKIE] === blogToken) {
-    return next();
-  }
-
-  if (request.method === "POST") {
-    const response = await handlePasswordPost(
-      request,
-      url,
-      BLOG_PASSWORD_HASH,
-      BLOG_ACCESS_COOKIE,
-      blogToken,
-    );
-    return response || htmlResponse(loginPage({ error: true }), 401);
-  }
-
-  return htmlResponse(loginPage());
+  return next();
 }
 
 export const config = {
