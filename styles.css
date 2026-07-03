@@ -540,6 +540,44 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   font-weight: 500;
 }
 
+.mdr-nav__links--breadcrumb {
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--mdr-meta);
+  font-size: 0.86rem;
+}
+
+.mdr-nav__links--breadcrumb a,
+.mdr-nav__links--breadcrumb span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: #5f665f;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.mdr-nav__links--breadcrumb a:hover,
+.mdr-nav__links--breadcrumb a:focus-visible {
+  color: var(--mdr-red);
+}
+
+.mdr-nav__links--breadcrumb a:first-child::before {
+  content: none;
+}
+
+.mdr-nav__links--breadcrumb a + a::before,
+.mdr-nav__links--breadcrumb span::before {
+  content: "/";
+  margin: 0 0.45rem 0 0;
+  color: #c9c0b4;
+  font-weight: 500;
+}
+
+.mdr-nav__links--breadcrumb span[aria-current="page"] {
+  color: var(--mdr-red);
+}
+
 .mdr-nav__links a:first-child::before,
 .mdr-article-footer__links a:first-child::before {
   content: "←";
@@ -552,6 +590,15 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 .mdr-article-footer__links a:first-child:hover::before,
 .mdr-article-footer__links a:first-child:focus-visible::before {
   transform: translateX(-3px);
+}
+
+.mdr-nav__links.mdr-nav__links--breadcrumb a:first-child::before {
+  content: none;
+}
+
+.mdr-nav__links.mdr-nav__links--breadcrumb a:first-child:hover::before,
+.mdr-nav__links.mdr-nav__links--breadcrumb a:first-child:focus-visible::before {
+  transform: none;
 }
 
 .mdr-link {
@@ -1032,6 +1079,24 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 
   .mdr-article-page .mdr-nav__links span {
     font-weight: 600;
+  }
+
+  .mdr-article-page .mdr-nav__links--breadcrumb {
+    gap: 0.35rem;
+    padding-top: 0.05rem;
+  }
+
+  .mdr-article-page .mdr-nav__links--breadcrumb > * {
+    min-height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .mdr-article-page .mdr-nav__links--breadcrumb a + a::before,
+  .mdr-article-page .mdr-nav__links--breadcrumb span::before {
+    margin-right: 0.35rem;
   }
 
   .mdr-article-page .mdr-article-head,
