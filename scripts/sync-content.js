@@ -100,21 +100,28 @@ function formatDate(dateValue) {
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" }).format(date);
 }
 
+function formatTitlePunctuation(value = "") {
+  return String(value || "")
+    .replace(/\s*([:?])/g, " $1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function cleanArticleTitle(rawTitle = "", description = "") {
   let title = String(rawTitle || "").replace(/\s+/g, " ").trim();
   const desc = String(description || "").replace(/\s+/g, " ").trim();
   if (desc && title.includes(desc)) title = title.replace(desc, "").trim();
-  title = title.replace(/\s+([?.!,;:])/g, "$1").replace(/[.\s]+$/, "").trim();
+  title = title.replace(/\s+([.,!;])/g, "$1").replace(/[.\s]+$/, "").trim();
   if (title.length > 95) {
     const questionEnd = title.indexOf("? ");
     if (questionEnd > 20) title = title.slice(0, questionEnd + 1).trim();
   }
   if (title.length > 95) title = title.slice(0, 92).replace(/\s+\S*$/, "").trim();
-  return title || rawTitle;
+  return formatTitlePunctuation(title || rawTitle);
 }
 
 function shortenText(value = "", max = 74) {
-  const text = String(value || "").replace(/\s+/g, " ").trim();
+  const text = formatTitlePunctuation(value);
   if (text.length <= max) return text;
   return `${text.slice(0, max - 1).replace(/\s+\S*$/, "").trim()}…`;
 }
@@ -164,6 +171,7 @@ function articleFromFile(fileName) {
     body: normalizeArticleMarkdown(body),
     htmlFile,
     title,
+    seo_title: data.seo_title ? formatTitlePunctuation(data.seo_title) : data.seo_title,
     description,
     category: data.category || "exterieur",
     category_label: data.category_label || "Conseils",
@@ -352,17 +360,18 @@ function mdToHtml(markdown = "") {
     if (line.startsWith("|")) { flushParagraph(); closeLists(); table.push(line); continue; }
     if (line.startsWith("## ")) {
       flushParagraph(); closeLists(); flushTable();
-      const title = stripMarkdown(line.slice(3));
+      const heading = formatTitlePunctuation(line.slice(3));
+      const title = stripMarkdown(heading);
       const normalized = slugify(title);
       closeSourceCard();
-      if (normalized.includes("source")) { closeEditorialCard(); sectionType = "sources"; openSourceCard = true; html.push(`<div class="mdr-source-card mdr-source-card--rich" id="${e(normalized)}"><strong>${inline(line.slice(3))}</strong>`); continue; }
+      if (normalized.includes("source")) { closeEditorialCard(); sectionType = "sources"; openSourceCard = true; html.push(`<div class="mdr-source-card mdr-source-card--rich" id="${e(normalized)}"><strong>${inline(heading)}</strong>`); continue; }
       if (normalized.includes("erreur") || normalized.includes("eviter")) sectionType = "errors";
       else if (normalized.includes("question")) sectionType = "questions";
       else sectionType = "";
-      html.push(`<h2 id="${e(normalized)}">${inline(line.slice(3))}</h2>`);
+      html.push(`<h2 id="${e(normalized)}">${inline(heading)}</h2>`);
       continue;
     }
-    if (line.startsWith("### ")) { flushParagraph(); closeLists(); flushTable(); const title = stripMarkdown(line.slice(4)); closeSourceCard(); html.push(`<h3 id="${e(slugify(title))}">${inline(line.slice(4))}</h3>`); continue; }
+    if (line.startsWith("### ")) { flushParagraph(); closeLists(); flushTable(); const heading = formatTitlePunctuation(line.slice(4)); const title = stripMarkdown(heading); closeSourceCard(); html.push(`<h3 id="${e(slugify(title))}">${inline(heading)}</h3>`); continue; }
     if (line.startsWith("- ")) { flushParagraph(); flushTable(); if (ordered) { html.push("</ol>"); ordered = false; } if (!unordered) { html.push(`<ul${listClass()}>`); unordered = true; } html.push(listItem(line.slice(2))); continue; }
     const orderedItem = line.match(/^\d+[\.)]\s+(.+)$/);
     if (orderedItem) { flushParagraph(); flushTable(); if (unordered) { html.push("</ul>"); unordered = false; } if (!ordered) { html.push("<ol>"); ordered = true; } html.push(listItem(orderedItem[1])); continue; }

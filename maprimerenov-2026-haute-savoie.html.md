@@ -32,7 +32,7 @@ MaPrimeRénov’ peut aider à financer un projet de rénovation énergétique, 
 - Objectif 2026 : 150 000 rénovations par geste annoncées, en plus des rénovations d’ampleur.
 - Point bloquant : les travaux doivent être réalisés par une entreprise RGE.
 
-## MaPrimeRénov’: ce qu’il faut comprendre avant le devis
+## MaPrimeRénov’ : ce qu’il faut comprendre avant le devis
 
 MaPrimeRénov’ dépend de votre situation et du type de travaux. France Rénov’ indique que l’aide varie selon les revenus du foyer et le projet engagé. Pour une rénovation par geste, elle concerne notamment le chauffage et l’isolation ; pour une rénovation d’ampleur, le projet doit viser un gain énergétique beaucoup plus important.
 
