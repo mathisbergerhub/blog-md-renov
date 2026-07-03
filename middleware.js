@@ -1,12 +1,10 @@
 import { next } from "@vercel/functions";
 
-// Secrets read from environment (set them in Vercel > Project > Settings > Environment Variables).
-// Fallbacks keep the current behaviour working until the env vars are configured.
-const FALLBACK_HASH =
-  "8f9e5669280cd41a44674368ccb532d5b8f1070e58ad7bc9091216c62893b25e";
-const BLOG_PASSWORD_HASH = process.env.MDR_BLOG_PASSWORD_HASH || FALLBACK_HASH;
-const ADMIN_PASSWORD_HASH = process.env.MDR_ADMIN_PASSWORD_HASH || FALLBACK_HASH;
-const COOKIE_SECRET = process.env.MDR_COOKIE_SECRET || `mdr-fallback-${FALLBACK_HASH}`;
+// Secrets must be configured in Vercel environment variables.
+// No fallback is kept in source control: if a secret is missing, access fails closed.
+const BLOG_PASSWORD_HASH = process.env.MDR_BLOG_PASSWORD_HASH || "";
+const ADMIN_PASSWORD_HASH = process.env.MDR_ADMIN_PASSWORD_HASH || "";
+const COOKIE_SECRET = process.env.MDR_COOKIE_SECRET || "";
 const BLOG_ACCESS_COOKIE = "mdr_blog_access";
 const ADMIN_ACCESS_COOKIE = "mdr_admin_access";
 const ONE_WEEK = 60 * 60 * 24 * 7;
@@ -79,6 +77,10 @@ function isAdminRoute(pathname) {
 
 function isAdminApi(pathname) {
   return pathname.startsWith("/api/");
+}
+
+function missingSecret(admin = false) {
+  return !COOKIE_SECRET || (admin ? !ADMIN_PASSWORD_HASH : !BLOG_PASSWORD_HASH);
 }
 
 function buildCookie(name, value) {
@@ -354,6 +356,12 @@ export default async function middleware(request) {
   const cookies = parseCookie(request.headers.get("cookie") || "");
   const adminRoute = isAdminRoute(url.pathname);
   const adminApi = isAdminApi(url.pathname);
+
+  if (missingSecret(adminRoute || adminApi)) {
+    return adminApi
+      ? jsonResponse("Configuration de sécurité manquante.", 503)
+      : htmlResponse(loginPage({ admin: adminRoute, error: true }), 503);
+  }
 
   const blogToken = await accessToken("blog-access");
   const adminToken = await accessToken("admin-access");
