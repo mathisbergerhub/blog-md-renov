@@ -1269,7 +1269,14 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   background: #fff;
 }
 
-body.mdr-home-page {
+.mdr-listing-page .mdr-topnav {
+  border-top: 0;
+  border-bottom: 0;
+  background: #fff;
+}
+
+body.mdr-home-page,
+body.mdr-listing-page {
   background: #fff;
 }
 
