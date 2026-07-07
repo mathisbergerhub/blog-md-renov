@@ -29,8 +29,8 @@
     <section class="page-head">
       <div>
         <div class="kicker">Publication directe</div>
-        <h1>Créer un article prêt à publier.</h1>
-        <p>Remplis les champs, ajoute l'image, colle le contenu. Le bouton Publier envoie l'article dans GitHub et lance le cycle de mise en ligne.</p>
+        <h1>Créer un article avec la structure du blog.</h1>
+        <p>Remplis les blocs dans l'ordre. Le CMS génère le contenu compatible avec le rendu actuel, puis publie l'article dans GitHub et Vercel.</p>
       </div>
       <a class="button button-secondary" href="/admin/manage.html">Voir les articles</a>
     </section>
@@ -39,8 +39,8 @@
       <form class="panel" id="article-form">
         <div class="panel-head">
           <div>
-            <h2>Contenu de l'article</h2>
-            <p>Les champs marqués par le navigateur comme obligatoires doivent être remplis.</p>
+            <h2>Informations principales</h2>
+            <p>Titre, catégorie, SEO, image et tags utilisés par les cartes du blog et les moteurs de recherche.</p>
           </div>
         </div>
 
@@ -89,10 +89,19 @@
             <textarea id="description" name="description" required maxlength="180" placeholder="Résumé concret visible dans Google et sur les cartes du blog."></textarea>
           </label>
 
-          <label>
-            Tags
-            <input id="tags" name="tags" placeholder="fenêtres, budget, Haute-Savoie" />
-          </label>
+          <div class="wide field-block">
+            <div class="label-text">
+              <span class="field-title">Tags existants</span>
+              <span class="hint">Coche les thèmes déjà utilisés dans le blog.</span>
+            </div>
+            <div class="tag-picker" id="tag-picker">
+              <span class="hint">Chargement des tags...</span>
+            </div>
+            <label>
+              Tags supplémentaires
+              <input id="custom-tags" name="custom_tags" placeholder="Ex : Annecy, budget, rénovation" />
+            </label>
+          </div>
 
           <label>
             Image principale
@@ -104,11 +113,46 @@
             Texte alternatif de l'image
             <input id="image-alt" name="image_alt" placeholder="Décrire simplement ce que montre l'image." />
           </label>
+        </div>
 
-          <label class="wide">
-            Contenu Markdown
-            <textarea id="body" name="body" class="markdown" required placeholder="## Premier intertitre&#10;&#10;Texte du paragraphe.&#10;&#10;## Deuxième intertitre&#10;&#10;- Point important&#10;- Autre point"></textarea>
-          </label>
+        <div class="builder" id="builder">
+          <div class="panel-head builder-head">
+            <div>
+              <h2>Structure de l'article</h2>
+              <p>Ajoute autant de grandes parties, sous-parties et questions que nécessaire. Le Markdown est généré automatiquement.</p>
+            </div>
+            <button class="secondary" type="button" id="add-section">Ajouter une partie</button>
+          </div>
+
+          <div class="form-grid">
+            <label class="wide">
+              Introduction courte
+              <textarea id="intro" placeholder="Pose le problème et donne la réponse principale en 2 ou 3 phrases."></textarea>
+            </label>
+
+            <label class="wide">
+              Le point important
+              <textarea id="key-point" placeholder="La synthèse à retenir avant de lire le détail."></textarea>
+            </label>
+          </div>
+
+          <div class="section-list" id="sections"></div>
+
+          <section class="faq-builder">
+            <div class="section-toolbar">
+              <div>
+                <h3>Questions fréquentes</h3>
+                <p>Questions courtes, vraiment utiles pour les lecteurs et le SEO.</p>
+              </div>
+              <button class="secondary" type="button" id="add-faq">Ajouter une question</button>
+            </div>
+            <div class="faq-list" id="faqs"></div>
+          </section>
+
+          <details class="generated-preview" open>
+            <summary>Aperçu du contenu généré</summary>
+            <textarea id="body" name="body" class="markdown" readonly required></textarea>
+          </details>
         </div>
 
         <div class="editor-actions">
@@ -136,12 +180,17 @@
           <li data-check="category">Catégorie choisie</li>
           <li data-check="description">Description SEO remplie</li>
           <li data-check="imageAlt">Alt text image présent</li>
-          <li data-check="body">Contenu Markdown rédigé</li>
+          <li data-check="body">Structure d'article assez complète</li>
         </ul>
 
         <div class="help-card">
           <h3>Structure conseillée</h3>
-          <p>Commence par une réponse courte, puis ajoute des intertitres en <strong>##</strong>. Évite un seul gros bloc de texte.</p>
+          <p>Commence par une réponse courte, ajoute des parties enchaînées logiquement, puis termine par une FAQ ou des points à vérifier.</p>
+        </div>
+
+        <div class="help-card">
+          <h3>Tags</h3>
+          <p>Les tags existants évitent de créer des variantes inutiles. Ajoute un nouveau tag seulement s'il apporte un vrai classement.</p>
         </div>
 
         <div class="help-card">
@@ -162,6 +211,11 @@
       "portes-portails": "Portes & Portails",
       exterieur: "Aménagements extérieurs",
     };
+    const fallbackTags = ["Fenêtres", "Vitrage", "Isolation", "Volets", "Stores", "Portes", "Portails", "Pergola", "Budget", "Aides", "Autorisations", "Haute-Savoie", "Savoie", "Annecy"];
+    const selectedTags = new Set();
+    let sectionIndex = 0;
+    let faqIndex = 0;
+
     const form = $("#article-form");
     const title = $("#title");
     const slug = $("#slug");
@@ -170,6 +224,9 @@
     const status = $("#status");
     const result = $("#result");
     const submit = $("#submit");
+    const sections = $("#sections");
+    const faqs = $("#faqs");
+    const body = $("#body");
 
     function slugify(value) {
       return String(value || "")
@@ -179,6 +236,111 @@
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/^-+|-+$/g, "")
         .slice(0, 72);
+    }
+
+    function html(value) {
+      return String(value || "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;",
+      }[char]));
+    }
+
+    function cleanText(value) {
+      return String(value || "").trim().replace(/\n{3,}/g, "\n\n");
+    }
+
+    function markdownBullets(value) {
+      return String(value || "")
+        .split(/\r?\n/)
+        .map((line) => line.trim().replace(/^[-*]\s+/, ""))
+        .filter(Boolean)
+        .map((line) => `- ${line}`)
+        .join("\n");
+    }
+
+    function sectionTemplate(titleValue = "", bodyValue = "", bulletValue = "") {
+      const id = ++sectionIndex;
+      return `
+        <article class="section-card" data-section="${id}">
+          <div class="section-toolbar">
+            <div>
+              <h3>Partie ${id}</h3>
+              <p>Une idee principale, puis des details ou points a verifier.</p>
+            </div>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-section">Retirer</button>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Titre de partie
+              <input class="section-title" placeholder="Ex : Les criteres a comparer" value="${html(titleValue)}" />
+            </label>
+            <label class="wide">
+              Texte de la partie
+              <textarea class="section-body" placeholder="Explique le sujet avec des phrases courtes.">${html(bodyValue)}</textarea>
+            </label>
+            <label class="wide">
+              Liste de points, un par ligne
+              <textarea class="section-bullets" placeholder="Largeur utile&#10;Type de pose&#10;Budget et delai">${html(bulletValue)}</textarea>
+            </label>
+          </div>
+          <div class="subsection-list"></div>
+          <button class="secondary" type="button" data-action="add-subsection">Ajouter une sous-partie</button>
+        </article>
+      `;
+    }
+
+    function subsectionTemplate() {
+      return `
+        <article class="subsection-card">
+          <div class="section-toolbar">
+            <h3>Sous-partie</h3>
+            <button class="button-danger compact" type="button" data-action="remove-subsection">Retirer</button>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Titre de sous-partie
+              <input class="subsection-title" placeholder="Ex : Ce qui change vraiment le prix" />
+            </label>
+            <label class="wide">
+              Texte de la sous-partie
+              <textarea class="subsection-body"></textarea>
+            </label>
+            <label class="wide">
+              Points de la sous-partie, un par ligne
+              <textarea class="subsection-bullets"></textarea>
+            </label>
+          </div>
+        </article>
+      `;
+    }
+
+    function faqTemplate() {
+      const id = ++faqIndex;
+      return `
+        <article class="faq-card" data-faq="${id}">
+          <div class="section-toolbar">
+            <h3>Question ${id}</h3>
+            <button class="button-danger compact" type="button" data-action="remove-faq">Retirer</button>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Question
+              <input class="faq-question" placeholder="Ex : Faut-il une autorisation ?" />
+            </label>
+            <label class="wide">
+              Réponse
+              <textarea class="faq-answer" placeholder="Réponse courte et concrète."></textarea>
+            </label>
+          </div>
+        </article>
+      `;
     }
 
     function setStatus(message, type = "") {
@@ -191,7 +353,48 @@
       if (item) item.classList.toggle("is-done", Boolean(done));
     }
 
+    function buildMarkdown() {
+      const parts = [];
+      const intro = cleanText($("#intro").value);
+      const keyPoint = cleanText($("#key-point").value);
+      if (intro) parts.push(intro);
+      if (keyPoint) parts.push(`## Le point important\n\n${keyPoint}`);
+
+      document.querySelectorAll(".section-card").forEach((card, index) => {
+        const heading = cleanText(card.querySelector(".section-title").value) || `Partie ${index + 1}`;
+        const text = cleanText(card.querySelector(".section-body").value);
+        const bullets = markdownBullets(card.querySelector(".section-bullets").value);
+        const sectionParts = [`## ${heading}`];
+        if (text) sectionParts.push(text);
+        if (bullets) sectionParts.push(bullets);
+
+        card.querySelectorAll(".subsection-card").forEach((subcard) => {
+          const subheading = cleanText(subcard.querySelector(".subsection-title").value);
+          const subtext = cleanText(subcard.querySelector(".subsection-body").value);
+          const subbullets = markdownBullets(subcard.querySelector(".subsection-bullets").value);
+          if (!subheading && !subtext && !subbullets) return;
+          sectionParts.push(`### ${subheading || "A verifier"}`);
+          if (subtext) sectionParts.push(subtext);
+          if (subbullets) sectionParts.push(subbullets);
+        });
+
+        parts.push(sectionParts.filter(Boolean).join("\n\n"));
+      });
+
+      const faqParts = [];
+      document.querySelectorAll(".faq-card").forEach((card) => {
+        const question = cleanText(card.querySelector(".faq-question").value);
+        const answer = cleanText(card.querySelector(".faq-answer").value);
+        if (!question && !answer) return;
+        faqParts.push(`### ${question || "Question fréquente"}\n\n${answer || "Réponse à compléter."}`);
+      });
+      if (faqParts.length) parts.push(`## Les questions fréquentes\n\n${faqParts.join("\n\n")}`);
+      return parts.filter(Boolean).join("\n\n").trim();
+    }
+
     function updateChecks() {
+      const generated = buildMarkdown();
+      body.value = generated;
       $("#title-count").textContent = `${title.value.length} caractère${title.value.length > 1 ? "s" : ""}`;
       $("#desc-count").textContent = `${description.value.length} / 180`;
       $("#slug-preview").textContent = slug.value || "...";
@@ -200,7 +403,7 @@
       setCheck("category", Boolean($("#category").value));
       setCheck("description", description.value.trim().length >= 80);
       setCheck("imageAlt", $("#image-alt").value.trim().length >= 8);
-      setCheck("body", $("#body").value.trim().length >= 250);
+      setCheck("body", generated.length >= 250 && document.querySelectorAll(".section-card").length >= 1);
     }
 
     function readPhoto(file) {
@@ -212,6 +415,44 @@
         reader.onerror = () => reject(new Error(`Impossible de lire la photo ${file.name}.`));
         reader.readAsDataURL(file);
       });
+    }
+
+    function renderTags(tags) {
+      const uniqueTags = Array.from(new Set(tags.filter(Boolean))).sort((a, b) => a.localeCompare(b, "fr"));
+      $("#tag-picker").innerHTML = uniqueTags.map((tag) => `
+        <label class="tag-option">
+          <input type="checkbox" value="${html(tag)}" />
+          <span>${html(tag)}</span>
+        </label>
+      `).join("");
+    }
+
+    async function loadExistingTags() {
+      try {
+        const response = await fetch("/api/manage-content");
+        const data = await response.json();
+        renderTags(data.tags && data.tags.length ? data.tags : fallbackTags);
+      } catch (error) {
+        renderTags(fallbackTags);
+      }
+    }
+
+    function selectedTagValue() {
+      const custom = $("#custom-tags").value
+        .split(",")
+        .map((tag) => tag.trim())
+        .filter(Boolean);
+      return Array.from(new Set([...selectedTags, ...custom])).join(", ");
+    }
+
+    function resetBuilder() {
+      sectionIndex = 0;
+      faqIndex = 0;
+      sections.innerHTML = sectionTemplate("Ce que ce guide vous aide a decider");
+      faqs.innerHTML = faqTemplate();
+      selectedTags.clear();
+      document.querySelectorAll("#tag-picker input").forEach((input) => { input.checked = false; });
+      updateChecks();
     }
 
     title.addEventListener("input", () => {
@@ -226,11 +467,49 @@
       updateChecks();
     });
 
-    ["category", "description", "image-alt", "body"].forEach((id) => {
-      document.querySelector(`#${id}`).addEventListener("input", updateChecks);
+    form.addEventListener("input", updateChecks);
+
+    $("#tag-picker").addEventListener("change", (event) => {
+      if (!event.target.matches("input[type='checkbox']")) return;
+      if (event.target.checked) selectedTags.add(event.target.value);
+      else selectedTags.delete(event.target.value);
+    });
+
+    $("#add-section").addEventListener("click", () => {
+      sections.insertAdjacentHTML("beforeend", sectionTemplate());
+      updateChecks();
+    });
+
+    $("#add-faq").addEventListener("click", () => {
+      faqs.insertAdjacentHTML("beforeend", faqTemplate());
+      updateChecks();
+    });
+
+    sections.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const card = button.closest(".section-card");
+      const action = button.dataset.action;
+      if (action === "add-subsection") card.querySelector(".subsection-list").insertAdjacentHTML("beforeend", subsectionTemplate());
+      if (action === "remove-section") card.remove();
+      if (action === "remove-subsection") button.closest(".subsection-card").remove();
+      if (action === "move-up" && card.previousElementSibling) sections.insertBefore(card, card.previousElementSibling);
+      if (action === "move-down" && card.nextElementSibling) sections.insertBefore(card.nextElementSibling, card);
+      if (!sections.querySelector(".section-card")) sections.insertAdjacentHTML("beforeend", sectionTemplate());
+      updateChecks();
+    });
+
+    faqs.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action='remove-faq']");
+      if (!button) return;
+      button.closest(".faq-card").remove();
+      updateChecks();
     });
 
     date.value = new Date().toISOString().slice(0, 10);
+    sections.innerHTML = sectionTemplate("Ce que ce guide vous aide a decider");
+    faqs.innerHTML = faqTemplate();
+    loadExistingTags();
     updateChecks();
 
     $("#reset").addEventListener("click", () => {
@@ -240,11 +519,16 @@
       result.classList.remove("is-visible");
       result.innerHTML = "";
       setStatus("Prêt.");
-      updateChecks();
+      resetBuilder();
     });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      const generatedBody = buildMarkdown();
+      if (generatedBody.length < 250) {
+        setStatus("Ajoute plus de contenu avant de publier.", "error");
+        return;
+      }
       submit.disabled = true;
       result.classList.remove("is-visible");
       result.innerHTML = "";
@@ -262,9 +546,9 @@
           category_label: categoryLabels[category] || "Conseils",
           date: date.value,
           reading_time: $("#reading-time").value,
-          tags: $("#tags").value,
+          tags: selectedTagValue(),
           image_alt: $("#image-alt").value,
-          body: $("#body").value,
+          body: generatedBody,
           photo,
         };
         const response = await fetch("/api/manage-content", {

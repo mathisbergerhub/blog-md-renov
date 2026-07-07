@@ -352,6 +352,128 @@ textarea {
 
 .wide { grid-column: 1 / -1; }
 
+.field-block {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: #fffdfa;
+}
+
+.field-title {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tag-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0 11px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tag-option input {
+  width: auto;
+  margin: 0;
+  accent-color: var(--brand);
+}
+
+.tag-option:has(input:checked) {
+  border-color: rgba(155, 28, 28, .45);
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+.builder {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.builder-head {
+  margin-bottom: 0;
+}
+
+.section-list,
+.faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.section-card,
+.subsection-card,
+.faq-card,
+.faq-builder,
+.generated-preview {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 15px;
+  background: #fffdfa;
+}
+
+.subsection-card {
+  margin-top: 12px;
+  background: var(--surface);
+}
+
+.section-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.section-toolbar p {
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.compact {
+  min-height: 34px;
+  padding: 0 11px;
+  font-size: 12px;
+}
+
+.generated-preview {
+  display: grid;
+  gap: 12px;
+}
+
+.generated-preview summary {
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .markdown {
   min-height: 460px;
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;

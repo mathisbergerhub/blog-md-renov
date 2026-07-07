@@ -683,6 +683,7 @@ async function listManagedContent(repository, branch, token) {
         typeLabel: config.label,
         title: fields.title || file.name.replace(/\.md$/, ""),
         category: fields.category_label || fields.category || "",
+        tags: cleanTagList(fields.tags),
         status: config.archived ? "archived" : fields.status || (fields.published === false ? "draft" : "published"),
         archived: Boolean(config.archived),
         published: fields.published !== false,
@@ -957,7 +958,11 @@ module.exports = async function manageContent(req, res) {
         return;
       }
       const items = await listManagedContent(repository, branch, token);
-      sendJson(res, 200, { ok: true, items });
+      const tags = Array.from(new Set(items.flatMap((item) => item.tags || [])))
+        .map((tag) => String(tag).trim())
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b, "fr"));
+      sendJson(res, 200, { ok: true, items, tags });
       return;
     }
 
