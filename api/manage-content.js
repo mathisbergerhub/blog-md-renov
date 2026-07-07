@@ -664,6 +664,7 @@ async function updatePublishedArticle({ repository, branch, token, collection, f
 async function listManagedContent(repository, branch, token) {
   const results = [];
   for (const [collection, config] of Object.entries(allowedCollections)) {
+    if (!["articles", "article_mirrors", "archived_articles"].includes(collection)) continue;
     const files = await listGithubFolder(repository, branch, token, config.folder);
     const managedFiles = files.filter((item) => {
       if (item.type !== "file") return false;
@@ -693,7 +694,7 @@ async function listManagedContent(repository, branch, token) {
     }
   }
   results.sort((a, b) => String(b.date).localeCompare(String(a.date)) || a.title.localeCompare(b.title));
-  return attachBriefPageLinks(results);
+  return results;
 }
 
 async function readManagedContent({ repository, branch, token, collection, filePath }) {
