@@ -287,8 +287,48 @@
               <textarea class="section-bullets" placeholder="Largeur utile&#10;Type de pose&#10;Budget et delai">${html(bulletValue)}</textarea>
             </label>
           </div>
+          <div class="table-list"></div>
           <div class="subsection-list"></div>
-          <button class="secondary" type="button" data-action="add-subsection">Ajouter une sous-partie</button>
+          <div class="block-actions">
+            <button class="secondary" type="button" data-action="add-subsection">Ajouter une sous-partie</button>
+            <button class="secondary" type="button" data-action="add-table">Ajouter un tableau</button>
+          </div>
+        </article>
+      `;
+    }
+
+    function tableRowTemplate(columns = 3, isHead = false) {
+      const cells = Array.from({ length: columns }, (_, index) => {
+        const placeholder = isHead ? `Colonne ${index + 1}` : "Texte";
+        return `<input class="table-cell${isHead ? " table-heading" : ""}" placeholder="${placeholder}" />`;
+      }).join("");
+      return `<div class="table-row${isHead ? " table-row-head" : ""}" style="--table-columns:${columns}">${cells}</div>`;
+    }
+
+    function tableTemplate() {
+      return `
+        <article class="table-card">
+          <div class="section-toolbar">
+            <div>
+              <h3>Tableau</h3>
+              <p>Remplis les titres de colonnes, puis les lignes utiles.</p>
+            </div>
+            <button class="button-danger compact" type="button" data-action="remove-table">Retirer</button>
+          </div>
+          <label class="wide">
+            Titre du tableau, optionnel
+            <input class="table-title" placeholder="Ex : Comparatif des solutions" />
+          </label>
+          <div class="table-editor">
+            ${tableRowTemplate(3, true)}
+            ${tableRowTemplate(3)}
+            ${tableRowTemplate(3)}
+          </div>
+          <div class="inline-actions table-actions">
+            <button class="secondary compact" type="button" data-action="add-table-row">Ajouter une ligne</button>
+            <button class="secondary compact" type="button" data-action="add-table-column">Ajouter une colonne</button>
+            <button class="secondary compact" type="button" data-action="remove-table-column">Retirer une colonne</button>
+          </div>
         </article>
       `;
     }
@@ -350,6 +390,66 @@
       if (item) item.classList.toggle("is-done", Boolean(done));
     }
 
+    function tableColumnCount(tableCard) {
+      const firstRow = tableCard.querySelector(".table-row");
+      return firstRow ? firstRow.querySelectorAll(".table-cell").length : 3;
+    }
+
+    function updateTableLayout(tableCard) {
+      const columns = tableColumnCount(tableCard);
+      tableCard.querySelectorAll(".table-row").forEach((row) => {
+        row.style.setProperty("--table-columns", columns);
+      });
+    }
+
+    function addTableRow(tableCard) {
+      tableCard.querySelector(".table-editor").insertAdjacentHTML("beforeend", tableRowTemplate(tableColumnCount(tableCard)));
+      updateTableLayout(tableCard);
+    }
+
+    function addTableColumn(tableCard) {
+      tableCard.querySelectorAll(".table-row").forEach((row, rowIndex) => {
+        const placeholder = rowIndex === 0 ? `Colonne ${row.querySelectorAll(".table-cell").length + 1}` : "Texte";
+        const className = rowIndex === 0 ? "table-cell table-heading" : "table-cell";
+        row.insertAdjacentHTML("beforeend", `<input class="${className}" placeholder="${placeholder}" />`);
+      });
+      updateTableLayout(tableCard);
+    }
+
+    function removeTableColumn(tableCard) {
+      if (tableColumnCount(tableCard) <= 2) return;
+      tableCard.querySelectorAll(".table-row").forEach((row) => {
+        const lastCell = row.querySelector(".table-cell:last-child");
+        if (lastCell) lastCell.remove();
+      });
+      updateTableLayout(tableCard);
+    }
+
+    function cleanTableCell(value) {
+      return cleanText(value).replace(/\|/g, "/").replace(/\r?\n/g, " ");
+    }
+
+    function tableMarkdown(tableCard) {
+      const rows = Array.from(tableCard.querySelectorAll(".table-row")).map((row) => (
+        Array.from(row.querySelectorAll(".table-cell")).map((cell) => cleanTableCell(cell.value))
+      ));
+      if (!rows.length) return "";
+      const columns = Math.max(...rows.map((row) => row.length));
+      const headerValues = rows[0];
+      const bodyRows = rows.slice(1).filter((row) => row.some(Boolean));
+      const hasContent = headerValues.some((cell) => cell.trim()) || bodyRows.length;
+      if (!hasContent) return "";
+      const headers = headerValues.map((cell, index) => cell || `Colonne ${index + 1}`);
+      const normalize = (row) => Array.from({ length: columns }, (_, index) => row[index] || " ");
+      const title = cleanText(tableCard.querySelector(".table-title").value);
+      const lines = [
+        `| ${normalize(headers).join(" | ")} |`,
+        `| ${Array.from({ length: columns }, () => "---").join(" | ")} |`,
+        ...bodyRows.map((row) => `| ${normalize(row).join(" | ")} |`),
+      ];
+      return [title ? `**${title}**` : "", lines.join("\n")].filter(Boolean).join("\n\n");
+    }
+
     function buildMarkdown() {
       const parts = [];
       const intro = cleanText($("#intro").value);
@@ -364,6 +464,11 @@
         const sectionParts = [`## ${heading}`];
         if (text) sectionParts.push(text);
         if (bullets) sectionParts.push(bullets);
+
+        card.querySelector(".table-list").querySelectorAll(".table-card").forEach((tableCard) => {
+          const table = tableMarkdown(tableCard);
+          if (table) sectionParts.push(table);
+        });
 
         card.querySelectorAll(".subsection-card").forEach((subcard) => {
           const subheading = cleanText(subcard.querySelector(".subsection-title").value);
@@ -488,8 +593,13 @@
       const card = button.closest(".section-card");
       const action = button.dataset.action;
       if (action === "add-subsection") card.querySelector(".subsection-list").insertAdjacentHTML("beforeend", subsectionTemplate());
+      if (action === "add-table") card.querySelector(".table-list").insertAdjacentHTML("beforeend", tableTemplate());
       if (action === "remove-section") card.remove();
       if (action === "remove-subsection") button.closest(".subsection-card").remove();
+      if (action === "remove-table") button.closest(".table-card").remove();
+      if (action === "add-table-row") addTableRow(button.closest(".table-card"));
+      if (action === "add-table-column") addTableColumn(button.closest(".table-card"));
+      if (action === "remove-table-column") removeTableColumn(button.closest(".table-card"));
       if (action === "move-up" && card.previousElementSibling) sections.insertBefore(card, card.previousElementSibling);
       if (action === "move-down" && card.nextElementSibling) sections.insertBefore(card.nextElementSibling, card);
       if (!sections.querySelector(".section-card")) sections.insertAdjacentHTML("beforeend", sectionTemplate());

@@ -420,6 +420,7 @@ textarea {
 
 .section-card,
 .subsection-card,
+.table-card,
 .faq-card,
 .faq-builder,
 .generated-preview {
@@ -432,6 +433,42 @@ textarea {
 .subsection-card {
   margin-top: 12px;
   background: var(--surface);
+}
+
+.table-card {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  background: var(--surface);
+}
+
+.table-list {
+  display: grid;
+  gap: 12px;
+}
+
+.table-editor {
+  display: grid;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(var(--table-columns, 3), minmax(150px, 1fr));
+  gap: 8px;
+  min-width: max-content;
+}
+
+.table-row .table-cell {
+  min-width: 150px;
+}
+
+.table-row-head .table-cell {
+  background: var(--surface-muted);
+  color: var(--ink);
+  font-weight: 900;
 }
 
 .section-toolbar {
@@ -452,6 +489,13 @@ textarea {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 7px;
+}
+
+.block-actions,
+.table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .compact {
