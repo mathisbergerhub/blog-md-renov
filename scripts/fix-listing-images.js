@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
+const ARTICLE_CONTENT_DIR = path.join(ROOT, "content", "articles");
 const LISTING_FILES = [
   "aides-subventions.html",
   "fenetres-vitrages.html",
@@ -42,12 +43,21 @@ function parseFrontmatter(raw) {
 
 function loadImagesByArticle() {
   const map = new Map();
-  for (const fileName of fs.readdirSync(ROOT).filter((name) => name.endsWith(".html.md"))) {
+  const articleFiles = [
+    ...fs.readdirSync(ROOT).filter((name) => name.endsWith(".html.md")),
+    ...(fs.existsSync(ARTICLE_CONTENT_DIR)
+      ? fs.readdirSync(ARTICLE_CONTENT_DIR)
+        .filter((name) => name.endsWith(".md"))
+        .map((name) => path.join("content", "articles", name).replace(/\\/g, "/"))
+      : []),
+  ];
+  for (const fileName of articleFiles) {
     const data = parseFrontmatter(fs.readFileSync(path.join(ROOT, fileName), "utf8"));
     const image = String(data.featured_image || "").trim();
     if (!image) continue;
 
-    const htmlFile = String(data.source_html || fileName.replace(/\.md$/, "")).replace(/^\.?\//, "");
+    const fallbackHtmlFile = path.basename(fileName).replace(/\.html\.md$/, ".html").replace(/\.md$/, ".html");
+    const htmlFile = String(data.source_html || fallbackHtmlFile).replace(/^\.?\//, "");
     const src = /^https?:\/\//i.test(image) ? image : `./${image.replace(/^\.?\//, "")}`;
     map.set(htmlFile, {
       src,

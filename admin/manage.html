@@ -65,6 +65,7 @@
     <header>
       <a class="brand" href="./"><img src="../logo-mdr-site.svg" alt="MD Rénov'" /></a>
       <nav class="nav" aria-label="Navigation admin">
+        <a href="./article.html">Publier un article</a>
         <a href="./brief.html">Créer un brief</a>
         <a href="../">Voir le blog</a>
       </nav>
@@ -73,7 +74,7 @@
     <section class="hero">
       <div class="eyebrow">Gestion éditoriale</div>
       <h1>Gérer et modifier les contenus.</h1>
-      <p>Les articles publiés créent une demande de modification avant MAJ. Les briefs en attente se modifient directement ici.</p>
+      <p>Les articles publiés se modifient directement ici. Après enregistrement, Vercel reconstruit le blog et les changements deviennent visibles sans repasser par l'IA.</p>
     </section>
 
     <div class="toolbar">
@@ -248,11 +249,11 @@
         editingItem = data.item;
         const isBrief = editingItem.collection === "briefs";
         $("#edit-eyebrow").textContent = isBrief ? "Brief en attente" : "Article publié";
-        $("#edit-title").textContent = isBrief ? "Modifier le brief" : "Préparer une modification";
+        $("#edit-title").textContent = isBrief ? "Modifier le brief" : "Modifier l'article publié";
         $("#edit-help").textContent = isBrief
-          ? "Le brief sera mis à jour directement et restera dans la file d’attente."
-          : "L’article publié ne sera pas remplacé tout de suite : une demande de modification sera créée.";
-        $("#save-edit").textContent = isBrief ? "Enregistrer le brief" : "Envoyer en attente de MAJ";
+          ? "Le brief sera mis à jour directement et restera dans la file d'attente."
+          : "Le contenu Markdown sera enregistré dans GitHub, puis le blog sera reconstruit par Vercel.";
+        $("#save-edit").textContent = isBrief ? "Enregistrer le brief" : "Publier les modifications";
         fields.title.value = editingItem.title || "";
         fields.keyword.value = editingItem.main_keyword || "";
         fields.markdown.value = editingItem.markdown || "";
@@ -260,7 +261,7 @@
         fields.sources.value = "";
         fields.photoNotes.value = "";
         fields.photos.value = "";
-        editStatus.textContent = isBrief ? "Tu peux modifier ce brief directement." : "La modification sera enregistrée comme brief.";
+        editStatus.textContent = isBrief ? "Tu peux modifier ce brief directement." : "Les changements seront publiés après déploiement Vercel.";
         editStatus.classList.remove("error");
         editModal.classList.add("is-open");
         editModal.setAttribute("aria-hidden", "false");
@@ -314,7 +315,7 @@
       event.preventDefault();
       if (!editingItem) return;
       const isBrief = editingItem.collection === "briefs";
-      editStatus.textContent = isBrief ? "Enregistrement du brief..." : "Création du brief de modification...";
+      editStatus.textContent = isBrief ? "Enregistrement du brief..." : "Publication des modifications...";
       editStatus.classList.remove("error");
       try {
         const photos = fields.photos.files.length ? await Promise.all([...fields.photos.files].slice(0, 3).map(readPhoto)) : [];
@@ -322,7 +323,7 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            action: isBrief ? "update_brief" : "revision",
+            action: isBrief ? "update_brief" : "update_article",
             collection: editingItem.collection,
             filePath: editingItem.filePath,
             title: fields.title.value,
@@ -336,8 +337,8 @@
           }),
         });
         const data = await response.json();
-        if (!response.ok) throw new Error(data.error || (isBrief ? "Impossible d’enregistrer le brief." : "Impossible de créer le brief de modification."));
-        editStatus.textContent = isBrief ? "Brief enregistré. Il reste en attente pour la prochaine MAJ." : "Modification enregistrée en attente.";
+        if (!response.ok) throw new Error(data.error || (isBrief ? "Impossible d'enregistrer le brief." : "Impossible de publier les modifications."));
+        editStatus.textContent = isBrief ? "Brief enregistré. Il reste en attente." : "Modifications envoyées. Le blog sera à jour après le déploiement.";
         await loadItems();
       } catch (error) {
         editStatus.textContent = error.message;

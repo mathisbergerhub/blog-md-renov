@@ -1,5 +1,5 @@
 const DEFAULT_REPO = "mathisbergerhub/blog-md-renov";
-const DEFAULT_BRANCH = "main";
+const DEFAULT_BRANCH = process.env.VERCEL_GIT_COMMIT_REF || "redesign-immersive-b";
 const https = require("https");
 
 const allowedCollections = {
@@ -41,6 +41,37 @@ function sendJson(res, statusCode, payload) {
   res.statusCode = statusCode;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.end(JSON.stringify(payload));
+}
+
+function deploymentBranch() {
+  return process.env.GITHUB_BRANCH || DEFAULT_BRANCH;
+}
+
+function categoryLabel(category = "") {
+  return {
+    aides: "Aides & Subventions",
+    fenetres: "Fenêtres",
+    isolation: "Isolation",
+    "volets-stores": "Volets",
+    "portes-portails": "Portes & Portails",
+    exterieur: "Aménagements extérieurs",
+  }[category] || "Conseils";
+}
+
+function cleanTagList(tags) {
+  if (Array.isArray(tags)) return tags.map((tag) => String(tag).trim()).filter(Boolean);
+  return String(tags || "")
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+}
+
+function deployHookPayload(action, paths = []) {
+  return {
+    action,
+    paths,
+    triggeredAt: new Date().toISOString(),
+  };
 }
 
 function readJson(req) {
@@ -175,6 +206,40 @@ function slugify(value = "") {
 
 function yamlString(value = "") {
   return `'${String(value).replace(/'/g, "''")}'`;
+}
+
+function setFrontmatterValues(markdown, values) {
+  const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!match) return markdown;
+  const newline = markdown.includes("\r\n") ? "\r\n" : "\n";
+  const existing = match[1].split(/\r?\n/);
+  const pending = new Map(Object.entries(values).filter(([, value]) => value !== undefined && value !== null && String(value).trim() !== ""));
+  const updated = existing.map((line) => {
+    const separator = line.indexOf(":");
+    if (separator === -1) return line;
+    const key = line.slice(0, separator).trim();
+    if (!pending.has(key)) return line;
+    const value = pending.get(key);
+    pending.delete(key);
+    return `${key}: ${yamlString(value)}`;
+  });
+  for (const [key, value] of pending.entries()) {
+    updated.push(`${key}: ${yamlString(value)}`);
+  }
+  return `---${newline}${updated.join(newline)}${newline}---${markdown.slice(match[0].length)}`;
+}
+
+function setMarkdownTitle(markdown, title) {
+  const cleanTitle = String(title || "").trim();
+  if (!cleanTitle) return markdown;
+  const match = markdown.match(/^---\r?\n[\s\S]*?\r?\n---/);
+  if (!match) return markdown;
+  const before = markdown.slice(0, match[0].length);
+  const after = markdown.slice(match[0].length);
+  if (/^\s*#\s+.+$/m.test(after)) {
+    return `${before}${after.replace(/^\s*#\s+.+$/m, `\n# ${cleanTitle}`)}`;
+  }
+  return `${before}\n\n# ${cleanTitle}${after}`;
 }
 
 function pathExtension(value = "") {
@@ -406,6 +471,10 @@ async function deleteGithubFile({ repository, branch, token, filePath, sha, mess
 
 async function createGithubBinaryFile({ repository, branch, token, filePath, base64Content, message }) {
   const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
+  const existing = await httpsJson(`${url}?ref=${encodeURIComponent(branch)}`, { method: "GET", headers: githubHeaders(token) });
+  if (!existing.ok && existing.status !== 404) {
+    throw new Error(existing.data.message || `Impossible de verifier ${filePath}.`);
+  }
   const response = await httpsJson(
     url,
     { method: "PUT", headers: githubHeaders(token) },
@@ -413,9 +482,10 @@ async function createGithubBinaryFile({ repository, branch, token, filePath, bas
       message,
       branch,
       content: base64Content,
+      ...(existing.ok && existing.data.sha ? { sha: existing.data.sha } : {}),
     },
   );
-  if (!response.ok) throw new Error(response.data.message || `Impossible de créer ${filePath}.`);
+  if (!response.ok) throw new Error(response.data.message || `Impossible d'enregistrer ${filePath}.`);
   return response.data;
 }
 
@@ -435,6 +505,162 @@ async function updateGithubFile({ repository, branch, token, filePath, sha, cont
   return response.data;
 }
 
+async function triggerDeployHook(action, paths = []) {
+  const hookUrl = process.env.VERCEL_DEPLOY_HOOK_URL;
+  if (!hookUrl) return { skipped: true, reason: "VERCEL_DEPLOY_HOOK_URL absent." };
+
+  try {
+    const response = await httpsJson(
+      hookUrl,
+      { method: "POST", headers: { "Content-Type": "application/json" } },
+      deployHookPayload(action, paths),
+    );
+    return { skipped: false, ok: response.ok, status: response.status };
+  } catch (error) {
+    return { skipped: false, ok: false, error: error.message || "Deploy hook indisponible." };
+  }
+}
+
+function buildArticleMarkdown(body, uploadedImagePath = "") {
+  const title = String(body.title || "").trim();
+  const description = String(body.description || "").trim();
+  const category = String(body.category || "").trim();
+  const slug = slugify(body.slug || title);
+  const content = String(body.body || body.markdown || "").trim();
+  const tags = cleanTagList(body.tags);
+  const featuredImage = String(uploadedImagePath || body.featured_image || "").trim();
+
+  if (!title) throw new Error("Le titre est obligatoire.");
+  if (!description) throw new Error("La description SEO est obligatoire.");
+  if (!category) throw new Error("La catégorie est obligatoire.");
+  if (!slug) throw new Error("Le slug est obligatoire.");
+  if (!content) throw new Error("Le contenu de l'article est obligatoire.");
+
+  const readingTime = String(body.reading_time || "4 min").trim();
+  const date = String(body.date || new Date().toISOString().slice(0, 10)).trim();
+  const label = String(body.category_label || categoryLabel(category)).trim();
+  const seoTitle = String(body.seo_title || title).trim();
+  const imageAlt = String(body.image_alt || title).trim();
+  const tagBlock = tags.length ? `tags:\n${tags.map((tag) => `  - ${yamlString(tag)}`).join("\n")}` : "tags: []";
+
+  return {
+    slug,
+    htmlPath: `${slug}.html`,
+    markdownPath: `${slug}.html.md`,
+    content: `---
+content_type: 'article'
+published: true
+title: ${yamlString(title)}
+seo_title: ${yamlString(seoTitle)}
+description: ${yamlString(description)}
+category: ${yamlString(category)}
+category_label: ${yamlString(label)}
+date: ${yamlString(date)}
+reading_time: ${yamlString(readingTime)}
+featured_image: ${yamlString(featuredImage)}
+image_alt: ${yamlString(imageAlt)}
+source_html: ${yamlString(`./${slug}.html`)}
+${tagBlock}
+---
+
+# ${title}
+
+${content}
+`,
+  };
+}
+
+async function uploadArticlePhoto({ repository, branch, token, slug, photo }) {
+  const parsed = parsePhoto(photo);
+  if (!parsed) return "";
+  if (Buffer.byteLength(parsed.base64, "base64") > 2500000) {
+    throw new Error(`La photo ${parsed.name} dépasse 2,5 Mo.`);
+  }
+  const ext = pathExtension(parsed.name);
+  const filePath = `uploads/articles/${slug}${ext}`;
+  await createGithubBinaryFile({
+    repository,
+    branch,
+    token,
+    filePath,
+    base64Content: parsed.base64,
+    message: `Upload article image: ${filePath}`,
+  });
+  return `/${filePath}`;
+}
+
+async function publishArticle({ repository, branch, token, body }) {
+  const draft = buildArticleMarkdown(body);
+  if (await githubPathExists(repository, branch, token, draft.markdownPath)) {
+    throw new Error("Un article avec ce slug existe déjà. Change le slug ou modifie l'article existant.");
+  }
+  if (await githubPathExists(repository, branch, token, draft.htmlPath)) {
+    throw new Error("Une page HTML avec ce slug existe déjà. Change le slug.");
+  }
+
+  const imagePath = await uploadArticlePhoto({ repository, branch, token, slug: draft.slug, photo: body.photo });
+  const article = imagePath ? buildArticleMarkdown(body, imagePath) : draft;
+
+  const github = await createGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: article.markdownPath,
+    content: article.content,
+    message: `Publish article: ${article.markdownPath}`,
+  });
+  const deploy = await triggerDeployHook("publish_article", [article.markdownPath, article.htmlPath]);
+  return {
+    filePath: article.markdownPath,
+    htmlPath: article.htmlPath,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${article.htmlPath.replace(/\.html$/, "")}`,
+    githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
+    deploy,
+  };
+}
+
+async function updatePublishedArticle({ repository, branch, token, collection, filePath, body }) {
+  const managedPath = normalizeManagedPath(collection, filePath);
+  const source = await readGithubPath(repository, branch, token, managedPath);
+  if (!source) throw new Error("Article introuvable.");
+
+  let markdown = String(body.markdown || "").trim();
+  if (!markdown || !markdown.startsWith("---")) {
+    throw new Error("Le contenu doit conserver l'en-tête frontmatter entre ---.");
+  }
+
+  const initialFields = parseFrontmatter(markdown);
+  const htmlPath = rootHtmlPathFromArticle(managedPath, initialFields);
+  const slug = htmlPath.replace(/\.html$/, "").split("/").pop() || slugify(body.title || initialFields.title || "article");
+  const updates = {};
+  if (body.title) updates.title = String(body.title).trim();
+  const photos = Array.isArray(body.photos) ? body.photos : [];
+  if (photos[0]) {
+    updates.featured_image = await uploadArticlePhoto({ repository, branch, token, slug, photo: photos[0] });
+    if (body.photo_notes) updates.image_alt = String(body.photo_notes).trim();
+  }
+  markdown = setFrontmatterValues(markdown, updates);
+  markdown = setMarkdownTitle(markdown, updates.title);
+
+  const github = await updateGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: managedPath,
+    sha: source.sha,
+    content: `${markdown}\n`,
+    message: `Update article: ${managedPath}`,
+  });
+  const deploy = await triggerDeployHook("update_article", [managedPath, htmlPath]);
+  return {
+    filePath: managedPath,
+    htmlPath,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${htmlPath.replace(/\.html$/, "")}`,
+    githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
+    deploy,
+  };
+}
+
 async function listManagedContent(repository, branch, token) {
   const results = [];
   for (const [collection, config] of Object.entries(allowedCollections)) {
@@ -450,7 +676,6 @@ async function listManagedContent(repository, branch, token) {
       if (!content) continue;
       const fields = parseFrontmatter(content.content);
       if (collection === "article_mirrors" && fields.content_type !== "article") continue;
-      if (collection === "articles" && fields.source_html) continue;
       results.push({
         collection,
         group: config.group,
@@ -719,7 +944,7 @@ module.exports = async function manageContent(req, res) {
       return;
     }
     const repository = process.env.GITHUB_REPO || DEFAULT_REPO;
-    const branch = process.env.GITHUB_BRANCH || DEFAULT_BRANCH;
+    const branch = deploymentBranch();
 
     if (req.method === "GET") {
       const url = new URL(req.url, "https://blog.mdrenov-menuiserie.com");
@@ -746,9 +971,22 @@ module.exports = async function manageContent(req, res) {
     const collection = String(body.collection || "");
     const filePath = String(body.filePath || "");
 
+    if (action === "publish_article") {
+      const result = await publishArticle({ repository, branch, token, body });
+      sendJson(res, 200, { ok: true, action, ...result });
+      return;
+    }
+
+    if (action === "update_article") {
+      const result = await updatePublishedArticle({ repository, branch, token, collection, filePath, body });
+      sendJson(res, 200, { ok: true, action, ...result });
+      return;
+    }
+
     if (action === "archive") {
       const result = await archiveManagedContent({ repository, branch, token, collection, filePath });
-      sendJson(res, 200, { ok: true, action, ...result });
+      const deploy = await triggerDeployHook("archive", result.deleted || result.archived || []);
+      sendJson(res, 200, { ok: true, action, ...result, deploy });
       return;
     }
 
@@ -758,7 +996,8 @@ module.exports = async function manageContent(req, res) {
         return;
       }
       const result = await deleteManagedContent({ repository, branch, token, collection, filePath });
-      sendJson(res, 200, { ok: true, action, ...result });
+      const deploy = await triggerDeployHook("delete", result.deleted || []);
+      sendJson(res, 200, { ok: true, action, ...result, deploy });
       return;
     }
 

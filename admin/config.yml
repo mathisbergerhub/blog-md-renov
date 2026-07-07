@@ -5,7 +5,7 @@
 backend:
   name: github
   repo: mathisbergerhub/blog-md-renov
-  branch: main
+  branch: redesign-immersive-b
   use_graphql: true
   site_domain: blog.mdrenov-menuiserie.com
   base_url: https://blog.mdrenov-menuiserie.com

@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
+const ARTICLE_CONTENT_DIR = path.join(ROOT, "content", "articles");
 const SITE_URL = "https://blog.mdrenov-menuiserie.com";
 const ASSET_VERSION = "menu-20260630a";
 const HANDCRAFTED_PAGES = new Set(["maprimerenov-2026-haute-savoie.html"]);
@@ -162,11 +163,13 @@ function firstParagraph(markdown = "") {
 }
 
 function articleFromFile(fileName) {
-  const { data, body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, fileName), "utf8"));
+  const absolutePath = path.join(ROOT, fileName);
+  const { data, body } = parseFrontmatter(fs.readFileSync(absolutePath, "utf8"));
   if (data.content_type !== "article" || data.published === false) return null;
-  const htmlFile = String(data.source_html || fileName.replace(/\.md$/, "")).replace(/^\.?\//, "");
+  const fallbackHtmlFile = path.basename(fileName).replace(/\.html\.md$/, ".html").replace(/\.md$/, ".html");
+  const htmlFile = String(data.source_html || fallbackHtmlFile).replace(/^\.?\//, "");
   const description = data.description || "Guide MD Rénov' pour préparer un projet de rénovation.";
-  const title = cleanArticleTitle(data.title || fileName.replace(/\.html\.md$/, ""), description);
+  const title = cleanArticleTitle(data.title || path.basename(fileName).replace(/\.html\.md$/, "").replace(/\.md$/, ""), description);
   return {
     ...data,
     body: normalizeArticleMarkdown(body),
@@ -185,7 +188,15 @@ function articleFromFile(fileName) {
 }
 
 function loadArticles() {
-  return fs.readdirSync(ROOT).filter((name) => name.endsWith(".html.md")).map(articleFromFile).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+  const articleFiles = [
+    ...fs.readdirSync(ROOT).filter((name) => name.endsWith(".html.md")),
+    ...(fs.existsSync(ARTICLE_CONTENT_DIR)
+      ? fs.readdirSync(ARTICLE_CONTENT_DIR)
+        .filter((name) => name.endsWith(".md"))
+        .map((name) => path.join("content", "articles", name).replace(/\\/g, "/"))
+      : []),
+  ];
+  return articleFiles.map(articleFromFile).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 }
 
 function headAssets() {
