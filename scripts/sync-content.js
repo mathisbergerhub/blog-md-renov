@@ -4,6 +4,7 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const ARTICLE_CONTENT_DIR = path.join(ROOT, "content", "articles");
 const SITE_URL = "https://blog.mdrenov-menuiserie.com";
+const BRAND_NAME = "MD Rénov'";
 const ASSET_VERSION = "menu-20260630a";
 const HANDCRAFTED_PAGES = new Set(["maprimerenov-2026-haute-savoie.html"]);
 const CATEGORY_LISTINGS = {
@@ -109,6 +110,14 @@ function formatTitlePunctuation(value = "") {
     .trim();
 }
 
+function normalizeBrandName(value = "") {
+  return String(value || "")
+    .replace(/MD Renov'?/gi, BRAND_NAME)
+    .replace(/MD Rénov'?/gi, BRAND_NAME)
+    .replace(/md rénov'?/gi, BRAND_NAME)
+    .replace(/MD Rénov''/g, BRAND_NAME);
+}
+
 function cleanArticleTitle(rawTitle = "", description = "") {
   let title = String(rawTitle || "").replace(/\s+/g, " ").trim();
   const desc = String(description || "").replace(/\s+/g, " ").trim();
@@ -175,8 +184,8 @@ function articleFromFile(fileName) {
     body: normalizeArticleMarkdown(body),
     htmlFile,
     title,
-    seo_title: data.seo_title ? formatTitlePunctuation(data.seo_title) : data.seo_title,
-    description,
+    seo_title: data.seo_title ? normalizeBrandName(formatTitlePunctuation(data.seo_title)) : data.seo_title,
+    description: normalizeBrandName(description),
     category: data.category || "exterieur",
     category_label: data.category_label || "Conseils",
     date: data.date || "2026-04-29",
@@ -200,13 +209,15 @@ function loadArticles() {
 }
 
 function headAssets() {
-  return `<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+  return `<link rel="icon" type="image/svg+xml" href="./logo-mdr-site.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
-<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 <link rel="shortcut icon" href="./favicon-32x32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
 <link rel="manifest" href="./site.webmanifest" />
 <meta name="theme-color" content="#9B1C1C" />
+<meta name="application-name" content="${BRAND_NAME}" />
+<meta name="apple-mobile-web-app-title" content="${BRAND_NAME}" />
 <meta name="google-site-verification" content="4aMlUzolkyQFqZKkQu6U1K5dWI3cuvZ15mC2DOkzMKE" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -469,25 +480,28 @@ function articlePage(article, allArticles) {
   const publisherLogo = `${SITE_URL}/apple-touch-icon.png`;
   const lead = article.description || firstParagraph(article.body);
   const hasCustomEditorialBlock = /<!--\s*mdr-editorial-value-md\s*-->/.test(article.body);
-  const jsonLd = { "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description: article.description, image, datePublished: article.date, dateModified: article.date, author: { "@type": "Organization", name: "MD Rénov'" }, publisher: { "@type": "Organization", name: "MD Rénov'", logo: { "@type": "ImageObject", url: publisherLogo } }, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl }, articleSection: article.category_label, keywords: article.tags.join(", "), inLanguage: "fr-FR" };
+  const pageTitle = normalizeBrandName(article.seo_title || article.title);
+  const jsonLd = { "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description: article.description, image, datePublished: article.date, dateModified: article.date, author: { "@type": "Organization", name: BRAND_NAME }, publisher: { "@type": "Organization", name: BRAND_NAME, logo: { "@type": "ImageObject", url: publisherLogo } }, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl }, articleSection: article.category_label, keywords: article.tags.join(", "), inLanguage: "fr-FR" };
 
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>${e(article.seo_title || article.title)}</title>
+<title>${e(pageTitle)}</title>
 <meta name="description" content="${e(article.description)}" />
 <meta name="robots" content="index,follow" />
 <link rel="canonical" href="${articleUrl}" />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="${e(article.seo_title || article.title)}" />
+<meta property="og:site_name" content="${BRAND_NAME}" />
+<meta property="og:title" content="${e(pageTitle)}" />
 <meta property="og:description" content="${e(article.description)}" />
 <meta property="og:url" content="${articleUrl}" />
 <meta property="og:image" content="${image}" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="author" content="MD Rénov'" />
+<meta name="twitter:title" content="${e(pageTitle)}" />
+<meta name="author" content="${BRAND_NAME}" />
 ${headAssets()}
 <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>
 </head>
