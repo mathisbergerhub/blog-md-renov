@@ -22,7 +22,7 @@ function e(value = "") {
 
 // Pages whose absolute URL is built without the .html extension (clean URLs are
 // enabled in vercel.json, so /article is the canonical form served by Vercel).
-const SITEMAP_EXCLUDE = new Set(["maprimerenov-2025-haute-savoie.html"]);
+const SITEMAP_EXCLUDE = new Set(["404.html", "maprimerenov-2025-haute-savoie.html"]);
 const TECHNICAL_HTML_RE = /^(google|024c4ac8dc07458fa612a50b4eb76b41).*\.html$/;
 
 function cleanPath(htmlFile = "") {
