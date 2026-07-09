@@ -29,10 +29,33 @@
     <section class="page-head">
       <div>
         <div class="kicker">Publication directe</div>
-        <h1>Créer un article avec la structure du blog.</h1>
-        <p>Remplis les blocs dans l'ordre. Le CMS génère le contenu compatible avec le rendu actuel, puis publie l'article dans GitHub et Vercel.</p>
+        <h1>Créer un article prêt à publier.</h1>
+        <p>L'interface reprend la structure des articles du blog : informations SEO, image, introduction, parties, tableaux, FAQ et publication.</p>
       </div>
       <a class="button button-secondary" href="/admin/manage.html">Voir les articles</a>
+    </section>
+
+    <section class="editor-overview" aria-label="Progression de création">
+      <article class="overview-card">
+        <span>1</span>
+        <strong>Infos article</strong>
+        <small>Titre, URL, catégorie, SEO</small>
+      </article>
+      <article class="overview-card">
+        <span>2</span>
+        <strong>Contenu</strong>
+        <small>Intro, parties, tableaux, FAQ</small>
+      </article>
+      <article class="overview-card">
+        <span>3</span>
+        <strong>Contrôle</strong>
+        <small>Image, tags, longueur, structure</small>
+      </article>
+      <article class="overview-card">
+        <span>4</span>
+        <strong>Publication</strong>
+        <small>GitHub, Vercel, page visible</small>
+      </article>
     </section>
 
     <section class="layout-grid">
@@ -119,9 +142,12 @@
           <div class="panel-head builder-head">
             <div>
               <h2>Structure de l'article</h2>
-              <p>Ajoute autant de grandes parties, sous-parties et questions que nécessaire. Le Markdown est généré automatiquement.</p>
+              <p>Compose l'article comme il apparaîtra sur le blog, sans toucher au code ni au Markdown.</p>
             </div>
-            <button class="secondary" type="button" id="add-section">Ajouter une partie</button>
+            <div class="builder-actions">
+              <button class="secondary" type="button" id="add-recommended-structure">Structure type</button>
+              <button class="secondary" type="button" id="add-section">Ajouter une partie</button>
+            </div>
           </div>
 
           <div class="form-grid">
@@ -166,9 +192,44 @@
       <aside class="panel">
         <div class="panel-head">
           <div>
-            <h2>Contrôle avant publication</h2>
-            <p>Le CMS vérifie l'essentiel, mais la relecture reste importante.</p>
+            <h2>Article en cours</h2>
+            <p>Le résumé se met à jour pendant la saisie.</p>
           </div>
+        </div>
+
+        <div class="readiness-card" aria-live="polite">
+          <div class="readiness-top">
+            <span id="readiness-score">0%</span>
+            <strong id="readiness-label">À compléter</strong>
+          </div>
+          <div class="readiness-meter" aria-hidden="true"><span id="readiness-fill"></span></div>
+          <p id="readiness-detail">Commence par le titre, la catégorie et la description SEO.</p>
+        </div>
+
+        <dl class="article-summary">
+          <div>
+            <dt>Titre</dt>
+            <dd id="summary-title">Non renseigné</dd>
+          </div>
+          <div>
+            <dt>Adresse</dt>
+            <dd id="summary-slug">...</dd>
+          </div>
+          <div>
+            <dt>Catégorie</dt>
+            <dd id="summary-category">Non choisie</dd>
+          </div>
+          <div>
+            <dt>Contenu</dt>
+            <dd id="summary-content">0 mot</dd>
+          </div>
+        </dl>
+
+        <div class="content-stats" aria-label="Statistiques du contenu">
+          <div><strong id="stat-sections">0</strong><span>partie</span></div>
+          <div><strong id="stat-faqs">0</strong><span>FAQ</span></div>
+          <div><strong id="stat-tables">0</strong><span>tableau</span></div>
+          <div><strong id="stat-tags">0</strong><span>tag</span></div>
         </div>
 
         <ul class="checklist" id="checklist">
@@ -181,18 +242,8 @@
         </ul>
 
         <div class="help-card">
-          <h3>Structure conseillée</h3>
-          <p>Commence par une réponse courte, ajoute des parties enchaînées logiquement, puis termine par une FAQ ou des points à vérifier.</p>
-        </div>
-
-        <div class="help-card">
-          <h3>Tags</h3>
-          <p>Les tags existants évitent de créer des variantes inutiles. Ajoute un nouveau tag seulement s'il apporte un vrai classement.</p>
-        </div>
-
-        <div class="help-card">
-          <h3>Après publication</h3>
-          <p>Attends 1 à 3 minutes, ouvre la page, vérifie le titre, l'image, les liens et l'affichage mobile.</p>
+          <h3>Avant de publier</h3>
+          <p>Relis le titre, la première réponse, l'image, les tags et la FAQ. Après publication, attends 1 à 3 minutes puis ouvre la page.</p>
         </div>
       </aside>
     </section>
@@ -265,7 +316,7 @@
           <div class="section-toolbar">
             <div>
               <h3>Partie ${id}</h3>
-              <p>Une idee principale, puis des details ou points a verifier.</p>
+              <p>Une idée principale, puis des détails ou points à vérifier.</p>
             </div>
             <div class="inline-actions">
               <button class="secondary compact" type="button" data-action="move-up">Monter</button>
@@ -276,7 +327,7 @@
           <div class="form-grid">
             <label class="wide">
               Titre de partie
-              <input class="section-title" placeholder="Ex : Les criteres a comparer" value="${html(titleValue)}" />
+              <input class="section-title" placeholder="Ex : Les critères à comparer" value="${html(titleValue)}" />
             </label>
             <label class="wide">
               Texte de la partie
@@ -284,7 +335,7 @@
             </label>
             <label class="wide">
               Liste de points, un par ligne
-              <textarea class="section-bullets" placeholder="Largeur utile&#10;Type de pose&#10;Budget et delai">${html(bulletValue)}</textarea>
+              <textarea class="section-bullets" placeholder="Largeur utile&#10;Type de pose&#10;Budget et délai">${html(bulletValue)}</textarea>
             </label>
           </div>
           <div class="table-list"></div>
@@ -333,7 +384,7 @@
       `;
     }
 
-    function subsectionTemplate() {
+    function subsectionTemplate(titleValue = "", bodyValue = "", bulletValue = "") {
       return `
         <article class="subsection-card">
           <div class="section-toolbar">
@@ -343,22 +394,22 @@
           <div class="form-grid">
             <label class="wide">
               Titre de sous-partie
-              <input class="subsection-title" placeholder="Ex : Ce qui change vraiment le prix" />
+              <input class="subsection-title" placeholder="Ex : Ce qui change vraiment le prix" value="${html(titleValue)}" />
             </label>
             <label class="wide">
               Texte de la sous-partie
-              <textarea class="subsection-body"></textarea>
+              <textarea class="subsection-body">${html(bodyValue)}</textarea>
             </label>
             <label class="wide">
               Points de la sous-partie, un par ligne
-              <textarea class="subsection-bullets"></textarea>
+              <textarea class="subsection-bullets">${html(bulletValue)}</textarea>
             </label>
           </div>
         </article>
       `;
     }
 
-    function faqTemplate() {
+    function faqTemplate(questionValue = "", answerValue = "") {
       const id = ++faqIndex;
       return `
         <article class="faq-card" data-faq="${id}">
@@ -369,11 +420,11 @@
           <div class="form-grid">
             <label class="wide">
               Question
-              <input class="faq-question" placeholder="Ex : Faut-il une autorisation ?" />
+              <input class="faq-question" placeholder="Ex : Faut-il une autorisation ?" value="${html(questionValue)}" />
             </label>
             <label class="wide">
               Réponse
-              <textarea class="faq-answer" placeholder="Réponse courte et concrète."></textarea>
+              <textarea class="faq-answer" placeholder="Réponse courte et concrète.">${html(answerValue)}</textarea>
             </label>
           </div>
         </article>
@@ -475,7 +526,7 @@
           const subtext = cleanText(subcard.querySelector(".subsection-body").value);
           const subbullets = markdownBullets(subcard.querySelector(".subsection-bullets").value);
           if (!subheading && !subtext && !subbullets) return;
-          sectionParts.push(`### ${subheading || "A verifier"}`);
+          sectionParts.push(`### ${subheading || "À vérifier"}`);
           if (subtext) sectionParts.push(subtext);
           if (subbullets) sectionParts.push(subbullets);
         });
@@ -494,18 +545,71 @@
       return parts.filter(Boolean).join("\n\n").trim();
     }
 
+    function selectedTagList() {
+      const custom = $("#custom-tags").value
+        .split(",")
+        .map((tag) => tag.trim())
+        .filter(Boolean);
+      return Array.from(new Set([...selectedTags, ...custom]));
+    }
+
+    function plural(value, one, many = `${one}s`) {
+      return `${value} ${value > 1 ? many : one}`;
+    }
+
+    function wordCount(value) {
+      return String(value || "").trim().split(/\s+/).filter(Boolean).length;
+    }
+
     function updateChecks() {
       const generated = buildMarkdown();
       body.value = generated;
+      const contentWords = wordCount(generated);
+      const tagCount = selectedTagList().length;
+      const sectionCount = document.querySelectorAll(".section-card").length;
+      const faqCount = document.querySelectorAll(".faq-card").length;
+      const tableCount = document.querySelectorAll(".table-card").length;
+      const checks = {
+        title: title.value.trim().length >= 12,
+        slug: slug.value.trim().length >= 4,
+        category: Boolean($("#category").value),
+        description: description.value.trim().length >= 80,
+        imageAlt: $("#image-alt").value.trim().length >= 8,
+        body: generated.length >= 250 && sectionCount >= 1,
+      };
+
       $("#title-count").textContent = `${title.value.length} caractère${title.value.length > 1 ? "s" : ""}`;
       $("#desc-count").textContent = `${description.value.length} / 180`;
       $("#slug-preview").textContent = slug.value || "...";
-      setCheck("title", title.value.trim().length >= 12);
-      setCheck("slug", slug.value.trim().length >= 4);
-      setCheck("category", Boolean($("#category").value));
-      setCheck("description", description.value.trim().length >= 80);
-      setCheck("imageAlt", $("#image-alt").value.trim().length >= 8);
-      setCheck("body", generated.length >= 250 && document.querySelectorAll(".section-card").length >= 1);
+
+      Object.entries(checks).forEach(([name, done]) => setCheck(name, done));
+
+      $("#summary-title").textContent = title.value.trim() || "Non renseigné";
+      $("#summary-slug").textContent = slug.value ? `/${slug.value}.html` : "...";
+      $("#summary-category").textContent = categoryLabels[$("#category").value] || "Non choisie";
+      $("#summary-content").textContent = plural(contentWords, "mot");
+      $("#stat-sections").textContent = sectionCount;
+      $("#stat-faqs").textContent = faqCount;
+      $("#stat-tables").textContent = tableCount;
+      $("#stat-tags").textContent = tagCount;
+
+      const labels = {
+        title: "titre",
+        slug: "adresse",
+        category: "catégorie",
+        description: "description SEO",
+        imageAlt: "texte alternatif",
+        body: "contenu",
+      };
+      const doneCount = Object.values(checks).filter(Boolean).length;
+      const score = Math.round((doneCount / Object.keys(checks).length) * 100);
+      const missing = Object.entries(checks).filter(([, done]) => !done).map(([name]) => labels[name]);
+      $("#readiness-score").textContent = `${score}%`;
+      $("#readiness-fill").style.width = `${score}%`;
+      $("#readiness-label").textContent = score === 100 ? "Prêt à publier" : score >= 70 ? "Presque prêt" : "À compléter";
+      $("#readiness-detail").textContent = missing.length
+        ? `À compléter : ${missing.slice(0, 3).join(", ")}.`
+        : "Les contrôles principaux sont remplis. Une relecture reste nécessaire.";
     }
 
     function readPhoto(file) {
@@ -540,17 +644,36 @@
     }
 
     function selectedTagValue() {
-      const custom = $("#custom-tags").value
-        .split(",")
-        .map((tag) => tag.trim())
-        .filter(Boolean);
-      return Array.from(new Set([...selectedTags, ...custom])).join(", ");
+      return selectedTagList().join(", ");
+    }
+
+    function applyRecommendedStructure() {
+      const currentContent = buildMarkdown();
+      if (currentContent.length > 80 && !window.confirm("Remplacer la structure actuelle par une structure type ?")) return;
+      sectionIndex = 0;
+      faqIndex = 0;
+      sections.innerHTML = [
+        sectionTemplate("Ce que ce guide vous aide à décider"),
+        sectionTemplate("Les critères à comparer"),
+        sectionTemplate("Les erreurs à éviter"),
+        sectionTemplate("Le bon ordre pour avancer"),
+      ].join("");
+      const cards = Array.from(sections.querySelectorAll(".section-card"));
+      cards[1]?.querySelector(".table-list").insertAdjacentHTML("beforeend", tableTemplate());
+      cards[2]?.querySelector(".subsection-list").insertAdjacentHTML("beforeend", subsectionTemplate("Point à vérifier avant devis"));
+      faqs.innerHTML = [
+        faqTemplate("Faut-il une autorisation ?"),
+        faqTemplate("Quel budget prévoir ?"),
+        faqTemplate("Combien de temps faut-il prévoir ?"),
+        faqTemplate("Que comparer sur un devis ?"),
+      ].join("");
+      updateChecks();
     }
 
     function resetBuilder() {
       sectionIndex = 0;
       faqIndex = 0;
-      sections.innerHTML = sectionTemplate("Ce que ce guide vous aide a decider");
+      sections.innerHTML = sectionTemplate("Ce que ce guide vous aide à décider");
       faqs.innerHTML = faqTemplate();
       selectedTags.clear();
       document.querySelectorAll("#tag-picker input").forEach((input) => { input.checked = false; });
@@ -575,12 +698,15 @@
       if (!event.target.matches("input[type='checkbox']")) return;
       if (event.target.checked) selectedTags.add(event.target.value);
       else selectedTags.delete(event.target.value);
+      updateChecks();
     });
 
     $("#add-section").addEventListener("click", () => {
       sections.insertAdjacentHTML("beforeend", sectionTemplate());
       updateChecks();
     });
+
+    $("#add-recommended-structure").addEventListener("click", applyRecommendedStructure);
 
     $("#add-faq").addEventListener("click", () => {
       faqs.insertAdjacentHTML("beforeend", faqTemplate());
@@ -614,7 +740,7 @@
     });
 
     date.value = new Date().toISOString().slice(0, 10);
-    sections.innerHTML = sectionTemplate("Ce que ce guide vous aide a decider");
+    sections.innerHTML = sectionTemplate("Ce que ce guide vous aide à décider");
     faqs.innerHTML = faqTemplate();
     loadExistingTags();
     updateChecks();

@@ -149,6 +149,52 @@ button:disabled { opacity: .55; cursor: not-allowed; }
   margin-bottom: 18px;
 }
 
+.editor-overview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.overview-card {
+  min-height: 88px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 10px;
+  align-content: center;
+  padding: 13px;
+  background: #fffdfa;
+}
+
+.overview-card span {
+  grid-row: span 2;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.overview-card strong {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.overview-card small {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
 .kicker {
   margin-bottom: 8px;
   color: var(--brand);
@@ -189,6 +235,11 @@ p {
   grid-template-columns: minmax(0, 1fr) 340px;
   gap: 18px;
   align-items: start;
+}
+
+.layout-grid > aside.panel {
+  position: sticky;
+  top: 18px;
 }
 
 .panel,
@@ -412,6 +463,13 @@ textarea {
   margin-bottom: 0;
 }
 
+.builder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .section-list,
 .faq-list {
   display: grid;
@@ -624,9 +682,119 @@ textarea {
   padding: 20px;
 }
 
+.readiness-card {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(155, 28, 28, .18);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+  background: linear-gradient(180deg, var(--brand-soft), #fffdfa);
+}
+
+.readiness-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.readiness-top span {
+  color: var(--brand);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -.03em;
+}
+
+.readiness-top strong {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.readiness-meter {
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(155, 28, 28, .12);
+}
+
+.readiness-meter span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--brand);
+  transition: width .2s cubic-bezier(.23, 1, .32, 1);
+}
+
+.article-summary {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.article-summary div {
+  display: grid;
+  gap: 3px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+.article-summary dt {
+  color: var(--soft);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.article-summary dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.content-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.content-stats div {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  background: #fffdfa;
+}
+
+.content-stats strong,
+.content-stats span {
+  display: block;
+}
+
+.content-stats strong {
+  margin-bottom: 3px;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.content-stats span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
 .checklist {
   display: grid;
   gap: 8px;
+  margin: 0 0 14px;
+  padding: 0;
 }
 
 .checklist li {
@@ -674,6 +842,8 @@ textarea {
 
 @media (max-width: 980px) {
   .layout-grid { grid-template-columns: 1fr; }
+  .layout-grid > aside.panel { position: static; }
+  .editor-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .metrics { grid-template-columns: 1fr; }
   .page-head { grid-template-columns: 1fr; align-items: start; }
 }
@@ -681,11 +851,16 @@ textarea {
 @media (max-width: 760px) {
   .topbar { align-items: flex-start; flex-direction: column; }
   .nav { justify-content: flex-start; }
+  .editor-overview { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .wide { grid-column: auto; }
   .item { grid-template-columns: 1fr; }
   .actions { justify-content: flex-start; }
   .toolbar { align-items: flex-start; flex-direction: column; }
+  .builder-head,
+  .section-toolbar { align-items: flex-start; flex-direction: column; }
+  .builder-actions,
+  .inline-actions { justify-content: flex-start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
