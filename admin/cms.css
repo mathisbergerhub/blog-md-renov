@@ -478,7 +478,6 @@ textarea {
 }
 
 .section-card,
-.subsection-card,
 .table-card,
 .cta-card,
 .source-card-admin,
@@ -490,11 +489,6 @@ textarea {
   border-radius: 14px;
   padding: 15px;
   background: #fffdfa;
-}
-
-.subsection-card {
-  margin-top: 12px;
-  background: var(--surface);
 }
 
 .table-card {
@@ -578,6 +572,24 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.block-insert {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+
+.block-insert span {
+  color: var(--soft);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .compact {

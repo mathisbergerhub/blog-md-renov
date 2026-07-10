@@ -398,6 +398,37 @@ async function listGithubFolder(repository, branch, token, folder) {
   return response.data;
 }
 
+async function listGithubTree(repository, branch, token) {
+  const url = `https://api.github.com/repos/${repository}/git/trees/${encodeURIComponent(branch)}?recursive=1`;
+  const response = await httpsJson(url, { method: "GET", headers: githubHeaders(token) });
+  if (!response.ok || !Array.isArray(response.data.tree)) {
+    throw new Error(response.data.message || "Impossible de lister les contenus GitHub.");
+  }
+  if (response.data.truncated) {
+    throw new Error("La liste GitHub est trop grande pour etre lue en une seule fois.");
+  }
+  return response.data.tree;
+}
+
+function managedTreeEntries(tree) {
+  return tree
+    .filter((entry) => entry && entry.type === "blob" && entry.path && entry.path.split("/").pop() !== ".gitkeep")
+    .map((entry) => {
+      const path = entry.path;
+      if (path.startsWith("content/articles/") && path.endsWith(".md")) {
+        return { collection: "articles", config: allowedCollections.articles, path };
+      }
+      if (path.startsWith("content/archive/articles/") && path.endsWith(".md")) {
+        return { collection: "archived_articles", config: allowedCollections.archived_articles, path };
+      }
+      if (!path.includes("/") && path.endsWith(".html.md")) {
+        return { collection: "article_mirrors", config: allowedCollections.article_mirrors, path };
+      }
+      return null;
+    })
+    .filter(Boolean);
+}
+
 async function createGithubFile({ repository, branch, token, filePath, content, message }) {
   const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
   const response = await httpsJson(
@@ -661,7 +692,7 @@ async function updatePublishedArticle({ repository, branch, token, collection, f
   };
 }
 
-async function listManagedContent(repository, branch, token) {
+async function listManagedContentFromFolders(repository, branch, token) {
   const results = [];
   for (const [collection, config] of Object.entries(allowedCollections)) {
     if (!["articles", "article_mirrors", "archived_articles"].includes(collection)) continue;
@@ -696,6 +727,42 @@ async function listManagedContent(repository, branch, token) {
   }
   results.sort((a, b) => String(b.date).localeCompare(String(a.date)) || a.title.localeCompare(b.title));
   return results;
+}
+
+async function listManagedContentFromTree(repository, branch, token) {
+  const results = [];
+  const tree = await listGithubTree(repository, branch, token);
+  for (const file of managedTreeEntries(tree)) {
+    const content = await readGithubPath(repository, branch, token, file.path);
+    if (!content) continue;
+    const fields = parseFrontmatter(content.content);
+    if (file.collection === "article_mirrors" && fields.content_type !== "article") continue;
+    results.push({
+      collection: file.collection,
+      group: file.config.group,
+      typeLabel: file.config.label,
+      title: fields.title || file.path.split("/").pop().replace(/\.md$/, ""),
+      category: fields.category_label || fields.category || "",
+      tags: cleanTagList(fields.tags),
+      status: file.config.archived ? "archived" : fields.status || (fields.published === false ? "draft" : "published"),
+      archived: Boolean(file.config.archived),
+      published: fields.published !== false,
+      date: fields.date || fields.created_at || "",
+      filePath: file.path,
+      htmlPath: file.config.group === "articles" ? rootHtmlPathFromArticle(file.path, fields) : "",
+      githubUrl: content.htmlUrl,
+    });
+  }
+  results.sort((a, b) => String(b.date).localeCompare(String(a.date)) || a.title.localeCompare(b.title));
+  return results;
+}
+
+async function listManagedContent(repository, branch, token) {
+  try {
+    return await listManagedContentFromTree(repository, branch, token);
+  } catch (error) {
+    return listManagedContentFromFolders(repository, branch, token);
+  }
 }
 
 async function readManagedContent({ repository, branch, token, collection, filePath }) {

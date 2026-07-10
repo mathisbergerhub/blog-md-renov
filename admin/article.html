@@ -147,6 +147,8 @@
             <div class="builder-actions">
               <button class="secondary" type="button" id="add-recommended-structure">Structure type</button>
               <button class="secondary" type="button" id="add-section">Ajouter une partie</button>
+              <button class="secondary" type="button" id="add-table-block">Ajouter un tableau</button>
+              <button class="secondary" type="button" id="add-cta-block">Ajouter un CTA</button>
             </div>
           </div>
 
@@ -332,6 +334,17 @@
       return cleanText(value).replace(/\|/g, "/").replace(/\r?\n/g, " ");
     }
 
+    function blockControls() {
+      return `
+        <div class="block-insert">
+          <span>Ajouter après</span>
+          <button class="secondary compact" type="button" data-action="insert-section-after">Partie</button>
+          <button class="secondary compact" type="button" data-action="insert-table-after">Tableau</button>
+          <button class="secondary compact" type="button" data-action="insert-cta-after">CTA</button>
+        </div>
+      `;
+    }
+
     function sectionTemplate(titleValue = "", bodyValue = "", bulletValue = "") {
       const id = ++sectionIndex;
       return `
@@ -368,14 +381,7 @@
               </select>
             </label>
           </div>
-          <div class="table-list"></div>
-          <div class="cta-list"></div>
-          <div class="subsection-list"></div>
-          <div class="block-actions">
-            <button class="secondary" type="button" data-action="add-subsection">Ajouter une sous-partie</button>
-            <button class="secondary" type="button" data-action="add-table">Ajouter un tableau</button>
-            <button class="secondary" type="button" data-action="add-cta">Ajouter un CTA</button>
-          </div>
+          ${blockControls()}
         </article>
       `;
     }
@@ -396,7 +402,11 @@
               <h3>Tableau</h3>
               <p>Remplis les titres de colonnes, puis les lignes utiles.</p>
             </div>
-            <button class="button-danger compact" type="button" data-action="remove-table">Retirer</button>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-table">Retirer</button>
+            </div>
           </div>
           <label class="wide">
             Titre du tableau, optionnel
@@ -412,42 +422,7 @@
             <button class="secondary compact" type="button" data-action="add-table-column">Ajouter une colonne</button>
             <button class="secondary compact" type="button" data-action="remove-table-column">Retirer une colonne</button>
           </div>
-        </article>
-      `;
-    }
-
-    function subsectionTemplate(titleValue = "", bodyValue = "", bulletValue = "") {
-      return `
-        <article class="subsection-card">
-          <div class="section-toolbar">
-            <h3>Sous-partie</h3>
-            <button class="button-danger compact" type="button" data-action="remove-subsection">Retirer</button>
-          </div>
-          <div class="form-grid">
-            <label class="wide">
-              Titre de sous-partie
-              <input class="subsection-title" placeholder="Ex : Ce qui change vraiment le prix" value="${html(titleValue)}" />
-            </label>
-            <label class="wide">
-              Texte de la sous-partie
-              <textarea class="subsection-body">${html(bodyValue)}</textarea>
-            </label>
-            <label class="wide">
-              Points de la sous-partie, un par ligne
-              <textarea class="subsection-bullets">${html(bulletValue)}</textarea>
-            </label>
-            <label>
-              Type de liste
-              <select class="subsection-list-style">
-                <option value="bullet">Liste à puces</option>
-                <option value="ordered">Liste numérotée 1, 2, 3</option>
-              </select>
-            </label>
-          </div>
-          <div class="cta-list"></div>
-          <div class="block-actions">
-            <button class="secondary compact" type="button" data-action="add-subsection-cta">Ajouter un CTA dans cette sous-partie</button>
-          </div>
+          ${blockControls()}
         </article>
       `;
     }
@@ -482,7 +457,11 @@
               <h3>Bandeau CTA</h3>
               <p>Bloc de conversion inséré dans l'article à cet endroit.</p>
             </div>
-            <button class="button-danger compact" type="button" data-action="remove-cta">Retirer</button>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-cta">Retirer</button>
+            </div>
           </div>
           <div class="form-grid">
             <label class="wide">
@@ -498,6 +477,7 @@
               <input class="cta-button" placeholder="Ex : Faire le point" value="${html(buttonValue || "Faire le point")}" />
             </label>
           </div>
+          ${blockControls()}
         </article>
       `;
     }
@@ -629,36 +609,27 @@
       if (intro) parts.push(intro);
       if (keyPoint) parts.push(`## Le point important\n\n${keyPoint}`);
 
-      document.querySelectorAll(".section-card").forEach((card, index) => {
-        const heading = cleanText(card.querySelector(".section-title").value) || `Partie ${index + 1}`;
-        const text = cleanText(card.querySelector(".section-body").value);
-        const bullets = markdownList(card.querySelector(".section-bullets").value, card.querySelector(".section-list-style")?.value || "bullet");
-        const sectionParts = [`## ${heading}`];
-        if (text) sectionParts.push(text);
-        if (bullets) sectionParts.push(bullets);
-
-        card.querySelector(".table-list").querySelectorAll(".table-card").forEach((tableCard) => {
-          const table = tableMarkdown(tableCard);
-          if (table) sectionParts.push(table);
-        });
-
-        card.querySelector(".cta-list").querySelectorAll(".cta-card").forEach((ctaCard) => {
-          sectionParts.push(ctaMarkdown(ctaCard));
-        });
-
-        card.querySelectorAll(".subsection-card").forEach((subcard) => {
-          const subheading = cleanText(subcard.querySelector(".subsection-title").value);
-          const subtext = cleanText(subcard.querySelector(".subsection-body").value);
-          const subbullets = markdownList(subcard.querySelector(".subsection-bullets").value, subcard.querySelector(".subsection-list-style")?.value || "bullet");
-          const subCtas = Array.from(subcard.querySelector(".cta-list").querySelectorAll(".cta-card"));
-          if (!subheading && !subtext && !subbullets && !subCtas.length) return;
-          sectionParts.push(`### ${subheading || "À vérifier"}`);
-          if (subtext) sectionParts.push(subtext);
-          if (subbullets) sectionParts.push(subbullets);
-          subCtas.forEach((ctaCard) => sectionParts.push(ctaMarkdown(ctaCard)));
-        });
-
-        parts.push(sectionParts.filter(Boolean).join("\n\n"));
+      let sectionNumber = 0;
+      Array.from(sections.children).forEach((block) => {
+        if (block.classList.contains("section-card")) {
+          sectionNumber += 1;
+          const heading = cleanText(block.querySelector(".section-title").value) || `Partie ${sectionNumber}`;
+          const text = cleanText(block.querySelector(".section-body").value);
+          const bullets = markdownList(block.querySelector(".section-bullets").value, block.querySelector(".section-list-style")?.value || "bullet");
+          const sectionParts = [`## ${heading}`];
+          if (text) sectionParts.push(text);
+          if (bullets) sectionParts.push(bullets);
+          parts.push(sectionParts.filter(Boolean).join("\n\n"));
+          return;
+        }
+        if (block.classList.contains("table-card")) {
+          const table = tableMarkdown(block);
+          if (table) parts.push(table);
+          return;
+        }
+        if (block.classList.contains("cta-card")) {
+          parts.push(ctaMarkdown(block));
+        }
       });
 
       const faqParts = [];
@@ -796,9 +767,7 @@
         sectionTemplate("Le bon ordre pour avancer"),
       ].join("");
       const cards = Array.from(sections.querySelectorAll(".section-card"));
-      cards[1]?.querySelector(".table-list").insertAdjacentHTML("beforeend", tableTemplate());
-      cards[1]?.querySelector(".cta-list").insertAdjacentHTML("beforeend", ctaTemplate());
-      cards[2]?.querySelector(".subsection-list").insertAdjacentHTML("beforeend", subsectionTemplate("Point à vérifier avant devis"));
+      cards[1]?.insertAdjacentHTML("afterend", tableTemplate() + ctaTemplate());
       if (cards[3]) {
         cards[3].querySelector(".section-list-style").value = "ordered";
         cards[3].querySelector(".section-bullets").value = "Décrire le besoin\nVérifier les contraintes\nComparer le devis\nValider avant de signer";
@@ -852,6 +821,16 @@
       updateChecks();
     });
 
+    $("#add-table-block").addEventListener("click", () => {
+      sections.insertAdjacentHTML("beforeend", tableTemplate());
+      updateChecks();
+    });
+
+    $("#add-cta-block").addEventListener("click", () => {
+      sections.insertAdjacentHTML("beforeend", ctaTemplate());
+      updateChecks();
+    });
+
     $("#add-recommended-structure").addEventListener("click", applyRecommendedStructure);
 
     $("#add-faq").addEventListener("click", () => {
@@ -867,21 +846,19 @@
     sections.addEventListener("click", (event) => {
       const button = event.target.closest("button[data-action]");
       if (!button) return;
-      const card = button.closest(".section-card");
+      const block = button.closest(".section-card, .table-card, .cta-card");
       const action = button.dataset.action;
-      if (action === "add-subsection") card.querySelector(".subsection-list").insertAdjacentHTML("beforeend", subsectionTemplate());
-      if (action === "add-table") card.querySelector(".table-list").insertAdjacentHTML("beforeend", tableTemplate());
-      if (action === "add-cta") card.querySelector(".cta-list").insertAdjacentHTML("beforeend", ctaTemplate());
-      if (action === "add-subsection-cta") button.closest(".subsection-card").querySelector(".cta-list").insertAdjacentHTML("beforeend", ctaTemplate());
-      if (action === "remove-section") card.remove();
-      if (action === "remove-subsection") button.closest(".subsection-card").remove();
+      if (action === "insert-section-after") block.insertAdjacentHTML("afterend", sectionTemplate());
+      if (action === "insert-table-after") block.insertAdjacentHTML("afterend", tableTemplate());
+      if (action === "insert-cta-after") block.insertAdjacentHTML("afterend", ctaTemplate());
+      if (action === "remove-section") block.remove();
       if (action === "remove-table") button.closest(".table-card").remove();
       if (action === "remove-cta") button.closest(".cta-card").remove();
       if (action === "add-table-row") addTableRow(button.closest(".table-card"));
       if (action === "add-table-column") addTableColumn(button.closest(".table-card"));
       if (action === "remove-table-column") removeTableColumn(button.closest(".table-card"));
-      if (action === "move-up" && card.previousElementSibling) sections.insertBefore(card, card.previousElementSibling);
-      if (action === "move-down" && card.nextElementSibling) sections.insertBefore(card.nextElementSibling, card);
+      if (action === "move-up" && block.previousElementSibling) sections.insertBefore(block, block.previousElementSibling);
+      if (action === "move-down" && block.nextElementSibling) sections.insertBefore(block.nextElementSibling, block);
       if (!sections.querySelector(".section-card")) sections.insertAdjacentHTML("beforeend", sectionTemplate());
       updateChecks();
     });
