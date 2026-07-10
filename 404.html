@@ -31,29 +31,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="./styles.css?v=immersive-20260702d" />
 <style>
-  body { background: #f6f2ea; }
+  body { background: var(--mdr-paper); }
   .mdr-error-page { min-height: 100vh; display: flex; flex-direction: column; }
-  .mdr-error-main { flex: 1; display: grid; place-items: center; padding: clamp(2rem, 6vw, 5rem) 1rem; }
-  .mdr-error-panel { width: min(980px, 100%); display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.75fr); gap: clamp(1.25rem, 4vw, 2.5rem); align-items: stretch; }
-  .mdr-error-copy,
-  .mdr-error-links { border: 1px solid rgba(24, 23, 22, 0.12); border-radius: 8px; background: #fff; box-shadow: 0 18px 46px rgba(24, 23, 22, 0.08); }
-  .mdr-error-copy { padding: clamp(1.4rem, 4vw, 2.6rem); }
-  .mdr-error-code { display: inline-flex; align-items: center; min-height: 34px; margin-bottom: 1.1rem; padding: 0 0.85rem; border: 1px solid rgba(155, 28, 28, 0.22); border-radius: 999px; background: #fff5f4; color: var(--mdr-red); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-  .mdr-error-copy h1 { margin: 0; max-width: 12ch; color: var(--mdr-ink); font-size: clamp(2.5rem, 8vw, 5.8rem); line-height: 0.96; letter-spacing: -0.04em; text-wrap: balance; }
-  .mdr-error-copy p { max-width: 58ch; margin: 1.2rem 0 0; color: rgba(24, 23, 22, 0.72); font-size: clamp(1rem, 1.6vw, 1.16rem); line-height: 1.68; }
-  .mdr-error-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
-  .mdr-error-actions .mdr-btn--ghost { border: 1px solid rgba(24, 23, 22, 0.14); background: #fff; color: var(--mdr-ink); box-shadow: none; }
+  .mdr-error-page .mdr-topnav { border-top: 0; }
+  .mdr-error-page .mdr-topnav__brand img { display: block; }
+  .mdr-error-main { flex: 1; padding: 0 1.25rem clamp(2rem, 5vw, 4rem); background: linear-gradient(#fff 0 0) top / 100% 3.5rem no-repeat, var(--mdr-paper); }
+  .mdr-error-hero { width: min(1180px, 100%); margin: 0 auto; padding: clamp(2rem, 6vw, 4.5rem) 0 clamp(1.6rem, 4vw, 3rem); display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr); gap: clamp(1.25rem, 4vw, 3rem); align-items: end; border-bottom: 1px solid var(--mdr-line); }
+  .mdr-error-kicker { margin: 0 0 1rem; color: var(--mdr-red); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+  .mdr-error-copy h1 { margin: 0; max-width: 13ch; color: var(--mdr-ink); font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.04em; text-wrap: balance; }
+  .mdr-error-script { display: inline-block; padding: 0 0 0.08em; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 650; line-height: 1.12; letter-spacing: -0.03em; }
+  .mdr-error-copy p { max-width: 62ch; margin: 1.15rem 0 0; color: var(--mdr-muted); font-size: clamp(1rem, 1.5vw, 1.18rem); line-height: 1.68; text-wrap: pretty; }
+  .mdr-error-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.45rem; }
+  .mdr-error-actions .mdr-btn { transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), border-color 160ms ease, color 160ms ease, background-color 160ms ease; }
+  .mdr-error-actions .mdr-btn:active { transform: scale(0.98); }
+  .mdr-error-actions .mdr-btn--ghost { border: 1px solid rgba(24, 23, 22, 0.16); background: #fff; color: var(--mdr-ink); box-shadow: none; }
   .mdr-error-actions .mdr-btn--ghost:hover,
-  .mdr-error-actions .mdr-btn--ghost:focus-visible { border-color: rgba(155, 28, 28, 0.32); color: var(--mdr-red); transform: translateY(-1px); }
-  .mdr-error-links { display: grid; gap: 0.35rem; align-content: start; padding: clamp(1.1rem, 3vw, 1.5rem); }
-  .mdr-error-links p { margin: 0 0 0.45rem; color: var(--mdr-red); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-  .mdr-error-links a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; border-bottom: 1px solid rgba(24, 23, 22, 0.1); color: rgba(24, 23, 22, 0.78); font-weight: 700; }
-  .mdr-error-links a::after { content: "→"; color: var(--mdr-red); font-weight: 900; }
-  .mdr-error-links a:hover,
-  .mdr-error-links a:focus-visible { color: var(--mdr-red); }
+  .mdr-error-actions .mdr-btn--ghost:focus-visible { border-color: rgba(155, 28, 28, 0.34); color: var(--mdr-red); }
+  .mdr-error-help { padding: clamp(1.1rem, 2.2vw, 1.45rem); border: 1px solid var(--mdr-line); border-radius: 10px; background: #fff; }
+  .mdr-error-help h2 { margin: 0 0 0.85rem; color: var(--mdr-ink); font-size: clamp(1.1rem, 1.7vw, 1.35rem); line-height: 1.15; }
+  .mdr-error-help ol { display: grid; gap: 0.8rem; margin: 0; padding: 0; list-style: none; counter-reset: error-steps; }
+  .mdr-error-help li { display: grid; grid-template-columns: 2.15rem 1fr; gap: 0.75rem; align-items: start; color: var(--mdr-muted); line-height: 1.45; }
+  .mdr-error-help li::before { counter-increment: error-steps; content: counter(error-steps, decimal-leading-zero); display: grid; place-items: center; width: 2.15rem; height: 2.15rem; border-radius: 999px; background: var(--mdr-red); color: #fff; font-size: 0.74rem; font-weight: 800; }
+  .mdr-error-help strong { display: block; color: var(--mdr-ink); font-weight: 800; }
+  .mdr-error-links { width: min(1180px, 100%); margin: 0 auto; padding: clamp(1.45rem, 3vw, 2.25rem) 0 0; }
+  .mdr-error-links p { margin: 0 0 0.9rem; color: var(--mdr-red); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+  .mdr-error-link-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--mdr-line); border-left: 1px solid var(--mdr-line); background: #fff; }
+  .mdr-error-link-grid a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 66px; padding: 1rem; border-right: 1px solid var(--mdr-line); border-bottom: 1px solid var(--mdr-line); color: var(--mdr-ink); font-weight: 800; }
+  .mdr-error-link-grid a::after { content: "→"; color: var(--mdr-red); font-weight: 900; transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1); }
+  .mdr-error-link-grid a:hover,
+  .mdr-error-link-grid a:focus-visible { color: var(--mdr-red); background: #fffaf6; }
+  .mdr-error-link-grid a:hover::after,
+  .mdr-error-link-grid a:focus-visible::after { transform: translateX(3px); }
   @media (max-width: 760px) {
-    .mdr-error-panel { grid-template-columns: 1fr; }
-    .mdr-error-copy h1 { max-width: none; }
+    .mdr-error-main { padding-inline: 1rem; background-size: 100% 2rem; }
+    .mdr-error-hero { grid-template-columns: 1fr; align-items: start; padding-top: 1.6rem; }
+    .mdr-error-copy h1 { max-width: 9ch; font-size: clamp(3.05rem, 16vw, 4.6rem); line-height: 1.03; }
+    .mdr-error-actions .mdr-btn { width: 100%; justify-content: center; }
+    .mdr-error-link-grid { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 761px) and (max-width: 1040px) {
+    .mdr-error-link-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mdr-error-actions .mdr-btn,
+    .mdr-error-link-grid a::after { transition: none; }
   }
 </style>
 </head>
@@ -75,26 +96,36 @@
 </details>
 </header>
 <main id="contenu" class="mdr-error-main">
-<section class="mdr-error-panel" aria-labelledby="erreur-title">
+<section class="mdr-error-hero" aria-labelledby="erreur-title">
 <div class="mdr-error-copy">
-<span class="mdr-error-code">Erreur 404</span>
-<h1 id="erreur-title">Page introuvable</h1>
+<p class="mdr-error-kicker">Erreur 404</p>
+<h1 id="erreur-title">Page <span class="mdr-error-script">introuvable</span></h1>
 <p>La page demandée a peut-être été déplacée, supprimée ou renommée. Vous pouvez repartir du blog, consulter les guides principaux ou demander un avis pour votre projet.</p>
 <div class="mdr-error-actions">
 <a class="mdr-btn mdr-btn--primary" href="./index.html">Retour au blog</a>
 <a class="mdr-btn mdr-btn--ghost" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Demander un devis</a>
 </div>
 </div>
+<aside class="mdr-error-help" aria-label="Que faire maintenant">
+<h2>Que faire maintenant ?</h2>
+<ol>
+<li><span><strong>Revenir au blog</strong> pour retrouver tous les articles publiés.</span></li>
+<li><span><strong>Choisir une rubrique</strong> si vous cherchiez un guide précis.</span></li>
+<li><span><strong>Demander un devis</strong> si votre projet est déjà cadré.</span></li>
+</ol>
+</aside>
+</section>
 <nav class="mdr-error-links" aria-label="Guides utiles">
 <p>Guides utiles</p>
+<div class="mdr-error-link-grid">
 <a href="./fenetres-vitrages.html">Fenêtres & vitrages</a>
 <a href="./isolation-thermique.html">Isolation thermique</a>
 <a href="./volets-stores.html">Volets & stores</a>
 <a href="./portes-portails.html">Portes & portails</a>
 <a href="./aides-subventions.html">Aides & subventions</a>
 <a href="./autorisation-travaux-menuiseries-haute-savoie.html">Autorisations avant travaux</a>
+</div>
 </nav>
-</section>
 </main>
 <footer class="mdr-site-footer">
 <div class="mdr-site-footer__main">
