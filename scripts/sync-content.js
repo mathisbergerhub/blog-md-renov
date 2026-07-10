@@ -379,6 +379,18 @@ function mdToHtml(markdown = "") {
   for (const raw of lines) {
     const line = raw.trim();
     if (!line) { flushParagraph(); closeLists(); flushTable(); continue; }
+    const ctaMarker = line.match(/^<!--\s*mdr-cta\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*-->$/i);
+    if (ctaMarker) {
+      flushParagraph();
+      closeLists();
+      flushTable();
+      closeSourceCard();
+      closeEditorialCard();
+      sectionType = "";
+      const [, ctaTitle, ctaText, ctaButton] = ctaMarker;
+      html.push(`<div class="mdr-prose-cta"><div><strong>${inline(ctaTitle || "Vous voulez cadrer votre projet avant de signer ?")}</strong><span>${inline(ctaText || "MD Rénov' vous aide à choisir la solution utile, adaptée au logement et au budget.")}</span></div><a class="mdr-btn mdr-btn--white" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">${inline(ctaButton || "Faire le point")}</a></div>`);
+      continue;
+    }
     if (/^<!--\s*mdr-editorial-value-md\s*-->$/.test(line)) { flushParagraph(); closeLists(); flushTable(); closeSourceCard(); closeEditorialCard(); openEditorialCard = true; sectionType = ""; html.push('<section class="mdr-editorial-value mdr-editorial-value--from-md">'); continue; }
     if (/^<!--.*-->$/.test(line) || line.startsWith("# ")) { flushParagraph(); continue; }
     if (line.startsWith("|")) { flushParagraph(); closeLists(); table.push(line); continue; }

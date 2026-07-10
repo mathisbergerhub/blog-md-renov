@@ -44,7 +44,7 @@
       <article class="overview-card">
         <span>2</span>
         <strong>Contenu</strong>
-        <small>Intro, parties, tableaux, FAQ</small>
+        <small>Intro, parties, listes, CTA, sources</small>
       </article>
       <article class="overview-card">
         <span>3</span>
@@ -175,6 +175,17 @@
             <div class="faq-list" id="faqs"></div>
           </section>
 
+          <section class="source-builder">
+            <div class="section-toolbar">
+              <div>
+                <h3>Sources de l'article</h3>
+                <p>Ajoute les liens ou documents qui doivent apparaître à la fin de l'article.</p>
+              </div>
+              <button class="secondary" type="button" id="add-source">Ajouter une source</button>
+            </div>
+            <div class="source-list" id="sources"></div>
+          </section>
+
           <input id="body" name="body" type="hidden" />
         </div>
 
@@ -230,6 +241,8 @@
           <div><strong id="stat-faqs">0</strong><span>FAQ</span></div>
           <div><strong id="stat-tables">0</strong><span>tableau</span></div>
           <div><strong id="stat-tags">0</strong><span>tag</span></div>
+          <div><strong id="stat-ctas">0</strong><span>CTA</span></div>
+          <div><strong id="stat-sources">0</strong><span>source</span></div>
         </div>
 
         <ul class="checklist" id="checklist">
@@ -263,6 +276,7 @@
     const selectedTags = new Set();
     let sectionIndex = 0;
     let faqIndex = 0;
+    let sourceIndex = 0;
 
     const form = $("#article-form");
     const title = $("#title");
@@ -274,6 +288,7 @@
     const submit = $("#submit");
     const sections = $("#sections");
     const faqs = $("#faqs");
+    const sources = $("#sources");
     const body = $("#body");
 
     function slugify(value) {
@@ -300,13 +315,21 @@
       return String(value || "").trim().replace(/\n{3,}/g, "\n\n");
     }
 
-    function markdownBullets(value) {
+    function markdownList(value, mode = "bullet") {
+      let index = 0;
       return String(value || "")
         .split(/\r?\n/)
-        .map((line) => line.trim().replace(/^[-*]\s+/, ""))
+        .map((line) => line.trim().replace(/^[-*]\s+/, "").replace(/^\d+[\.)]\s+/, ""))
         .filter(Boolean)
-        .map((line) => `- ${line}`)
+        .map((line) => {
+          index += 1;
+          return mode === "ordered" ? `${index}. ${line}` : `- ${line}`;
+        })
         .join("\n");
+    }
+
+    function markerText(value) {
+      return cleanText(value).replace(/\|/g, "/").replace(/\r?\n/g, " ");
     }
 
     function sectionTemplate(titleValue = "", bodyValue = "", bulletValue = "") {
@@ -337,12 +360,21 @@
               Liste de points, un par ligne
               <textarea class="section-bullets" placeholder="Largeur utile&#10;Type de pose&#10;Budget et délai">${html(bulletValue)}</textarea>
             </label>
+            <label>
+              Type de liste
+              <select class="section-list-style">
+                <option value="bullet">Liste à puces</option>
+                <option value="ordered">Liste numérotée 1, 2, 3</option>
+              </select>
+            </label>
           </div>
           <div class="table-list"></div>
+          <div class="cta-list"></div>
           <div class="subsection-list"></div>
           <div class="block-actions">
             <button class="secondary" type="button" data-action="add-subsection">Ajouter une sous-partie</button>
             <button class="secondary" type="button" data-action="add-table">Ajouter un tableau</button>
+            <button class="secondary" type="button" data-action="add-cta">Ajouter un CTA</button>
           </div>
         </article>
       `;
@@ -404,6 +436,17 @@
               Points de la sous-partie, un par ligne
               <textarea class="subsection-bullets">${html(bulletValue)}</textarea>
             </label>
+            <label>
+              Type de liste
+              <select class="subsection-list-style">
+                <option value="bullet">Liste à puces</option>
+                <option value="ordered">Liste numérotée 1, 2, 3</option>
+              </select>
+            </label>
+          </div>
+          <div class="cta-list"></div>
+          <div class="block-actions">
+            <button class="secondary compact" type="button" data-action="add-subsection-cta">Ajouter un CTA dans cette sous-partie</button>
           </div>
         </article>
       `;
@@ -425,6 +468,63 @@
             <label class="wide">
               Réponse
               <textarea class="faq-answer" placeholder="Réponse courte et concrète.">${html(answerValue)}</textarea>
+            </label>
+          </div>
+        </article>
+      `;
+    }
+
+    function ctaTemplate(titleValue = "", textValue = "", buttonValue = "") {
+      return `
+        <article class="cta-card">
+          <div class="section-toolbar">
+            <div>
+              <h3>Bandeau CTA</h3>
+              <p>Bloc de conversion inséré dans l'article à cet endroit.</p>
+            </div>
+            <button class="button-danger compact" type="button" data-action="remove-cta">Retirer</button>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Titre du CTA
+              <input class="cta-title" placeholder="Ex : Vous voulez cadrer votre projet avant de signer ?" value="${html(titleValue)}" />
+            </label>
+            <label class="wide">
+              Texte du CTA
+              <textarea class="cta-text" placeholder="Phrase courte qui explique pourquoi demander un avis.">${html(textValue)}</textarea>
+            </label>
+            <label>
+              Bouton
+              <input class="cta-button" placeholder="Ex : Faire le point" value="${html(buttonValue || "Faire le point")}" />
+            </label>
+          </div>
+        </article>
+      `;
+    }
+
+    function sourceTemplate(labelValue = "", urlValue = "", noteValue = "") {
+      const id = ++sourceIndex;
+      return `
+        <article class="source-card-admin" data-source="${id}">
+          <div class="section-toolbar">
+            <div>
+              <h3>Source ${id}</h3>
+              <p>Lien officiel, fiche fabricant, page publique ou document de référence.</p>
+            </div>
+            <button class="button-danger compact" type="button" data-action="remove-source">Retirer</button>
+          </div>
+          <div class="form-grid">
+            <label>
+              Nom de la source
+              <input class="source-label" placeholder="Ex : France Rénov' - MaPrimeRénov'" value="${html(labelValue)}" />
+            </label>
+            <label>
+              URL
+              <input class="source-url" type="url" placeholder="https://..." value="${html(urlValue)}" />
+            </label>
+            <label class="wide">
+              Note, optionnelle
+              <textarea class="source-note" placeholder="Ex : Conditions principales : logement, revenus, travaux et entreprise RGE.">${html(noteValue)}</textarea>
             </label>
           </div>
         </article>
@@ -501,6 +601,27 @@
       return [title ? `**${title}**` : "", lines.join("\n")].filter(Boolean).join("\n\n");
     }
 
+    function ctaMarkdown(ctaCard) {
+      const ctaTitle = markerText(ctaCard.querySelector(".cta-title").value) || "Vous voulez cadrer votre projet avant de signer ?";
+      const ctaText = markerText(ctaCard.querySelector(".cta-text").value) || "MD Rénov' vous aide à choisir la solution utile, adaptée au logement et au budget.";
+      const ctaButton = markerText(ctaCard.querySelector(".cta-button").value) || "Faire le point";
+      return `<!-- mdr-cta | ${ctaTitle} | ${ctaText} | ${ctaButton} -->`;
+    }
+
+    function sourceMarkdown() {
+      const lines = [];
+      document.querySelectorAll(".source-card-admin").forEach((card) => {
+        const label = cleanText(card.querySelector(".source-label").value);
+        const url = cleanText(card.querySelector(".source-url").value);
+        const note = cleanText(card.querySelector(".source-note").value);
+        if (!label && !url && !note) return;
+        const sourceLabel = label || url || "Source";
+        const linked = url ? `[${sourceLabel}](${url})` : sourceLabel;
+        lines.push(note ? `- ${linked} : ${note}` : `- ${linked}`);
+      });
+      return lines.length ? `## Sources fiables utilisées pour vérifier ce guide\n\n${lines.join("\n")}` : "";
+    }
+
     function buildMarkdown() {
       const parts = [];
       const intro = cleanText($("#intro").value);
@@ -511,7 +632,7 @@
       document.querySelectorAll(".section-card").forEach((card, index) => {
         const heading = cleanText(card.querySelector(".section-title").value) || `Partie ${index + 1}`;
         const text = cleanText(card.querySelector(".section-body").value);
-        const bullets = markdownBullets(card.querySelector(".section-bullets").value);
+        const bullets = markdownList(card.querySelector(".section-bullets").value, card.querySelector(".section-list-style")?.value || "bullet");
         const sectionParts = [`## ${heading}`];
         if (text) sectionParts.push(text);
         if (bullets) sectionParts.push(bullets);
@@ -521,14 +642,20 @@
           if (table) sectionParts.push(table);
         });
 
+        card.querySelector(".cta-list").querySelectorAll(".cta-card").forEach((ctaCard) => {
+          sectionParts.push(ctaMarkdown(ctaCard));
+        });
+
         card.querySelectorAll(".subsection-card").forEach((subcard) => {
           const subheading = cleanText(subcard.querySelector(".subsection-title").value);
           const subtext = cleanText(subcard.querySelector(".subsection-body").value);
-          const subbullets = markdownBullets(subcard.querySelector(".subsection-bullets").value);
-          if (!subheading && !subtext && !subbullets) return;
+          const subbullets = markdownList(subcard.querySelector(".subsection-bullets").value, subcard.querySelector(".subsection-list-style")?.value || "bullet");
+          const subCtas = Array.from(subcard.querySelector(".cta-list").querySelectorAll(".cta-card"));
+          if (!subheading && !subtext && !subbullets && !subCtas.length) return;
           sectionParts.push(`### ${subheading || "À vérifier"}`);
           if (subtext) sectionParts.push(subtext);
           if (subbullets) sectionParts.push(subbullets);
+          subCtas.forEach((ctaCard) => sectionParts.push(ctaMarkdown(ctaCard)));
         });
 
         parts.push(sectionParts.filter(Boolean).join("\n\n"));
@@ -542,6 +669,8 @@
         faqParts.push(`### ${question || "Question fréquente"}\n\n${answer || "Réponse à compléter."}`);
       });
       if (faqParts.length) parts.push(`## Les questions fréquentes\n\n${faqParts.join("\n\n")}`);
+      const sourcesBlock = sourceMarkdown();
+      if (sourcesBlock) parts.push(sourcesBlock);
       return parts.filter(Boolean).join("\n\n").trim();
     }
 
@@ -569,6 +698,12 @@
       const sectionCount = document.querySelectorAll(".section-card").length;
       const faqCount = document.querySelectorAll(".faq-card").length;
       const tableCount = document.querySelectorAll(".table-card").length;
+      const ctaCount = document.querySelectorAll(".cta-card").length;
+      const sourceCount = Array.from(document.querySelectorAll(".source-card-admin")).filter((card) => (
+        card.querySelector(".source-label").value.trim() ||
+        card.querySelector(".source-url").value.trim() ||
+        card.querySelector(".source-note").value.trim()
+      )).length;
       const checks = {
         title: title.value.trim().length >= 12,
         slug: slug.value.trim().length >= 4,
@@ -592,6 +727,8 @@
       $("#stat-faqs").textContent = faqCount;
       $("#stat-tables").textContent = tableCount;
       $("#stat-tags").textContent = tagCount;
+      $("#stat-ctas").textContent = ctaCount;
+      $("#stat-sources").textContent = sourceCount;
 
       const labels = {
         title: "titre",
@@ -660,21 +797,30 @@
       ].join("");
       const cards = Array.from(sections.querySelectorAll(".section-card"));
       cards[1]?.querySelector(".table-list").insertAdjacentHTML("beforeend", tableTemplate());
+      cards[1]?.querySelector(".cta-list").insertAdjacentHTML("beforeend", ctaTemplate());
       cards[2]?.querySelector(".subsection-list").insertAdjacentHTML("beforeend", subsectionTemplate("Point à vérifier avant devis"));
+      if (cards[3]) {
+        cards[3].querySelector(".section-list-style").value = "ordered";
+        cards[3].querySelector(".section-bullets").value = "Décrire le besoin\nVérifier les contraintes\nComparer le devis\nValider avant de signer";
+      }
       faqs.innerHTML = [
         faqTemplate("Faut-il une autorisation ?"),
         faqTemplate("Quel budget prévoir ?"),
         faqTemplate("Combien de temps faut-il prévoir ?"),
         faqTemplate("Que comparer sur un devis ?"),
       ].join("");
+      sourceIndex = 0;
+      sources.innerHTML = sourceTemplate();
       updateChecks();
     }
 
     function resetBuilder() {
       sectionIndex = 0;
       faqIndex = 0;
+      sourceIndex = 0;
       sections.innerHTML = sectionTemplate("Ce que ce guide vous aide à décider");
       faqs.innerHTML = faqTemplate();
+      sources.innerHTML = sourceTemplate();
       selectedTags.clear();
       document.querySelectorAll("#tag-picker input").forEach((input) => { input.checked = false; });
       updateChecks();
@@ -713,6 +859,11 @@
       updateChecks();
     });
 
+    $("#add-source").addEventListener("click", () => {
+      sources.insertAdjacentHTML("beforeend", sourceTemplate());
+      updateChecks();
+    });
+
     sections.addEventListener("click", (event) => {
       const button = event.target.closest("button[data-action]");
       if (!button) return;
@@ -720,15 +871,25 @@
       const action = button.dataset.action;
       if (action === "add-subsection") card.querySelector(".subsection-list").insertAdjacentHTML("beforeend", subsectionTemplate());
       if (action === "add-table") card.querySelector(".table-list").insertAdjacentHTML("beforeend", tableTemplate());
+      if (action === "add-cta") card.querySelector(".cta-list").insertAdjacentHTML("beforeend", ctaTemplate());
+      if (action === "add-subsection-cta") button.closest(".subsection-card").querySelector(".cta-list").insertAdjacentHTML("beforeend", ctaTemplate());
       if (action === "remove-section") card.remove();
       if (action === "remove-subsection") button.closest(".subsection-card").remove();
       if (action === "remove-table") button.closest(".table-card").remove();
+      if (action === "remove-cta") button.closest(".cta-card").remove();
       if (action === "add-table-row") addTableRow(button.closest(".table-card"));
       if (action === "add-table-column") addTableColumn(button.closest(".table-card"));
       if (action === "remove-table-column") removeTableColumn(button.closest(".table-card"));
       if (action === "move-up" && card.previousElementSibling) sections.insertBefore(card, card.previousElementSibling);
       if (action === "move-down" && card.nextElementSibling) sections.insertBefore(card.nextElementSibling, card);
       if (!sections.querySelector(".section-card")) sections.insertAdjacentHTML("beforeend", sectionTemplate());
+      updateChecks();
+    });
+
+    sources.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action='remove-source']");
+      if (!button) return;
+      button.closest(".source-card-admin").remove();
       updateChecks();
     });
 
@@ -742,6 +903,7 @@
     date.value = new Date().toISOString().slice(0, 10);
     sections.innerHTML = sectionTemplate("Ce que ce guide vous aide à décider");
     faqs.innerHTML = faqTemplate();
+    sources.innerHTML = sourceTemplate();
     loadExistingTags();
     updateChecks();
 

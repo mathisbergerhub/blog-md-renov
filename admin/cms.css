@@ -471,7 +471,8 @@ textarea {
 }
 
 .section-list,
-.faq-list {
+.faq-list,
+.source-list {
   display: grid;
   gap: 14px;
 }
@@ -479,8 +480,11 @@ textarea {
 .section-card,
 .subsection-card,
 .table-card,
+.cta-card,
+.source-card-admin,
 .faq-card,
 .faq-builder,
+.source-builder,
 .generated-preview {
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -500,7 +504,27 @@ textarea {
   background: var(--surface);
 }
 
-.table-list {
+.cta-card {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  border-color: rgba(155, 28, 28, .24);
+  background: linear-gradient(180deg, var(--brand-soft), #fffdfa);
+}
+
+.source-builder {
+  display: grid;
+  gap: 12px;
+}
+
+.source-card-admin {
+  display: grid;
+  gap: 12px;
+  background: var(--surface);
+}
+
+.table-list,
+.cta-list {
   display: grid;
   gap: 12px;
 }
