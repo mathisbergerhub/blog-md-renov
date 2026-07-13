@@ -671,6 +671,8 @@ async function publishArticle({ repository, branch, token, body }) {
 }
 
 async function updatePublishedArticle({ repository, branch, token, collection, filePath, body }) {
+  const config = allowedCollections[collection];
+  const isArchived = Boolean(config && config.archived);
   const managedPath = normalizeManagedPath(collection, filePath);
   const source = await readGithubPath(repository, branch, token, managedPath);
   if (!source) throw new Error("Article introuvable.");
@@ -702,11 +704,11 @@ async function updatePublishedArticle({ repository, branch, token, collection, f
     content: `${markdown}\n`,
     message: `Update article: ${managedPath}`,
   });
-  const deploy = await triggerDeployHook("update_article", [managedPath, htmlPath]);
+  const deploy = isArchived ? null : await triggerDeployHook("update_article", [managedPath, htmlPath]);
   return {
     filePath: managedPath,
-    htmlPath,
-    publicUrl: `https://blog.mdrenov-menuiserie.com/${htmlPath.replace(/\.html$/, "")}`,
+    htmlPath: isArchived ? "" : htmlPath,
+    publicUrl: isArchived ? null : `https://blog.mdrenov-menuiserie.com/${htmlPath.replace(/\.html$/, "")}`,
     githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
     deploy,
   };

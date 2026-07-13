@@ -153,7 +153,7 @@
           </div>
           <div class="actions">
             ${publicPath && !item.archived ? `<a class="button view" href="${escapeHtml(publicPath)}" target="_blank" rel="noreferrer">Voir</a>` : ""}
-            ${!item.archived ? `<button class="edit" type="button" data-action="edit" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Modifier</button>` : ""}
+            <button class="edit" type="button" data-action="edit" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Modifier</button>
             ${!item.archived ? `<button class="archive" type="button" data-action="archive" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Archiver</button>` : ""}
             ${item.archived ? `<button class="restore" type="button" data-action="unarchive" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Désarchiver</button>` : ""}
             ${item.archived ? `<button class="delete" type="button" data-action="delete" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Supprimer</button>` : ""}
@@ -183,6 +183,7 @@
       editModal.setAttribute("aria-hidden", "true");
       editingItem = null;
       editForm.reset();
+      $("#save-edit").textContent = "Publier les modifications";
     }
 
     function readPhoto(file) {
@@ -209,7 +210,10 @@
         fields.markdown.value = editingItem.markdown || "";
         fields.photos.value = "";
         fields.photoNotes.value = "";
-        editStatus.textContent = "Prêt à modifier.";
+        $("#save-edit").textContent = editingItem.collection === "archived_articles" ? "Enregistrer l'archive" : "Publier les modifications";
+        editStatus.textContent = editingItem.collection === "archived_articles"
+          ? "Archive ouverte. Les changements restent archivés tant que tu ne désarchives pas l'article."
+          : "Prêt à modifier.";
         editStatus.classList.remove("error");
         editModal.classList.add("is-open");
         editModal.setAttribute("aria-hidden", "false");
@@ -264,7 +268,7 @@
     editForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!editingItem) return;
-      editStatus.textContent = "Publication des modifications...";
+      editStatus.textContent = editingItem.collection === "archived_articles" ? "Enregistrement de l'archive..." : "Publication des modifications...";
       editStatus.classList.remove("error");
       try {
         const photos = fields.photos.files.length ? [await readPhoto(fields.photos.files[0])] : [];
@@ -283,7 +287,9 @@
         });
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Impossible de publier les modifications.");
-        editStatus.textContent = "Modifications envoyées. Vérifie la page après déploiement.";
+        editStatus.textContent = editingItem.collection === "archived_articles"
+          ? "Archive modifiée. Elle reste hors ligne tant qu'elle n'est pas désarchivée."
+          : "Modifications envoyées. Vérifie la page après déploiement.";
         editStatus.classList.add("ok");
         await loadItems();
       } catch (error) {
