@@ -70,6 +70,12 @@ button:disabled { opacity: .55; cursor: not-allowed; }
   color: var(--ink);
 }
 
+.restore {
+  background: var(--success-soft);
+  border-color: rgba(31, 106, 67, .28);
+  color: var(--success);
+}
+
 .button-danger,
 .delete {
   background: var(--brand-soft);

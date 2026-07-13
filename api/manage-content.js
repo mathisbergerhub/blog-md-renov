@@ -373,6 +373,26 @@ function archiveHtmlPath(filePath) {
   return `content/archive/html/${today}-${filePath.split("/").pop()}`;
 }
 
+function stripArchiveDatePrefix(fileName = "") {
+  return String(fileName).replace(/^\d{4}-\d{2}-\d{2}-/, "");
+}
+
+function restoredArticlePath(archivedPath) {
+  const fileName = stripArchiveDatePrefix(String(archivedPath).split("/").pop());
+  if (fileName.endsWith(".html.md")) return fileName;
+  return `content/articles/${fileName}`;
+}
+
+function archivedHtmlPathForRestore(archivedPath, restoredPath, fields) {
+  const archivedFileName = String(archivedPath).split("/").pop();
+  const prefix = archivedFileName.match(/^(\d{4}-\d{2}-\d{2}-)/)?.[1] || "";
+  const htmlPath = rootHtmlPathFromArticle(restoredPath, fields);
+  return {
+    archivedHtmlPath: `content/archive/html/${prefix}${htmlPath.split("/").pop()}`,
+    htmlPath,
+  };
+}
+
 async function readGithubPath(repository, branch, token, path) {
   const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(path).replace(/%2F/g, "/")}?ref=${encodeURIComponent(branch)}`;
   const response = await httpsJson(url, { method: "GET", headers: githubHeaders(token) });
@@ -954,6 +974,68 @@ async function archiveManagedContent({ repository, branch, token, collection, fi
   return { archived, deleted };
 }
 
+async function unarchiveManagedContent({ repository, branch, token, collection, filePath }) {
+  if (collection !== "archived_articles") {
+    throw new Error("Seuls les articles archivés peuvent être désarchivés.");
+  }
+  const managedPath = normalizeManagedPath(collection, filePath);
+  const source = await readGithubPath(repository, branch, token, managedPath);
+  if (!source) throw new Error("Archive introuvable.");
+
+  const fields = parseFrontmatter(source.content);
+  const restoredPath = restoredArticlePath(managedPath);
+  if (await githubPathExists(repository, branch, token, restoredPath)) {
+    throw new Error(`Impossible de désarchiver : ${restoredPath} existe déjà.`);
+  }
+  const { archivedHtmlPath, htmlPath } = archivedHtmlPathForRestore(managedPath, restoredPath, fields);
+  const archivedHtml = await readGithubPath(repository, branch, token, archivedHtmlPath);
+  if (archivedHtml && archivedHtml.type === "file" && (await githubPathExists(repository, branch, token, htmlPath))) {
+    throw new Error(`Impossible de désarchiver : ${htmlPath} existe déjà.`);
+  }
+
+  await createGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: restoredPath,
+    content: source.content,
+    message: `Restore archived article: ${restoredPath}`,
+  });
+  await deleteGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: managedPath,
+    sha: source.sha,
+    message: `Remove restored archive: ${managedPath}`,
+  });
+
+  const restored = [restoredPath];
+  const deleted = [managedPath];
+  if (archivedHtml && archivedHtml.type === "file") {
+    await createGithubFile({
+      repository,
+      branch,
+      token,
+      filePath: htmlPath,
+      content: archivedHtml.content,
+      message: `Restore archived HTML: ${htmlPath}`,
+    });
+    await deleteGithubFile({
+      repository,
+      branch,
+      token,
+      filePath: archivedHtmlPath,
+      sha: archivedHtml.sha,
+      message: `Remove restored HTML archive: ${archivedHtmlPath}`,
+    });
+    restored.push(htmlPath);
+    deleted.push(archivedHtmlPath);
+  }
+
+  return { restored, deleted };
+}
+
 async function deleteManagedContent({ repository, branch, token, collection, filePath }) {
   const managedPath = normalizeManagedPath(collection, filePath);
   const source = await readGithubPath(repository, branch, token, managedPath);
@@ -1059,6 +1141,17 @@ module.exports = async function manageContent(req, res) {
     if (action === "archive") {
       const result = await archiveManagedContent({ repository, branch, token, collection, filePath });
       const deploy = await triggerDeployHook("archive", result.deleted || result.archived || []);
+      sendJson(res, 200, { ok: true, action, ...result, deploy });
+      return;
+    }
+
+    if (action === "unarchive") {
+      if (body.confirm !== "DESARCHIVER") {
+        sendJson(res, 400, { error: "Confirmation requise : écris DESARCHIVER." });
+        return;
+      }
+      const result = await unarchiveManagedContent({ repository, branch, token, collection, filePath });
+      const deploy = await triggerDeployHook("unarchive", result.restored || []);
       sendJson(res, 200, { ok: true, action, ...result, deploy });
       return;
     }

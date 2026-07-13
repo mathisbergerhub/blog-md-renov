@@ -155,6 +155,7 @@
             ${publicPath && !item.archived ? `<a class="button view" href="${escapeHtml(publicPath)}" target="_blank" rel="noreferrer">Voir</a>` : ""}
             ${!item.archived ? `<button class="edit" type="button" data-action="edit" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Modifier</button>` : ""}
             ${!item.archived ? `<button class="archive" type="button" data-action="archive" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Archiver</button>` : ""}
+            ${item.archived ? `<button class="restore" type="button" data-action="unarchive" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Désarchiver</button>` : ""}
             ${item.archived ? `<button class="delete" type="button" data-action="delete" data-collection="${escapeHtml(item.collection)}" data-path="${escapeHtml(item.filePath)}">Supprimer</button>` : ""}
           </div>
         </article>`;
@@ -223,7 +224,7 @@
 
     async function runAction(button) {
       const action = button.dataset.action;
-      const confirmText = action === "delete" ? "SUPPRIMER" : "ARCHIVER";
+      const confirmText = action === "delete" ? "SUPPRIMER" : action === "unarchive" ? "DESARCHIVER" : "ARCHIVER";
       const answer = window.prompt(`Pour confirmer, écris ${confirmText}.`);
       if (answer !== confirmText) return;
       button.disabled = true;
