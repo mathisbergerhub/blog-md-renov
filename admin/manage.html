@@ -67,17 +67,101 @@
           <label class="wide">Titre
             <input id="edit-title-input" name="title" required />
           </label>
-          <label class="wide">Contenu Markdown
-            <textarea id="edit-markdown" name="markdown" class="markdown" required></textarea>
+          <label>
+            Catégorie
+            <select id="edit-category" name="category" required>
+              <option value="">Choisir une catégorie</option>
+              <option value="aides">Aides & Subventions</option>
+              <option value="fenetres">Fenêtres & Vitrages</option>
+              <option value="isolation">Isolation thermique</option>
+              <option value="volets-stores">Volets & Stores</option>
+              <option value="portes-portails">Portes & Portails</option>
+              <option value="exterieur">Aménagements extérieurs</option>
+            </select>
           </label>
+          <label>
+            Date de publication
+            <input id="edit-date" name="date" type="date" />
+          </label>
+          <label>
+            Temps de lecture
+            <input id="edit-reading-time" name="reading_time" placeholder="4 min" />
+          </label>
+          <label class="wide">
+            Titre SEO
+            <input id="edit-seo-title" name="seo_title" placeholder="Optionnel : si vide, le titre de l'article sera utilisé." />
+          </label>
+          <label class="wide">
+            Description SEO
+            <textarea id="edit-description" name="description" maxlength="180" placeholder="Résumé visible dans Google et sur les cartes du blog."></textarea>
+          </label>
+          <div class="wide field-block">
+            <div class="label-text">
+              <span class="field-title">Tags existants</span>
+              <span class="hint">Coche les thèmes déjà utilisés dans le blog.</span>
+            </div>
+            <div class="tag-picker" id="edit-tag-picker">
+              <span class="hint">Chargement des tags...</span>
+            </div>
+            <label>
+              Tags supplémentaires
+              <input id="edit-custom-tags" name="custom_tags" placeholder="Ex : Annecy, budget, rénovation" />
+            </label>
+          </div>
           <label>Remplacer l'image principale
             <input id="edit-photos" name="photos" type="file" accept="image/png,image/jpeg,image/webp" />
             <span class="hint">Optionnel. PNG, JPG ou WebP, moins de 2,5 Mo.</span>
           </label>
-          <label>Alt text de la nouvelle image
+          <label>Texte alternatif de l'image
             <textarea id="edit-photo-notes" name="photo_notes" placeholder="Description simple de l'image si elle est remplacée."></textarea>
           </label>
         </div>
+        <section class="builder edit-builder">
+          <div class="panel-head builder-head">
+            <div>
+              <h2>Structure de l'article</h2>
+              <p>Modifie l'article comme dans l'interface de création : parties, tableaux, CTA, FAQ et sources.</p>
+            </div>
+            <div class="builder-actions">
+              <button class="secondary" type="button" id="edit-add-section">Ajouter une partie</button>
+              <button class="secondary" type="button" id="edit-add-table-block">Ajouter un tableau</button>
+              <button class="secondary" type="button" id="edit-add-cta-block">Ajouter un CTA</button>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label class="wide">Introduction courte
+              <textarea id="edit-intro" placeholder="Pose le contexte et la réponse principale."></textarea>
+            </label>
+            <label class="wide">Le point important
+              <textarea id="edit-key-point" placeholder="Synthèse utile avant le détail."></textarea>
+            </label>
+          </div>
+          <div class="section-list" id="edit-sections"></div>
+          <section class="faq-builder">
+            <div class="section-toolbar">
+              <div>
+                <h3>Questions fréquentes</h3>
+                <p>Ajoute ou corrige les questions utiles en fin d'article.</p>
+              </div>
+              <button class="secondary" type="button" id="edit-add-faq">Ajouter une question</button>
+            </div>
+            <div class="faq-list" id="edit-faqs"></div>
+          </section>
+          <section class="source-builder">
+            <div class="section-toolbar">
+              <div>
+                <h3>Sources de l'article</h3>
+                <p>Liens officiels, documents, fabricants ou références utiles.</p>
+              </div>
+              <button class="secondary" type="button" id="edit-add-source">Ajouter une source</button>
+            </div>
+            <div class="source-list" id="edit-sources"></div>
+          </section>
+          <details class="generated-preview">
+            <summary>Markdown final généré</summary>
+            <textarea id="edit-markdown" name="markdown" class="markdown" readonly required></textarea>
+          </details>
+        </section>
         <div class="editor-actions">
           <div class="actions">
             <button type="submit" class="edit" id="save-edit">Publier les modifications</button>
@@ -100,21 +184,610 @@
     const editStatus = $("#edit-status");
     const fields = {
       title: $("#edit-title-input"),
+      category: $("#edit-category"),
+      date: $("#edit-date"),
+      readingTime: $("#edit-reading-time"),
+      seoTitle: $("#edit-seo-title"),
+      description: $("#edit-description"),
+      tagPicker: $("#edit-tag-picker"),
+      customTags: $("#edit-custom-tags"),
       markdown: $("#edit-markdown"),
+      intro: $("#edit-intro"),
+      keyPoint: $("#edit-key-point"),
+      sections: $("#edit-sections"),
+      faqs: $("#edit-faqs"),
+      sources: $("#edit-sources"),
       photos: $("#edit-photos"),
       photoNotes: $("#edit-photo-notes"),
     };
     let items = [];
+    let knownTags = [];
     let activeFilter = "published";
     let editingItem = null;
+    let editFrontmatter = "";
+    let editSectionIndex = 0;
+    let editFaqIndex = 0;
+    let editSourceIndex = 0;
 
     function escapeHtml(value) {
       return String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     }
 
+    function cleanText(value) {
+      return String(value || "").trim().replace(/\n{3,}/g, "\n\n");
+    }
+
+    function markerText(value) {
+      return cleanText(value).replace(/\|/g, "/").replace(/\r?\n/g, " ");
+    }
+
+    function categoryLabel(value = "") {
+      return {
+        aides: "Aides & Subventions",
+        fenetres: "Fenêtres & Vitrages",
+        isolation: "Isolation thermique",
+        "volets-stores": "Volets & Stores",
+        "portes-portails": "Portes & Portails",
+        exterieur: "Aménagements extérieurs",
+      }[value] || "Conseils";
+    }
+
+    function cleanTagList(tags) {
+      if (Array.isArray(tags)) return tags.map((tag) => String(tag).trim()).filter(Boolean);
+      const value = String(tags || "").trim();
+      if (!value || value === "[]") return [];
+      return value.split(",").map((tag) => tag.trim()).filter(Boolean);
+    }
+
+    function parseFrontmatterFields(markdown = "") {
+      const match = String(markdown || "").match(/^---\r?\n([\s\S]*?)\r?\n---/);
+      if (!match) return {};
+      const fields = {};
+      let currentList = null;
+      for (const line of match[1].split(/\r?\n/)) {
+        const listItem = line.match(/^\s+-\s+(.+)$/);
+        if (listItem && currentList) {
+          fields[currentList].push(cleanYamlValue(listItem[1]));
+          continue;
+        }
+        const separator = line.indexOf(":");
+        if (separator === -1) continue;
+        const key = line.slice(0, separator).trim();
+        const rawValue = line.slice(separator + 1).trim();
+        currentList = null;
+        if (!rawValue) {
+          fields[key] = [];
+          currentList = key;
+        } else {
+          fields[key] = cleanYamlValue(rawValue);
+        }
+      }
+      return fields;
+    }
+
+    function cleanYamlValue(value = "") {
+      const trimmed = String(value).trim();
+      if ((trimmed.startsWith("'") && trimmed.endsWith("'")) || (trimmed.startsWith('"') && trimmed.endsWith('"'))) {
+        return trimmed.slice(1, -1).replace(/''/g, "'");
+      }
+      if (trimmed === "[]") return [];
+      return trimmed;
+    }
+
+    function renderEditTagPicker(selectedTags = []) {
+      const selected = new Set(cleanTagList(selectedTags));
+      const allTags = Array.from(new Set([...knownTags, ...selected])).sort((a, b) => a.localeCompare(b, "fr"));
+      if (!allTags.length) {
+        fields.tagPicker.innerHTML = '<span class="hint">Aucun tag existant pour le moment.</span>';
+        return;
+      }
+      fields.tagPicker.innerHTML = allTags.map((tag) => `
+        <label class="tag-option">
+          <input type="checkbox" value="${escapeHtml(tag)}"${selected.has(tag) ? " checked" : ""} />
+          ${escapeHtml(tag)}
+        </label>
+      `).join("");
+    }
+
+    function selectedEditTags() {
+      const checked = Array.from(fields.tagPicker.querySelectorAll("input:checked")).map((input) => input.value);
+      return Array.from(new Set([...checked, ...cleanTagList(fields.customTags.value)]));
+    }
+
+    function markdownList(value, mode = "bullet") {
+      let index = 0;
+      return String(value || "")
+        .split(/\r?\n/)
+        .map((line) => line.trim().replace(/^[-*]\s+/, "").replace(/^\d+[\.)]\s+/, ""))
+        .filter(Boolean)
+        .map((line) => {
+          index += 1;
+          return mode === "ordered" ? `${index}. ${line}` : `- ${line}`;
+        })
+        .join("\n");
+    }
+
+    function editBlockControls() {
+      return `
+        <div class="block-insert">
+          <span>Ajouter après</span>
+          <button class="secondary compact" type="button" data-action="insert-section-after">Partie</button>
+          <button class="secondary compact" type="button" data-action="insert-table-after">Tableau</button>
+          <button class="secondary compact" type="button" data-action="insert-cta-after">CTA</button>
+        </div>
+      `;
+    }
+
+    function editSectionTemplate(titleValue = "", bodyValue = "", bulletValue = "", listStyle = "bullet") {
+      const id = ++editSectionIndex;
+      return `
+        <article class="section-card" data-section="${id}">
+          <div class="section-toolbar">
+            <div>
+              <h3>Partie ${id}</h3>
+              <p>Une idée principale, puis des détails ou points à vérifier.</p>
+            </div>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-section">Retirer</button>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label class="wide">Titre de partie
+              <input class="section-title" placeholder="Ex : Les critères à comparer" value="${escapeHtml(titleValue)}" />
+            </label>
+            <label class="wide">Texte de la partie
+              <textarea class="section-body" placeholder="Explique le sujet avec des phrases courtes.">${escapeHtml(bodyValue)}</textarea>
+            </label>
+            <label class="wide">Liste de points, un par ligne
+              <textarea class="section-bullets" placeholder="Largeur utile&#10;Type de pose&#10;Budget et délai">${escapeHtml(bulletValue)}</textarea>
+            </label>
+            <label>Type de liste
+              <select class="section-list-style">
+                <option value="bullet"${listStyle !== "ordered" ? " selected" : ""}>Liste à puces</option>
+                <option value="ordered"${listStyle === "ordered" ? " selected" : ""}>Liste numérotée 1, 2, 3</option>
+              </select>
+            </label>
+          </div>
+          ${editBlockControls()}
+        </article>
+      `;
+    }
+
+    function editTableRowTemplate(values = ["", "", ""], isHead = false) {
+      const cells = values.map((value, index) => {
+        const placeholder = isHead ? `Colonne ${index + 1}` : "Texte";
+        return `<input class="table-cell${isHead ? " table-heading" : ""}" placeholder="${placeholder}" value="${escapeHtml(value)}" />`;
+      }).join("");
+      return `<div class="table-row${isHead ? " table-row-head" : ""}" style="--table-columns:${values.length}">${cells}</div>`;
+    }
+
+    function normalizeRows(rows) {
+      const safeRows = rows && rows.length ? rows : [["", "", ""], ["", "", ""], ["", "", ""]];
+      const columns = Math.max(2, ...safeRows.map((row) => row.length));
+      return safeRows.map((row) => Array.from({ length: columns }, (_, index) => row[index] || ""));
+    }
+
+    function editTableTemplate(titleValue = "", rows = null) {
+      const normalized = normalizeRows(rows);
+      return `
+        <article class="table-card">
+          <div class="section-toolbar">
+            <div>
+              <h3>Tableau</h3>
+              <p>Remplis les titres de colonnes, puis les lignes utiles.</p>
+            </div>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-table">Retirer</button>
+            </div>
+          </div>
+          <label class="wide">Titre du tableau, optionnel
+            <input class="table-title" placeholder="Ex : Comparatif des solutions" value="${escapeHtml(titleValue)}" />
+          </label>
+          <div class="table-editor">
+            ${normalized.map((row, index) => editTableRowTemplate(row, index === 0)).join("")}
+          </div>
+          <div class="inline-actions table-actions">
+            <button class="secondary compact" type="button" data-action="add-table-row">Ajouter une ligne</button>
+            <button class="secondary compact" type="button" data-action="add-table-column">Ajouter une colonne</button>
+            <button class="secondary compact" type="button" data-action="remove-table-column">Retirer une colonne</button>
+          </div>
+          ${editBlockControls()}
+        </article>
+      `;
+    }
+
+    function editCtaTemplate(titleValue = "", textValue = "", buttonValue = "") {
+      return `
+        <article class="cta-card">
+          <div class="section-toolbar">
+            <div>
+              <h3>Bandeau CTA</h3>
+              <p>Bloc de conversion inséré dans l'article à cet endroit.</p>
+            </div>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-cta">Retirer</button>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label class="wide">Titre du CTA
+              <input class="cta-title" placeholder="Ex : Vous voulez cadrer votre projet avant de signer ?" value="${escapeHtml(titleValue)}" />
+            </label>
+            <label class="wide">Texte du CTA
+              <textarea class="cta-text" placeholder="Phrase courte qui explique pourquoi demander un avis.">${escapeHtml(textValue)}</textarea>
+            </label>
+            <label>Bouton
+              <input class="cta-button" placeholder="Ex : Faire le point" value="${escapeHtml(buttonValue || "Faire le point")}" />
+            </label>
+          </div>
+          ${editBlockControls()}
+        </article>
+      `;
+    }
+
+    function editFaqTemplate(questionValue = "", answerValue = "") {
+      const id = ++editFaqIndex;
+      return `
+        <article class="faq-card" data-faq="${id}">
+          <div class="section-toolbar">
+            <h3>Question ${id}</h3>
+            <button class="button-danger compact" type="button" data-action="remove-faq">Retirer</button>
+          </div>
+          <div class="form-grid">
+            <label class="wide">Question
+              <input class="faq-question" placeholder="Ex : Faut-il une autorisation ?" value="${escapeHtml(questionValue)}" />
+            </label>
+            <label class="wide">Réponse
+              <textarea class="faq-answer" placeholder="Réponse courte et concrète.">${escapeHtml(answerValue)}</textarea>
+            </label>
+          </div>
+        </article>
+      `;
+    }
+
+    function editSourceTemplate(labelValue = "", urlValue = "", noteValue = "") {
+      const id = ++editSourceIndex;
+      return `
+        <article class="source-card-admin" data-source="${id}">
+          <div class="section-toolbar">
+            <div>
+              <h3>Source ${id}</h3>
+              <p>Lien officiel, fiche fabricant, page publique ou document de référence.</p>
+            </div>
+            <button class="button-danger compact" type="button" data-action="remove-source">Retirer</button>
+          </div>
+          <div class="form-grid">
+            <label>Nom de la source
+              <input class="source-label" placeholder="Ex : France Rénov' - MaPrimeRénov'" value="${escapeHtml(labelValue)}" />
+            </label>
+            <label>URL
+              <input class="source-url" type="url" placeholder="https://..." value="${escapeHtml(urlValue)}" />
+            </label>
+            <label class="wide">Note, optionnelle
+              <textarea class="source-note" placeholder="Ex : Conditions principales : logement, revenus, travaux et entreprise RGE.">${escapeHtml(noteValue)}</textarea>
+            </label>
+          </div>
+        </article>
+      `;
+    }
+
     function pagePathFor(item) {
       if (item.htmlPath) return item.htmlPath;
       return item.filePath ? item.filePath.split("/").pop().replace(/\.html\.md$/, ".html").replace(/\.md$/, ".html") : "";
+    }
+
+    function splitFrontmatter(markdown = "") {
+      const match = String(markdown).match(/^---\r?\n[\s\S]*?\r?\n---/);
+      if (!match) return { frontmatter: "---\n---", body: String(markdown || "").trim() };
+      return {
+        frontmatter: match[0],
+        body: String(markdown).slice(match[0].length).trim(),
+      };
+    }
+
+    function stripMainTitle(body = "") {
+      const lines = String(body || "").split(/\r?\n/);
+      if (lines[0] && /^#\s+/.test(lines[0].trim())) {
+        return {
+          title: lines[0].replace(/^#\s+/, "").trim(),
+          body: lines.slice(1).join("\n").trim(),
+        };
+      }
+      return { title: "", body: String(body || "").trim() };
+    }
+
+    function splitTopLevelSections(body = "") {
+      const sections = [];
+      const lines = String(body || "").split(/\r?\n/);
+      let current = { title: "", lines: [] };
+      for (const line of lines) {
+        const heading = line.match(/^##\s+(.+)$/);
+        if (heading) {
+          sections.push(current);
+          current = { title: heading[1].trim(), lines: [] };
+        } else {
+          current.lines.push(line);
+        }
+      }
+      sections.push(current);
+      return sections;
+    }
+
+    function parseListAndText(lines) {
+      const text = [];
+      const bullets = [];
+      let listStyle = "bullet";
+      for (const line of lines.join("\n").trim().split(/\r?\n/)) {
+        const bullet = line.match(/^\s*[-*]\s+(.+)$/);
+        const ordered = line.match(/^\s*\d+[\.)]\s+(.+)$/);
+        if (bullet) {
+          bullets.push(bullet[1].trim());
+          continue;
+        }
+        if (ordered) {
+          listStyle = "ordered";
+          bullets.push(ordered[1].trim());
+          continue;
+        }
+        text.push(line);
+      }
+      return {
+        body: cleanText(text.join("\n")),
+        bullets: bullets.join("\n"),
+        listStyle,
+      };
+    }
+
+    function parseCtaLine(line = "") {
+      const match = line.match(/<!--\s*mdr-cta\s*\|\s*([^|]*)\|\s*([^|]*)\|\s*([^|]*)\s*-->/i);
+      if (!match) return null;
+      return {
+        title: cleanText(match[1]),
+        text: cleanText(match[2]),
+        button: cleanText(match[3]),
+      };
+    }
+
+    function parseTable(lines, startIndex) {
+      let title = "";
+      let index = startIndex;
+      if (index > 0) {
+        const previous = lines[index - 1].trim();
+        const boldTitle = previous.match(/^\*\*(.+)\*\*$/);
+        if (boldTitle) title = boldTitle[1].trim();
+      }
+      const rows = [];
+      while (index < lines.length && /^\s*\|.+\|\s*$/.test(lines[index])) {
+        const cells = lines[index].trim().replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim());
+        const isSeparator = cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+        if (!isSeparator) rows.push(cells);
+        index += 1;
+      }
+      return { title, rows, nextIndex: index };
+    }
+
+    function addSectionBlock(title, buffer, blocks) {
+      const parsed = parseListAndText(buffer);
+      if (!title && !parsed.body && !parsed.bullets) return;
+      blocks.push({ type: "section", title: title || "Partie", body: parsed.body, bullets: parsed.bullets, listStyle: parsed.listStyle });
+    }
+
+    function parseContentBlocks(title, content) {
+      const blocks = [];
+      const lines = String(content || "").split(/\r?\n/);
+      let buffer = [];
+      for (let index = 0; index < lines.length; index += 1) {
+        const line = lines[index];
+        const cta = parseCtaLine(line);
+        if (cta) {
+          addSectionBlock(title, buffer, blocks);
+          title = "";
+          buffer = [];
+          blocks.push({ type: "cta", ...cta });
+          continue;
+        }
+        if (/^\s*\|.+\|\s*$/.test(line)) {
+          const previous = buffer[buffer.length - 1] || "";
+          const hasTableTitle = /^\*\*(.+)\*\*$/.test(previous.trim());
+          const table = parseTable(lines, index);
+          addSectionBlock(title, hasTableTitle ? buffer.slice(0, -1) : buffer, blocks);
+          title = "";
+          buffer = [];
+          blocks.push({ type: "table", title: table.title, rows: table.rows });
+          index = table.nextIndex - 1;
+          continue;
+        }
+        buffer.push(line);
+      }
+      addSectionBlock(title, buffer, blocks);
+      return blocks;
+    }
+
+    function parseFaqBlock(content = "") {
+      const faqs = [];
+      const chunks = String(content || "").split(/^###\s+/m);
+      chunks.shift();
+      chunks.forEach((chunk) => {
+        const lines = chunk.split(/\r?\n/);
+        const question = cleanText(lines.shift() || "");
+        const answer = cleanText(lines.join("\n"));
+        if (question || answer) faqs.push({ question, answer });
+      });
+      return faqs;
+    }
+
+    function parseSourcesBlock(content = "") {
+      return String(content || "")
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter((line) => line.startsWith("- "))
+        .map((line) => {
+          const value = line.replace(/^-\s+/, "");
+          const linked = value.match(/^\[([^\]]+)\]\(([^)]+)\)(?:\s*:\s*(.+))?$/);
+          if (linked) return { label: linked[1], url: linked[2], note: linked[3] || "" };
+          const simple = value.match(/^(.+?)(?:\s*:\s*(.+))?$/);
+          return { label: simple ? simple[1] : value, url: "", note: simple && simple[2] ? simple[2] : "" };
+        });
+    }
+
+    function renderEditableArticle(markdown = "") {
+      editSectionIndex = 0;
+      editFaqIndex = 0;
+      editSourceIndex = 0;
+      fields.intro.value = "";
+      fields.keyPoint.value = "";
+      fields.sections.innerHTML = "";
+      fields.faqs.innerHTML = "";
+      fields.sources.innerHTML = "";
+
+      const split = splitFrontmatter(markdown);
+      editFrontmatter = split.frontmatter;
+      const main = stripMainTitle(split.body);
+      if (!fields.title.value && main.title) fields.title.value = main.title;
+
+      const topSections = splitTopLevelSections(main.body);
+      fields.intro.value = cleanText(topSections.shift()?.lines.join("\n") || "");
+      const blocks = [];
+      for (const section of topSections) {
+        const title = section.title.trim();
+        const content = section.lines.join("\n").trim();
+        if (/^le point important$/i.test(title)) {
+          fields.keyPoint.value = cleanText(content);
+          continue;
+        }
+        if (/questions fréquentes|questions frequentes/i.test(title)) {
+          parseFaqBlock(content).forEach((faq) => fields.faqs.insertAdjacentHTML("beforeend", editFaqTemplate(faq.question, faq.answer)));
+          continue;
+        }
+        if (/sources/i.test(title)) {
+          parseSourcesBlock(content).forEach((source) => fields.sources.insertAdjacentHTML("beforeend", editSourceTemplate(source.label, source.url, source.note)));
+          continue;
+        }
+        blocks.push(...parseContentBlocks(title, content));
+      }
+      blocks.forEach((block) => {
+        if (block.type === "section") fields.sections.insertAdjacentHTML("beforeend", editSectionTemplate(block.title, block.body, block.bullets, block.listStyle));
+        if (block.type === "table") fields.sections.insertAdjacentHTML("beforeend", editTableTemplate(block.title, block.rows));
+        if (block.type === "cta") fields.sections.insertAdjacentHTML("beforeend", editCtaTemplate(block.title, block.text, block.button));
+      });
+      if (!fields.sections.children.length) fields.sections.insertAdjacentHTML("beforeend", editSectionTemplate());
+      syncEditMarkdown();
+    }
+
+    function tableColumnCount(tableCard) {
+      const firstRow = tableCard.querySelector(".table-row");
+      return firstRow ? firstRow.querySelectorAll(".table-cell").length : 3;
+    }
+
+    function updateTableLayout(tableCard) {
+      const columns = tableColumnCount(tableCard);
+      tableCard.querySelectorAll(".table-row").forEach((row) => row.style.setProperty("--table-columns", columns));
+    }
+
+    function addTableRow(tableCard) {
+      tableCard.querySelector(".table-editor").insertAdjacentHTML("beforeend", editTableRowTemplate(Array.from({ length: tableColumnCount(tableCard) }, () => "")));
+      updateTableLayout(tableCard);
+    }
+
+    function addTableColumn(tableCard) {
+      tableCard.querySelectorAll(".table-row").forEach((row, rowIndex) => {
+        const placeholder = rowIndex === 0 ? `Colonne ${row.querySelectorAll(".table-cell").length + 1}` : "Texte";
+        const className = rowIndex === 0 ? "table-cell table-heading" : "table-cell";
+        row.insertAdjacentHTML("beforeend", `<input class="${className}" placeholder="${placeholder}" />`);
+      });
+      updateTableLayout(tableCard);
+    }
+
+    function removeTableColumn(tableCard) {
+      if (tableColumnCount(tableCard) <= 2) return;
+      tableCard.querySelectorAll(".table-row").forEach((row) => row.querySelector(".table-cell:last-child")?.remove());
+      updateTableLayout(tableCard);
+    }
+
+    function tableMarkdown(tableCard) {
+      const rows = Array.from(tableCard.querySelectorAll(".table-row")).map((row) => (
+        Array.from(row.querySelectorAll(".table-cell")).map((cell) => markerText(cell.value))
+      ));
+      if (!rows.length) return "";
+      const columns = Math.max(...rows.map((row) => row.length));
+      const bodyRows = rows.slice(1).filter((row) => row.some(Boolean));
+      if (!rows[0].some(Boolean) && !bodyRows.length) return "";
+      const normalize = (row) => Array.from({ length: columns }, (_, index) => row[index] || " ");
+      const headers = normalize(rows[0]).map((cell, index) => cell || `Colonne ${index + 1}`);
+      const title = cleanText(tableCard.querySelector(".table-title").value);
+      const table = [
+        `| ${headers.join(" | ")} |`,
+        `| ${Array.from({ length: columns }, () => "---").join(" | ")} |`,
+        ...bodyRows.map((row) => `| ${normalize(row).join(" | ")} |`),
+      ].join("\n");
+      return [title ? `**${title}**` : "", table].filter(Boolean).join("\n\n");
+    }
+
+    function ctaMarkdown(ctaCard) {
+      const title = markerText(ctaCard.querySelector(".cta-title").value) || "Vous voulez cadrer votre projet avant de signer ?";
+      const text = markerText(ctaCard.querySelector(".cta-text").value) || "MD Rénov' vous aide à choisir la solution utile, adaptée au logement et au budget.";
+      const button = markerText(ctaCard.querySelector(".cta-button").value) || "Faire le point";
+      return `<!-- mdr-cta | ${title} | ${text} | ${button} -->`;
+    }
+
+    function sourceMarkdown() {
+      const lines = [];
+      fields.sources.querySelectorAll(".source-card-admin").forEach((card) => {
+        const label = cleanText(card.querySelector(".source-label").value);
+        const url = cleanText(card.querySelector(".source-url").value);
+        const note = cleanText(card.querySelector(".source-note").value);
+        if (!label && !url && !note) return;
+        const sourceLabel = label || url || "Source";
+        const linked = url ? `[${sourceLabel}](${url})` : sourceLabel;
+        lines.push(note ? `- ${linked} : ${note}` : `- ${linked}`);
+      });
+      return lines.length ? `## Sources fiables utilisées pour vérifier ce guide\n\n${lines.join("\n")}` : "";
+    }
+
+    function buildEditBody() {
+      const parts = [];
+      const intro = cleanText(fields.intro.value);
+      const keyPoint = cleanText(fields.keyPoint.value);
+      if (intro) parts.push(intro);
+      if (keyPoint) parts.push(`## Le point important\n\n${keyPoint}`);
+      let sectionNumber = 0;
+      Array.from(fields.sections.children).forEach((block) => {
+        if (block.classList.contains("section-card")) {
+          sectionNumber += 1;
+          const heading = cleanText(block.querySelector(".section-title").value) || `Partie ${sectionNumber}`;
+          const text = cleanText(block.querySelector(".section-body").value);
+          const bullets = markdownList(block.querySelector(".section-bullets").value, block.querySelector(".section-list-style")?.value || "bullet");
+          parts.push([`## ${heading}`, text, bullets].filter(Boolean).join("\n\n"));
+          return;
+        }
+        if (block.classList.contains("table-card")) {
+          const table = tableMarkdown(block);
+          if (table) parts.push(table);
+          return;
+        }
+        if (block.classList.contains("cta-card")) parts.push(ctaMarkdown(block));
+      });
+      const faqParts = [];
+      fields.faqs.querySelectorAll(".faq-card").forEach((card) => {
+        const question = cleanText(card.querySelector(".faq-question").value);
+        const answer = cleanText(card.querySelector(".faq-answer").value);
+        if (question || answer) faqParts.push(`### ${question || "Question fréquente"}\n\n${answer || "Réponse à compléter."}`);
+      });
+      if (faqParts.length) parts.push(`## Les questions fréquentes\n\n${faqParts.join("\n\n")}`);
+      const sources = sourceMarkdown();
+      if (sources) parts.push(sources);
+      return parts.filter(Boolean).join("\n\n").trim();
+    }
+
+    function syncEditMarkdown() {
+      const title = cleanText(fields.title.value) || (editingItem && editingItem.title) || "Article";
+      const body = buildEditBody();
+      fields.markdown.value = `${editFrontmatter || "---\n---"}\n\n# ${title}\n\n${body}`.trim() + "\n";
     }
 
     function articleItems() {
@@ -170,6 +843,7 @@
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Impossible de charger les articles.");
         items = data.items || [];
+        knownTags = data.tags || [];
         render();
       } catch (error) {
         status.textContent = error.message;
@@ -183,6 +857,11 @@
       editModal.setAttribute("aria-hidden", "true");
       editingItem = null;
       editForm.reset();
+      editFrontmatter = "";
+      fields.sections.innerHTML = "";
+      fields.faqs.innerHTML = "";
+      fields.sources.innerHTML = "";
+      fields.tagPicker.innerHTML = '<span class="hint">Chargement des tags...</span>';
       $("#save-edit").textContent = "Publier les modifications";
     }
 
@@ -206,10 +885,18 @@
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Impossible d'ouvrir cet article.");
         editingItem = data.item;
+        const meta = parseFrontmatterFields(editingItem.markdown || "");
         fields.title.value = editingItem.title || "";
-        fields.markdown.value = editingItem.markdown || "";
+        fields.category.value = meta.category || editingItem.category_value || "";
+        fields.date.value = meta.date || editingItem.date || "";
+        fields.readingTime.value = meta.reading_time || editingItem.reading_time || "";
+        fields.seoTitle.value = meta.seo_title || editingItem.seo_title || "";
+        fields.description.value = meta.description || editingItem.description || "";
+        fields.customTags.value = "";
+        renderEditTagPicker(cleanTagList(meta.tags || editingItem.tags || []));
         fields.photos.value = "";
-        fields.photoNotes.value = "";
+        fields.photoNotes.value = meta.image_alt || editingItem.image_alt || "";
+        renderEditableArticle(editingItem.markdown || "");
         $("#save-edit").textContent = editingItem.collection === "archived_articles" ? "Enregistrer l'archive" : "Publier les modifications";
         editStatus.textContent = editingItem.collection === "archived_articles"
           ? "Archive ouverte. Les changements restent archivés tant que tu ne désarchives pas l'article."
@@ -258,6 +945,67 @@
 
     search.addEventListener("input", render);
 
+    $("#edit-add-section").addEventListener("click", () => {
+      fields.sections.insertAdjacentHTML("beforeend", editSectionTemplate());
+      syncEditMarkdown();
+    });
+
+    $("#edit-add-table-block").addEventListener("click", () => {
+      fields.sections.insertAdjacentHTML("beforeend", editTableTemplate());
+      syncEditMarkdown();
+    });
+
+    $("#edit-add-cta-block").addEventListener("click", () => {
+      fields.sections.insertAdjacentHTML("beforeend", editCtaTemplate());
+      syncEditMarkdown();
+    });
+
+    $("#edit-add-faq").addEventListener("click", () => {
+      fields.faqs.insertAdjacentHTML("beforeend", editFaqTemplate());
+      syncEditMarkdown();
+    });
+
+    $("#edit-add-source").addEventListener("click", () => {
+      fields.sources.insertAdjacentHTML("beforeend", editSourceTemplate());
+      syncEditMarkdown();
+    });
+
+    editForm.addEventListener("input", () => syncEditMarkdown());
+
+    fields.sections.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const block = button.closest(".section-card, .table-card, .cta-card");
+      const action = button.dataset.action;
+      if (action === "insert-section-after") block.insertAdjacentHTML("afterend", editSectionTemplate());
+      if (action === "insert-table-after") block.insertAdjacentHTML("afterend", editTableTemplate());
+      if (action === "insert-cta-after") block.insertAdjacentHTML("afterend", editCtaTemplate());
+      if (action === "remove-section") block.remove();
+      if (action === "remove-table") block.remove();
+      if (action === "remove-cta") block.remove();
+      if (action === "move-up" && block.previousElementSibling) fields.sections.insertBefore(block, block.previousElementSibling);
+      if (action === "move-down" && block.nextElementSibling) fields.sections.insertBefore(block.nextElementSibling, block);
+      if (action === "add-table-row") addTableRow(button.closest(".table-card"));
+      if (action === "add-table-column") addTableColumn(button.closest(".table-card"));
+      if (action === "remove-table-column") removeTableColumn(button.closest(".table-card"));
+      if (!fields.sections.querySelector(".section-card, .table-card, .cta-card")) fields.sections.insertAdjacentHTML("beforeend", editSectionTemplate());
+      syncEditMarkdown();
+    });
+
+    fields.faqs.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action='remove-faq']");
+      if (!button) return;
+      button.closest(".faq-card").remove();
+      syncEditMarkdown();
+    });
+
+    fields.sources.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action='remove-source']");
+      if (!button) return;
+      button.closest(".source-card-admin").remove();
+      syncEditMarkdown();
+    });
+
     list.addEventListener("click", (event) => {
       const button = event.target.closest("button[data-action]");
       if (!button) return;
@@ -268,6 +1016,7 @@
     editForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!editingItem) return;
+      syncEditMarkdown();
       editStatus.textContent = editingItem.collection === "archived_articles" ? "Enregistrement de l'archive..." : "Publication des modifications...";
       editStatus.classList.remove("error");
       try {
@@ -280,6 +1029,14 @@
             collection: editingItem.collection,
             filePath: editingItem.filePath,
             title: fields.title.value,
+            category: fields.category.value,
+            category_label: categoryLabel(fields.category.value),
+            date: fields.date.value,
+            reading_time: fields.readingTime.value,
+            seo_title: fields.seoTitle.value,
+            description: fields.description.value,
+            tags: selectedEditTags(),
+            image_alt: fields.photoNotes.value,
             markdown: fields.markdown.value,
             photo_notes: fields.photoNotes.value,
             photos,

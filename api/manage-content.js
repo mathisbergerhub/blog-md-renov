@@ -60,6 +60,7 @@ function categoryLabel(category = "") {
 
 function cleanTagList(tags) {
   if (Array.isArray(tags)) return tags.map((tag) => String(tag).trim()).filter(Boolean);
+  if (String(tags || "").trim() === "[]") return [];
   return String(tags || "")
     .split(",")
     .map((tag) => tag.trim())
@@ -213,18 +214,37 @@ function setFrontmatterValues(markdown, values) {
   if (!match) return markdown;
   const newline = markdown.includes("\r\n") ? "\r\n" : "\n";
   const existing = match[1].split(/\r?\n/);
-  const pending = new Map(Object.entries(values).filter(([, value]) => value !== undefined && value !== null && String(value).trim() !== ""));
-  const updated = existing.map((line) => {
+  const pending = new Map(Object.entries(values).filter(([, value]) => (
+    Array.isArray(value) || (value !== undefined && value !== null && String(value).trim() !== "")
+  )));
+  const formatEntry = (key, value) => {
+    if (Array.isArray(value)) {
+      return value.length ? [`${key}:`, ...value.map((item) => `  - ${yamlString(item)}`)] : [`${key}: []`];
+    }
+    return [`${key}: ${yamlString(value)}`];
+  };
+  const updated = [];
+  for (let index = 0; index < existing.length; index += 1) {
+    const line = existing[index];
     const separator = line.indexOf(":");
-    if (separator === -1) return line;
+    if (separator === -1) {
+      updated.push(line);
+      continue;
+    }
     const key = line.slice(0, separator).trim();
-    if (!pending.has(key)) return line;
+    if (!pending.has(key)) {
+      updated.push(line);
+      continue;
+    }
     const value = pending.get(key);
     pending.delete(key);
-    return `${key}: ${yamlString(value)}`;
-  });
+    updated.push(...formatEntry(key, value));
+    while (index + 1 < existing.length && /^\s+-\s+/.test(existing[index + 1])) {
+      index += 1;
+    }
+  }
   for (const [key, value] of pending.entries()) {
-    updated.push(`${key}: ${yamlString(value)}`);
+    updated.push(...formatEntry(key, value));
   }
   return `---${newline}${updated.join(newline)}${newline}---${markdown.slice(match[0].length)}`;
 }
@@ -687,6 +707,16 @@ async function updatePublishedArticle({ repository, branch, token, collection, f
   const slug = htmlPath.replace(/\.html$/, "").split("/").pop() || slugify(body.title || initialFields.title || "article");
   const updates = {};
   if (body.title) updates.title = String(body.title).trim();
+  if (body.seo_title !== undefined) updates.seo_title = String(body.seo_title).trim();
+  if (body.description !== undefined) updates.description = String(body.description).trim();
+  if (body.category) {
+    updates.category = String(body.category).trim();
+    updates.category_label = String(body.category_label || categoryLabel(body.category)).trim();
+  }
+  if (body.date) updates.date = String(body.date).trim();
+  if (body.reading_time) updates.reading_time = String(body.reading_time).trim();
+  if (body.tags !== undefined) updates.tags = cleanTagList(body.tags);
+  if (body.image_alt !== undefined) updates.image_alt = String(body.image_alt).trim();
   const photos = Array.isArray(body.photos) ? body.photos : [];
   if (photos[0]) {
     updates.featured_image = await uploadArticlePhoto({ repository, branch, token, slug, photo: photos[0] });
@@ -795,7 +825,16 @@ async function readManagedContent({ repository, branch, token, collection, fileP
   return {
     collection,
     title: fields.title || managedPath.split("/").pop().replace(/\.md$/, ""),
+    seo_title: fields.seo_title || "",
+    description: fields.description || "",
     category: fields.category_label || fields.category || "",
+    category_value: fields.category || "",
+    category_label: fields.category_label || categoryLabel(fields.category || ""),
+    date: fields.date || fields.created_at || "",
+    reading_time: fields.reading_time || "",
+    tags: cleanTagList(fields.tags),
+    image_alt: fields.image_alt || "",
+    featured_image: fields.featured_image || "",
     main_keyword: fields.main_keyword || "",
     filePath: managedPath,
     htmlPath: allowedCollections[collection].group === "articles" ? rootHtmlPathFromArticle(managedPath, fields) : "",
