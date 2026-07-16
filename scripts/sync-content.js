@@ -302,6 +302,13 @@ function accentTitle(title = "", article = {}) {
 }
 
 function categoryFacts(article) {
+  if (article.htmlFile === "canicule-comment-rafraichir-votre-maison-sans-climatisation.html") {
+    return [
+      ["Priorité", "Bloquer le soleil", "Fermez les protections extérieures avant que le vitrage ne chauffe."],
+      ["Bon moment", "Aérer quand il fait plus frais", "Ouvrez le soir, la nuit ou tôt le matin selon la température extérieure."],
+      ["À choisir", "Volet, BSO ou store", "Adaptez la protection à l’orientation, à la pièce et à l’exposition au vent."],
+    ];
+  }
   const theme = String(article.category_label || "").toLowerCase().includes("démarch") ? "demarches" : article.category;
   const facts = {
     aides: [["À vérifier", "Éligibilité réelle", "Les aides dépendent du foyer, du logement, des travaux et de l'ordre des démarches."], ["Budget", "Reste à charge", "Le montant utile est celui qui reste à payer après aides, options, pose et finitions."], ["Condition clé", "Entreprise RGE", "La qualification et le devis doivent être vérifiés avant signature."], ["Prudence", "Ne pas signer trop tôt", "Un dossier mal ordonné peut faire perdre une aide ou retarder le chantier."]],

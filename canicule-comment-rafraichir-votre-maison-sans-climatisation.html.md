@@ -43,7 +43,7 @@ Le vitrage laisse entrer une partie du rayonnement solaire. Celui-ci chauffe ens
 
 Un rideau ou un store intérieur limite l’éblouissement, mais le rayonnement a déjà traversé la vitre lorsqu’il l’atteint. La protection solaire extérieure agit plus tôt : elle intercepte une grande partie du rayonnement **avant le vitrage**. L’ADEME recommande donc de protéger en priorité les fenêtres exposées au soleil avec des volets, stores ou autres protections extérieures.
 
-> **Le bon réflexe :** observez l’heure à laquelle le soleil atteint chaque fenêtre. La protection doit être abaissée avant cette heure, et non lorsque la pièce est déjà chaude.
+**Le bon réflexe :** observez l’heure à laquelle le soleil atteint chaque fenêtre. La protection doit être abaissée avant cette heure, et non lorsque la pièce est déjà chaude.
 
 ## Le bon rythme entre le jour et la nuit
 
@@ -117,7 +117,7 @@ Avant de demander un devis, notez pendant quelques jours les pièces les plus ch
 
 Une modification visible de la façade peut nécessiter une autorisation d’urbanisme ou l’accord de la copropriété. Il faut donc vérifier le PLU de la commune, les règles du lotissement et, le cas échéant, le règlement de copropriété avant la pose.
 
-MD Rénov’ accompagne les particuliers à Annecy, en Haute-Savoie, en Savoie et dans le Pays de Gex pour étudier les protections solaires et menuiseries adaptées à leur logement. L’objectif du rendez-vous n’est pas d’équiper toutes les fenêtres de la même manière, mais de traiter en priorité les ouvertures qui provoquent réellement la surchauffe.
+Notre équipe accompagne les particuliers à Annecy, en Haute-Savoie, en Savoie et dans le Pays de Gex pour étudier les protections solaires et menuiseries adaptées à leur logement. L’objectif du rendez-vous n’est pas d’équiper toutes les fenêtres de la même manière, mais de traiter en priorité les ouvertures qui provoquent réellement la surchauffe.
 
 ## Questions fréquentes
 
@@ -139,7 +139,7 @@ Non sans étude du logement. Le résultat dépend de l’orientation, de la surf
 
 ## Sources fiables pour aller plus loin
 
-- [ADEME — Canicule : comment garder son logement au frais ?](https://agirpourlatransition.ademe.fr/particuliers/proteger-sante/periode-canicule/canicule-comment-garder-logement-frais) : gestes quotidiens, protections solaires, ventilation et solutions avant climatisation.
+- [ADEME — Garder son logement au frais en période de canicule](https://agirpourlatransition.ademe.fr/particuliers/proteger-sante/periode-canicule/canicule-comment-garder-logement-frais) : gestes quotidiens, protections solaires, ventilation et solutions avant climatisation.
 - [Ministère de la Santé — Recommandations en cas de vague de chaleur](https://sante.gouv.fr/sante-et-environnement/risques-climatiques/article/les-recommandations-en-cas-de-vague-de-chaleur) : fermeture des volets le jour, aération nocturne et conseils de prévention.
 - [Météo-France — Impact du changement climatique sur les vagues de chaleur](https://meteofrance.com/le-changement-climatique/quel-climat-futur/changement-climatique-quel-impact-sur-les-vagues-de) : évolution attendue de la fréquence, de la durée et de l’intensité des épisodes chauds.
 - [Service-Public.fr — Travaux modifiant l’aspect extérieur d’un bâtiment](https://www.service-public.fr/particuliers/vosdroits/F31473) : démarches d’urbanisme à vérifier avant de modifier une façade.
