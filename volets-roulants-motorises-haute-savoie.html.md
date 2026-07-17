@@ -7,6 +7,7 @@ description: 'Filaire, radio ou solaire : ce que change vraiment la motorisation
 category: 'volets-stores'
 category_label: 'Volets'
 date: '2026-04-10'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/volets-roulants-motorises-haute-savoie.webp'
 image_alt: 'Maison équipée de volets roulants motorisés anthracite'

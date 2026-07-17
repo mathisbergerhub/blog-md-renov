@@ -7,6 +7,7 @@ description: 'Les points concrets à comparer pour choisir une porte d''entrée 
 category: 'portes-portails'
 category_label: 'Portes'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/porte-entree-securisee-serrure-vitrage.webp'
 image_alt: 'Porte d’entrée sécurisée anthracite avec vitrage latéral et serrure renforcée'

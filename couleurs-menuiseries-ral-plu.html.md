@@ -7,6 +7,7 @@ description: 'RAL, bicoloration, harmonie de façade, copropriété et mairie : 
 category: 'exterieur'
 category_label: 'Démarches'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/couleur-menuiseries-plu.webp'
 image_alt: 'Nuancier de couleurs devant une façade avec menuiseries anthracite'

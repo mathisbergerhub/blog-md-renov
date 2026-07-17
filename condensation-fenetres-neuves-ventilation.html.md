@@ -7,6 +7,7 @@ description: 'Pourquoi des fenêtres plus étanches peuvent révéler un problè
 category: 'isolation'
 category_label: 'Isolation'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/condensation-apres-changement-fenetres.webp'
 image_alt: 'Condensation sur une fenêtre récente dans un salon ventilé'

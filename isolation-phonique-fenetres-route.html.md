@@ -7,6 +7,7 @@ description: 'Vitrage acoustique, entrées d''air, pose et coffres de volets : l
 category: 'isolation'
 category_label: 'Isolation'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: '/uploads/articles/salon-moderne-cosy-vue-route.webp'
 image_alt: 'Salon calme avec fenêtres donnant sur une route de montagne'

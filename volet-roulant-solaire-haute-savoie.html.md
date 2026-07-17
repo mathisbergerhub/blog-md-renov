@@ -7,6 +7,7 @@ description: 'Exposition, batterie, moteur, entretien et cas de rénovation : qu
 category: 'volets-stores'
 category_label: 'Volets'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/volet-roulant-solaire-haute-savoie.webp'
 image_alt: 'Volet roulant solaire avec panneau photovoltaïque intégré'

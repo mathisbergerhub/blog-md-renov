@@ -7,6 +7,7 @@ description: 'Commande, fabrication, autorisations, pose et finitions : les éta
 category: 'aides'
 category_label: 'Budget'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/delais-pose-menuiseries-renovation.webp'
 image_alt: 'Planning de chantier avec fenêtres prêtes à poser devant une maison'

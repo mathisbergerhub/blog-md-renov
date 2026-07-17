@@ -7,6 +7,7 @@ description: 'Un guide pratique pour choisir entre branchement électrique, comm
 category: 'volets-stores'
 category_label: 'Stores'
 date: '2026-04-03'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/store-banne-motorise-ou-solaire.webp'
 image_alt: 'Store banne motorisé ouvert sur une terrasse en fin de journée'

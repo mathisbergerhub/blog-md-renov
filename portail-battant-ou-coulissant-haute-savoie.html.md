@@ -7,6 +7,7 @@ description: 'Pente, recul, largeur de passage, motorisation et PLU : les critè
 category: 'portes-portails'
 category_label: 'Portails'
 date: '2026-03-12'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/portail-battant-ou-coulissant-haute-savoie.webp'
 image_alt: 'Portail battant et coulissant anthracite devant une maison avec terrain en pente'

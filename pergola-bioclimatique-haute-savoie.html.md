@@ -7,6 +7,7 @@ description: 'Orientation, lames, pluie légère, options et autorisations : les
 category: 'exterieur'
 category_label: 'Pergolas'
 date: '2026-03-24'
+modified_date: '2026-07-17'
 reading_time: '4 min'
 featured_image: 'uploads/articles/pergola-bioclimatique-haute-savoie.webp'
 image_alt: 'Pergola bioclimatique anthracite avec lames orientables sur terrasse'

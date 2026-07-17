@@ -7,6 +7,7 @@ description: 'Fenêtre, porte-fenêtre, baie coulissante : le comparatif concret
 category: 'exterieur'
 category_label: 'Moustiquaires'
 date: '2026-03-20'
+modified_date: '2026-07-17'
 reading_time: '7 min'
 featured_image: 'uploads/articles/moustiquaire-sur-mesure-haute-savoie.webp'
 image_alt: 'Moustiquaire enroulable noire posée sur une fenêtre de cuisine'

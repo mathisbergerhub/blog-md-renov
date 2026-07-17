@@ -7,6 +7,7 @@ description: 'Prix, isolation, finesse des profils, entretien et rendu de façad
 category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-03-20'
+modified_date: '2026-07-17'
 reading_time: '5 min'
 featured_image: 'uploads/articles/fenetre-pvc-vs-aluminium-haute-savoie.webp'
 image_alt: 'Fenêtre aluminium anthracite sur une maison avec vue montagne'

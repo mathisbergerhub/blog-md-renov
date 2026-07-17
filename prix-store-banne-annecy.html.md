@@ -7,6 +7,7 @@ description: 'Largeur, coffre, motorisation, toile, capteurs et pose : les facte
 category: 'volets-stores'
 category_label: 'Stores'
 date: '2026-03-30'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/prix-store-banne-annecy.webp'
 image_alt: 'Store banne ouvert au-dessus d’une terrasse avec carnet de devis'

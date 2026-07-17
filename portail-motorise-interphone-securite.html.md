@@ -7,6 +7,7 @@ description: 'Motorisation, alimentation, sécurité, interphone, visiophone et 
 category: 'portes-portails'
 category_label: 'Portails'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/portail-motorise-interphone-securite.webp'
 image_alt: 'Portail motorisé avec visiophone et digicode à l’entrée d’une maison'

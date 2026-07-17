@@ -7,6 +7,7 @@ description: 'Règlement de copropriété, harmonie de façade, assemblée gén�
 category: 'exterieur'
 category_label: 'Démarches'
 date: '2026-03-08'
+modified_date: '2026-07-17'
 reading_time: '4 min'
 featured_image: 'uploads/articles/autorisation-store-banne-copropriete.webp'
 image_alt: 'Store banne déployé sur un balcon en copropriété'

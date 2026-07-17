@@ -7,6 +7,7 @@ description: 'Largeur, avancée, toile, coffre, vent et orientation : la méthod
 category: 'volets-stores'
 category_label: 'Stores'
 date: '2026-04-01'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/comment-choisir-store-banne-annecy.webp'
 image_alt: 'Store banne ouvert au-dessus d’une terrasse avec vue sur les montagnes'

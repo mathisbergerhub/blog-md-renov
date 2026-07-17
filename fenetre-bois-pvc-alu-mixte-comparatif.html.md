@@ -7,6 +7,7 @@ description: 'Un comparatif clair entre PVC, aluminium, bois et mixte pour chois
 category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '4 min'
 featured_image: 'uploads/articles/pvc-aluminium-bois-mixte-materiau-fenetre.webp'
 image_alt: 'Échantillons de menuiseries PVC, aluminium, bois et mixte'

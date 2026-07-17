@@ -7,6 +7,7 @@ description: 'Un comparatif simple pour arbitrer entre esthétique, protection s
 category: 'volets-stores'
 category_label: 'Volets'
 date: '2026-04-08'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/volets-roulants-ou-battants-haute-savoie.webp'
 image_alt: 'Façade combinant volets battants traditionnels et volets roulants'

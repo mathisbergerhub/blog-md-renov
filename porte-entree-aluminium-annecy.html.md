@@ -7,6 +7,7 @@ description: 'Les critères importants avant de remplacer une porte d''entrée :
 category: 'portes-portails'
 category_label: 'Portes'
 date: '2026-03-18'
+modified_date: '2026-07-17'
 reading_time: '4 min'
 featured_image: 'uploads/articles/porte-entree-aluminium-annecy.webp'
 image_alt: 'Porte d’entrée aluminium anthracite avec vitrage vertical sur façade contemporaine'

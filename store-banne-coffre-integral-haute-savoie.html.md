@@ -7,6 +7,7 @@ description: 'Protection solaire, exposition, dimensions et durabilité : les cr
 category: 'volets-stores'
 category_label: 'Stores'
 date: '2026-04-05'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/store-banne-coffre-integral-haute-savoie.webp'
 image_alt: 'Store banne coffre intégral protégeant une grande terrasse'

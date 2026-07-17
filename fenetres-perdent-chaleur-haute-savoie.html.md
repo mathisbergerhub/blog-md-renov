@@ -7,6 +7,7 @@ description: 'Courants d''air, condensation, paroi froide, bruit : les signes à
 category: 'isolation'
 category_label: 'Isolation'
 date: '2026-04-15'
+modified_date: '2026-07-17'
 reading_time: '5 min'
 featured_image: 'uploads/articles/fenetres-perdent-chaleur-diagnostic.webp'
 image_alt: 'Diagnostic thermique près d’une fenêtre qui laisse passer le froid'

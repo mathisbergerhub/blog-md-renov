@@ -7,6 +7,7 @@ description: 'Hauteur disponible, plafond, isolation, motorisation et usage quot
 category: 'portes-portails'
 category_label: 'Portes'
 date: '2026-03-15'
+modified_date: '2026-07-17'
 reading_time: '4 min'
 featured_image: 'uploads/articles/porte-garage-sectionnelle-ou-enroulable.webp'
 image_alt: 'Porte de garage sectionnelle anthracite sur maison contemporaine'
