@@ -40,6 +40,7 @@ const allowedCollections = {
 function sendJson(res, statusCode, payload) {
   res.statusCode = statusCode;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
+  res.setHeader("Cache-Control", "no-store");
   res.end(JSON.stringify(payload));
 }
 
@@ -592,6 +593,29 @@ async function triggerDeployHook(action, paths = []) {
   }
 }
 
+async function upsertGithubFile({ repository, branch, token, filePath, content, message }) {
+  const existing = await readGithubPath(repository, branch, token, filePath);
+  if (existing && existing.type === "file") {
+    return updateGithubFile({
+      repository,
+      branch,
+      token,
+      filePath,
+      sha: existing.sha,
+      content,
+      message,
+    });
+  }
+  return createGithubFile({
+    repository,
+    branch,
+    token,
+    filePath,
+    content,
+    message,
+  });
+}
+
 function buildArticleMarkdown(body, uploadedImagePath = "") {
   const title = String(body.title || "").trim();
   const description = String(body.description || "").trim();
@@ -965,7 +989,7 @@ async function archiveManagedContent({ repository, branch, token, collection, fi
   if (!source) throw new Error("Contenu introuvable.");
 
   const archivedMdPath = archivePath(collection, managedPath);
-  await createGithubFile({
+  await upsertGithubFile({
     repository,
     branch,
     token,
@@ -991,7 +1015,7 @@ async function archiveManagedContent({ repository, branch, token, collection, fi
     const html = await readGithubPath(repository, branch, token, htmlPath);
     if (html && html.type === "file") {
       const archivedHtmlPath = archiveHtmlPath(htmlPath);
-      await createGithubFile({
+      await upsertGithubFile({
         repository,
         branch,
         token,
@@ -1222,6 +1246,7 @@ module.exports = async function manageContent(req, res) {
 
     sendJson(res, 400, { error: "Action inconnue." });
   } catch (error) {
+    console.error("[manage-content]", error);
     sendJson(res, 500, { error: error.message || "Erreur serveur." });
   }
 };

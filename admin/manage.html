@@ -481,6 +481,37 @@
       return item.filePath ? item.filePath.split("/").pop().replace(/\.html\.md$/, ".html").replace(/\.md$/, ".html") : "";
     }
 
+    async function apiJson(url, options = {}) {
+      const response = await fetch(url, {
+        cache: "no-store",
+        credentials: "same-origin",
+        ...options,
+        headers: {
+          ...(options.headers || {}),
+        },
+      });
+      const contentType = response.headers.get("content-type") || "";
+      const data = contentType.includes("application/json")
+        ? await response.json()
+        : { error: await response.text() };
+      if (!response.ok) {
+        if (response.status === 401) throw new Error("Session admin expirée. Ferme puis reconnecte-toi au back-office.");
+        throw new Error(data.error || "Action impossible.");
+      }
+      return data;
+    }
+
+    function deploymentStatus(data, successMessage) {
+      if (!data || !data.deploy) return successMessage;
+      if (data.deploy.skipped) {
+        return `${successMessage} Attention : la reconstruction Vercel ne s'est pas lancée (${data.deploy.reason || "hook absent"}).`;
+      }
+      if (data.deploy.ok === false) {
+        return `${successMessage} Attention : Vercel n'a pas confirmé la reconstruction. Détail : ${data.deploy.error || `statut ${data.deploy.status || "inconnu"}`}.`;
+      }
+      return successMessage;
+    }
+
     function splitFrontmatter(markdown = "") {
       const match = String(markdown).match(/^---\r?\n[\s\S]*?\r?\n---/);
       if (!match) return { frontmatter: "---\n---", body: String(markdown || "").trim() };
@@ -839,9 +870,7 @@
       status.textContent = "Chargement des articles...";
       status.classList.remove("error");
       try {
-        const response = await fetch("/api/manage-content");
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Impossible de charger les articles.");
+        const data = await apiJson("/api/manage-content");
         items = data.items || [];
         knownTags = data.tags || [];
         render();
@@ -881,9 +910,7 @@
       try {
         const collection = button.dataset.collection;
         const filePath = button.dataset.path;
-        const response = await fetch(`/api/manage-content?collection=${encodeURIComponent(collection)}&filePath=${encodeURIComponent(filePath)}`);
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Impossible d'ouvrir cet article.");
+        const data = await apiJson(`/api/manage-content?collection=${encodeURIComponent(collection)}&filePath=${encodeURIComponent(filePath)}`);
         editingItem = data.item;
         const meta = parseFrontmatterFields(editingItem.markdown || "");
         fields.title.value = editingItem.title || "";
@@ -919,15 +946,16 @@
       const answer = window.prompt(`Pour confirmer, écris ${confirmText}.`);
       if (answer !== confirmText) return;
       button.disabled = true;
+      status.textContent = action === "archive" ? "Archivage en cours..." : action === "unarchive" ? "Désarchivage en cours..." : "Suppression en cours...";
+      status.classList.remove("error");
       try {
-        const response = await fetch("/api/manage-content", {
+        const data = await apiJson("/api/manage-content", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ action, collection: button.dataset.collection, filePath: button.dataset.path, confirm: answer }),
         });
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Action impossible.");
         await loadItems();
+        status.textContent = deploymentStatus(data, action === "archive" ? "Article archivé." : action === "unarchive" ? "Article désarchivé." : "Article supprimé.");
       } catch (error) {
         status.textContent = error.message;
         status.classList.add("error");
@@ -1021,7 +1049,7 @@
       editStatus.classList.remove("error");
       try {
         const photos = fields.photos.files.length ? [await readPhoto(fields.photos.files[0])] : [];
-        const response = await fetch("/api/manage-content", {
+        const data = await apiJson("/api/manage-content", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -1042,11 +1070,10 @@
             photos,
           }),
         });
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Impossible de publier les modifications.");
-        editStatus.textContent = editingItem.collection === "archived_articles"
+        const successMessage = editingItem.collection === "archived_articles"
           ? "Archive modifiée. Elle reste hors ligne tant qu'elle n'est pas désarchivée."
           : "Modifications envoyées. Vérifie la page après déploiement.";
+        editStatus.textContent = deploymentStatus(data, successMessage);
         editStatus.classList.add("ok");
         await loadItems();
       } catch (error) {
