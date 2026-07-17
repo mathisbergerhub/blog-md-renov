@@ -3,6 +3,7 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const BRAND_NAME = "MD Rénov'";
+const VERCEL_OBSERVABILITY_QUEUE = '<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments)};</script>';
 const ANALYTICS_SCRIPT = '<script defer src="/_vercel/insights/script.js" data-sdkn="@vercel/analytics" data-sdkv="2.0.1"></script>';
 const SPEED_INSIGHTS_SCRIPT = '<script defer src="/_vercel/speed-insights/script.js" data-sdkn="@vercel/speed-insights" data-sdkv="2.0.0"></script>';
 const FAVICON_BLOCK = `<link rel="icon" type="image/svg+xml" href="./logo-mdr-site.svg" />
@@ -35,6 +36,9 @@ function normalizeHead(html) {
   next = ensureMeta(next, /<meta property="og:type" content="[^"]+" \/>/, `<meta property="og:site_name" content="${BRAND_NAME}" />`);
   next = ensureMeta(next, /<meta name="theme-color" content="[^"]+" \/>/, `<meta name="application-name" content="${BRAND_NAME}" />`);
   next = ensureMeta(next, /<meta name="application-name" content="[^"]+" \/>/, `<meta name="apple-mobile-web-app-title" content="${BRAND_NAME}" />`);
+  if (!next.includes("window.vaq") || !next.includes("window.siq")) {
+    next = next.replace("</head>", `${VERCEL_OBSERVABILITY_QUEUE}\n</head>`);
+  }
   if (!next.includes('/_vercel/insights/script.js')) {
     next = next.replace("</head>", `${ANALYTICS_SCRIPT}\n</head>`);
   }
