@@ -1,11 +1,17 @@
-import { next } from "@vercel/functions";
-
 // Secrets must be configured in Vercel environment variables.
 // No fallback is kept in source control: if a secret is missing, access fails closed.
 const ADMIN_PASSWORD_HASH = process.env.MDR_ADMIN_PASSWORD_HASH || "";
 const COOKIE_SECRET = process.env.MDR_COOKIE_SECRET || "";
 const ADMIN_ACCESS_COOKIE = "mdr_admin_access";
 const ONE_WEEK = 60 * 60 * 24 * 7;
+
+function next() {
+  return new Response(null, {
+    headers: {
+      "x-middleware-next": "1",
+    },
+  });
+}
 
 function parseCookie(header = "") {
   return Object.fromEntries(
