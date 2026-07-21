@@ -110,7 +110,7 @@
           </div>
           <label>Remplacer l'image principale
             <input id="edit-photos" name="photos" type="file" accept="image/png,image/jpeg,image/webp" />
-            <span class="hint">Optionnel. PNG, JPG ou WebP, moins de 2,5 Mo.</span>
+            <span class="hint">Optionnel. PNG, JPG ou WebP. L'image est optimisee automatiquement avant envoi.</span>
           </label>
           <label>Texte alternatif de l'image
             <textarea id="edit-photo-notes" name="photo_notes" placeholder="Description simple de l'image si elle est remplacée."></textarea>
@@ -894,14 +894,47 @@
       $("#save-edit").textContent = "Publier les modifications";
     }
 
-    function readPhoto(file) {
+    function imageByteLength(dataUrl) {
+      const base64 = String(dataUrl || "").split(",")[1] || "";
+      return Math.ceil((base64.length * 3) / 4);
+    }
+
+    function photoName(file, extension = "jpg") {
+      const base = String(file && file.name ? file.name : "article-image").replace(/\.[^.]+$/, "");
+      return `${base}.${extension}`;
+    }
+
+    function loadImageFromFile(file) {
       return new Promise((resolve, reject) => {
-        if (file.size > 2500000) return reject(new Error(`La photo ${file.name} dépasse 2,5 Mo.`));
-        const reader = new FileReader();
-        reader.onload = () => resolve({ name: file.name, type: file.type, dataUrl: reader.result });
-        reader.onerror = () => reject(new Error(`Impossible de lire la photo ${file.name}.`));
-        reader.readAsDataURL(file);
+        const url = URL.createObjectURL(file);
+        const image = new Image();
+        image.onload = () => {
+          URL.revokeObjectURL(url);
+          resolve(image);
+        };
+        image.onerror = () => {
+          URL.revokeObjectURL(url);
+          reject(new Error(`Impossible de preparer la photo ${file.name}`));
+        };
+        image.src = url;
       });
+    }
+
+    async function readPhoto(file) {
+      if (!file) return null;
+      const image = await loadImageFromFile(file);
+      const maxWidth = 1800;
+      const ratio = Math.min(1, maxWidth / image.naturalWidth);
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(image.naturalWidth * ratio));
+      canvas.height = Math.max(1, Math.round(image.naturalHeight * ratio));
+      const context = canvas.getContext("2d");
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      let dataUrl = canvas.toDataURL("image/jpeg", 0.86);
+      if (imageByteLength(dataUrl) > 2500000) dataUrl = canvas.toDataURL("image/jpeg", 0.76);
+      if (imageByteLength(dataUrl) > 2500000) dataUrl = canvas.toDataURL("image/jpeg", 0.66);
+      if (imageByteLength(dataUrl) > 6000000) throw new Error(`La photo ${file.name} reste trop lourde apres compression.`);
+      return { name: photoName(file), type: "image/jpeg", dataUrl };
     }
 
     async function openEdit(button) {
@@ -954,6 +987,10 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ action, collection: button.dataset.collection, filePath: button.dataset.path, confirm: answer }),
         });
+        if (action === "unarchive") {
+          activeFilter = "published";
+          filters.forEach((item) => item.classList.toggle("is-active", item.dataset.filter === "published"));
+        }
         await loadItems();
         status.textContent = deploymentStatus(data, action === "archive" ? "Article archivé." : action === "unarchive" ? "Article désarchivé." : "Article supprimé.");
       } catch (error) {

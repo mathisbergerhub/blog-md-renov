@@ -129,7 +129,7 @@
           <label>
             Image principale
             <input id="photo" name="photo" type="file" accept="image/png,image/jpeg,image/webp" />
-            <span class="hint">PNG, JPG ou WebP, moins de 2,5 Mo.</span>
+            <span class="hint">PNG, JPG ou WebP. L'image est optimisee automatiquement avant publication.</span>
           </label>
 
           <label class="wide">
@@ -720,15 +720,47 @@
         : "Les contrôles principaux sont remplis. Une relecture reste nécessaire.";
     }
 
-    function readPhoto(file) {
+    function imageByteLength(dataUrl) {
+      const base64 = String(dataUrl || "").split(",")[1] || "";
+      return Math.ceil((base64.length * 3) / 4);
+    }
+
+    function photoName(file, extension = "jpg") {
+      const base = String(file && file.name ? file.name : "article-image").replace(/\.[^.]+$/, "");
+      return `${base}.${extension}`;
+    }
+
+    function loadImageFromFile(file) {
       return new Promise((resolve, reject) => {
-        if (!file) return resolve(null);
-        if (file.size > 2500000) return reject(new Error(`La photo ${file.name} dépasse 2,5 Mo.`));
-        const reader = new FileReader();
-        reader.onload = () => resolve({ name: file.name, type: file.type, dataUrl: reader.result });
-        reader.onerror = () => reject(new Error(`Impossible de lire la photo ${file.name}.`));
-        reader.readAsDataURL(file);
+        const url = URL.createObjectURL(file);
+        const image = new Image();
+        image.onload = () => {
+          URL.revokeObjectURL(url);
+          resolve(image);
+        };
+        image.onerror = () => {
+          URL.revokeObjectURL(url);
+          reject(new Error(`Impossible de preparer la photo ${file.name}`));
+        };
+        image.src = url;
       });
+    }
+
+    async function readPhoto(file) {
+      if (!file) return null;
+      const image = await loadImageFromFile(file);
+      const maxWidth = 1800;
+      const ratio = Math.min(1, maxWidth / image.naturalWidth);
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(image.naturalWidth * ratio));
+      canvas.height = Math.max(1, Math.round(image.naturalHeight * ratio));
+      const context = canvas.getContext("2d");
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      let dataUrl = canvas.toDataURL("image/jpeg", 0.86);
+      if (imageByteLength(dataUrl) > 2500000) dataUrl = canvas.toDataURL("image/jpeg", 0.76);
+      if (imageByteLength(dataUrl) > 2500000) dataUrl = canvas.toDataURL("image/jpeg", 0.66);
+      if (imageByteLength(dataUrl) > 6000000) throw new Error(`La photo ${file.name} reste trop lourde apres compression.`);
+      return { name: photoName(file), type: "image/jpeg", dataUrl };
     }
 
     function renderTags(tags) {

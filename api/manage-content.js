@@ -1,6 +1,8 @@
 const DEFAULT_REPO = "mathisbergerhub/blog-md-renov";
 const DEFAULT_BRANCH = process.env.VERCEL_GIT_COMMIT_REF || "redesign-immersive-b";
 const https = require("https");
+const MAX_JSON_BODY_LENGTH = 12000000;
+const MAX_IMAGE_BYTES = 6000000;
 
 const allowedCollections = {
   articles: {
@@ -90,7 +92,7 @@ function readJson(req) {
     let body = "";
     req.on("data", (chunk) => {
       body += chunk;
-      if (body.length > 7000000) {
+      if (body.length > MAX_JSON_BODY_LENGTH) {
         reject(new Error("Requête trop longue."));
         req.destroy();
       }
@@ -221,6 +223,9 @@ function setFrontmatterValues(markdown, values) {
   const formatEntry = (key, value) => {
     if (Array.isArray(value)) {
       return value.length ? [`${key}:`, ...value.map((item) => `  - ${yamlString(item)}`)] : [`${key}: []`];
+    }
+    if (typeof value === "boolean") {
+      return [`${key}: ${value ? "true" : "false"}`];
     }
     return [`${key}: ${yamlString(value)}`];
   };
@@ -509,8 +514,8 @@ async function uploadRevisionPhotos({ repository, branch, token, briefPath, phot
 
   const briefSlug = briefPath.split("/").pop().replace(/\.md$/, "");
   for (const [index, photo] of parsedPhotos.entries()) {
-    if (Buffer.byteLength(photo.base64, "base64") > 2500000) {
-      throw new Error(`La photo ${photo.name} dépasse 2,5 Mo.`);
+    if (Buffer.byteLength(photo.base64, "base64") > MAX_IMAGE_BYTES) {
+      throw new Error(`La photo ${photo.name} depasse 6 Mo.`);
     }
     const filePath = `uploads/briefs/${briefSlug}-${index + 1}-${photo.name}`;
     await createGithubBinaryFile({
@@ -668,8 +673,8 @@ ${content}
 async function uploadArticlePhoto({ repository, branch, token, slug, photo }) {
   const parsed = parsePhoto(photo);
   if (!parsed) return "";
-  if (Buffer.byteLength(parsed.base64, "base64") > 2500000) {
-    throw new Error(`La photo ${parsed.name} dépasse 2,5 Mo.`);
+  if (Buffer.byteLength(parsed.base64, "base64") > MAX_IMAGE_BYTES) {
+    throw new Error(`La photo ${parsed.name} depasse 6 Mo.`);
   }
   const ext = pathExtension(parsed.name);
   const filePath = `uploads/articles/${slug}${ext}`;
@@ -1041,7 +1046,7 @@ async function archiveManagedContent({ repository, branch, token, collection, fi
 
 async function unarchiveManagedContent({ repository, branch, token, collection, filePath }) {
   if (collection !== "archived_articles") {
-    throw new Error("Seuls les articles archivés peuvent être désarchivés.");
+    throw new Error("Seuls les articles archives peuvent etre desarchives.");
   }
   const managedPath = normalizeManagedPath(collection, filePath);
   const source = await readGithubPath(repository, branch, token, managedPath);
@@ -1049,21 +1054,19 @@ async function unarchiveManagedContent({ repository, branch, token, collection, 
 
   const fields = parseFrontmatter(source.content);
   const restoredPath = restoredArticlePath(managedPath);
-  if (await githubPathExists(repository, branch, token, restoredPath)) {
-    throw new Error(`Impossible de désarchiver : ${restoredPath} existe déjà.`);
-  }
   const { archivedHtmlPath, htmlPath } = archivedHtmlPathForRestore(managedPath, restoredPath, fields);
   const archivedHtml = await readGithubPath(repository, branch, token, archivedHtmlPath);
-  if (archivedHtml && archivedHtml.type === "file" && (await githubPathExists(repository, branch, token, htmlPath))) {
-    throw new Error(`Impossible de désarchiver : ${htmlPath} existe déjà.`);
-  }
+  const restoredContent = setFrontmatterValues(source.content, {
+    published: true,
+    status: "published",
+  });
 
-  await createGithubFile({
+  await upsertGithubFile({
     repository,
     branch,
     token,
     filePath: restoredPath,
-    content: source.content,
+    content: restoredContent,
     message: `Restore archived article: ${restoredPath}`,
   });
   await deleteGithubFile({
@@ -1078,7 +1081,7 @@ async function unarchiveManagedContent({ repository, branch, token, collection, 
   const restored = [restoredPath];
   const deleted = [managedPath];
   if (archivedHtml && archivedHtml.type === "file") {
-    await createGithubFile({
+    await upsertGithubFile({
       repository,
       branch,
       token,
@@ -1098,7 +1101,12 @@ async function unarchiveManagedContent({ repository, branch, token, collection, 
     deleted.push(archivedHtmlPath);
   }
 
-  return { restored, deleted };
+  return {
+    restored,
+    deleted,
+    htmlPath,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${htmlPath.replace(/\.html$/, "")}`,
+  };
 }
 
 async function deleteManagedContent({ repository, branch, token, collection, filePath }) {
