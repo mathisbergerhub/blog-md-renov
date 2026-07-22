@@ -105,6 +105,12 @@ function isSupabaseConfigured() {
   return Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY);
 }
 
+function isDynamicSeoFile(pathname, method) {
+  if (!isSupabaseConfigured()) return false;
+  if (!["GET", "HEAD"].includes(method)) return false;
+  return pathname === "/sitemap.xml" || pathname === "/llms.txt";
+}
+
 function isCmsListing(pathname, method) {
   if (!isSupabaseConfigured()) return false;
   if (!["GET", "HEAD"].includes(method)) return false;
@@ -403,6 +409,10 @@ export default async function middleware(request) {
   const cookies = parseCookie(request.headers.get("cookie") || "");
   const adminRoute = isAdminRoute(url.pathname);
   const adminApi = isAdminApi(url.pathname);
+
+  if (!adminRoute && !adminApi && isDynamicSeoFile(url.pathname, request.method)) {
+    return rewrite(new URL(url.pathname === "/sitemap.xml" ? "/api/sitemap" : "/api/llms", request.url));
+  }
 
   if (!adminRoute && !adminApi && isCmsListing(url.pathname, request.method)) {
     const target = new URL("/api/cms-listing", request.url);

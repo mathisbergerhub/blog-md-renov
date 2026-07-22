@@ -141,7 +141,7 @@ function normalizeArticleMarkdown(markdown = "") {
   let text = String(markdown || "").replace(/\r\n/g, "\n").trim();
   text = text.replace(/^#\s+.+\n+/, "");
   text = text.replace(/##\s+Ce que ce guide vous aide à décider\s*\n+[\s\S]*?(?=\n##\s+)/i, "");
-  text = text.replace(/##\s+Rep(?:ères|Ã¨res) rapides\s*\n+[\s\S]*?(?=\n##\s+)/i, "");
+  text = text.replace(/##\s+Rep(?:ères|\u00c3\u00a8res) rapides\s*\n+[\s\S]*?(?=\n##\s+)/i, "");
   text = text.replace(/\s+Vous habitez [\s\S]*?Cadrer mon store/gi, "");
 
   return text

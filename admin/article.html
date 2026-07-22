@@ -54,7 +54,7 @@
       <article class="overview-card">
         <span>4</span>
         <strong>Publication</strong>
-        <small>GitHub, Vercel, page visible</small>
+        <small>Supabase, sitemap, page visible</small>
       </article>
     </section>
 
@@ -258,7 +258,7 @@
 
         <div class="help-card">
           <h3>Avant de publier</h3>
-          <p>Relis le titre, la première réponse, l'image, les tags et la FAQ. Après publication, attends 1 à 3 minutes puis ouvre la page.</p>
+          <p>Relis le titre, la première réponse, l'image, les tags et la FAQ. Après publication, ouvre la page et recharge si nécessaire.</p>
         </div>
       </aside>
     </section>
@@ -962,11 +962,11 @@
         });
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Publication impossible.");
-        setStatus("Article envoyé. Vérifie la page après le déploiement.", "ok");
+        setStatus("Article publié. La page est disponible immédiatement.", "ok");
         result.classList.add("is-visible");
         const deployMessage = data.deploy && data.deploy.skipped
           ? (data.deploy.reason || "Article enregistré. La publication est prise en compte.")
-          : "Vercel a reçu la demande de déploiement. Compter environ 1 à 3 minutes.";
+          : "Article publié. La page est disponible immédiatement.";
         result.innerHTML = `
           <h2>Article envoyé</h2>
           <p>${deployMessage}</p>

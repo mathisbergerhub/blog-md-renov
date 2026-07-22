@@ -58,7 +58,7 @@
         <div>
           <div class="kicker">Modification article</div>
           <h2 id="edit-title">Modifier l'article</h2>
-          <p id="edit-help">Les changements sont enregistrés dans GitHub, puis Vercel reconstruit le blog.</p>
+          <p id="edit-help">Les changements sont enregistrés dans Supabase et visibles immédiatement sur le blog.</p>
         </div>
         <button type="button" class="secondary" id="close-edit">Fermer</button>
       </div>
@@ -1116,7 +1116,7 @@
         });
         const successMessage = editingItem.collection === "archived_articles"
           ? "Archive modifiée. Elle reste hors ligne tant qu'elle n'est pas désarchivée."
-          : "Modifications envoyées. Vérifie la page après déploiement.";
+          : "Modifications publiées. La page est disponible immédiatement.";
         editStatus.textContent = deploymentStatus(data, successMessage);
         editStatus.classList.add("ok");
         await loadItems();
