@@ -4,10 +4,11 @@ const cms = require("./_supabase-cms");
 const staticArticleManifest = require("./_article-manifest");
 const { articleFromMarkdown, articlePage, root } = require("../scripts/sync-content");
 
-function sendHtml(res, statusCode, html) {
+function sendHtml(res, statusCode, html, source = "") {
   res.statusCode = statusCode;
   res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.setHeader("Cache-Control", "no-store");
+  if (source) res.setHeader("X-MDR-Article-Source", source);
   res.end(html);
 }
 
@@ -80,7 +81,7 @@ module.exports = async function cmsArticle(req, res) {
     if (!row) {
       const staticHtml = staticArticleHtml(slug);
       if (staticHtml) {
-        sendHtml(res, 200, staticHtml);
+        sendHtml(res, 200, staticHtml, "static");
         return;
       }
       sendHtml(res, 404, notFoundHtml());
@@ -93,7 +94,7 @@ module.exports = async function cmsArticle(req, res) {
       .filter(Boolean);
     const article = articles.find((item) => item.htmlFile === row.html_path) || articleFromMarkdown(row.source_path || `${row.slug}.html.md`, cms.markdownFromRow(row));
 
-    sendHtml(res, 200, articlePage(article, articles));
+    sendHtml(res, 200, articlePage(article, articles), "supabase");
   } catch (error) {
     console.error("[cms-article]", error);
     sendHtml(res, 500, "<!doctype html><html lang=\"fr\"><title>Erreur</title><body><h1>Erreur de chargement</h1><p>Impossible de charger cet article.</p></body></html>");

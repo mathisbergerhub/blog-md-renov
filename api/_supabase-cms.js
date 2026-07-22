@@ -30,13 +30,45 @@ function cleanTagList(tags) {
 
 function slugFromPath(value = "") {
   return String(value || "")
+    .replace(/\\/g, "/")
+    .replace(/^\.?\//, "")
     .replace(/^content\/articles\//, "")
     .replace(/^content\/archive\/articles\/\d{4}-\d{2}-\d{2}-/, "")
     .replace(/^content\/archive\/articles\//, "")
     .replace(/\.html\.md$/, "")
     .replace(/\.md$/, "")
     .replace(/\.html$/, "")
+    .replace(/^\.?\//, "")
     .replace(/^\/+/, "");
+}
+
+function uniqueList(values) {
+  return Array.from(new Set(values.map((value) => String(value || "").trim()).filter(Boolean)));
+}
+
+function articleLookupFilter(identifier) {
+  const normalized = String(identifier || "")
+    .replace(/\\/g, "/")
+    .replace(/^\.?\//, "")
+    .replace(/^\/+/, "");
+  const slug = slugFromPath(normalized);
+  const cleanPath = normalized.replace(/\.html$/, "");
+  const htmlPath = normalized.endsWith(".html") ? normalized : `${slug}.html`;
+  const sourcePath = normalized.endsWith(".md") ? normalized : `${slug}.html.md`;
+
+  return uniqueList([
+    `slug.eq.${slug}`,
+    `slug.eq./${slug}`,
+    `slug.eq.${cleanPath}`,
+    `html_path.eq.${normalized}`,
+    `html_path.eq.${htmlPath}`,
+    `html_path.eq./${htmlPath}`,
+    `source_path.eq.${normalized}`,
+    `source_path.eq.${sourcePath}`,
+    `source_path.eq./${sourcePath}`,
+    `source_path.eq.content/articles/${slug}.md`,
+    `source_path.eq.content/articles/${slug}.html.md`,
+  ]).join(",");
 }
 
 function articleRecordFromMarkdown(filePath, markdown, fallback = {}) {
@@ -139,15 +171,12 @@ async function listArticles({ includeArchived = true, publicOnly = false } = {})
 
 async function findArticle(identifier, { publicOnly = false } = {}) {
   const supabase = getClient();
-  const normalized = String(identifier || "").replace(/^\.?\//, "").replace(/^\/+/, "");
-  const slug = slugFromPath(normalized);
   let query = supabase
     .from("blog_articles")
     .select("*")
-    .or(`slug.eq.${slug},html_path.eq.${normalized},source_path.eq.${normalized}`)
-    .limit(1)
-    .maybeSingle();
+    .or(articleLookupFilter(identifier));
   if (publicOnly) query = query.eq("published", true).eq("archived", false);
+  query = query.limit(1).maybeSingle();
   const { data, error } = await query;
   if (error) throw new Error(error.message);
   return data || null;
