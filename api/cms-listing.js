@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const cms = require("./_supabase-cms");
+const staticListings = require("./_listing-manifest");
 const { articleFromMarkdown, root } = require("../scripts/sync-content");
 
 const PAGES = {
@@ -72,6 +73,14 @@ function sendHtml(res, statusCode, html) {
   res.end(html);
 }
 
+function staticListingHtml(page) {
+  if (!page) return "";
+  if (staticListings[page.file]) return staticListings[page.file];
+  const staticFile = path.join(root, page.file);
+  if (fs.existsSync(staticFile)) return fs.readFileSync(staticFile, "utf8");
+  return "";
+}
+
 function replaceGrid(html, page, cards) {
   if (page.file === "index.html") {
     return html.replace(
@@ -95,14 +104,24 @@ module.exports = async function cmsListing(req, res) {
       return;
     }
 
-    const staticFile = path.join(root, page.file);
-    let html = fs.readFileSync(staticFile, "utf8");
+    let html = staticListingHtml(page);
+    if (!html) {
+      sendHtml(res, 404, "Page introuvable.");
+      return;
+    }
     if (!cms.isConfigured()) {
       sendHtml(res, 200, html);
       return;
     }
 
-    const rows = await cms.listArticles({ includeArchived: false, publicOnly: true });
+    let rows = [];
+    try {
+      rows = await cms.listArticles({ includeArchived: false, publicOnly: true });
+    } catch (error) {
+      console.error("[cms-listing:supabase-fallback]", error);
+      sendHtml(res, 200, html);
+      return;
+    }
     const articles = rows
       .map((row) => articleFromMarkdown(row.source_path || `${row.slug}.html.md`, cms.markdownFromRow(row)))
       .filter(Boolean)
@@ -113,6 +132,9 @@ module.exports = async function cmsListing(req, res) {
     sendHtml(res, 200, html);
   } catch (error) {
     console.error("[cms-listing]", error);
-    sendHtml(res, 500, "Impossible de charger la liste d'articles.");
+    const url = new URL(req.url, "https://blog.mdrenov-menuiserie.com");
+    const requested = String(url.searchParams.get("path") || "").replace(/^\/+/, "").replace(/\.html$/, "");
+    const fallback = staticListingHtml(PAGES[requested]);
+    sendHtml(res, fallback ? 200 : 500, fallback || "Impossible de charger la liste d'articles.");
   }
 };
