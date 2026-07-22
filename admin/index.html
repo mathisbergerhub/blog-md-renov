@@ -105,6 +105,7 @@
     }
 
     function pagePathFor(item) {
+      if (item.publicUrl) return item.publicUrl;
       if (item.htmlPath) return item.htmlPath;
       return item.filePath ? item.filePath.split("/").pop().replace(/\.html\.md$/, ".html").replace(/\.md$/, ".html") : "";
     }
@@ -121,7 +122,7 @@
           </div>
         </div>
         <div class="actions">
-          ${pagePath && !item.archived ? `<a class="button view" href="/${escapeHtml(pagePath.replace(/\.html$/, ""))}" target="_blank" rel="noreferrer">Voir</a>` : ""}
+          ${item.publicUrl && !item.archived ? `<a class="button view" href="${escapeHtml(item.publicUrl)}" target="_blank" rel="noreferrer">Voir</a>` : ""}
           <a class="button edit" href="/admin/manage.html">Modifier</a>
         </div>
       </article>`;

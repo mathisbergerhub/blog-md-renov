@@ -477,6 +477,7 @@
     }
 
     function pagePathFor(item) {
+      if (item.publicUrl) return item.publicUrl;
       if (item.htmlPath) return item.htmlPath;
       return item.filePath ? item.filePath.split("/").pop().replace(/\.html\.md$/, ".html").replace(/\.md$/, ".html") : "";
     }
@@ -843,8 +844,7 @@
         return;
       }
       list.innerHTML = visible.map((item) => {
-        const pagePath = pagePathFor(item);
-        const publicPath = pagePath ? `/${pagePath.replace(/\.html$/, "")}` : "";
+        const publicPath = item.publicUrl || "";
         return `<article class="item">
           <div>
             <h2>${escapeHtml(item.title)}</h2>

@@ -803,6 +803,9 @@ async function listManagedContentFromFolders(repository, branch, token) {
         date: fields.date || fields.created_at || "",
         filePath: file.path,
         htmlPath: config.group === "articles" ? rootHtmlPathFromArticle(file.path, fields) : "",
+        publicUrl: !config.archived && fields.published !== false && config.group === "articles"
+          ? `https://blog.mdrenov-menuiserie.com/${rootHtmlPathFromArticle(file.path, fields).replace(/\.html$/, "")}`
+          : null,
         githubUrl: content.htmlUrl,
       });
     }
@@ -832,6 +835,9 @@ async function listManagedContentFromTree(repository, branch, token) {
       date: fields.date || fields.created_at || "",
       filePath: file.path,
       htmlPath: file.config.group === "articles" ? rootHtmlPathFromArticle(file.path, fields) : "",
+      publicUrl: !file.config.archived && fields.published !== false && file.config.group === "articles"
+        ? `https://blog.mdrenov-menuiserie.com/${rootHtmlPathFromArticle(file.path, fields).replace(/\.html$/, "")}`
+        : null,
       githubUrl: content.htmlUrl,
     });
   }

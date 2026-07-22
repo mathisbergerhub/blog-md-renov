@@ -95,6 +95,7 @@ ${row.content_markdown || `# ${row.title || "Article"}`}
 }
 
 function rowToItem(row, includeMarkdown = false) {
+  const isPublic = Boolean(row.published) && !row.archived;
   return {
     collection: row.archived ? "archived_articles" : "articles",
     group: "articles",
@@ -115,7 +116,7 @@ function rowToItem(row, includeMarkdown = false) {
     featured_image: row.featured_image || "",
     filePath: row.source_path || row.html_path || `${row.slug}.html.md`,
     htmlPath: row.archived ? "" : row.html_path,
-    publicUrl: row.archived ? null : `https://blog.mdrenov-menuiserie.com/${String(row.html_path || "").replace(/\.html$/, "")}`,
+    publicUrl: isPublic && row.html_path ? `https://blog.mdrenov-menuiserie.com/${String(row.html_path).replace(/\.html$/, "")}` : null,
     markdown: includeMarkdown ? markdownFromRow(row) : undefined,
   };
 }
