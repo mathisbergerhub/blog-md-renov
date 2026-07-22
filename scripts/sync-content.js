@@ -171,9 +171,8 @@ function firstParagraph(markdown = "") {
   return paragraph ? stripMarkdown(paragraph) : "";
 }
 
-function articleFromFile(fileName) {
-  const absolutePath = path.join(ROOT, fileName);
-  const { data, body } = parseFrontmatter(fs.readFileSync(absolutePath, "utf8"));
+function articleFromMarkdown(fileName, raw) {
+  const { data, body } = parseFrontmatter(raw);
   if (data.content_type !== "article" || data.published === false) return null;
   const fallbackHtmlFile = path.basename(fileName).replace(/\.html\.md$/, ".html").replace(/\.md$/, ".html");
   const htmlFile = String(data.source_html || fallbackHtmlFile).replace(/^\.?\//, "");
@@ -195,6 +194,11 @@ function articleFromFile(fileName) {
     featured_image: data.featured_image || "",
     tags: Array.isArray(data.tags) ? data.tags : [],
   };
+}
+
+function articleFromFile(fileName) {
+  const absolutePath = path.join(ROOT, fileName);
+  return articleFromMarkdown(fileName, fs.readFileSync(absolutePath, "utf8"));
 }
 
 function loadArticles() {
@@ -562,13 +566,24 @@ function updateLlms(articles) {
   fs.writeFileSync(path.join(ROOT, "llms.txt"), lines.join("\n"), "utf8");
 }
 
-const articles = loadArticles();
-for (const article of articles) {
+if (require.main === module) {
+  const articles = loadArticles();
+  for (const article of articles) {
   if (HANDCRAFTED_PAGES.has(article.htmlFile)) continue;
   fs.writeFileSync(path.join(ROOT, article.htmlFile), articlePage(article, articles), "utf8");
+  }
+  updateCategoryListings(articles);
+  updateLegacyFooters();
+  updateSitemap(articles);
+  updateLlms(articles);
+  console.log(`Build éditorial terminé : ${articles.length} article(s), ${HANDCRAFTED_PAGES.size} page(s) protégée(s).`);
 }
-updateCategoryListings(articles);
-updateLegacyFooters();
-updateSitemap(articles);
-updateLlms(articles);
-console.log(`Build éditorial terminé : ${articles.length} article(s), ${HANDCRAFTED_PAGES.size} page(s) protégée(s).`);
+
+module.exports = {
+  articleFromMarkdown,
+  articlePage,
+  cleanPath,
+  listingCard,
+  parseFrontmatter,
+  root: ROOT,
+};

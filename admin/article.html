@@ -965,7 +965,7 @@
         setStatus("Article envoyé. Vérifie la page après le déploiement.", "ok");
         result.classList.add("is-visible");
         const deployMessage = data.deploy && data.deploy.skipped
-          ? "Le fichier est créé dans GitHub. Le déploiement dépend de l'intégration Vercel."
+          ? (data.deploy.reason || "Article enregistré. La publication est prise en compte.")
           : "Vercel a reçu la demande de déploiement. Compter environ 1 à 3 minutes.";
         result.innerHTML = `
           <h2>Article envoyé</h2>

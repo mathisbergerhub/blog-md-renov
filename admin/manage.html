@@ -504,7 +504,7 @@
     function deploymentStatus(data, successMessage) {
       if (!data || !data.deploy) return successMessage;
       if (data.deploy.skipped) {
-        return `${successMessage} Attention : la reconstruction Vercel ne s'est pas lancée (${data.deploy.reason || "hook absent"}).`;
+        return `${successMessage} ${data.deploy.reason || ""}`.trim();
       }
       if (data.deploy.ok === false) {
         return `${successMessage} Attention : Vercel n'a pas confirmé la reconstruction. Détail : ${data.deploy.error || `statut ${data.deploy.status || "inconnu"}`}.`;

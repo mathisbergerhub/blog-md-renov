@@ -1,9 +1,27 @@
+import { rewrite } from "@vercel/functions";
+
 // Secrets must be configured in Vercel environment variables.
 // No fallback is kept in source control: if a secret is missing, access fails closed.
 const ADMIN_PASSWORD_HASH = process.env.MDR_ADMIN_PASSWORD_HASH || "";
 const COOKIE_SECRET = process.env.MDR_COOKIE_SECRET || "";
 const ADMIN_ACCESS_COOKIE = "mdr_admin_access";
 const ONE_WEEK = 60 * 60 * 24 * 7;
+const STATIC_PUBLIC_PAGES = new Set([
+  "/",
+  "/index",
+  "/404",
+  "/aides-subventions",
+  "/fenetres-vitrages",
+  "/isolation-thermique",
+  "/volets-stores",
+  "/portes-portails",
+  "/tous-les-articles-exterieur",
+  "/mentions-legales",
+  "/politique-confidentialite",
+  "/politique-cookies",
+  "/conditions-utilisation",
+  "/google4aMlUzolkyQFqZKkQu6U1K5dWI3cuvZ15mC2DOkzMKE",
+]);
 
 function next() {
   return new Response(null, {
@@ -80,7 +98,32 @@ function isAdminRoute(pathname) {
 }
 
 function isAdminApi(pathname) {
-  return pathname.startsWith("/api/");
+  return pathname.startsWith("/api/") && pathname !== "/api/cms-article" && pathname !== "/api/cms-listing";
+}
+
+function isSupabaseConfigured() {
+  return Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY);
+}
+
+function isCmsListing(pathname, method) {
+  if (!isSupabaseConfigured()) return false;
+  if (!["GET", "HEAD"].includes(method)) return false;
+  return STATIC_PUBLIC_PAGES.has(pathname.replace(/\.html$/, "")) && ![
+    "/404",
+    "/mentions-legales",
+    "/politique-confidentialite",
+    "/politique-cookies",
+    "/conditions-utilisation",
+    "/google4aMlUzolkyQFqZKkQu6U1K5dWI3cuvZ15mC2DOkzMKE",
+  ].includes(pathname.replace(/\.html$/, ""));
+}
+
+function isCmsArticleCandidate(pathname, method) {
+  if (!isSupabaseConfigured()) return false;
+  if (!["GET", "HEAD"].includes(method)) return false;
+  if (STATIC_PUBLIC_PAGES.has(pathname.replace(/\.html$/, ""))) return false;
+  if (pathname.includes(".")) return false;
+  return /^\/[a-z0-9-]+$/.test(pathname);
 }
 
 function missingSecret() {
@@ -360,6 +403,18 @@ export default async function middleware(request) {
   const cookies = parseCookie(request.headers.get("cookie") || "");
   const adminRoute = isAdminRoute(url.pathname);
   const adminApi = isAdminApi(url.pathname);
+
+  if (!adminRoute && !adminApi && isCmsListing(url.pathname, request.method)) {
+    const target = new URL("/api/cms-listing", request.url);
+    target.searchParams.set("path", url.pathname === "/" ? "" : url.pathname.slice(1));
+    return rewrite(target);
+  }
+
+  if (!adminRoute && !adminApi && isCmsArticleCandidate(url.pathname, request.method)) {
+    const target = new URL("/api/cms-article", request.url);
+    target.searchParams.set("slug", url.pathname.slice(1));
+    return rewrite(target);
+  }
 
   if (!adminRoute && !adminApi) {
     return next();

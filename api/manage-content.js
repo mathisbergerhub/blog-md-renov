@@ -1,6 +1,7 @@
 const DEFAULT_REPO = "mathisbergerhub/blog-md-renov";
 const DEFAULT_BRANCH = process.env.VERCEL_GIT_COMMIT_REF || "redesign-immersive-b";
 const https = require("https");
+const cms = require("./_supabase-cms");
 const MAX_JSON_BODY_LENGTH = 12000000;
 const MAX_IMAGE_BYTES = 6000000;
 
@@ -1160,15 +1161,222 @@ async function deleteManagedContent({ repository, branch, token, collection, fil
   return { deleted };
 }
 
+async function listManagedContentFromSupabase() {
+  const rows = await cms.listArticles({ includeArchived: true });
+  return rows.map((row) => cms.rowToItem(row));
+}
+
+async function readManagedContentFromSupabase({ filePath }) {
+  const row = await cms.findArticle(filePath);
+  if (!row) throw new Error("Article introuvable dans Supabase.");
+  return cms.rowToItem(row, true);
+}
+
+async function publishArticleToSupabase(body) {
+  const draft = buildArticleMarkdown(body);
+  const existing = await cms.findArticle(draft.slug);
+  if (existing) {
+    throw new Error("Un article avec ce slug existe deja. Change le slug ou modifie l'article existant.");
+  }
+
+  const imagePath = body.photo ? await cms.uploadImage({ slug: draft.slug, photo: body.photo }) : "";
+  const article = imagePath ? buildArticleMarkdown(body, imagePath) : draft;
+  const row = await cms.upsertArticleFromMarkdown({
+    filePath: article.markdownPath,
+    markdown: article.content,
+    archived: false,
+  });
+
+  return {
+    filePath: row.source_path,
+    htmlPath: row.html_path,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${row.html_path.replace(/\.html$/, "")}`,
+    githubUrl: null,
+    deploy: { skipped: true, reason: "Publication Supabase instantanee, sans reconstruction Vercel." },
+  };
+}
+
+async function updateArticleToSupabase({ collection, filePath, body }) {
+  const existing = await cms.findArticle(filePath);
+  if (!existing) throw new Error("Article introuvable dans Supabase.");
+  const isArchived = collection === "archived_articles" || existing.archived;
+  let markdown = String(body.markdown || "").trim();
+  if (!markdown || !markdown.startsWith("---")) {
+    throw new Error("Le contenu doit conserver l'en-tete frontmatter entre ---.");
+  }
+
+  const slug = String(existing.slug || "").trim();
+  const updates = {};
+  if (body.title) updates.title = String(body.title).trim();
+  if (body.seo_title !== undefined) updates.seo_title = String(body.seo_title).trim();
+  if (body.description !== undefined) updates.description = String(body.description).trim();
+  if (body.category) {
+    updates.category = String(body.category).trim();
+    updates.category_label = String(body.category_label || categoryLabel(body.category)).trim();
+  }
+  if (body.date) updates.date = String(body.date).trim();
+  if (body.reading_time) updates.reading_time = String(body.reading_time).trim();
+  if (body.tags !== undefined) updates.tags = cleanTagList(body.tags);
+  if (body.image_alt !== undefined) updates.image_alt = String(body.image_alt).trim();
+
+  const photos = Array.isArray(body.photos) ? body.photos : [];
+  if (photos[0]) {
+    updates.featured_image = await cms.uploadImage({ slug, photo: photos[0] });
+    if (body.photo_notes) updates.image_alt = String(body.photo_notes).trim();
+  }
+
+  markdown = setFrontmatterValues(markdown, updates);
+  markdown = setMarkdownTitle(markdown, updates.title);
+
+  const row = await cms.updateArticleFromMarkdown({
+    identifier: filePath,
+    markdown: `${markdown}\n`,
+    archived: isArchived,
+  });
+
+  return {
+    filePath: row.source_path,
+    htmlPath: isArchived ? "" : row.html_path,
+    publicUrl: isArchived ? null : `https://blog.mdrenov-menuiserie.com/${row.html_path.replace(/\.html$/, "")}`,
+    githubUrl: null,
+    deploy: isArchived ? null : { skipped: true, reason: "Modification Supabase instantanee, sans reconstruction Vercel." },
+  };
+}
+
+async function archiveArticleInSupabase(filePath) {
+  const row = await cms.setArchived(filePath, true);
+  return {
+    archived: [row.source_path || row.html_path],
+    deleted: [row.html_path],
+    deploy: { skipped: true, reason: "Archivage Supabase instantane." },
+  };
+}
+
+async function unarchiveArticleInSupabase(filePath) {
+  const row = await cms.setArchived(filePath, false);
+  return {
+    restored: [row.source_path || row.html_path],
+    deleted: [],
+    htmlPath: row.html_path,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${row.html_path.replace(/\.html$/, "")}`,
+    deploy: { skipped: true, reason: "Desarchivage Supabase instantane." },
+  };
+}
+
+async function deleteArticleInSupabase(filePath) {
+  const row = await cms.deleteArticle(filePath);
+  return {
+    deleted: [row.source_path || row.html_path],
+    deploy: { skipped: true, reason: "Suppression Supabase instantanee." },
+  };
+}
+
+async function seedSupabaseFromGithub({ repository, branch, token }) {
+  if (!token) return 0;
+  const githubItems = await listManagedContent(repository, branch, token);
+  let seeded = 0;
+  for (const item of githubItems.filter((entry) => entry.group === "articles" || entry.collection === "archived_articles")) {
+    try {
+      const source = await readManagedContent({ repository, branch, token, collection: item.collection, filePath: item.filePath });
+      await cms.upsertArticleFromMarkdown({
+        filePath: source.filePath,
+        markdown: source.markdown,
+        archived: Boolean(item.archived),
+      });
+      seeded += 1;
+    } catch (error) {
+      console.error("[supabase-seed]", item.filePath, error.message);
+    }
+  }
+  return seeded;
+}
+
+async function handleSupabaseContent(req, res, githubContext = {}) {
+  if (req.method === "GET") {
+    const url = new URL(req.url, "https://blog.mdrenov-menuiserie.com");
+    const collection = url.searchParams.get("collection");
+    const filePath = url.searchParams.get("filePath");
+    if (collection && filePath) {
+      const item = await readManagedContentFromSupabase({ filePath });
+      sendJson(res, 200, { ok: true, item });
+      return true;
+    }
+    let items = await listManagedContentFromSupabase();
+    let seeded = 0;
+    if (!items.length && githubContext.token) {
+      seeded = await seedSupabaseFromGithub(githubContext);
+      items = await listManagedContentFromSupabase();
+    }
+    const tags = Array.from(new Set(items.flatMap((item) => item.tags || [])))
+      .map((tag) => String(tag).trim())
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b, "fr"));
+    sendJson(res, 200, { ok: true, source: "supabase", seeded, items, tags });
+    return true;
+  }
+
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "GET, POST");
+    sendJson(res, 405, { error: "Methode non autorisee." });
+    return true;
+  }
+
+  const body = await readJson(req);
+  const action = String(body.action || "");
+  const collection = String(body.collection || "");
+  const filePath = String(body.filePath || "");
+
+  if (action === "publish_article") {
+    const result = await publishArticleToSupabase(body);
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+  if (action === "update_article") {
+    const result = await updateArticleToSupabase({ collection, filePath, body });
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+  if (action === "archive") {
+    const result = await archiveArticleInSupabase(filePath);
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+  if (action === "unarchive") {
+    if (body.confirm !== "DESARCHIVER") {
+      sendJson(res, 400, { error: "Confirmation requise : ecris DESARCHIVER." });
+      return true;
+    }
+    const result = await unarchiveArticleInSupabase(filePath);
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+  if (action === "delete") {
+    if (body.confirm !== "SUPPRIMER") {
+      sendJson(res, 400, { error: "Confirmation requise : ecris SUPPRIMER." });
+      return true;
+    }
+    const result = await deleteArticleInSupabase(filePath);
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+
+  return false;
+}
+
 module.exports = async function manageContent(req, res) {
   try {
     const token = process.env.GITHUB_CONTENT_TOKEN || process.env.GITHUB_TOKEN;
+    const repository = process.env.GITHUB_REPO || DEFAULT_REPO;
+    const branch = deploymentBranch();
+
+    if (cms.isConfigured() && await handleSupabaseContent(req, res, { repository, branch, token })) {
+      return;
+    }
+
     if (!token) {
       sendJson(res, 500, { error: "GITHUB_CONTENT_TOKEN est manquant dans les variables d'environnement Vercel." });
       return;
     }
-    const repository = process.env.GITHUB_REPO || DEFAULT_REPO;
-    const branch = deploymentBranch();
 
     if (req.method === "GET") {
       const url = new URL(req.url, "https://blog.mdrenov-menuiserie.com");
