@@ -501,6 +501,9 @@ function articlePage(article, allArticles) {
   const articleUrl = pageUrl(article.htmlFile);
   const related = allArticles.filter((item) => item.htmlFile !== article.htmlFile && item.category === article.category).slice(0, 3).map((item) => ({ ...item, title: shortenText(item.title, 74) }));
   const image = articleImageUrl(article);
+  const heroImage = String(article.featured_image || "").trim() ? image : "";
+  const headClass = heroImage ? "mdr-article-head mdr-head-immersive" : "mdr-article-head";
+  const headStyle = heroImage ? ` style="--mdr-hero-img: url('${e(heroImage)}')"` : "";
   const publisherLogo = `${SITE_URL}/apple-touch-icon.png`;
   const lead = article.description || firstParagraph(article.body);
   const hasCustomEditorialBlock = /<!--\s*mdr-editorial-value-md\s*-->/.test(article.body);
@@ -533,9 +536,9 @@ ${headAssets()}
 <a class="skip-link" href="#contenu">Aller au contenu</a>
 <main id="contenu" class="mdr-stage"><div class="mdr-wrap">
 <header class="mdr-nav"><a class="mdr-nav__brand" href="./index.html" aria-label="Accueil du blog"><img src="./logo-mdr-site.svg" alt="Logo MD Rénov'" width="241" height="54" /></a><nav class="mdr-nav__links mdr-nav__links--breadcrumb" aria-label="Fil d'Ariane"><a href="./index.html">Blog</a><a href="${categoryPage(article)}">${e(article.category_label)}</a><span aria-current="page">Article</span></nav><a class="mdr-btn mdr-btn--primary" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Devis gratuit</a></header>
-<section class="mdr-article-head"><div class="mdr-breadcrumb"><a href="./index.html">Accueil</a><span>Blog</span><span><a href="${categoryPage(article)}">${e(article.category_label)}</a></span></div><div class="mdr-article-head__meta"><a class="mdr-card__tag" href="${categoryPage(article)}" aria-label="Voir les articles ${e(article.category_label)}">${e(article.category_label)}</a><span class="mdr-card__date">Mis à jour le ${e(formatDate(article.modified_date || article.date))}</span><span class="mdr-card__time">${e(article.reading_time)} de lecture</span></div><h1>${accentTitle(article.title, article)}</h1><p class="mdr-article-head__excerpt">${e(article.description)}</p></section>
+<section class="${headClass}"${headStyle}><div class="mdr-breadcrumb"><a href="./index.html">Accueil</a><span>Blog</span><span><a href="${categoryPage(article)}">${e(article.category_label)}</a></span></div><div class="mdr-article-head__meta"><a class="mdr-card__tag" href="${categoryPage(article)}" aria-label="Voir les articles ${e(article.category_label)}">${e(article.category_label)}</a><span class="mdr-card__date">Mis à jour le ${e(formatDate(article.modified_date || article.date))}</span><span class="mdr-card__time">${e(article.reading_time)} de lecture</span></div><h1>${accentTitle(article.title, article)}</h1><p class="mdr-article-head__excerpt">${e(article.description)}</p></section>
 <section class="mdr-article-body"><article class="mdr-prose">
-${mediaBlock(article)}
+${heroImage ? "" : mediaBlock(article)}
 <div class="mdr-article-leadbox"><strong>Le point important</strong><p>${e(lead)}</p></div>
 ${renderKeyFacts(article)}
 ${mdToHtml(article.body)}
