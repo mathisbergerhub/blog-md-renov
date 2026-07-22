@@ -89,10 +89,14 @@ module.exports = async function cmsArticle(req, res) {
     }
 
     const rows = await cms.listArticles({ includeArchived: false, publicOnly: true });
-    const articles = rows
+    const relatedArticles = rows
       .map((item) => articleFromMarkdown(item.source_path || `${item.slug}.html.md`, cms.markdownFromRow(item)))
       .filter(Boolean);
-    const article = articles.find((item) => item.htmlFile === row.html_path) || articleFromMarkdown(row.source_path || `${row.slug}.html.md`, cms.markdownFromRow(row));
+    const article = articleFromMarkdown(row.source_path || `${row.slug}.html.md`, cms.markdownFromRow(row));
+    const articles = [
+      article,
+      ...relatedArticles.filter((item) => item.htmlFile !== article.htmlFile),
+    ];
 
     sendHtml(res, 200, articlePage(article, articles), "supabase");
   } catch (error) {

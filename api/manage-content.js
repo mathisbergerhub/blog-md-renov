@@ -639,6 +639,7 @@ function buildArticleMarkdown(body, uploadedImagePath = "") {
 
   const readingTime = String(body.reading_time || "4 min").trim();
   const date = String(body.date || new Date().toISOString().slice(0, 10)).trim();
+  const modifiedDate = String(body.modified_date || date || new Date().toISOString().slice(0, 10)).trim();
   const label = String(body.category_label || categoryLabel(category)).trim();
   const seoTitle = String(body.seo_title || title).trim();
   const imageAlt = String(body.image_alt || title).trim();
@@ -657,6 +658,7 @@ description: ${yamlString(description)}
 category: ${yamlString(category)}
 category_label: ${yamlString(label)}
 date: ${yamlString(date)}
+modified_date: ${yamlString(modifiedDate)}
 reading_time: ${yamlString(readingTime)}
 featured_image: ${yamlString(featuredImage)}
 image_alt: ${yamlString(imageAlt)}
@@ -744,6 +746,7 @@ async function updatePublishedArticle({ repository, branch, token, collection, f
     updates.category_label = String(body.category_label || categoryLabel(body.category)).trim();
   }
   if (body.date) updates.date = String(body.date).trim();
+  updates.modified_date = String(body.modified_date || new Date().toISOString().slice(0, 10)).trim();
   if (body.reading_time) updates.reading_time = String(body.reading_time).trim();
   if (body.tags !== undefined) updates.tags = cleanTagList(body.tags);
   if (body.image_alt !== undefined) updates.image_alt = String(body.image_alt).trim();
@@ -1221,6 +1224,7 @@ async function updateArticleToSupabase({ collection, filePath, body }) {
     updates.category_label = String(body.category_label || categoryLabel(body.category)).trim();
   }
   if (body.date) updates.date = String(body.date).trim();
+  updates.modified_date = String(body.modified_date || new Date().toISOString().slice(0, 10)).trim();
   if (body.reading_time) updates.reading_time = String(body.reading_time).trim();
   if (body.tags !== undefined) updates.tags = cleanTagList(body.tags);
   if (body.image_alt !== undefined) updates.image_alt = String(body.image_alt).trim();

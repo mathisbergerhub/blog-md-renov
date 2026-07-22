@@ -84,6 +84,10 @@
             <input id="edit-date" name="date" type="date" />
           </label>
           <label>
+            Date de mise à jour
+            <input id="edit-modified-date" name="modified_date" type="date" />
+          </label>
+          <label>
             Temps de lecture
             <input id="edit-reading-time" name="reading_time" placeholder="4 min" />
           </label>
@@ -186,6 +190,7 @@
       title: $("#edit-title-input"),
       category: $("#edit-category"),
       date: $("#edit-date"),
+      modifiedDate: $("#edit-modified-date"),
       readingTime: $("#edit-reading-time"),
       seoTitle: $("#edit-seo-title"),
       description: $("#edit-description"),
@@ -850,7 +855,7 @@
             <h2>${escapeHtml(item.title)}</h2>
             <div class="meta">
               <span>${escapeHtml(item.category || "sans catégorie")}</span>
-              <span>${escapeHtml(item.date || "sans date")}</span>
+              <span>${escapeHtml(item.modified_date || item.date || "sans date")}</span>
               <span>${item.archived ? "archivé" : "publié"}</span>
               <span>${escapeHtml(item.filePath)}</span>
             </div>
@@ -949,6 +954,7 @@
         fields.title.value = editingItem.title || "";
         fields.category.value = meta.category || editingItem.category_value || "";
         fields.date.value = meta.date || editingItem.date || "";
+        fields.modifiedDate.value = meta.modified_date || editingItem.modified_date || fields.date.value || "";
         fields.readingTime.value = meta.reading_time || editingItem.reading_time || "";
         fields.seoTitle.value = meta.seo_title || editingItem.seo_title || "";
         fields.description.value = meta.description || editingItem.description || "";
@@ -1097,6 +1103,7 @@
             category: fields.category.value,
             category_label: categoryLabel(fields.category.value),
             date: fields.date.value,
+            modified_date: fields.modifiedDate.value || new Date().toISOString().slice(0, 10),
             reading_time: fields.readingTime.value,
             seo_title: fields.seoTitle.value,
             description: fields.description.value,

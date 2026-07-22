@@ -143,6 +143,7 @@ function rowToItem(row, includeMarkdown = false) {
     archived: Boolean(row.archived),
     published: Boolean(row.published),
     date: row.published_on || "",
+    modified_date: row.modified_on || row.published_on || "",
     reading_time: row.reading_time || "",
     image_alt: row.image_alt || "",
     featured_image: row.featured_image || "",
