@@ -7,9 +7,10 @@ description: 'Filaire, radio ou solaire : ce que change vraiment la motorisation
 category: 'volets-stores'
 category_label: 'Volets'
 date: '2026-04-10'
+modified_date: '2026-07-17'
 reading_time: '3 min'
-featured_image: ''
-image_alt: 'Volet roulant et commande'
+featured_image: 'uploads/articles/volets-roulants-motorises-haute-savoie.webp'
+image_alt: 'Maison équipée de volets roulants motorisés anthracite'
 source_html: './volets-roulants-motorises-haute-savoie.html'
 tags:
   - 'Haute-Savoie'
@@ -34,9 +35,17 @@ Filaire, radio ou solaire : ce que change vraiment la motorisation au quotidien.
 
 ## La motorisation sert d'abord à utiliser les volets au bon moment Un volet motorisé n'est pas seulement un confort de bouton. Il permet de fermer plus régulièrement, de protéger la maison du soleil en été, de limiter la sensation de froid le soir et de sécuriser les ouvertures difficiles d'accès. Le gain vient surtout de l'usage réel.
 
-## Filaire, radio ou solaire : comment choisir ? | | Solution | À privilégier quand... | Filaire | Des travaux électriques sont prévus ou faciles à intégrer | Radio | Vous voulez piloter plusieurs volets sans gros câblage mural | Solaire | Le raccordement électrique est compliqué ou trop invasif
+## Filaire, radio ou solaire : comment choisir ?
 
-## Les erreurs fréquentes - Motoriser sans vérifier l'état du tablier et des coulisses.
+| Solution | À privilégier quand... |
+|---|---|
+| Filaire | Des travaux électriques sont prévus ou faciles à intégrer |
+| Radio | Vous voulez piloter plusieurs volets sans gros câblage mural |
+| Solaire | Le raccordement électrique est compliqué ou trop invasif |
+
+## Les erreurs fréquentes
+
+- Motoriser sans vérifier l'état du tablier et des coulisses.
 - Choisir le solaire sur une façade trop ombragée sans étude.
 - Oublier la commande groupée alors que plusieurs volets sont concernés.
 - Comparer uniquement le prix du moteur sans regarder la garantie et la pose.

@@ -7,6 +7,7 @@ description: 'Le triple vitrage n''est utile que dans certains cas : exposition 
 category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-04-18'
+modified_date: '2026-07-17'
 reading_time: '6 min'
 featured_image: 'uploads/articles/double-triple-vitrage-surcout-utile.webp'
 image_alt: 'Comparatif double et triple vitrage pour améliorer le confort thermique'

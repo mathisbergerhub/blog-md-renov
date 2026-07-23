@@ -7,6 +7,7 @@ description: 'Commande, fabrication, autorisations, pose et finitions : les éta
 category: 'aides'
 category_label: 'Budget'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: 'uploads/articles/delais-pose-menuiseries-renovation.webp'
 image_alt: 'Planning de chantier avec fenêtres prêtes à poser devant une maison'
@@ -34,9 +35,18 @@ Commande, fabrication, autorisations, pose et finitions : les étapes qui expliq
 
 ## Le délai ne commence pas seulement le jour de la pose Un chantier de menuiseries comprend plusieurs étapes : rendez-vous, prise de cotes, devis, validation, autorisations éventuelles, fabrication, livraison, pose et finitions. Un délai réaliste dépend donc du produit et des contraintes du projet.
 
-## Ordres de grandeur à comprendre | | Projet | Pose sur chantier | Vigilance | Fenêtres | Souvent plusieurs fenêtres par jour selon accès | Finitions et reprises intérieures | Porte d'entrée | Souvent une journée | Seuil, sécurité, réglages | Volets | Variable selon motorisation | Électricité et accès façade | Portail | Souvent une journée hors maçonnerie | Piliers, seuil, alimentation
+## Ordres de grandeur à comprendre
 
-## Ce qui rallonge le calendrier - Produit sur mesure ou couleur spécifique.
+| Projet | Pose sur chantier | Vigilance |
+|---|---|---|
+| Fenêtres | Souvent plusieurs fenêtres par jour selon accès | Finitions et reprises intérieures |
+| Porte d'entrée | Souvent une journée | Seuil, sécurité, réglages |
+| Volets | Variable selon motorisation | Électricité et accès façade |
+| Portail | Souvent une journée hors maçonnerie | Piliers, seuil, alimentation |
+
+## Ce qui rallonge le calendrier
+
+- Produit sur mesure ou couleur spécifique.
 - Déclaration préalable ou accord de copropriété.
 - Travaux électriques à coordonner.
 - Maçonnerie, seuils ou supports à reprendre.
@@ -47,9 +57,13 @@ Commande, fabrication, autorisations, pose et finitions : les étapes qui expliq
 - Pour les volets motorisés, validez l'alimentation ou la solution solaire avant la commande.
 - Pour un portail, séparez bien la pose du portail, la motorisation et les éventuelles reprises de maçonnerie.
 
-## Ce qu'il faut bloquer dès le départ - La date limite souhaitée : emménagement, vente, vacances ou arrivée du froid.
+## Ce qu'il faut bloquer dès le départ
+
+- La date limite souhaitée : emménagement, vente, vacances ou arrivée du froid.
 - Les autorisations éventuelles : mairie, copropriété, lotissement.
-- Les points bloquants : accès, étage, électricité, seuils, maçonnerie ou finitions intérieures. Vous avez une date cible ? On cale le calendrier avec les autorisations, la fabrication et la pose. Planifier mon chantier
+- Les points bloquants : accès, étage, électricité, seuils, maçonnerie ou finitions intérieures.
+
+Vous avez une date cible ? On cale le calendrier avec les autorisations, la fabrication et la pose.
 
 
 

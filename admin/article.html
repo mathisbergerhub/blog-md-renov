@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Nouvel article | CMS MD Rénov'</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/cms.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/admin/index.html">
+        <img src="/logo-mdr-site.svg" alt="MD Rénov'" />
+        <span class="admin-badge">CMS blog</span>
+      </a>
+      <nav class="nav" aria-label="Navigation admin">
+        <a href="/admin/index.html">Tableau de bord</a>
+        <a class="is-active" href="/admin/article.html">Nouvel article</a>
+        <a href="/admin/manage.html">Articles</a>
+        <a href="/">Voir le blog</a>
+      </nav>
+    </header>
+
+    <section class="page-head">
+      <div>
+        <div class="kicker">Publication directe</div>
+        <h1>Créer un article prêt à publier.</h1>
+        <p>L'interface reprend la structure des articles du blog : informations SEO, image, introduction, parties, tableaux, FAQ et publication.</p>
+      </div>
+      <a class="button button-secondary" href="/admin/manage.html">Voir les articles</a>
+    </section>
+
+    <section class="editor-overview" aria-label="Progression de création">
+      <article class="overview-card">
+        <span>1</span>
+        <strong>Infos article</strong>
+        <small>Titre, URL, catégorie, SEO</small>
+      </article>
+      <article class="overview-card">
+        <span>2</span>
+        <strong>Contenu</strong>
+        <small>Intro, parties, listes, CTA, sources</small>
+      </article>
+      <article class="overview-card">
+        <span>3</span>
+        <strong>Contrôle</strong>
+        <small>Image, tags, longueur, structure</small>
+      </article>
+      <article class="overview-card">
+        <span>4</span>
+        <strong>Publication</strong>
+        <small>Supabase, sitemap, page visible</small>
+      </article>
+    </section>
+
+    <section class="layout-grid">
+      <form class="panel" id="article-form">
+        <div class="panel-head">
+          <div>
+            <h2>Informations principales</h2>
+            <p>Titre, catégorie, SEO, image et tags utilisés par les cartes du blog et les moteurs de recherche.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <label class="wide">
+            <span class="label-text">Titre de l'article <span class="hint" id="title-count">0 caractère</span></span>
+            <input id="title" name="title" required placeholder="Ex : Fenêtre PVC ou aluminium : que choisir ?" />
+          </label>
+
+          <label>
+            Slug URL
+            <input id="slug" name="slug" required placeholder="fenetre-pvc-ou-aluminium" />
+            <span class="hint">Adresse finale : blog.mdrenov-menuiserie.com/<span id="slug-preview">...</span></span>
+          </label>
+
+          <label>
+            Catégorie
+            <select id="category" name="category" required>
+              <option value="">Choisir une catégorie</option>
+              <option value="aides">Aides & Subventions</option>
+              <option value="fenetres">Fenêtres & Vitrages</option>
+              <option value="isolation">Isolation thermique</option>
+              <option value="volets-stores">Volets & Stores</option>
+              <option value="portes-portails">Portes & Portails</option>
+              <option value="exterieur">Aménagements extérieurs</option>
+            </select>
+          </label>
+
+          <label>
+            Date de publication
+            <input id="date" name="date" type="date" required />
+          </label>
+
+          <label>
+            Temps de lecture
+            <input id="reading-time" name="reading_time" value="4 min" />
+          </label>
+
+          <label class="wide">
+            Titre SEO
+            <input id="seo-title" name="seo_title" placeholder="Optionnel : si vide, le titre de l'article sera utilisé." />
+          </label>
+
+          <label class="wide">
+            <span class="label-text">Description SEO <span class="hint" id="desc-count">0 / 180</span></span>
+            <textarea id="description" name="description" required maxlength="180" placeholder="Résumé concret visible dans Google et sur les cartes du blog."></textarea>
+          </label>
+
+          <div class="wide field-block">
+            <div class="label-text">
+              <span class="field-title">Tags existants</span>
+              <span class="hint">Coche les thèmes déjà utilisés dans le blog.</span>
+            </div>
+            <div class="tag-picker" id="tag-picker">
+              <span class="hint">Chargement des tags...</span>
+            </div>
+            <label>
+              Tags supplémentaires
+              <input id="custom-tags" name="custom_tags" placeholder="Ex : Annecy, budget, rénovation" />
+            </label>
+          </div>
+
+          <label>
+            Image principale
+            <input id="photo" name="photo" type="file" accept="image/png,image/jpeg,image/webp" />
+            <span class="hint">PNG, JPG ou WebP. L'image est optimisee automatiquement avant publication.</span>
+          </label>
+
+          <label class="wide">
+            Texte alternatif de l'image
+            <input id="image-alt" name="image_alt" placeholder="Décrire simplement ce que montre l'image." />
+          </label>
+        </div>
+
+        <div class="builder" id="builder">
+          <div class="panel-head builder-head">
+            <div>
+              <h2>Structure de l'article</h2>
+              <p>Compose l'article comme il apparaîtra sur le blog, sans toucher au code ni au Markdown.</p>
+            </div>
+            <div class="builder-actions">
+              <button class="secondary" type="button" id="add-recommended-structure">Structure type</button>
+              <button class="secondary" type="button" id="add-section">Ajouter une partie</button>
+              <button class="secondary" type="button" id="add-table-block">Ajouter un tableau</button>
+              <button class="secondary" type="button" id="add-cta-block">Ajouter un CTA</button>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label class="wide">
+              Introduction courte
+              <textarea id="intro" placeholder="Pose le problème et donne la réponse principale en 2 ou 3 phrases."></textarea>
+            </label>
+
+            <label class="wide">
+              Le point important
+              <textarea id="key-point" placeholder="La synthèse à retenir avant de lire le détail."></textarea>
+            </label>
+          </div>
+
+          <div class="section-list" id="sections"></div>
+
+          <section class="faq-builder">
+            <div class="section-toolbar">
+              <div>
+                <h3>Questions fréquentes</h3>
+                <p>Questions courtes, vraiment utiles pour les lecteurs et le SEO.</p>
+              </div>
+              <button class="secondary" type="button" id="add-faq">Ajouter une question</button>
+            </div>
+            <div class="faq-list" id="faqs"></div>
+          </section>
+
+          <section class="source-builder">
+            <div class="section-toolbar">
+              <div>
+                <h3>Sources de l'article</h3>
+                <p>Ajoute les liens ou documents qui doivent apparaître à la fin de l'article.</p>
+              </div>
+              <button class="secondary" type="button" id="add-source">Ajouter une source</button>
+            </div>
+            <div class="source-list" id="sources"></div>
+          </section>
+
+          <input id="body" name="body" type="hidden" />
+        </div>
+
+        <div class="editor-actions">
+          <div class="actions">
+            <button class="publish" id="submit" type="submit">Publier l'article</button>
+            <button class="secondary" type="button" id="reset">Réinitialiser</button>
+          </div>
+          <span id="status" class="status">Prêt.</span>
+        </div>
+
+        <section id="result" class="result" aria-live="polite"></section>
+      </form>
+
+      <aside class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Article en cours</h2>
+            <p>Le résumé se met à jour pendant la saisie.</p>
+          </div>
+        </div>
+
+        <div class="readiness-card" aria-live="polite">
+          <div class="readiness-top">
+            <span id="readiness-score">0%</span>
+            <strong id="readiness-label">À compléter</strong>
+          </div>
+          <div class="readiness-meter" aria-hidden="true"><span id="readiness-fill"></span></div>
+          <p id="readiness-detail">Commence par le titre, la catégorie et la description SEO.</p>
+        </div>
+
+        <dl class="article-summary">
+          <div>
+            <dt>Titre</dt>
+            <dd id="summary-title">Non renseigné</dd>
+          </div>
+          <div>
+            <dt>Adresse</dt>
+            <dd id="summary-slug">...</dd>
+          </div>
+          <div>
+            <dt>Catégorie</dt>
+            <dd id="summary-category">Non choisie</dd>
+          </div>
+          <div>
+            <dt>Contenu</dt>
+            <dd id="summary-content">0 mot</dd>
+          </div>
+        </dl>
+
+        <div class="content-stats" aria-label="Statistiques du contenu">
+          <div><strong id="stat-sections">0</strong><span>partie</span></div>
+          <div><strong id="stat-faqs">0</strong><span>FAQ</span></div>
+          <div><strong id="stat-tables">0</strong><span>tableau</span></div>
+          <div><strong id="stat-tags">0</strong><span>tag</span></div>
+          <div><strong id="stat-ctas">0</strong><span>CTA</span></div>
+          <div><strong id="stat-sources">0</strong><span>source</span></div>
+        </div>
+
+        <ul class="checklist" id="checklist">
+          <li data-check="title">Titre clair et complet</li>
+          <li data-check="slug">Slug URL généré</li>
+          <li data-check="category">Catégorie choisie</li>
+          <li data-check="description">Description SEO remplie</li>
+          <li data-check="imageAlt">Alt text image présent</li>
+          <li data-check="body">Structure d'article assez complète</li>
+        </ul>
+
+        <div class="help-card">
+          <h3>Avant de publier</h3>
+          <p>Relis le titre, la première réponse, l'image, les tags et la FAQ. Après publication, ouvre la page et recharge si nécessaire.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    const categoryLabels = {
+      aides: "Aides & Subventions",
+      fenetres: "Fenêtres",
+      isolation: "Isolation",
+      "volets-stores": "Volets",
+      "portes-portails": "Portes & Portails",
+      exterieur: "Aménagements extérieurs",
+    };
+    const fallbackTags = ["Fenêtres", "Vitrage", "Isolation", "Volets", "Stores", "Portes", "Portails", "Pergola", "Budget", "Aides", "Autorisations", "Haute-Savoie", "Savoie", "Annecy"];
+    const selectedTags = new Set();
+    let sectionIndex = 0;
+    let faqIndex = 0;
+    let sourceIndex = 0;
+
+    const form = $("#article-form");
+    const title = $("#title");
+    const slug = $("#slug");
+    const date = $("#date");
+    const description = $("#description");
+    const status = $("#status");
+    const result = $("#result");
+    const submit = $("#submit");
+    const sections = $("#sections");
+    const faqs = $("#faqs");
+    const sources = $("#sources");
+    const body = $("#body");
+
+    function slugify(value) {
+      return String(value || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+        .slice(0, 72);
+    }
+
+    function html(value) {
+      return String(value || "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;",
+      }[char]));
+    }
+
+    function cleanText(value) {
+      return String(value || "").trim().replace(/\n{3,}/g, "\n\n");
+    }
+
+    function markdownList(value, mode = "bullet") {
+      let index = 0;
+      return String(value || "")
+        .split(/\r?\n/)
+        .map((line) => line.trim().replace(/^[-*]\s+/, "").replace(/^\d+[\.)]\s+/, ""))
+        .filter(Boolean)
+        .map((line) => {
+          index += 1;
+          return mode === "ordered" ? `${index}. ${line}` : `- ${line}`;
+        })
+        .join("\n");
+    }
+
+    function markerText(value) {
+      return cleanText(value).replace(/\|/g, "/").replace(/\r?\n/g, " ");
+    }
+
+    function blockControls() {
+      return `
+        <div class="block-insert">
+          <span>Ajouter après</span>
+          <button class="secondary compact" type="button" data-action="insert-section-after">Partie</button>
+          <button class="secondary compact" type="button" data-action="insert-table-after">Tableau</button>
+          <button class="secondary compact" type="button" data-action="insert-cta-after">CTA</button>
+        </div>
+      `;
+    }
+
+    function sectionTemplate(titleValue = "", bodyValue = "", bulletValue = "") {
+      const id = ++sectionIndex;
+      return `
+        <article class="section-card" data-section="${id}">
+          <div class="section-toolbar">
+            <div>
+              <h3>Partie ${id}</h3>
+              <p>Une idée principale, puis des détails ou points à vérifier.</p>
+            </div>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-section">Retirer</button>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Titre de partie
+              <input class="section-title" placeholder="Ex : Les critères à comparer" value="${html(titleValue)}" />
+            </label>
+            <label class="wide">
+              Texte de la partie
+              <textarea class="section-body" placeholder="Explique le sujet avec des phrases courtes.">${html(bodyValue)}</textarea>
+            </label>
+            <label class="wide">
+              Liste de points, un par ligne
+              <textarea class="section-bullets" placeholder="Largeur utile&#10;Type de pose&#10;Budget et délai">${html(bulletValue)}</textarea>
+            </label>
+            <label>
+              Type de liste
+              <select class="section-list-style">
+                <option value="bullet">Liste à puces</option>
+                <option value="ordered">Liste numérotée 1, 2, 3</option>
+              </select>
+            </label>
+          </div>
+          ${blockControls()}
+        </article>
+      `;
+    }
+
+    function tableRowTemplate(columns = 3, isHead = false) {
+      const cells = Array.from({ length: columns }, (_, index) => {
+        const placeholder = isHead ? `Colonne ${index + 1}` : "Texte";
+        return `<input class="table-cell${isHead ? " table-heading" : ""}" placeholder="${placeholder}" />`;
+      }).join("");
+      return `<div class="table-row${isHead ? " table-row-head" : ""}" style="--table-columns:${columns}">${cells}</div>`;
+    }
+
+    function tableTemplate() {
+      return `
+        <article class="table-card">
+          <div class="section-toolbar">
+            <div>
+              <h3>Tableau</h3>
+              <p>Remplis les titres de colonnes, puis les lignes utiles.</p>
+            </div>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-table">Retirer</button>
+            </div>
+          </div>
+          <label class="wide">
+            Titre du tableau, optionnel
+            <input class="table-title" placeholder="Ex : Comparatif des solutions" />
+          </label>
+          <div class="table-editor">
+            ${tableRowTemplate(3, true)}
+            ${tableRowTemplate(3)}
+            ${tableRowTemplate(3)}
+          </div>
+          <div class="inline-actions table-actions">
+            <button class="secondary compact" type="button" data-action="add-table-row">Ajouter une ligne</button>
+            <button class="secondary compact" type="button" data-action="add-table-column">Ajouter une colonne</button>
+            <button class="secondary compact" type="button" data-action="remove-table-column">Retirer une colonne</button>
+          </div>
+          ${blockControls()}
+        </article>
+      `;
+    }
+
+    function faqTemplate(questionValue = "", answerValue = "") {
+      const id = ++faqIndex;
+      return `
+        <article class="faq-card" data-faq="${id}">
+          <div class="section-toolbar">
+            <h3>Question ${id}</h3>
+            <button class="button-danger compact" type="button" data-action="remove-faq">Retirer</button>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Question
+              <input class="faq-question" placeholder="Ex : Faut-il une autorisation ?" value="${html(questionValue)}" />
+            </label>
+            <label class="wide">
+              Réponse
+              <textarea class="faq-answer" placeholder="Réponse courte et concrète.">${html(answerValue)}</textarea>
+            </label>
+          </div>
+        </article>
+      `;
+    }
+
+    function ctaTemplate(titleValue = "", textValue = "", buttonValue = "") {
+      return `
+        <article class="cta-card">
+          <div class="section-toolbar">
+            <div>
+              <h3>Bandeau CTA</h3>
+              <p>Bloc de conversion inséré dans l'article à cet endroit.</p>
+            </div>
+            <div class="inline-actions">
+              <button class="secondary compact" type="button" data-action="move-up">Monter</button>
+              <button class="secondary compact" type="button" data-action="move-down">Descendre</button>
+              <button class="button-danger compact" type="button" data-action="remove-cta">Retirer</button>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Titre du CTA
+              <input class="cta-title" placeholder="Ex : Vous voulez cadrer votre projet avant de signer ?" value="${html(titleValue)}" />
+            </label>
+            <label class="wide">
+              Texte du CTA
+              <textarea class="cta-text" placeholder="Phrase courte qui explique pourquoi demander un avis.">${html(textValue)}</textarea>
+            </label>
+            <label>
+              Bouton
+              <input class="cta-button" placeholder="Ex : Faire le point" value="${html(buttonValue || "Faire le point")}" />
+            </label>
+          </div>
+          ${blockControls()}
+        </article>
+      `;
+    }
+
+    function sourceTemplate(labelValue = "", urlValue = "", noteValue = "") {
+      const id = ++sourceIndex;
+      return `
+        <article class="source-card-admin" data-source="${id}">
+          <div class="section-toolbar">
+            <div>
+              <h3>Source ${id}</h3>
+              <p>Lien officiel, fiche fabricant, page publique ou document de référence.</p>
+            </div>
+            <button class="button-danger compact" type="button" data-action="remove-source">Retirer</button>
+          </div>
+          <div class="form-grid">
+            <label>
+              Nom de la source
+              <input class="source-label" placeholder="Ex : France Rénov' - MaPrimeRénov'" value="${html(labelValue)}" />
+            </label>
+            <label>
+              URL
+              <input class="source-url" type="url" placeholder="https://..." value="${html(urlValue)}" />
+            </label>
+            <label class="wide">
+              Note, optionnelle
+              <textarea class="source-note" placeholder="Ex : Conditions principales : logement, revenus, travaux et entreprise RGE.">${html(noteValue)}</textarea>
+            </label>
+          </div>
+        </article>
+      `;
+    }
+
+    function setStatus(message, type = "") {
+      status.textContent = message;
+      status.className = `status ${type}`.trim();
+    }
+
+    function setCheck(name, done) {
+      const item = document.querySelector(`[data-check="${name}"]`);
+      if (item) item.classList.toggle("is-done", Boolean(done));
+    }
+
+    function tableColumnCount(tableCard) {
+      const firstRow = tableCard.querySelector(".table-row");
+      return firstRow ? firstRow.querySelectorAll(".table-cell").length : 3;
+    }
+
+    function updateTableLayout(tableCard) {
+      const columns = tableColumnCount(tableCard);
+      tableCard.querySelectorAll(".table-row").forEach((row) => {
+        row.style.setProperty("--table-columns", columns);
+      });
+    }
+
+    function addTableRow(tableCard) {
+      tableCard.querySelector(".table-editor").insertAdjacentHTML("beforeend", tableRowTemplate(tableColumnCount(tableCard)));
+      updateTableLayout(tableCard);
+    }
+
+    function addTableColumn(tableCard) {
+      tableCard.querySelectorAll(".table-row").forEach((row, rowIndex) => {
+        const placeholder = rowIndex === 0 ? `Colonne ${row.querySelectorAll(".table-cell").length + 1}` : "Texte";
+        const className = rowIndex === 0 ? "table-cell table-heading" : "table-cell";
+        row.insertAdjacentHTML("beforeend", `<input class="${className}" placeholder="${placeholder}" />`);
+      });
+      updateTableLayout(tableCard);
+    }
+
+    function removeTableColumn(tableCard) {
+      if (tableColumnCount(tableCard) <= 2) return;
+      tableCard.querySelectorAll(".table-row").forEach((row) => {
+        const lastCell = row.querySelector(".table-cell:last-child");
+        if (lastCell) lastCell.remove();
+      });
+      updateTableLayout(tableCard);
+    }
+
+    function cleanTableCell(value) {
+      return cleanText(value).replace(/\|/g, "/").replace(/\r?\n/g, " ");
+    }
+
+    function tableMarkdown(tableCard) {
+      const rows = Array.from(tableCard.querySelectorAll(".table-row")).map((row) => (
+        Array.from(row.querySelectorAll(".table-cell")).map((cell) => cleanTableCell(cell.value))
+      ));
+      if (!rows.length) return "";
+      const columns = Math.max(...rows.map((row) => row.length));
+      const headerValues = rows[0];
+      const bodyRows = rows.slice(1).filter((row) => row.some(Boolean));
+      const hasContent = headerValues.some((cell) => cell.trim()) || bodyRows.length;
+      if (!hasContent) return "";
+      const headers = headerValues.map((cell, index) => cell || `Colonne ${index + 1}`);
+      const normalize = (row) => Array.from({ length: columns }, (_, index) => row[index] || " ");
+      const title = cleanText(tableCard.querySelector(".table-title").value);
+      const lines = [
+        `| ${normalize(headers).join(" | ")} |`,
+        `| ${Array.from({ length: columns }, () => "---").join(" | ")} |`,
+        ...bodyRows.map((row) => `| ${normalize(row).join(" | ")} |`),
+      ];
+      return [title ? `**${title}**` : "", lines.join("\n")].filter(Boolean).join("\n\n");
+    }
+
+    function ctaMarkdown(ctaCard) {
+      const ctaTitle = markerText(ctaCard.querySelector(".cta-title").value) || "Vous voulez cadrer votre projet avant de signer ?";
+      const ctaText = markerText(ctaCard.querySelector(".cta-text").value) || "MD Rénov' vous aide à choisir la solution utile, adaptée au logement et au budget.";
+      const ctaButton = markerText(ctaCard.querySelector(".cta-button").value) || "Faire le point";
+      return `<!-- mdr-cta | ${ctaTitle} | ${ctaText} | ${ctaButton} -->`;
+    }
+
+    function sourceMarkdown() {
+      const lines = [];
+      document.querySelectorAll(".source-card-admin").forEach((card) => {
+        const label = cleanText(card.querySelector(".source-label").value);
+        const url = cleanText(card.querySelector(".source-url").value);
+        const note = cleanText(card.querySelector(".source-note").value);
+        if (!label && !url && !note) return;
+        const sourceLabel = label || url || "Source";
+        const linked = url ? `[${sourceLabel}](${url})` : sourceLabel;
+        lines.push(note ? `- ${linked} : ${note}` : `- ${linked}`);
+      });
+      return lines.length ? `## Sources fiables utilisées pour vérifier ce guide\n\n${lines.join("\n")}` : "";
+    }
+
+    function buildMarkdown() {
+      const parts = [];
+      const intro = cleanText($("#intro").value);
+      const keyPoint = cleanText($("#key-point").value);
+      if (intro) parts.push(intro);
+      if (keyPoint) parts.push(`## Le point important\n\n${keyPoint}`);
+
+      let sectionNumber = 0;
+      Array.from(sections.children).forEach((block) => {
+        if (block.classList.contains("section-card")) {
+          sectionNumber += 1;
+          const heading = cleanText(block.querySelector(".section-title").value) || `Partie ${sectionNumber}`;
+          const text = cleanText(block.querySelector(".section-body").value);
+          const bullets = markdownList(block.querySelector(".section-bullets").value, block.querySelector(".section-list-style")?.value || "bullet");
+          const sectionParts = [`## ${heading}`];
+          if (text) sectionParts.push(text);
+          if (bullets) sectionParts.push(bullets);
+          parts.push(sectionParts.filter(Boolean).join("\n\n"));
+          return;
+        }
+        if (block.classList.contains("table-card")) {
+          const table = tableMarkdown(block);
+          if (table) parts.push(table);
+          return;
+        }
+        if (block.classList.contains("cta-card")) {
+          parts.push(ctaMarkdown(block));
+        }
+      });
+
+      const faqParts = [];
+      document.querySelectorAll(".faq-card").forEach((card) => {
+        const question = cleanText(card.querySelector(".faq-question").value);
+        const answer = cleanText(card.querySelector(".faq-answer").value);
+        if (!question && !answer) return;
+        faqParts.push(`### ${question || "Question fréquente"}\n\n${answer || "Réponse à compléter."}`);
+      });
+      if (faqParts.length) parts.push(`## Les questions fréquentes\n\n${faqParts.join("\n\n")}`);
+      const sourcesBlock = sourceMarkdown();
+      if (sourcesBlock) parts.push(sourcesBlock);
+      return parts.filter(Boolean).join("\n\n").trim();
+    }
+
+    function selectedTagList() {
+      const custom = $("#custom-tags").value
+        .split(",")
+        .map((tag) => tag.trim())
+        .filter(Boolean);
+      return Array.from(new Set([...selectedTags, ...custom]));
+    }
+
+    function plural(value, one, many = `${one}s`) {
+      return `${value} ${value > 1 ? many : one}`;
+    }
+
+    function wordCount(value) {
+      return String(value || "").trim().split(/\s+/).filter(Boolean).length;
+    }
+
+    function updateChecks() {
+      const generated = buildMarkdown();
+      body.value = generated;
+      const contentWords = wordCount(generated);
+      const tagCount = selectedTagList().length;
+      const sectionCount = document.querySelectorAll(".section-card").length;
+      const faqCount = document.querySelectorAll(".faq-card").length;
+      const tableCount = document.querySelectorAll(".table-card").length;
+      const ctaCount = document.querySelectorAll(".cta-card").length;
+      const sourceCount = Array.from(document.querySelectorAll(".source-card-admin")).filter((card) => (
+        card.querySelector(".source-label").value.trim() ||
+        card.querySelector(".source-url").value.trim() ||
+        card.querySelector(".source-note").value.trim()
+      )).length;
+      const checks = {
+        title: title.value.trim().length >= 12,
+        slug: slug.value.trim().length >= 4,
+        category: Boolean($("#category").value),
+        description: description.value.trim().length >= 80,
+        imageAlt: $("#image-alt").value.trim().length >= 8,
+        body: generated.length >= 250 && sectionCount >= 1,
+      };
+
+      $("#title-count").textContent = `${title.value.length} caractère${title.value.length > 1 ? "s" : ""}`;
+      $("#desc-count").textContent = `${description.value.length} / 180`;
+      $("#slug-preview").textContent = slug.value || "...";
+
+      Object.entries(checks).forEach(([name, done]) => setCheck(name, done));
+
+      $("#summary-title").textContent = title.value.trim() || "Non renseigné";
+      $("#summary-slug").textContent = slug.value ? `/${slug.value}.html` : "...";
+      $("#summary-category").textContent = categoryLabels[$("#category").value] || "Non choisie";
+      $("#summary-content").textContent = plural(contentWords, "mot");
+      $("#stat-sections").textContent = sectionCount;
+      $("#stat-faqs").textContent = faqCount;
+      $("#stat-tables").textContent = tableCount;
+      $("#stat-tags").textContent = tagCount;
+      $("#stat-ctas").textContent = ctaCount;
+      $("#stat-sources").textContent = sourceCount;
+
+      const labels = {
+        title: "titre",
+        slug: "adresse",
+        category: "catégorie",
+        description: "description SEO",
+        imageAlt: "texte alternatif",
+        body: "contenu",
+      };
+      const doneCount = Object.values(checks).filter(Boolean).length;
+      const score = Math.round((doneCount / Object.keys(checks).length) * 100);
+      const missing = Object.entries(checks).filter(([, done]) => !done).map(([name]) => labels[name]);
+      $("#readiness-score").textContent = `${score}%`;
+      $("#readiness-fill").style.width = `${score}%`;
+      $("#readiness-label").textContent = score === 100 ? "Prêt à publier" : score >= 70 ? "Presque prêt" : "À compléter";
+      $("#readiness-detail").textContent = missing.length
+        ? `À compléter : ${missing.slice(0, 3).join(", ")}.`
+        : "Les contrôles principaux sont remplis. Une relecture reste nécessaire.";
+    }
+
+    function imageByteLength(dataUrl) {
+      const base64 = String(dataUrl || "").split(",")[1] || "";
+      return Math.ceil((base64.length * 3) / 4);
+    }
+
+    function photoName(file, extension = "jpg") {
+      const base = String(file && file.name ? file.name : "article-image").replace(/\.[^.]+$/, "");
+      return `${base}.${extension}`;
+    }
+
+    function loadImageFromFile(file) {
+      return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const image = new Image();
+        image.onload = () => {
+          URL.revokeObjectURL(url);
+          resolve(image);
+        };
+        image.onerror = () => {
+          URL.revokeObjectURL(url);
+          reject(new Error(`Impossible de preparer la photo ${file.name}`));
+        };
+        image.src = url;
+      });
+    }
+
+    async function readPhoto(file) {
+      if (!file) return null;
+      const image = await loadImageFromFile(file);
+      const maxWidth = 1800;
+      const ratio = Math.min(1, maxWidth / image.naturalWidth);
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(image.naturalWidth * ratio));
+      canvas.height = Math.max(1, Math.round(image.naturalHeight * ratio));
+      const context = canvas.getContext("2d");
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      let dataUrl = canvas.toDataURL("image/jpeg", 0.86);
+      if (imageByteLength(dataUrl) > 2500000) dataUrl = canvas.toDataURL("image/jpeg", 0.76);
+      if (imageByteLength(dataUrl) > 2500000) dataUrl = canvas.toDataURL("image/jpeg", 0.66);
+      if (imageByteLength(dataUrl) > 6000000) throw new Error(`La photo ${file.name} reste trop lourde apres compression.`);
+      return { name: photoName(file), type: "image/jpeg", dataUrl };
+    }
+
+    function renderTags(tags) {
+      const uniqueTags = Array.from(new Set(tags.filter(Boolean))).sort((a, b) => a.localeCompare(b, "fr"));
+      $("#tag-picker").innerHTML = uniqueTags.map((tag) => `
+        <label class="tag-option">
+          <input type="checkbox" value="${html(tag)}" />
+          <span>${html(tag)}</span>
+        </label>
+      `).join("");
+    }
+
+    async function loadExistingTags() {
+      try {
+        const response = await fetch("/api/manage-content");
+        const data = await response.json();
+        renderTags(data.tags && data.tags.length ? data.tags : fallbackTags);
+      } catch (error) {
+        renderTags(fallbackTags);
+      }
+    }
+
+    function selectedTagValue() {
+      return selectedTagList().join(", ");
+    }
+
+    function applyRecommendedStructure() {
+      const currentContent = buildMarkdown();
+      if (currentContent.length > 80 && !window.confirm("Remplacer la structure actuelle par une structure type ?")) return;
+      sectionIndex = 0;
+      faqIndex = 0;
+      sections.innerHTML = [
+        sectionTemplate("Ce que ce guide vous aide à décider"),
+        sectionTemplate("Les critères à comparer"),
+        sectionTemplate("Les erreurs à éviter"),
+        sectionTemplate("Le bon ordre pour avancer"),
+      ].join("");
+      const cards = Array.from(sections.querySelectorAll(".section-card"));
+      cards[1]?.insertAdjacentHTML("afterend", tableTemplate() + ctaTemplate());
+      if (cards[3]) {
+        cards[3].querySelector(".section-list-style").value = "ordered";
+        cards[3].querySelector(".section-bullets").value = "Décrire le besoin\nVérifier les contraintes\nComparer le devis\nValider avant de signer";
+      }
+      faqs.innerHTML = [
+        faqTemplate("Faut-il une autorisation ?"),
+        faqTemplate("Quel budget prévoir ?"),
+        faqTemplate("Combien de temps faut-il prévoir ?"),
+        faqTemplate("Que comparer sur un devis ?"),
+      ].join("");
+      sourceIndex = 0;
+      sources.innerHTML = sourceTemplate();
+      updateChecks();
+    }
+
+    function resetBuilder() {
+      sectionIndex = 0;
+      faqIndex = 0;
+      sourceIndex = 0;
+      sections.innerHTML = sectionTemplate("Ce que ce guide vous aide à décider");
+      faqs.innerHTML = faqTemplate();
+      sources.innerHTML = sourceTemplate();
+      selectedTags.clear();
+      document.querySelectorAll("#tag-picker input").forEach((input) => { input.checked = false; });
+      updateChecks();
+    }
+
+    title.addEventListener("input", () => {
+      if (!slug.dataset.touched) slug.value = slugify(title.value);
+      if (!$("#image-alt").value) $("#image-alt").value = title.value;
+      updateChecks();
+    });
+
+    slug.addEventListener("input", () => {
+      slug.dataset.touched = "true";
+      slug.value = slugify(slug.value);
+      updateChecks();
+    });
+
+    form.addEventListener("input", updateChecks);
+
+    $("#tag-picker").addEventListener("change", (event) => {
+      if (!event.target.matches("input[type='checkbox']")) return;
+      if (event.target.checked) selectedTags.add(event.target.value);
+      else selectedTags.delete(event.target.value);
+      updateChecks();
+    });
+
+    $("#add-section").addEventListener("click", () => {
+      sections.insertAdjacentHTML("beforeend", sectionTemplate());
+      updateChecks();
+    });
+
+    $("#add-table-block").addEventListener("click", () => {
+      sections.insertAdjacentHTML("beforeend", tableTemplate());
+      updateChecks();
+    });
+
+    $("#add-cta-block").addEventListener("click", () => {
+      sections.insertAdjacentHTML("beforeend", ctaTemplate());
+      updateChecks();
+    });
+
+    $("#add-recommended-structure").addEventListener("click", applyRecommendedStructure);
+
+    $("#add-faq").addEventListener("click", () => {
+      faqs.insertAdjacentHTML("beforeend", faqTemplate());
+      updateChecks();
+    });
+
+    $("#add-source").addEventListener("click", () => {
+      sources.insertAdjacentHTML("beforeend", sourceTemplate());
+      updateChecks();
+    });
+
+    sections.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const block = button.closest(".section-card, .table-card, .cta-card");
+      const action = button.dataset.action;
+      if (action === "insert-section-after") block.insertAdjacentHTML("afterend", sectionTemplate());
+      if (action === "insert-table-after") block.insertAdjacentHTML("afterend", tableTemplate());
+      if (action === "insert-cta-after") block.insertAdjacentHTML("afterend", ctaTemplate());
+      if (action === "remove-section") block.remove();
+      if (action === "remove-table") button.closest(".table-card").remove();
+      if (action === "remove-cta") button.closest(".cta-card").remove();
+      if (action === "add-table-row") addTableRow(button.closest(".table-card"));
+      if (action === "add-table-column") addTableColumn(button.closest(".table-card"));
+      if (action === "remove-table-column") removeTableColumn(button.closest(".table-card"));
+      if (action === "move-up" && block.previousElementSibling) sections.insertBefore(block, block.previousElementSibling);
+      if (action === "move-down" && block.nextElementSibling) sections.insertBefore(block.nextElementSibling, block);
+      if (!sections.querySelector(".section-card")) sections.insertAdjacentHTML("beforeend", sectionTemplate());
+      updateChecks();
+    });
+
+    sources.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action='remove-source']");
+      if (!button) return;
+      button.closest(".source-card-admin").remove();
+      updateChecks();
+    });
+
+    faqs.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action='remove-faq']");
+      if (!button) return;
+      button.closest(".faq-card").remove();
+      updateChecks();
+    });
+
+    date.value = new Date().toISOString().slice(0, 10);
+    sections.innerHTML = sectionTemplate("Ce que ce guide vous aide à décider");
+    faqs.innerHTML = faqTemplate();
+    sources.innerHTML = sourceTemplate();
+    loadExistingTags();
+    updateChecks();
+
+    $("#reset").addEventListener("click", () => {
+      form.reset();
+      date.value = new Date().toISOString().slice(0, 10);
+      slug.dataset.touched = "";
+      result.classList.remove("is-visible");
+      result.innerHTML = "";
+      setStatus("Prêt.");
+      resetBuilder();
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const generatedBody = buildMarkdown();
+      if (generatedBody.length < 250) {
+        setStatus("Ajoute plus de contenu avant de publier.", "error");
+        return;
+      }
+      submit.disabled = true;
+      result.classList.remove("is-visible");
+      result.innerHTML = "";
+      setStatus("Publication en cours...");
+      try {
+        const category = $("#category").value;
+        const photo = await readPhoto($("#photo").files[0]);
+        const payload = {
+          action: "publish_article",
+          title: title.value,
+          slug: slug.value,
+          seo_title: $("#seo-title").value,
+          description: description.value,
+          category,
+          category_label: categoryLabels[category] || "Conseils",
+          date: date.value,
+          reading_time: $("#reading-time").value,
+          tags: selectedTagValue(),
+          image_alt: $("#image-alt").value,
+          body: generatedBody,
+          photo,
+        };
+        const response = await fetch("/api/manage-content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Publication impossible.");
+        setStatus("Article publié. La page est disponible immédiatement.", "ok");
+        result.classList.add("is-visible");
+        const deployMessage = data.deploy && data.deploy.skipped
+          ? (data.deploy.reason || "Article enregistré. La publication est prise en compte.")
+          : "Article publié. La page est disponible immédiatement.";
+        result.innerHTML = `
+          <h2>Article envoyé</h2>
+          <p>${deployMessage}</p>
+          <div class="result-actions">
+            <a class="button button-primary" href="${data.publicUrl}" target="_blank" rel="noreferrer">Ouvrir la page</a>
+            ${data.githubUrl ? `<a class="button button-secondary" href="${data.githubUrl}" target="_blank" rel="noreferrer">Voir dans GitHub</a>` : ""}
+          </div>
+        `;
+      } catch (error) {
+        setStatus(error.message, "error");
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

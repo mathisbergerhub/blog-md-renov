@@ -186,7 +186,7 @@ a.mdr-sidelink__cat:focus-visible,
 } a.mdr-home-card__tag:hover,
 a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); background: #fff1e9;
 } .mdr-home-card__date,
-.mdr-home-card__time { color: #8b92a0; font-size: 0.8rem;
+.mdr-home-card__time { color: var(--mdr-meta); font-size: 0.8rem;
 } .mdr-home-card h3 { color: var(--mdr-ink); font-family: "Lexend", sans-serif; font-size: 1.08rem; font-weight: 700; line-height: 1.24; text-wrap: balance;
 } .mdr-home-card p { margin: 0.5rem 0 0.75rem; color: var(--mdr-muted); font-size: 0.94rem; line-height: 1.58; flex: 1;
 } .mdr-home-card__foot { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem; margin-top: auto;
@@ -540,6 +540,44 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   font-weight: 500;
 }
 
+.mdr-nav__links--breadcrumb {
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--mdr-meta);
+  font-size: 0.86rem;
+}
+
+.mdr-nav__links--breadcrumb a,
+.mdr-nav__links--breadcrumb span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: #5f665f;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.mdr-nav__links--breadcrumb a:hover,
+.mdr-nav__links--breadcrumb a:focus-visible {
+  color: var(--mdr-red);
+}
+
+.mdr-nav__links--breadcrumb a:first-child::before {
+  content: none;
+}
+
+.mdr-nav__links--breadcrumb a + a::before,
+.mdr-nav__links--breadcrumb span::before {
+  content: "/";
+  margin: 0 0.45rem 0 0;
+  color: #c9c0b4;
+  font-weight: 500;
+}
+
+.mdr-nav__links--breadcrumb span[aria-current="page"] {
+  color: var(--mdr-red);
+}
+
 .mdr-nav__links a:first-child::before,
 .mdr-article-footer__links a:first-child::before {
   content: "←";
@@ -552,6 +590,15 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
 .mdr-article-footer__links a:first-child:hover::before,
 .mdr-article-footer__links a:first-child:focus-visible::before {
   transform: translateX(-3px);
+}
+
+.mdr-nav__links.mdr-nav__links--breadcrumb a:first-child::before {
+  content: none;
+}
+
+.mdr-nav__links.mdr-nav__links--breadcrumb a:first-child:hover::before,
+.mdr-nav__links.mdr-nav__links--breadcrumb a:first-child:focus-visible::before {
+  transform: none;
 }
 
 .mdr-link {
@@ -1034,6 +1081,24 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
     font-weight: 600;
   }
 
+  .mdr-article-page .mdr-nav__links--breadcrumb {
+    gap: 0.35rem;
+    padding-top: 0.05rem;
+  }
+
+  .mdr-article-page .mdr-nav__links--breadcrumb > * {
+    min-height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .mdr-article-page .mdr-nav__links--breadcrumb a + a::before,
+  .mdr-article-page .mdr-nav__links--breadcrumb span::before {
+    margin-right: 0.35rem;
+  }
+
   .mdr-article-page .mdr-article-head,
   .mdr-article-page .mdr-article-body,
   .mdr-article-page .mdr-prose,
@@ -1204,7 +1269,14 @@ a.mdr-home-card__tag:focus-visible { border-color: rgba(155, 28, 28, 0.45); back
   background: #fff;
 }
 
-body.mdr-home-page {
+.mdr-listing-page .mdr-topnav {
+  border-top: 0;
+  border-bottom: 0;
+  background: #fff;
+}
+
+body.mdr-home-page,
+body.mdr-listing-page {
   background: #fff;
 }
 
@@ -1653,22 +1725,6 @@ body.mdr-home-page {
   will-change: transform;
 }
 
-/* Sticky mobile quote CTA (thumb zone) */
-.mdr-stickycta {
-  position: fixed; left: 50%; bottom: max(0.9rem, env(safe-area-inset-bottom));
-  transform: translateX(-50%); z-index: 50;
-  display: none; align-items: center; justify-content: center;
-  min-height: 52px; padding: 0 1.7rem; border-radius: 999px;
-  background: var(--mdr-red); color: #fff; font-weight: 800; font-size: 1rem;
-  box-shadow: 0 14px 30px rgba(155, 28, 28, 0.34);
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
-}
-.mdr-stickycta:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
-@media (max-width: 720px) { .mdr-stickycta { display: inline-flex; } }
-.mdr-stickycta-hide .mdr-stickycta {
-  transform: translateX(-50%) translateY(160%); opacity: 0; pointer-events: none;
-}
-
 /* Entrance motion — hidden state applies ONLY when JS confirms it will animate */
 .js-anim .mdr-reveal {
   opacity: 0; transform: translateY(16px);
@@ -1680,3 +1736,532 @@ body.mdr-home-page {
 @media (prefers-reduced-motion: reduce) {
   .js-anim .mdr-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
+
+/* =========================================================================
+   ARTICLE IMMERSIF (maquette B validée) — pages articles uniquement.
+   Aucun changement de police : Lexend partout, Playfair italique réservé
+   au mot accentué (.mdr-title-accent), comme sur le reste du site.
+   Le hero photo et le sommaire sont activés par script.js (progressive
+   enhancement) ; sans JS, la mise en page actuelle reste intacte.
+   ========================================================================= */
+
+.mdr-article-page .mdr-wrap { background: #fff; }
+
+.mdr-article-page .mdr-article-head:not(.mdr-head-immersive) {
+  padding: 2.25rem max(1.75rem, calc((100% - 54rem) / 2)) 1.8rem;
+}
+
+/* ---- Hero immersif : la photo de l'article couvre l'en-tête ---------- */
+.mdr-article-page .mdr-article-head.mdr-head-immersive {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-content: end;
+  min-height: clamp(280px, 40vw, 440px);
+  padding: 2.6rem 1.75rem 2.1rem;
+  border-bottom: 0;
+  background: #221e1a;
+}
+.mdr-head-immersive::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #221e1a;
+  background-image: var(--mdr-hero-img);
+  background-size: cover;
+  background-position: center;
+}
+.mdr-head-immersive::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(22, 18, 14, 0.42) 0%, rgba(22, 18, 14, 0.78) 78%);
+}
+.mdr-head-immersive .mdr-breadcrumb { color: rgba(255, 255, 255, 0.62); }
+.mdr-head-immersive .mdr-breadcrumb a { color: rgba(255, 255, 255, 0.88); }
+.mdr-head-immersive .mdr-breadcrumb span::before { color: rgba(255, 255, 255, 0.38); }
+.mdr-head-immersive .mdr-card__tag {
+  border-color: transparent;
+  background: var(--mdr-red);
+  color: #fff;
+}
+.mdr-head-immersive a.mdr-card__tag:hover,
+.mdr-head-immersive a.mdr-card__tag:focus-visible {
+  border-color: transparent;
+  background: var(--mdr-red-deep, #851818);
+}
+.mdr-head-immersive .mdr-card__date,
+.mdr-head-immersive .mdr-card__time {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.18rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.76rem;
+}
+.mdr-head-immersive h1 { color: #fff; max-width: 22ch; }
+.mdr-head-immersive h1 .mdr-title-accent { color: #f2bfae; }
+.mdr-head-immersive .mdr-article-head__excerpt { display: none; }
+
+/* Image d'origine déplacée en fond : on la garde lisible pour les lecteurs
+   d'écran (le alt reste annoncé), invisible à l'écran. */
+.mdr-article-page .mdr-article-figure.mdr-figure-moved {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+/* ---- Sommaire en pilules horizontales (injecté par script.js) --------- */
+.mdr-toc-pills {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.68rem 1.75rem;
+  background: #fff;
+  border-bottom: 1px solid var(--mdr-line);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scroll-padding-inline: 1.75rem;
+}
+.mdr-toc-pills::-webkit-scrollbar { height: 6px; }
+.mdr-toc-pills::-webkit-scrollbar-thumb { background: #d7cec2; border-radius: 999px; }
+.mdr-toc-pill {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid var(--mdr-line);
+  border-radius: 999px;
+  background: #faf8f4;
+  color: #5f5a52;
+  font-family: inherit;
+  font-size: 0.84rem;
+  padding: 0.54rem 0.98rem;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.mdr-toc-pill:hover,
+.mdr-toc-pill:focus-visible { border-color: var(--mdr-red); color: var(--mdr-red); }
+.mdr-toc-pill.is-active {
+  background: var(--mdr-red);
+  border-color: var(--mdr-red);
+  color: #fff;
+  font-weight: 600;
+}
+.mdr-article-page .mdr-prose h2[id] { scroll-margin-top: 4.2rem; }
+
+/* ---- Colonne de lecture unique, centrée ------------------------------- */
+.mdr-article-page .mdr-article-body {
+  display: block;
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 1.9rem 1.75rem 2.6rem;
+  background: #fff;
+}
+.mdr-article-page .mdr-prose {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+.mdr-article-page .mdr-prose p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #34302a;
+  max-width: 66ch;
+}
+
+/* Chapô : le "point important" devient une phrase d'ouverture aérée */
+.mdr-article-page .mdr-article-leadbox {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0 0 1.1rem;
+}
+.mdr-article-page .mdr-article-leadbox > strong { display: none; }
+.mdr-article-page .mdr-article-leadbox p {
+  font-weight: 300;
+  font-size: 1.14rem;
+  line-height: 1.66;
+  color: #46413a;
+  max-width: 58ch;
+}
+
+/* En bref : densifie l'ouverture sans ajouter de colonne artificielle */
+.mdr-article-page .mdr-keyfacts {
+  display: block;
+  margin: 1rem 0 1.65rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--mdr-line);
+  border-bottom: 1px solid var(--mdr-line);
+  background: transparent;
+}
+.mdr-article-page .mdr-keyfacts__title {
+  margin: 0 0 0.7rem;
+  color: var(--mdr-red);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.mdr-article-page .mdr-keyfacts__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.mdr-article-page .mdr-keyfacts__grid > div {
+  display: grid;
+  gap: 0.28rem;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.mdr-article-page .mdr-keyfacts span {
+  margin: 0;
+  color: var(--mdr-red);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.mdr-article-page .mdr-keyfacts strong,
+.mdr-article-page .mdr-keyfacts--compact strong {
+  color: #28241f;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.mdr-article-page .mdr-keyfacts p {
+  display: block;
+  margin: 0;
+  color: #5b554c;
+  font-size: 0.86rem;
+  line-height: 1.52;
+}
+
+/* Titres de section : puce carrée rouge (maquette B) */
+.mdr-article-page .mdr-prose h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2.1rem 0 0.5rem;
+  font-size: clamp(1.3rem, 2.2vw, 1.55rem);
+  line-height: 1.22;
+}
+.mdr-article-page .mdr-prose h2::before {
+  content: "";
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 3px;
+  background: var(--mdr-red);
+}
+.mdr-article-page .mdr-prose > h2 + p { margin-top: 0.35rem; }
+
+/* Tableaux : en-tête sombre, zébrage discret */
+.mdr-article-page .mdr-prose table {
+  margin: 1.2rem 0 1.5rem;
+  border: 1px solid var(--mdr-line);
+  background: #fff;
+}
+/* !important requis : une couche héritée (minifiée, plus haut dans ce
+   fichier) force ces en-têtes en rouge avec !important. */
+.mdr-article-page .mdr-prose th,
+.mdr-article-page .mdr-prose .mdr-decision-table th {
+  background: #1e1b17 !important;
+  color: #f1ece2 !important;
+  border-color: #3a352e !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+}
+.mdr-article-page .mdr-prose td { border-color: var(--mdr-line); }
+.mdr-article-page .mdr-prose tbody tr:nth-child(even) td { background: #faf8f4; }
+.mdr-article-page .mdr-prose .mdr-decision-table td:first-child {
+  color: var(--mdr-ink) !important;
+  font-weight: 500 !important;
+}
+
+/* Check-grid : cartes légères sur fond chaud discret */
+.mdr-article-page .mdr-check-grid li {
+  min-height: 0;
+  border: 1px solid var(--mdr-line);
+  border-radius: 12px;
+  background: #faf8f4;
+}
+
+/* Sources : bloc réglé, sans carte */
+.mdr-article-page .mdr-source-card,
+.mdr-article-page .mdr-source-card--rich {
+  border: 0;
+  border-top: 2px solid #1e1b17;
+  border-radius: 0;
+  background: transparent;
+  padding: 1.1rem 0 0;
+  margin-top: 1.7rem;
+}
+.mdr-article-page .mdr-source-details {
+  display: block;
+}
+.mdr-article-page .mdr-source-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--mdr-red);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.mdr-article-page .mdr-source-details summary::after {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid var(--mdr-line);
+  border-radius: 999px;
+  color: var(--mdr-red);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+.mdr-article-page .mdr-source-details[open] summary::after {
+  content: "-";
+}
+.mdr-article-page .mdr-source-details .mdr-source-list {
+  margin-top: 0.55rem;
+}
+
+/* ---- CTA final unique : bloc rouge fort (les badges RGE y sont déplacés
+   par script.js depuis l'encart latéral, désormais masqué) -------------- */
+.mdr-article-page .mdr-prose-cta {
+  display: grid;
+  gap: 0.3rem;
+  margin: 1.8rem 0 0;
+  padding: 1.4rem 1.5rem 1.45rem;
+  border-radius: 14px;
+  background: var(--mdr-red);
+  box-shadow: 0 24px 48px -26px rgba(155, 28, 28, 0.55);
+}
+.mdr-article-page .mdr-prose-cta strong { font-size: 1.12rem; }
+.mdr-article-page .mdr-prose-cta span { font-size: 0.9rem; }
+.mdr-article-page .mdr-prose-cta .mdr-btn--white {
+  justify-self: start;
+  margin-top: 0.7rem;
+}
+.mdr-article-page .mdr-prose-cta .mdr-cta-box__badges { margin-top: 0.75rem; }
+
+/* ---- Sous l'article : articles similaires en grille ------------------- */
+.mdr-article-page .mdr-sidebar {
+  display: block;
+  margin-top: 1.9rem;
+}
+@media (min-width: 1051px) {
+  .mdr-article-page .mdr-sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+}
+.mdr-article-page .mdr-cta-box { display: none; }
+.mdr-article-page .mdr-sidepanel {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+.mdr-article-page .mdr-sidepanel h4 { margin-bottom: 0.9rem; }
+.mdr-article-page .mdr-sidelinks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.mdr-article-page .mdr-sidelink {
+  border: 1px solid var(--mdr-line);
+  border-bottom: 1px solid var(--mdr-line);
+  border-radius: 12px;
+  background: #faf8f4;
+  padding: 0.95rem 1rem;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+.mdr-article-page .mdr-sidelink:last-child { padding-bottom: 0.95rem; }
+.mdr-article-page .mdr-sidelink:hover,
+.mdr-article-page .mdr-sidelink:focus-visible { border-color: var(--mdr-red); background: #fff; }
+
+/* ---- Responsive -------------------------------------------------------- */
+@media (max-width: 760px) {
+  .mdr-article-page .mdr-article-head.mdr-head-immersive {
+    min-height: clamp(240px, 62vw, 340px);
+    padding: 2rem 1rem 1.5rem;
+  }
+  .mdr-toc-pills { padding: 0.55rem 1rem; scroll-padding-inline: 1rem; }
+  .mdr-toc-pill { min-height: 42px; padding: 0.5rem 0.86rem; font-size: 0.8rem; }
+  .mdr-article-page .mdr-article-body { padding: 1.4rem 1rem 2.2rem; }
+  .mdr-article-page .mdr-keyfacts__grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .mdr-article-page .mdr-sidelinks { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mdr-toc-pill,
+  .mdr-article-page .mdr-sidelink { transition: none; }
+}
+
+/* =========================================================================
+   PAGES CATÉGORIES — même langue que l'article immersif (maquette B).
+   Hero photo (1er article de la catégorie, via script.js) avec repli sur
+   fond encre sombre ; pilules de catégories collantes ; cartes affinées.
+   Polices inchangées.
+   ========================================================================= */
+
+.mdr-listing-page .mdr-full,
+.mdr-listing-page .mdr-listing-content { background: #fff; }
+
+/* ---- Hero immersif de catégorie --------------------------------------- */
+.mdr-listing-page .mdr-listing-hero--immersive {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-content: end;
+  justify-items: start;
+  gap: 0.7rem;
+  min-height: clamp(230px, 30vw, 350px);
+  padding: 2.4rem 1.25rem 1.9rem;
+  border-bottom: 0;
+  background: #221e1a;
+}
+.mdr-listing-hero--immersive::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: #221e1a;
+  background-image: var(--mdr-hero-img);
+  background-size: cover;
+  background-position: center;
+}
+.mdr-listing-hero--immersive::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(22, 18, 14, 0.45) 0%, rgba(22, 18, 14, 0.8) 80%);
+}
+.mdr-listing-page .mdr-listing-hero--immersive h1 {
+  color: #fff;
+  white-space: normal;
+  text-wrap: balance;
+  max-width: 24ch;
+}
+.mdr-listing-page .mdr-listing-hero--immersive p {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 52ch;
+}
+.mdr-listing-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin: 0;
+  font-size: 0.82rem;
+}
+.mdr-listing-page .mdr-listing-hero--immersive .mdr-listing-hero__meta { color: rgba(255, 255, 255, 0.72); }
+
+/* ---- Barre de catégories collante -------------------------------------- */
+.mdr-listing-page .mdr-home-cats {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0.7rem 1.25rem;
+}
+.mdr-listing-page .mdr-home-cats::-webkit-scrollbar { display: none; }
+@media (min-width: 1120px) {
+  .mdr-listing-page .mdr-home-cats { justify-content: center; }
+}
+.mdr-listing-page .mdr-home-cat {
+  flex: none;
+  background: #faf8f4;
+  color: #5f5a52;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.mdr-listing-page a.mdr-home-cat:hover,
+.mdr-listing-page a.mdr-home-cat:focus-visible {
+  border-color: var(--mdr-red);
+  color: var(--mdr-red);
+}
+.mdr-listing-page .mdr-home-cat--active {
+  background: var(--mdr-red);
+  border-color: var(--mdr-red);
+  color: #fff;
+}
+
+/* ---- Cartes : micro-polish -------------------------------------------- */
+.mdr-listing-page .mdr-home-card {
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+.mdr-listing-page .mdr-home-card:hover,
+.mdr-listing-page .mdr-home-card:focus-within {
+  transform: translateY(-2px);
+  border-color: rgba(155, 28, 28, 0.35);
+  box-shadow: 0 18px 34px rgba(20, 14, 8, 0.09);
+}
+.mdr-listing-page .mdr-link::after {
+  content: " \2192";
+  display: inline-block;
+  margin-left: 0.2rem;
+  transition: transform 160ms ease;
+}
+.mdr-listing-page .mdr-home-card:hover .mdr-link::after { transform: translateX(2px); }
+
+@media (max-width: 760px) {
+  .mdr-listing-page .mdr-listing-hero--immersive {
+    min-height: clamp(210px, 52vw, 300px);
+    padding: 1.9rem 1rem 1.5rem;
+  }
+  .mdr-listing-page .mdr-home-cats { padding: 0.6rem 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mdr-listing-page .mdr-home-card,
+  .mdr-listing-page .mdr-home-cat,
+  .mdr-listing-page .mdr-link::after { transition: none; }
+  .mdr-listing-page .mdr-home-card:hover,
+  .mdr-listing-page .mdr-home-card:focus-within { transform: none; }
+  .mdr-listing-page .mdr-home-card:hover .mdr-link::after { transform: none; }
+}
+
+/* =========================================================================
+   RETRAITS DEMANDÉS (02/07/2026) : bandeau défilant de confiance et bouton
+   "Devis gratuit" du header. Les CTA restants couvrent la conversion :
+   menu mobile, CTA de fin d'article, CTA sticky mobile et footer.
+   ========================================================================= */
+.mdr-trust { display: none; }
+.mdr-topnav > .mdr-btn--primary { display: none; }

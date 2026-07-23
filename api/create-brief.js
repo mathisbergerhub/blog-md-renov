@@ -1,5 +1,5 @@
 const DEFAULT_REPO = "mathisbergerhub/blog-md-renov";
-const DEFAULT_BRANCH = "main";
+const DEFAULT_BRANCH = process.env.VERCEL_GIT_COMMIT_REF || "redesign-immersive-b";
 const https = require("https");
 
 function sendJson(res, statusCode, payload) {

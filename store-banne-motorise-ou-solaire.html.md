@@ -7,9 +7,10 @@ description: 'Un guide pratique pour choisir entre branchement électrique, comm
 category: 'volets-stores'
 category_label: 'Stores'
 date: '2026-04-03'
+modified_date: '2026-07-17'
 reading_time: '3 min'
-featured_image: ''
-image_alt: 'Store motorisé et télécommande'
+featured_image: 'uploads/articles/store-banne-motorise-ou-solaire.webp'
+image_alt: 'Store banne motorisé ouvert sur une terrasse en fin de journée'
 source_html: './store-banne-motorise-ou-solaire.html'
 tags:
   - 'Haute-Savoie'
@@ -34,7 +35,9 @@ Un guide pratique pour choisir entre branchement électrique, commande radio, ca
 
 ## La question centrale : peut-on alimenter proprement le store ? Un store motorisé classique est très confortable si l'alimentation électrique est facile à amener. La solution solaire devient intéressante lorsque le passage de câbles est compliqué, coûteux ou peu esthétique. Le choix doit se faire façade par façade.
 
-## Les critères concrets - Distance jusqu'à une alimentation électrique existante.
+## Les critères concrets
+
+- Distance jusqu'à une alimentation électrique existante.
 - Exposition solaire suffisante pour un panneau dédié.
 - Largeur du store et effort demandé au moteur.
 - Souhait d'une télécommande, d'une commande murale ou d'une centralisation.

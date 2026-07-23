@@ -7,9 +7,10 @@ description: 'Exposition, batterie, moteur, entretien et cas de rénovation : qu
 category: 'volets-stores'
 category_label: 'Volets'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
-featured_image: ''
-image_alt: 'Volet roulant solaire'
+featured_image: 'uploads/articles/volet-roulant-solaire-haute-savoie.webp'
+image_alt: 'Volet roulant solaire avec panneau photovoltaïque intégré'
 source_html: './volet-roulant-solaire-haute-savoie.html'
 tags:
   - 'Haute-Savoie'
@@ -34,12 +35,22 @@ Exposition, batterie, moteur, entretien et cas de rénovation : quand le volet s
 
 ## Le solaire est très utile quand le câblage devient compliqué Le volet roulant solaire évite de tirer une alimentation électrique jusqu'à chaque ouverture. En rénovation, c'est souvent un vrai avantage : moins de saignées, moins de reprises intérieures et une pose plus discrète. Mais il faut vérifier l'exposition et l'usage.
 
-## Les cas favorables - Fenêtre difficile à raccorder électriquement.
+## Les cas favorables
+
+- Fenêtre difficile à raccorder électriquement.
 - Façade correctement exposée à la lumière.
 - Rénovation sans gros travaux intérieurs.
 - Projet sur plusieurs fenêtres où le câblage deviendrait lourd.
 
-## Les limites à anticiper Une façade très ombragée, un débord de toit important ou une cour sombre peuvent réduire l'intérêt du solaire. Il faut aussi regarder la qualité de la batterie, la garantie, le SAV et la facilité d'accès pour l'entretien futur. | | Question | Pourquoi elle compte | Le panneau voit-il assez de lumière ? | Conditionne la recharge | Le volet est-il utilisé très souvent ? | Influence l'autonomie | La façade est-elle exposée au froid ? | La batterie doit être adaptée
+## Les limites à anticiper
+
+Une façade très ombragée, un débord de toit important ou une cour sombre peuvent réduire l'intérêt du solaire. Il faut aussi regarder la qualité de la batterie, la garantie, le SAV et la facilité d'accès pour l'entretien futur.
+
+| Question | Pourquoi elle compte |
+|---|---|
+| Le panneau voit-il assez de lumière ? | Conditionne la recharge |
+| Le volet est-il utilisé très souvent ? | Influence l'autonomie |
+| La façade est-elle exposée au froid ? | La batterie doit être adaptée |
 
 ## Le point spécifique en Haute-Savoie Dans les secteurs froids, ombragés ou proches de reliefs, l'exposition réelle compte plus qu'une promesse générale. Une façade sud ou ouest est souvent favorable, tandis qu'une fenêtre durablement à l'ombre demande plus de prudence. Le solaire reste une très bonne solution quand il évite des travaux électriques lourds, mais il doit être validé ouverture par ouverture, surtout sur les maisons avec débords de toit, balcons ou végétation proche.
 

@@ -1,6 +1,9 @@
 const DEFAULT_REPO = "mathisbergerhub/blog-md-renov";
-const DEFAULT_BRANCH = "main";
+const DEFAULT_BRANCH = process.env.VERCEL_GIT_COMMIT_REF || "redesign-immersive-b";
 const https = require("https");
+const cms = require("./_supabase-cms");
+const MAX_JSON_BODY_LENGTH = 12000000;
+const MAX_IMAGE_BYTES = 6000000;
 
 const allowedCollections = {
   articles: {
@@ -40,7 +43,40 @@ const allowedCollections = {
 function sendJson(res, statusCode, payload) {
   res.statusCode = statusCode;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
+  res.setHeader("Cache-Control", "no-store");
   res.end(JSON.stringify(payload));
+}
+
+function deploymentBranch() {
+  return process.env.GITHUB_BRANCH || DEFAULT_BRANCH;
+}
+
+function categoryLabel(category = "") {
+  return {
+    aides: "Aides & Subventions",
+    fenetres: "Fenêtres",
+    isolation: "Isolation",
+    "volets-stores": "Volets",
+    "portes-portails": "Portes & Portails",
+    exterieur: "Aménagements extérieurs",
+  }[category] || "Conseils";
+}
+
+function cleanTagList(tags) {
+  if (Array.isArray(tags)) return tags.map((tag) => String(tag).trim()).filter(Boolean);
+  if (String(tags || "").trim() === "[]") return [];
+  return String(tags || "")
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+}
+
+function deployHookPayload(action, paths = []) {
+  return {
+    action,
+    paths,
+    triggeredAt: new Date().toISOString(),
+  };
 }
 
 function readJson(req) {
@@ -57,7 +93,7 @@ function readJson(req) {
     let body = "";
     req.on("data", (chunk) => {
       body += chunk;
-      if (body.length > 7000000) {
+      if (body.length > MAX_JSON_BODY_LENGTH) {
         reject(new Error("Requête trop longue."));
         req.destroy();
       }
@@ -175,6 +211,62 @@ function slugify(value = "") {
 
 function yamlString(value = "") {
   return `'${String(value).replace(/'/g, "''")}'`;
+}
+
+function setFrontmatterValues(markdown, values) {
+  const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!match) return markdown;
+  const newline = markdown.includes("\r\n") ? "\r\n" : "\n";
+  const existing = match[1].split(/\r?\n/);
+  const pending = new Map(Object.entries(values).filter(([, value]) => (
+    Array.isArray(value) || (value !== undefined && value !== null && String(value).trim() !== "")
+  )));
+  const formatEntry = (key, value) => {
+    if (Array.isArray(value)) {
+      return value.length ? [`${key}:`, ...value.map((item) => `  - ${yamlString(item)}`)] : [`${key}: []`];
+    }
+    if (typeof value === "boolean") {
+      return [`${key}: ${value ? "true" : "false"}`];
+    }
+    return [`${key}: ${yamlString(value)}`];
+  };
+  const updated = [];
+  for (let index = 0; index < existing.length; index += 1) {
+    const line = existing[index];
+    const separator = line.indexOf(":");
+    if (separator === -1) {
+      updated.push(line);
+      continue;
+    }
+    const key = line.slice(0, separator).trim();
+    if (!pending.has(key)) {
+      updated.push(line);
+      continue;
+    }
+    const value = pending.get(key);
+    pending.delete(key);
+    updated.push(...formatEntry(key, value));
+    while (index + 1 < existing.length && /^\s+-\s+/.test(existing[index + 1])) {
+      index += 1;
+    }
+  }
+  for (const [key, value] of pending.entries()) {
+    updated.push(...formatEntry(key, value));
+  }
+  return `---${newline}${updated.join(newline)}${newline}---${markdown.slice(match[0].length)}`;
+}
+
+function setMarkdownTitle(markdown, title) {
+  const cleanTitle = String(title || "").trim();
+  if (!cleanTitle) return markdown;
+  const match = markdown.match(/^---\r?\n[\s\S]*?\r?\n---/);
+  if (!match) return markdown;
+  const before = markdown.slice(0, match[0].length);
+  const after = markdown.slice(match[0].length);
+  if (/^\s*#\s+.+$/m.test(after)) {
+    return `${before}${after.replace(/^\s*#\s+.+$/m, `\n# ${cleanTitle}`)}`;
+  }
+  return `${before}\n\n# ${cleanTitle}${after}`;
 }
 
 function pathExtension(value = "") {
@@ -308,6 +400,26 @@ function archiveHtmlPath(filePath) {
   return `content/archive/html/${today}-${filePath.split("/").pop()}`;
 }
 
+function stripArchiveDatePrefix(fileName = "") {
+  return String(fileName).replace(/^\d{4}-\d{2}-\d{2}-/, "");
+}
+
+function restoredArticlePath(archivedPath) {
+  const fileName = stripArchiveDatePrefix(String(archivedPath).split("/").pop());
+  if (fileName.endsWith(".html.md")) return fileName;
+  return `content/articles/${fileName}`;
+}
+
+function archivedHtmlPathForRestore(archivedPath, restoredPath, fields) {
+  const archivedFileName = String(archivedPath).split("/").pop();
+  const prefix = archivedFileName.match(/^(\d{4}-\d{2}-\d{2}-)/)?.[1] || "";
+  const htmlPath = rootHtmlPathFromArticle(restoredPath, fields);
+  return {
+    archivedHtmlPath: `content/archive/html/${prefix}${htmlPath.split("/").pop()}`,
+    htmlPath,
+  };
+}
+
 async function readGithubPath(repository, branch, token, path) {
   const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(path).replace(/%2F/g, "/")}?ref=${encodeURIComponent(branch)}`;
   const response = await httpsJson(url, { method: "GET", headers: githubHeaders(token) });
@@ -331,6 +443,37 @@ async function listGithubFolder(repository, branch, token, folder) {
     throw new Error(response.data.message || `Impossible de lister ${folder}.`);
   }
   return response.data;
+}
+
+async function listGithubTree(repository, branch, token) {
+  const url = `https://api.github.com/repos/${repository}/git/trees/${encodeURIComponent(branch)}?recursive=1`;
+  const response = await httpsJson(url, { method: "GET", headers: githubHeaders(token) });
+  if (!response.ok || !Array.isArray(response.data.tree)) {
+    throw new Error(response.data.message || "Impossible de lister les contenus GitHub.");
+  }
+  if (response.data.truncated) {
+    throw new Error("La liste GitHub est trop grande pour etre lue en une seule fois.");
+  }
+  return response.data.tree;
+}
+
+function managedTreeEntries(tree) {
+  return tree
+    .filter((entry) => entry && entry.type === "blob" && entry.path && entry.path.split("/").pop() !== ".gitkeep")
+    .map((entry) => {
+      const path = entry.path;
+      if (path.startsWith("content/articles/") && path.endsWith(".md")) {
+        return { collection: "articles", config: allowedCollections.articles, path };
+      }
+      if (path.startsWith("content/archive/articles/") && path.endsWith(".md")) {
+        return { collection: "archived_articles", config: allowedCollections.archived_articles, path };
+      }
+      if (!path.includes("/") && path.endsWith(".html.md")) {
+        return { collection: "article_mirrors", config: allowedCollections.article_mirrors, path };
+      }
+      return null;
+    })
+    .filter(Boolean);
 }
 
 async function createGithubFile({ repository, branch, token, filePath, content, message }) {
@@ -372,8 +515,8 @@ async function uploadRevisionPhotos({ repository, branch, token, briefPath, phot
 
   const briefSlug = briefPath.split("/").pop().replace(/\.md$/, "");
   for (const [index, photo] of parsedPhotos.entries()) {
-    if (Buffer.byteLength(photo.base64, "base64") > 2500000) {
-      throw new Error(`La photo ${photo.name} dépasse 2,5 Mo.`);
+    if (Buffer.byteLength(photo.base64, "base64") > MAX_IMAGE_BYTES) {
+      throw new Error(`La photo ${photo.name} depasse 6 Mo.`);
     }
     const filePath = `uploads/briefs/${briefSlug}-${index + 1}-${photo.name}`;
     await createGithubBinaryFile({
@@ -406,6 +549,10 @@ async function deleteGithubFile({ repository, branch, token, filePath, sha, mess
 
 async function createGithubBinaryFile({ repository, branch, token, filePath, base64Content, message }) {
   const url = `https://api.github.com/repos/${repository}/contents/${encodeURIComponent(filePath).replace(/%2F/g, "/")}`;
+  const existing = await httpsJson(`${url}?ref=${encodeURIComponent(branch)}`, { method: "GET", headers: githubHeaders(token) });
+  if (!existing.ok && existing.status !== 404) {
+    throw new Error(existing.data.message || `Impossible de verifier ${filePath}.`);
+  }
   const response = await httpsJson(
     url,
     { method: "PUT", headers: githubHeaders(token) },
@@ -413,9 +560,10 @@ async function createGithubBinaryFile({ repository, branch, token, filePath, bas
       message,
       branch,
       content: base64Content,
+      ...(existing.ok && existing.data.sha ? { sha: existing.data.sha } : {}),
     },
   );
-  if (!response.ok) throw new Error(response.data.message || `Impossible de créer ${filePath}.`);
+  if (!response.ok) throw new Error(response.data.message || `Impossible d'enregistrer ${filePath}.`);
   return response.data;
 }
 
@@ -435,9 +583,204 @@ async function updateGithubFile({ repository, branch, token, filePath, sha, cont
   return response.data;
 }
 
-async function listManagedContent(repository, branch, token) {
+async function triggerDeployHook(action, paths = []) {
+  const hookUrl = process.env.VERCEL_DEPLOY_HOOK_URL;
+  if (!hookUrl) return { skipped: true, reason: "VERCEL_DEPLOY_HOOK_URL absent." };
+
+  try {
+    const response = await httpsJson(
+      hookUrl,
+      { method: "POST", headers: { "Content-Type": "application/json" } },
+      deployHookPayload(action, paths),
+    );
+    return { skipped: false, ok: response.ok, status: response.status };
+  } catch (error) {
+    return { skipped: false, ok: false, error: error.message || "Deploy hook indisponible." };
+  }
+}
+
+async function upsertGithubFile({ repository, branch, token, filePath, content, message }) {
+  const existing = await readGithubPath(repository, branch, token, filePath);
+  if (existing && existing.type === "file") {
+    return updateGithubFile({
+      repository,
+      branch,
+      token,
+      filePath,
+      sha: existing.sha,
+      content,
+      message,
+    });
+  }
+  return createGithubFile({
+    repository,
+    branch,
+    token,
+    filePath,
+    content,
+    message,
+  });
+}
+
+function buildArticleMarkdown(body, uploadedImagePath = "") {
+  const title = String(body.title || "").trim();
+  const description = String(body.description || "").trim();
+  const category = String(body.category || "").trim();
+  const slug = slugify(body.slug || title);
+  const content = String(body.body || body.markdown || "").trim();
+  const tags = cleanTagList(body.tags);
+  const featuredImage = String(uploadedImagePath || body.featured_image || "").trim();
+
+  if (!title) throw new Error("Le titre est obligatoire.");
+  if (!description) throw new Error("La description SEO est obligatoire.");
+  if (!category) throw new Error("La catégorie est obligatoire.");
+  if (!slug) throw new Error("Le slug est obligatoire.");
+  if (!content) throw new Error("Le contenu de l'article est obligatoire.");
+
+  const readingTime = String(body.reading_time || "4 min").trim();
+  const date = String(body.date || new Date().toISOString().slice(0, 10)).trim();
+  const modifiedDate = String(body.modified_date || date || new Date().toISOString().slice(0, 10)).trim();
+  const label = String(body.category_label || categoryLabel(category)).trim();
+  const seoTitle = String(body.seo_title || title).trim();
+  const imageAlt = String(body.image_alt || title).trim();
+  const tagBlock = tags.length ? `tags:\n${tags.map((tag) => `  - ${yamlString(tag)}`).join("\n")}` : "tags: []";
+
+  return {
+    slug,
+    htmlPath: `${slug}.html`,
+    markdownPath: `${slug}.html.md`,
+    content: `---
+content_type: 'article'
+published: true
+title: ${yamlString(title)}
+seo_title: ${yamlString(seoTitle)}
+description: ${yamlString(description)}
+category: ${yamlString(category)}
+category_label: ${yamlString(label)}
+date: ${yamlString(date)}
+modified_date: ${yamlString(modifiedDate)}
+reading_time: ${yamlString(readingTime)}
+featured_image: ${yamlString(featuredImage)}
+image_alt: ${yamlString(imageAlt)}
+source_html: ${yamlString(`./${slug}.html`)}
+${tagBlock}
+---
+
+# ${title}
+
+${content}
+`,
+  };
+}
+
+async function uploadArticlePhoto({ repository, branch, token, slug, photo }) {
+  const parsed = parsePhoto(photo);
+  if (!parsed) return "";
+  if (Buffer.byteLength(parsed.base64, "base64") > MAX_IMAGE_BYTES) {
+    throw new Error(`La photo ${parsed.name} depasse 6 Mo.`);
+  }
+  const ext = pathExtension(parsed.name);
+  const filePath = `uploads/articles/${slug}${ext}`;
+  await createGithubBinaryFile({
+    repository,
+    branch,
+    token,
+    filePath,
+    base64Content: parsed.base64,
+    message: `Upload article image: ${filePath}`,
+  });
+  return `/${filePath}`;
+}
+
+async function publishArticle({ repository, branch, token, body }) {
+  const draft = buildArticleMarkdown(body);
+  if (await githubPathExists(repository, branch, token, draft.markdownPath)) {
+    throw new Error("Un article avec ce slug existe déjà. Change le slug ou modifie l'article existant.");
+  }
+  if (await githubPathExists(repository, branch, token, draft.htmlPath)) {
+    throw new Error("Une page HTML avec ce slug existe déjà. Change le slug.");
+  }
+
+  const imagePath = await uploadArticlePhoto({ repository, branch, token, slug: draft.slug, photo: body.photo });
+  const article = imagePath ? buildArticleMarkdown(body, imagePath) : draft;
+
+  const github = await createGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: article.markdownPath,
+    content: article.content,
+    message: `Publish article: ${article.markdownPath}`,
+  });
+  const deploy = await triggerDeployHook("publish_article", [article.markdownPath, article.htmlPath]);
+  return {
+    filePath: article.markdownPath,
+    htmlPath: article.htmlPath,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${article.htmlPath.replace(/\.html$/, "")}`,
+    githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
+    deploy,
+  };
+}
+
+async function updatePublishedArticle({ repository, branch, token, collection, filePath, body }) {
+  const config = allowedCollections[collection];
+  const isArchived = Boolean(config && config.archived);
+  const managedPath = normalizeManagedPath(collection, filePath);
+  const source = await readGithubPath(repository, branch, token, managedPath);
+  if (!source) throw new Error("Article introuvable.");
+
+  let markdown = String(body.markdown || "").trim();
+  if (!markdown || !markdown.startsWith("---")) {
+    throw new Error("Le contenu doit conserver l'en-tête frontmatter entre ---.");
+  }
+
+  const initialFields = parseFrontmatter(markdown);
+  const htmlPath = rootHtmlPathFromArticle(managedPath, initialFields);
+  const slug = htmlPath.replace(/\.html$/, "").split("/").pop() || slugify(body.title || initialFields.title || "article");
+  const updates = {};
+  if (body.title) updates.title = String(body.title).trim();
+  if (body.seo_title !== undefined) updates.seo_title = String(body.seo_title).trim();
+  if (body.description !== undefined) updates.description = String(body.description).trim();
+  if (body.category) {
+    updates.category = String(body.category).trim();
+    updates.category_label = String(body.category_label || categoryLabel(body.category)).trim();
+  }
+  if (body.date) updates.date = String(body.date).trim();
+  updates.modified_date = String(body.modified_date || new Date().toISOString().slice(0, 10)).trim();
+  if (body.reading_time) updates.reading_time = String(body.reading_time).trim();
+  if (body.tags !== undefined) updates.tags = cleanTagList(body.tags);
+  if (body.image_alt !== undefined) updates.image_alt = String(body.image_alt).trim();
+  const photos = Array.isArray(body.photos) ? body.photos : [];
+  if (photos[0]) {
+    updates.featured_image = await uploadArticlePhoto({ repository, branch, token, slug, photo: photos[0] });
+    if (body.photo_notes) updates.image_alt = String(body.photo_notes).trim();
+  }
+  markdown = setFrontmatterValues(markdown, updates);
+  markdown = setMarkdownTitle(markdown, updates.title);
+
+  const github = await updateGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: managedPath,
+    sha: source.sha,
+    content: `${markdown}\n`,
+    message: `Update article: ${managedPath}`,
+  });
+  const deploy = isArchived ? null : await triggerDeployHook("update_article", [managedPath, htmlPath]);
+  return {
+    filePath: managedPath,
+    htmlPath: isArchived ? "" : htmlPath,
+    publicUrl: isArchived ? null : `https://blog.mdrenov-menuiserie.com/${htmlPath.replace(/\.html$/, "")}`,
+    githubUrl: github.content && github.content.html_url ? github.content.html_url : null,
+    deploy,
+  };
+}
+
+async function listManagedContentFromFolders(repository, branch, token) {
   const results = [];
   for (const [collection, config] of Object.entries(allowedCollections)) {
+    if (!["articles", "article_mirrors", "archived_articles"].includes(collection)) continue;
     const files = await listGithubFolder(repository, branch, token, config.folder);
     const managedFiles = files.filter((item) => {
       if (item.type !== "file") return false;
@@ -450,25 +793,67 @@ async function listManagedContent(repository, branch, token) {
       if (!content) continue;
       const fields = parseFrontmatter(content.content);
       if (collection === "article_mirrors" && fields.content_type !== "article") continue;
-      if (collection === "articles" && fields.source_html) continue;
       results.push({
         collection,
         group: config.group,
         typeLabel: config.label,
         title: fields.title || file.name.replace(/\.md$/, ""),
         category: fields.category_label || fields.category || "",
+        tags: cleanTagList(fields.tags),
         status: config.archived ? "archived" : fields.status || (fields.published === false ? "draft" : "published"),
         archived: Boolean(config.archived),
         published: fields.published !== false,
         date: fields.date || fields.created_at || "",
         filePath: file.path,
         htmlPath: config.group === "articles" ? rootHtmlPathFromArticle(file.path, fields) : "",
+        publicUrl: !config.archived && fields.published !== false && config.group === "articles"
+          ? `https://blog.mdrenov-menuiserie.com/${rootHtmlPathFromArticle(file.path, fields).replace(/\.html$/, "")}`
+          : null,
         githubUrl: content.htmlUrl,
       });
     }
   }
   results.sort((a, b) => String(b.date).localeCompare(String(a.date)) || a.title.localeCompare(b.title));
-  return attachBriefPageLinks(results);
+  return results;
+}
+
+async function listManagedContentFromTree(repository, branch, token) {
+  const results = [];
+  const tree = await listGithubTree(repository, branch, token);
+  for (const file of managedTreeEntries(tree)) {
+    const content = await readGithubPath(repository, branch, token, file.path);
+    if (!content) continue;
+    const fields = parseFrontmatter(content.content);
+    if (file.collection === "article_mirrors" && fields.content_type !== "article") continue;
+    results.push({
+      collection: file.collection,
+      group: file.config.group,
+      typeLabel: file.config.label,
+      title: fields.title || file.path.split("/").pop().replace(/\.md$/, ""),
+      category: fields.category_label || fields.category || "",
+      tags: cleanTagList(fields.tags),
+      status: file.config.archived ? "archived" : fields.status || (fields.published === false ? "draft" : "published"),
+      archived: Boolean(file.config.archived),
+      published: fields.published !== false,
+      date: fields.date || fields.created_at || "",
+      filePath: file.path,
+      htmlPath: file.config.group === "articles" ? rootHtmlPathFromArticle(file.path, fields) : "",
+      publicUrl: !file.config.archived && fields.published !== false && file.config.group === "articles"
+        ? `https://blog.mdrenov-menuiserie.com/${rootHtmlPathFromArticle(file.path, fields).replace(/\.html$/, "")}`
+        : null,
+      githubUrl: content.htmlUrl,
+    });
+  }
+  results.sort((a, b) => String(b.date).localeCompare(String(a.date)) || a.title.localeCompare(b.title));
+  return results;
+}
+
+async function listManagedContent(repository, branch, token) {
+  try {
+    return await listManagedContentFromTree(repository, branch, token);
+  } catch (error) {
+    return listManagedContentFromFolders(repository, branch, token);
+  }
 }
 
 async function readManagedContent({ repository, branch, token, collection, filePath }) {
@@ -479,7 +864,16 @@ async function readManagedContent({ repository, branch, token, collection, fileP
   return {
     collection,
     title: fields.title || managedPath.split("/").pop().replace(/\.md$/, ""),
+    seo_title: fields.seo_title || "",
+    description: fields.description || "",
     category: fields.category_label || fields.category || "",
+    category_value: fields.category || "",
+    category_label: fields.category_label || categoryLabel(fields.category || ""),
+    date: fields.date || fields.created_at || "",
+    reading_time: fields.reading_time || "",
+    tags: cleanTagList(fields.tags),
+    image_alt: fields.image_alt || "",
+    featured_image: fields.featured_image || "",
     main_keyword: fields.main_keyword || "",
     filePath: managedPath,
     htmlPath: allowedCollections[collection].group === "articles" ? rootHtmlPathFromArticle(managedPath, fields) : "",
@@ -610,7 +1004,7 @@ async function archiveManagedContent({ repository, branch, token, collection, fi
   if (!source) throw new Error("Contenu introuvable.");
 
   const archivedMdPath = archivePath(collection, managedPath);
-  await createGithubFile({
+  await upsertGithubFile({
     repository,
     branch,
     token,
@@ -636,7 +1030,7 @@ async function archiveManagedContent({ repository, branch, token, collection, fi
     const html = await readGithubPath(repository, branch, token, htmlPath);
     if (html && html.type === "file") {
       const archivedHtmlPath = archiveHtmlPath(htmlPath);
-      await createGithubFile({
+      await upsertGithubFile({
         repository,
         branch,
         token,
@@ -658,6 +1052,71 @@ async function archiveManagedContent({ repository, branch, token, collection, fi
   }
 
   return { archived, deleted };
+}
+
+async function unarchiveManagedContent({ repository, branch, token, collection, filePath }) {
+  if (collection !== "archived_articles") {
+    throw new Error("Seuls les articles archives peuvent etre desarchives.");
+  }
+  const managedPath = normalizeManagedPath(collection, filePath);
+  const source = await readGithubPath(repository, branch, token, managedPath);
+  if (!source) throw new Error("Archive introuvable.");
+
+  const fields = parseFrontmatter(source.content);
+  const restoredPath = restoredArticlePath(managedPath);
+  const { archivedHtmlPath, htmlPath } = archivedHtmlPathForRestore(managedPath, restoredPath, fields);
+  const archivedHtml = await readGithubPath(repository, branch, token, archivedHtmlPath);
+  const restoredContent = setFrontmatterValues(source.content, {
+    published: true,
+    status: "published",
+  });
+
+  await upsertGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: restoredPath,
+    content: restoredContent,
+    message: `Restore archived article: ${restoredPath}`,
+  });
+  await deleteGithubFile({
+    repository,
+    branch,
+    token,
+    filePath: managedPath,
+    sha: source.sha,
+    message: `Remove restored archive: ${managedPath}`,
+  });
+
+  const restored = [restoredPath];
+  const deleted = [managedPath];
+  if (archivedHtml && archivedHtml.type === "file") {
+    await upsertGithubFile({
+      repository,
+      branch,
+      token,
+      filePath: htmlPath,
+      content: archivedHtml.content,
+      message: `Restore archived HTML: ${htmlPath}`,
+    });
+    await deleteGithubFile({
+      repository,
+      branch,
+      token,
+      filePath: archivedHtmlPath,
+      sha: archivedHtml.sha,
+      message: `Remove restored HTML archive: ${archivedHtmlPath}`,
+    });
+    restored.push(htmlPath);
+    deleted.push(archivedHtmlPath);
+  }
+
+  return {
+    restored,
+    deleted,
+    htmlPath,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${htmlPath.replace(/\.html$/, "")}`,
+  };
 }
 
 async function deleteManagedContent({ repository, branch, token, collection, filePath }) {
@@ -711,15 +1170,223 @@ async function deleteManagedContent({ repository, branch, token, collection, fil
   return { deleted };
 }
 
+async function listManagedContentFromSupabase() {
+  const rows = await cms.listArticles({ includeArchived: true });
+  return rows.map((row) => cms.rowToItem(row));
+}
+
+async function readManagedContentFromSupabase({ filePath }) {
+  const row = await cms.findArticle(filePath);
+  if (!row) throw new Error("Article introuvable dans Supabase.");
+  return cms.rowToItem(row, true);
+}
+
+async function publishArticleToSupabase(body) {
+  const draft = buildArticleMarkdown(body);
+  const existing = await cms.findArticle(draft.slug);
+  if (existing) {
+    throw new Error("Un article avec ce slug existe deja. Change le slug ou modifie l'article existant.");
+  }
+
+  const imagePath = body.photo ? await cms.uploadImage({ slug: draft.slug, photo: body.photo }) : "";
+  const article = imagePath ? buildArticleMarkdown(body, imagePath) : draft;
+  const row = await cms.upsertArticleFromMarkdown({
+    filePath: article.markdownPath,
+    markdown: article.content,
+    archived: false,
+  });
+
+  return {
+    filePath: row.source_path,
+    htmlPath: row.html_path,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${row.html_path.replace(/\.html$/, "")}`,
+    githubUrl: null,
+    deploy: { skipped: true, reason: "Publication Supabase instantanee, sans reconstruction Vercel." },
+  };
+}
+
+async function updateArticleToSupabase({ collection, filePath, body }) {
+  const existing = await cms.findArticle(filePath);
+  if (!existing) throw new Error("Article introuvable dans Supabase.");
+  const isArchived = collection === "archived_articles" || existing.archived;
+  let markdown = String(body.markdown || "").trim();
+  if (!markdown || !markdown.startsWith("---")) {
+    throw new Error("Le contenu doit conserver l'en-tete frontmatter entre ---.");
+  }
+
+  const slug = String(existing.slug || "").trim();
+  const updates = {};
+  if (body.title) updates.title = String(body.title).trim();
+  if (body.seo_title !== undefined) updates.seo_title = String(body.seo_title).trim();
+  if (body.description !== undefined) updates.description = String(body.description).trim();
+  if (body.category) {
+    updates.category = String(body.category).trim();
+    updates.category_label = String(body.category_label || categoryLabel(body.category)).trim();
+  }
+  if (body.date) updates.date = String(body.date).trim();
+  updates.modified_date = String(body.modified_date || new Date().toISOString().slice(0, 10)).trim();
+  if (body.reading_time) updates.reading_time = String(body.reading_time).trim();
+  if (body.tags !== undefined) updates.tags = cleanTagList(body.tags);
+  if (body.image_alt !== undefined) updates.image_alt = String(body.image_alt).trim();
+
+  const photos = Array.isArray(body.photos) ? body.photos : [];
+  if (photos[0]) {
+    updates.featured_image = await cms.uploadImage({ slug, photo: photos[0] });
+    if (body.photo_notes) updates.image_alt = String(body.photo_notes).trim();
+  }
+
+  markdown = setFrontmatterValues(markdown, updates);
+  markdown = setMarkdownTitle(markdown, updates.title);
+
+  const row = await cms.updateArticleFromMarkdown({
+    identifier: filePath,
+    markdown: `${markdown}\n`,
+    archived: isArchived,
+  });
+
+  return {
+    filePath: row.source_path,
+    htmlPath: isArchived ? "" : row.html_path,
+    publicUrl: isArchived ? null : `https://blog.mdrenov-menuiserie.com/${row.html_path.replace(/\.html$/, "")}`,
+    githubUrl: null,
+    deploy: isArchived ? null : { skipped: true, reason: "Modification Supabase instantanee, sans reconstruction Vercel." },
+  };
+}
+
+async function archiveArticleInSupabase(filePath) {
+  const row = await cms.setArchived(filePath, true);
+  return {
+    archived: [row.source_path || row.html_path],
+    deleted: [row.html_path],
+    deploy: { skipped: true, reason: "Archivage Supabase instantane." },
+  };
+}
+
+async function unarchiveArticleInSupabase(filePath) {
+  const row = await cms.setArchived(filePath, false);
+  return {
+    restored: [row.source_path || row.html_path],
+    deleted: [],
+    htmlPath: row.html_path,
+    publicUrl: `https://blog.mdrenov-menuiserie.com/${row.html_path.replace(/\.html$/, "")}`,
+    deploy: { skipped: true, reason: "Desarchivage Supabase instantane." },
+  };
+}
+
+async function deleteArticleInSupabase(filePath) {
+  const row = await cms.deleteArticle(filePath);
+  return {
+    deleted: [row.source_path || row.html_path],
+    deploy: { skipped: true, reason: "Suppression Supabase instantanee." },
+  };
+}
+
+async function seedSupabaseFromGithub({ repository, branch, token }) {
+  if (!token) return 0;
+  const githubItems = await listManagedContent(repository, branch, token);
+  let seeded = 0;
+  for (const item of githubItems.filter((entry) => entry.group === "articles" || entry.collection === "archived_articles")) {
+    try {
+      const source = await readManagedContent({ repository, branch, token, collection: item.collection, filePath: item.filePath });
+      await cms.upsertArticleFromMarkdown({
+        filePath: source.filePath,
+        markdown: source.markdown,
+        archived: Boolean(item.archived),
+      });
+      seeded += 1;
+    } catch (error) {
+      console.error("[supabase-seed]", item.filePath, error.message);
+    }
+  }
+  return seeded;
+}
+
+async function handleSupabaseContent(req, res, githubContext = {}) {
+  if (req.method === "GET") {
+    const url = new URL(req.url, "https://blog.mdrenov-menuiserie.com");
+    const collection = url.searchParams.get("collection");
+    const filePath = url.searchParams.get("filePath");
+    if (collection && filePath) {
+      const item = await readManagedContentFromSupabase({ filePath });
+      sendJson(res, 200, { ok: true, item });
+      return true;
+    }
+    let items = await listManagedContentFromSupabase();
+    let seeded = 0;
+    if (!items.length && githubContext.token) {
+      seeded = await seedSupabaseFromGithub(githubContext);
+      items = await listManagedContentFromSupabase();
+    }
+    const tags = Array.from(new Set(items.flatMap((item) => item.tags || [])))
+      .map((tag) => String(tag).trim())
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b, "fr"));
+    sendJson(res, 200, { ok: true, source: "supabase", seeded, items, tags });
+    return true;
+  }
+
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "GET, POST");
+    sendJson(res, 405, { error: "Methode non autorisee." });
+    return true;
+  }
+
+  const body = await readJson(req);
+  const action = String(body.action || "");
+  const collection = String(body.collection || "");
+  const filePath = String(body.filePath || "");
+
+  if (action === "publish_article") {
+    const result = await publishArticleToSupabase(body);
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+  if (action === "update_article") {
+    const result = await updateArticleToSupabase({ collection, filePath, body });
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+  if (action === "archive") {
+    const result = await archiveArticleInSupabase(filePath);
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+  if (action === "unarchive") {
+    if (body.confirm !== "DESARCHIVER") {
+      sendJson(res, 400, { error: "Confirmation requise : ecris DESARCHIVER." });
+      return true;
+    }
+    const result = await unarchiveArticleInSupabase(filePath);
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+  if (action === "delete") {
+    if (body.confirm !== "SUPPRIMER") {
+      sendJson(res, 400, { error: "Confirmation requise : ecris SUPPRIMER." });
+      return true;
+    }
+    const result = await deleteArticleInSupabase(filePath);
+    sendJson(res, 200, { ok: true, action, ...result });
+    return true;
+  }
+
+  return false;
+}
+
 module.exports = async function manageContent(req, res) {
   try {
     const token = process.env.GITHUB_CONTENT_TOKEN || process.env.GITHUB_TOKEN;
+    const repository = process.env.GITHUB_REPO || DEFAULT_REPO;
+    const branch = deploymentBranch();
+
+    if (cms.isConfigured() && await handleSupabaseContent(req, res, { repository, branch, token })) {
+      return;
+    }
+
     if (!token) {
       sendJson(res, 500, { error: "GITHUB_CONTENT_TOKEN est manquant dans les variables d'environnement Vercel." });
       return;
     }
-    const repository = process.env.GITHUB_REPO || DEFAULT_REPO;
-    const branch = process.env.GITHUB_BRANCH || DEFAULT_BRANCH;
 
     if (req.method === "GET") {
       const url = new URL(req.url, "https://blog.mdrenov-menuiserie.com");
@@ -731,7 +1398,11 @@ module.exports = async function manageContent(req, res) {
         return;
       }
       const items = await listManagedContent(repository, branch, token);
-      sendJson(res, 200, { ok: true, items });
+      const tags = Array.from(new Set(items.flatMap((item) => item.tags || [])))
+        .map((tag) => String(tag).trim())
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b, "fr"));
+      sendJson(res, 200, { ok: true, items, tags });
       return;
     }
 
@@ -746,9 +1417,33 @@ module.exports = async function manageContent(req, res) {
     const collection = String(body.collection || "");
     const filePath = String(body.filePath || "");
 
+    if (action === "publish_article") {
+      const result = await publishArticle({ repository, branch, token, body });
+      sendJson(res, 200, { ok: true, action, ...result });
+      return;
+    }
+
+    if (action === "update_article") {
+      const result = await updatePublishedArticle({ repository, branch, token, collection, filePath, body });
+      sendJson(res, 200, { ok: true, action, ...result });
+      return;
+    }
+
     if (action === "archive") {
       const result = await archiveManagedContent({ repository, branch, token, collection, filePath });
-      sendJson(res, 200, { ok: true, action, ...result });
+      const deploy = await triggerDeployHook("archive", result.deleted || result.archived || []);
+      sendJson(res, 200, { ok: true, action, ...result, deploy });
+      return;
+    }
+
+    if (action === "unarchive") {
+      if (body.confirm !== "DESARCHIVER") {
+        sendJson(res, 400, { error: "Confirmation requise : écris DESARCHIVER." });
+        return;
+      }
+      const result = await unarchiveManagedContent({ repository, branch, token, collection, filePath });
+      const deploy = await triggerDeployHook("unarchive", result.restored || []);
+      sendJson(res, 200, { ok: true, action, ...result, deploy });
       return;
     }
 
@@ -758,7 +1453,8 @@ module.exports = async function manageContent(req, res) {
         return;
       }
       const result = await deleteManagedContent({ repository, branch, token, collection, filePath });
-      sendJson(res, 200, { ok: true, action, ...result });
+      const deploy = await triggerDeployHook("delete", result.deleted || []);
+      sendJson(res, 200, { ok: true, action, ...result, deploy });
       return;
     }
 
@@ -776,6 +1472,7 @@ module.exports = async function manageContent(req, res) {
 
     sendJson(res, 400, { error: "Action inconnue." });
   } catch (error) {
+    console.error("[manage-content]", error);
     sendJson(res, 500, { error: error.message || "Erreur serveur." });
   }
 };

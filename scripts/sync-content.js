@@ -2,7 +2,9 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
+const ARTICLE_CONTENT_DIR = path.join(ROOT, "content", "articles");
 const SITE_URL = "https://blog.mdrenov-menuiserie.com";
+const BRAND_NAME = "MD Rénov'";
 const ASSET_VERSION = "menu-20260630a";
 const HANDCRAFTED_PAGES = new Set(["maprimerenov-2026-haute-savoie.html"]);
 const CATEGORY_LISTINGS = {
@@ -20,7 +22,8 @@ function e(value = "") {
 
 // Pages whose absolute URL is built without the .html extension (clean URLs are
 // enabled in vercel.json, so /article is the canonical form served by Vercel).
-const SITEMAP_EXCLUDE = new Set(["maprimerenov-2025-haute-savoie.html"]);
+const SITEMAP_EXCLUDE = new Set(["404.html", "maprimerenov-2025-haute-savoie.html"]);
+const TECHNICAL_HTML_RE = /^(google|024c4ac8dc07458fa612a50b4eb76b41).*\.html$/;
 
 function cleanPath(htmlFile = "") {
   const name = String(htmlFile).replace(/^\.?\//, "");
@@ -100,21 +103,36 @@ function formatDate(dateValue) {
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" }).format(date);
 }
 
+function formatTitlePunctuation(value = "") {
+  return String(value || "")
+    .replace(/\s*([:?])/g, " $1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normalizeBrandName(value = "") {
+  return String(value || "")
+    .replace(/MD Renov'?/gi, BRAND_NAME)
+    .replace(/MD Rénov'?/gi, BRAND_NAME)
+    .replace(/md rénov'?/gi, BRAND_NAME)
+    .replace(/MD Rénov''/g, BRAND_NAME);
+}
+
 function cleanArticleTitle(rawTitle = "", description = "") {
   let title = String(rawTitle || "").replace(/\s+/g, " ").trim();
   const desc = String(description || "").replace(/\s+/g, " ").trim();
   if (desc && title.includes(desc)) title = title.replace(desc, "").trim();
-  title = title.replace(/\s+([?.!,;:])/g, "$1").replace(/[.\s]+$/, "").trim();
+  title = title.replace(/\s+([.,!;])/g, "$1").replace(/[.\s]+$/, "").trim();
   if (title.length > 95) {
     const questionEnd = title.indexOf("? ");
     if (questionEnd > 20) title = title.slice(0, questionEnd + 1).trim();
   }
   if (title.length > 95) title = title.slice(0, 92).replace(/\s+\S*$/, "").trim();
-  return title || rawTitle;
+  return formatTitlePunctuation(title || rawTitle);
 }
 
 function shortenText(value = "", max = 74) {
-  const text = String(value || "").replace(/\s+/g, " ").trim();
+  const text = formatTitlePunctuation(value);
   if (text.length <= max) return text;
   return `${text.slice(0, max - 1).replace(/\s+\S*$/, "").trim()}…`;
 }
@@ -123,7 +141,7 @@ function normalizeArticleMarkdown(markdown = "") {
   let text = String(markdown || "").replace(/\r\n/g, "\n").trim();
   text = text.replace(/^#\s+.+\n+/, "");
   text = text.replace(/##\s+Ce que ce guide vous aide à décider\s*\n+[\s\S]*?(?=\n##\s+)/i, "");
-  text = text.replace(/##\s+Rep(?:ères|Ã¨res) rapides\s*\n+[\s\S]*?(?=\n##\s+)/i, "");
+  text = text.replace(/##\s+Rep(?:ères|\u00c3\u00a8res) rapides\s*\n+[\s\S]*?(?=\n##\s+)/i, "");
   text = text.replace(/\s+Vous habitez [\s\S]*?Cadrer mon store/gi, "");
 
   return text
@@ -153,21 +171,24 @@ function firstParagraph(markdown = "") {
   return paragraph ? stripMarkdown(paragraph) : "";
 }
 
-function articleFromFile(fileName) {
-  const { data, body } = parseFrontmatter(fs.readFileSync(path.join(ROOT, fileName), "utf8"));
+function articleFromMarkdown(fileName, raw) {
+  const { data, body } = parseFrontmatter(raw);
   if (data.content_type !== "article" || data.published === false) return null;
-  const htmlFile = String(data.source_html || fileName.replace(/\.md$/, "")).replace(/^\.?\//, "");
+  const fallbackHtmlFile = path.basename(fileName).replace(/\.html\.md$/, ".html").replace(/\.md$/, ".html");
+  const htmlFile = String(data.source_html || fallbackHtmlFile).replace(/^\.?\//, "");
   const description = data.description || "Guide MD Rénov' pour préparer un projet de rénovation.";
-  const title = cleanArticleTitle(data.title || fileName.replace(/\.html\.md$/, ""), description);
+  const title = cleanArticleTitle(data.title || path.basename(fileName).replace(/\.html\.md$/, "").replace(/\.md$/, ""), description);
   return {
     ...data,
     body: normalizeArticleMarkdown(body),
     htmlFile,
     title,
-    description,
+    seo_title: data.seo_title ? normalizeBrandName(formatTitlePunctuation(data.seo_title)) : data.seo_title,
+    description: normalizeBrandName(description),
     category: data.category || "exterieur",
     category_label: data.category_label || "Conseils",
     date: data.date || "2026-04-29",
+    modified_date: data.modified_date || data.date || "2026-04-29",
     reading_time: data.reading_time || "4 min",
     image_alt: data.image_alt || title,
     featured_image: data.featured_image || "",
@@ -175,18 +196,34 @@ function articleFromFile(fileName) {
   };
 }
 
+function articleFromFile(fileName) {
+  const absolutePath = path.join(ROOT, fileName);
+  return articleFromMarkdown(fileName, fs.readFileSync(absolutePath, "utf8"));
+}
+
 function loadArticles() {
-  return fs.readdirSync(ROOT).filter((name) => name.endsWith(".html.md")).map(articleFromFile).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+  const articleFiles = [
+    ...fs.readdirSync(ROOT).filter((name) => name.endsWith(".html.md")),
+    ...(fs.existsSync(ARTICLE_CONTENT_DIR)
+      ? fs.readdirSync(ARTICLE_CONTENT_DIR)
+        .filter((name) => name.endsWith(".md"))
+        .map((name) => path.join("content", "articles", name).replace(/\\/g, "/"))
+      : []),
+  ];
+  return articleFiles.map(articleFromFile).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 }
 
 function headAssets() {
-  return `<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+  return `<link rel="icon" type="image/svg+xml" href="./logo-mdr-site.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
-<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 <link rel="shortcut icon" href="./favicon-32x32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
 <link rel="manifest" href="./site.webmanifest" />
 <meta name="theme-color" content="#9B1C1C" />
+<meta name="application-name" content="${BRAND_NAME}" />
+<meta name="apple-mobile-web-app-title" content="${BRAND_NAME}" />
+<meta name="google-site-verification" content="4aMlUzolkyQFqZKkQu6U1K5dWI3cuvZ15mC2DOkzMKE" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
@@ -240,7 +277,7 @@ function mediaBlock(article) {
     const normalized = /^https?:\/\//i.test(src) ? src : `./${src.replace(/^\.?\//, "")}`;
     return `<div class="mdr-media mdr-media--article mdr-media--image"><img src="${e(normalized)}" alt="${label}" loading="eager"></div>`;
   }
-  return `<div class="mdr-media mdr-media--article" aria-label="Emplacement visuel 16:10 : ${label}"><strong>${label}</strong><span>Emplacement photo 16:10</span></div>`;
+  return "";
 }
 
 function articleImageUrl(article) {
@@ -270,6 +307,13 @@ function accentTitle(title = "", article = {}) {
 }
 
 function categoryFacts(article) {
+  if (article.htmlFile === "canicule-comment-rafraichir-votre-maison-sans-climatisation.html") {
+    return [
+      ["Priorité", "Bloquer le soleil", "Fermez les protections extérieures avant que le vitrage ne chauffe."],
+      ["Bon moment", "Aérer quand il fait plus frais", "Ouvrez le soir, la nuit ou tôt le matin selon la température extérieure."],
+      ["À choisir", "Volet, BSO ou store", "Adaptez la protection à l’orientation, à la pièce et à l’exposition au vent."],
+    ];
+  }
   const theme = String(article.category_label || "").toLowerCase().includes("démarch") ? "demarches" : article.category;
   const facts = {
     aides: [["À vérifier", "Éligibilité réelle", "Les aides dépendent du foyer, du logement, des travaux et de l'ordre des démarches."], ["Budget", "Reste à charge", "Le montant utile est celui qui reste à payer après aides, options, pose et finitions."], ["Condition clé", "Entreprise RGE", "La qualification et le devis doivent être vérifiés avant signature."], ["Prudence", "Ne pas signer trop tôt", "Un dossier mal ordonné peut faire perdre une aide ou retarder le chantier."]],
@@ -284,9 +328,12 @@ function categoryFacts(article) {
 }
 
 function renderKeyFacts(article) {
-  return `<div class="mdr-keyfacts mdr-keyfacts--compact" aria-label="Repères à retenir">
-${categoryFacts(article).map(([label, title, text]) => `<div><span>${e(label)}</span><strong>${e(title)}</strong><p>${e(text)}</p></div>`).join("\n")}
-</div>`;
+  return `<section class="mdr-keyfacts mdr-keyfacts--compact" aria-label="En bref">
+<p class="mdr-keyfacts__title">En bref</p>
+<div class="mdr-keyfacts__grid">
+${categoryFacts(article).slice(0, 3).map(([label, title, text]) => `<div><span>${e(label)}</span><strong>${e(title)}</strong><p>${e(text)}</p></div>`).join("\n")}
+</div>
+</section>`;
 }
 
 function listMode(sectionType) {
@@ -344,22 +391,35 @@ function mdToHtml(markdown = "") {
   for (const raw of lines) {
     const line = raw.trim();
     if (!line) { flushParagraph(); closeLists(); flushTable(); continue; }
+    const ctaMarker = line.match(/^<!--\s*mdr-cta\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*-->$/i);
+    if (ctaMarker) {
+      flushParagraph();
+      closeLists();
+      flushTable();
+      closeSourceCard();
+      closeEditorialCard();
+      sectionType = "";
+      const [, ctaTitle, ctaText, ctaButton] = ctaMarker;
+      html.push(`<div class="mdr-prose-cta"><div><strong>${inline(ctaTitle || "Vous voulez cadrer votre projet avant de signer ?")}</strong><span>${inline(ctaText || "MD Rénov' vous aide à choisir la solution utile, adaptée au logement et au budget.")}</span></div><a class="mdr-btn mdr-btn--white" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">${inline(ctaButton || "Faire le point")}</a></div>`);
+      continue;
+    }
     if (/^<!--\s*mdr-editorial-value-md\s*-->$/.test(line)) { flushParagraph(); closeLists(); flushTable(); closeSourceCard(); closeEditorialCard(); openEditorialCard = true; sectionType = ""; html.push('<section class="mdr-editorial-value mdr-editorial-value--from-md">'); continue; }
     if (/^<!--.*-->$/.test(line) || line.startsWith("# ")) { flushParagraph(); continue; }
     if (line.startsWith("|")) { flushParagraph(); closeLists(); table.push(line); continue; }
     if (line.startsWith("## ")) {
       flushParagraph(); closeLists(); flushTable();
-      const title = stripMarkdown(line.slice(3));
+      const heading = formatTitlePunctuation(line.slice(3));
+      const title = stripMarkdown(heading);
       const normalized = slugify(title);
       closeSourceCard();
-      if (normalized.includes("source")) { closeEditorialCard(); sectionType = "sources"; openSourceCard = true; html.push(`<div class="mdr-source-card mdr-source-card--rich" id="${e(normalized)}"><strong>${inline(line.slice(3))}</strong>`); continue; }
+      if (normalized.includes("source")) { closeEditorialCard(); sectionType = "sources"; openSourceCard = true; html.push(`<div class="mdr-source-card mdr-source-card--rich" id="${e(normalized)}"><strong>${inline(heading)}</strong>`); continue; }
       if (normalized.includes("erreur") || normalized.includes("eviter")) sectionType = "errors";
       else if (normalized.includes("question")) sectionType = "questions";
       else sectionType = "";
-      html.push(`<h2 id="${e(normalized)}">${inline(line.slice(3))}</h2>`);
+      html.push(`<h2 id="${e(normalized)}">${inline(heading)}</h2>`);
       continue;
     }
-    if (line.startsWith("### ")) { flushParagraph(); closeLists(); flushTable(); const title = stripMarkdown(line.slice(4)); closeSourceCard(); html.push(`<h3 id="${e(slugify(title))}">${inline(line.slice(4))}</h3>`); continue; }
+    if (line.startsWith("### ")) { flushParagraph(); closeLists(); flushTable(); const heading = formatTitlePunctuation(line.slice(4)); const title = stripMarkdown(heading); closeSourceCard(); html.push(`<h3 id="${e(slugify(title))}">${inline(heading)}</h3>`); continue; }
     if (line.startsWith("- ")) { flushParagraph(); flushTable(); if (ordered) { html.push("</ol>"); ordered = false; } if (!unordered) { html.push(`<ul${listClass()}>`); unordered = true; } html.push(listItem(line.slice(2))); continue; }
     const orderedItem = line.match(/^\d+[\.)]\s+(.+)$/);
     if (orderedItem) { flushParagraph(); flushTable(); if (unordered) { html.push("</ul>"); unordered = false; } if (!ordered) { html.push("<ol>"); ordered = true; } html.push(listItem(orderedItem[1])); continue; }
@@ -387,7 +447,7 @@ function listingCard(article, pageSlug) {
 <a class="mdr-home-card__overlay" href="./${e(article.htmlFile)}" aria-label="Lire : ${e(article.title)}"></a>
 <div class="mdr-home-media mdr-home-media--card"><strong>${mediaLabel}</strong></div>
 <div class="mdr-home-card__body">
-<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">${e(article.category_label)}</span><span class="mdr-home-card__date">${e(formatDate(article.date))}</span></div>
+<div class="mdr-home-card__meta"><span class="mdr-home-card__tag">${e(article.category_label)}</span><span class="mdr-home-card__date">${e(formatDate(article.modified_date || article.date))}</span></div>
 <h3>${e(article.title)}</h3>
 <p>${e(article.description)}</p>
 <div class="mdr-home-card__foot"><a class="mdr-link" href="./${e(article.htmlFile)}">Lire</a><span class="mdr-home-card__time">${e(article.reading_time)}</span></div>
@@ -441,38 +501,44 @@ function articlePage(article, allArticles) {
   const articleUrl = pageUrl(article.htmlFile);
   const related = allArticles.filter((item) => item.htmlFile !== article.htmlFile && item.category === article.category).slice(0, 3).map((item) => ({ ...item, title: shortenText(item.title, 74) }));
   const image = articleImageUrl(article);
+  const heroImage = String(article.featured_image || "").trim() ? image : "";
+  const headClass = heroImage ? "mdr-article-head mdr-head-immersive" : "mdr-article-head";
+  const headStyle = heroImage ? ` style="--mdr-hero-img: url('${e(heroImage)}')"` : "";
   const publisherLogo = `${SITE_URL}/apple-touch-icon.png`;
   const lead = article.description || firstParagraph(article.body);
   const hasCustomEditorialBlock = /<!--\s*mdr-editorial-value-md\s*-->/.test(article.body);
-  const jsonLd = { "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description: article.description, image, datePublished: article.date, dateModified: article.date, author: { "@type": "Organization", name: "MD Rénov'" }, publisher: { "@type": "Organization", name: "MD Rénov'", logo: { "@type": "ImageObject", url: publisherLogo } }, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl }, articleSection: article.category_label, keywords: article.tags.join(", "), inLanguage: "fr-FR" };
+  const pageTitle = normalizeBrandName(article.seo_title || article.title);
+  const jsonLd = { "@context": "https://schema.org", "@type": "BlogPosting", headline: article.title, description: article.description, image, datePublished: article.date, dateModified: article.modified_date || article.date, author: { "@type": "Organization", name: BRAND_NAME }, publisher: { "@type": "Organization", name: BRAND_NAME, logo: { "@type": "ImageObject", url: publisherLogo } }, mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl }, articleSection: article.category_label, keywords: article.tags.join(", "), inLanguage: "fr-FR" };
 
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>${e(article.seo_title || article.title)}</title>
+<title>${e(pageTitle)}</title>
 <meta name="description" content="${e(article.description)}" />
 <meta name="robots" content="index,follow" />
 <link rel="canonical" href="${articleUrl}" />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="${e(article.seo_title || article.title)}" />
+<meta property="og:site_name" content="${BRAND_NAME}" />
+<meta property="og:title" content="${e(pageTitle)}" />
 <meta property="og:description" content="${e(article.description)}" />
 <meta property="og:url" content="${articleUrl}" />
 <meta property="og:image" content="${image}" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="author" content="MD Rénov'" />
+<meta name="twitter:title" content="${e(pageTitle)}" />
+<meta name="author" content="${BRAND_NAME}" />
 ${headAssets()}
 <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>
 </head>
 <body class="site-page mdr-article-page" data-generated="editorial-template">
 <a class="skip-link" href="#contenu">Aller au contenu</a>
 <main id="contenu" class="mdr-stage"><div class="mdr-wrap">
-<header class="mdr-nav"><a class="mdr-nav__brand" href="./index.html" aria-label="Retour au blog"><img src="./logo-mdr-site.svg" alt="Logo MD Rénov'" width="241" height="54" /></a><nav class="mdr-nav__links" aria-label="Navigation article"><a href="./index.html">Retour au blog</a><span>${e(article.category_label)}</span></nav><a class="mdr-btn mdr-btn--primary" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Devis gratuit</a></header>
-<section class="mdr-article-head"><div class="mdr-breadcrumb"><a href="./index.html">Accueil</a><span>Blog</span><span><a href="${categoryPage(article)}">${e(article.category_label)}</a></span></div><div class="mdr-article-head__meta"><a class="mdr-card__tag" href="${categoryPage(article)}" aria-label="Voir les articles ${e(article.category_label)}">${e(article.category_label)}</a><span class="mdr-card__date">${e(formatDate(article.date))}</span><span class="mdr-card__time">${e(article.reading_time)} de lecture</span></div><h1>${accentTitle(article.title, article)}</h1><p class="mdr-article-head__excerpt">${e(article.description)}</p></section>
+<header class="mdr-nav"><a class="mdr-nav__brand" href="./index.html" aria-label="Accueil du blog"><img src="./logo-mdr-site.svg" alt="Logo MD Rénov'" width="241" height="54" /></a><nav class="mdr-nav__links mdr-nav__links--breadcrumb" aria-label="Fil d'Ariane"><a href="./index.html">Blog</a><a href="${categoryPage(article)}">${e(article.category_label)}</a><span aria-current="page">Article</span></nav><a class="mdr-btn mdr-btn--primary" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Devis gratuit</a></header>
+<section class="${headClass}"${headStyle}><div class="mdr-breadcrumb"><a href="./index.html">Accueil</a><span>Blog</span><span><a href="${categoryPage(article)}">${e(article.category_label)}</a></span></div><div class="mdr-article-head__meta"><a class="mdr-card__tag" href="${categoryPage(article)}" aria-label="Voir les articles ${e(article.category_label)}">${e(article.category_label)}</a><span class="mdr-card__date">Mis à jour le ${e(formatDate(article.modified_date || article.date))}</span><span class="mdr-card__time">${e(article.reading_time)} de lecture</span></div><h1>${accentTitle(article.title, article)}</h1><p class="mdr-article-head__excerpt">${e(article.description)}</p></section>
 <section class="mdr-article-body"><article class="mdr-prose">
-${mediaBlock(article)}
+${heroImage ? "" : mediaBlock(article)}
 <div class="mdr-article-leadbox"><strong>Le point important</strong><p>${e(lead)}</p></div>
 ${renderKeyFacts(article)}
 ${mdToHtml(article.body)}
@@ -488,7 +554,7 @@ ${bodyAssets()}
 
 function updateSitemap(articles) {
   const htmlFiles = fs.readdirSync(ROOT)
-    .filter((name) => name.endsWith(".html") && !SITEMAP_EXCLUDE.has(name))
+    .filter((name) => name.endsWith(".html") && !SITEMAP_EXCLUDE.has(name) && !TECHNICAL_HTML_RE.test(name))
     .map(cleanPath);
   const articlePaths = articles
     .filter((article) => !SITEMAP_EXCLUDE.has(article.htmlFile))
@@ -503,13 +569,24 @@ function updateLlms(articles) {
   fs.writeFileSync(path.join(ROOT, "llms.txt"), lines.join("\n"), "utf8");
 }
 
-const articles = loadArticles();
-for (const article of articles) {
+if (require.main === module) {
+  const articles = loadArticles();
+  for (const article of articles) {
   if (HANDCRAFTED_PAGES.has(article.htmlFile)) continue;
   fs.writeFileSync(path.join(ROOT, article.htmlFile), articlePage(article, articles), "utf8");
+  }
+  updateCategoryListings(articles);
+  updateLegacyFooters();
+  updateSitemap(articles);
+  updateLlms(articles);
+  console.log(`Build éditorial terminé : ${articles.length} article(s), ${HANDCRAFTED_PAGES.size} page(s) protégée(s).`);
 }
-updateCategoryListings(articles);
-updateLegacyFooters();
-updateSitemap(articles);
-updateLlms(articles);
-console.log(`Build éditorial terminé : ${articles.length} article(s), ${HANDCRAFTED_PAGES.size} page(s) protégée(s).`);
+
+module.exports = {
+  articleFromMarkdown,
+  articlePage,
+  cleanPath,
+  listingCard,
+  parseFrontmatter,
+  root: ROOT,
+};

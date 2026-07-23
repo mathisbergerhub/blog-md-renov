@@ -1,7 +1,7 @@
 {
-  "name": "Le journal MD Renov'",
-  "short_name": "MD Renov'",
-  "description": "Blog maison, menuiseries et renovation de MD Renov'.",
+  "name": "Le journal MD Rénov'",
+  "short_name": "MD Rénov'",
+  "description": "Blog maison, menuiseries et rénovation de MD Rénov'.",
   "start_url": "https://blog.mdrenov-menuiserie.com/",
   "display": "standalone",
   "background_color": "#fbfbfc",
@@ -20,7 +20,7 @@
       "purpose": "any"
     },
     {
-      "src": "https://blog.mdrenov-menuiserie.com/favicon.svg",
+      "src": "https://blog.mdrenov-menuiserie.com/logo-mdr-site.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

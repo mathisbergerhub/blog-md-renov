@@ -7,6 +7,7 @@ description: 'Dormant existant, perte de clair de jour, pont thermique, finition
 category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '5 min'
 featured_image: 'uploads/articles/pose-renovation-depose-totale-fenetres.webp'
 image_alt: 'Remplacement de fenêtres en rénovation avec préparation du chantier'

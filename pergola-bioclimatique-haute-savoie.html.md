@@ -7,9 +7,10 @@ description: 'Orientation, lames, pluie légère, options et autorisations : les
 category: 'exterieur'
 category_label: 'Pergolas'
 date: '2026-03-24'
+modified_date: '2026-07-17'
 reading_time: '4 min'
-featured_image: ''
-image_alt: 'Pergola et terrasse'
+featured_image: 'uploads/articles/pergola-bioclimatique-haute-savoie.webp'
+image_alt: 'Pergola bioclimatique anthracite avec lames orientables sur terrasse'
 source_html: './pergola-bioclimatique-haute-savoie.html'
 tags:
   - 'Haute-Savoie'
@@ -34,11 +35,17 @@ Orientation, lames, pluie légère, options et autorisations : les points à val
 
 ## Une pergola doit répondre à un problème précis La pergola bioclimatique est pertinente quand la terrasse est trop chaude, trop exposée ou peu utilisable aux mi-saisons. Elle n'est pas seulement décorative : elle doit améliorer l'usage quotidien de l'extérieur.
 
-## Les questions à se poser - À quelle heure la terrasse devient-elle inconfortable ? - La façade est-elle exposée au vent ou aux pluies fréquentes ? - Faut-il protéger une baie vitrée, une table ou tout un espace de vie ? - Les options comme stores latéraux, LED ou chauffage sont-elles utiles ou superflues ?
+## Les questions à se poser
 
-## Autorisation : ne pas l'oublier Service Public rappelle qu'une pergola peut relever d'une déclaration préalable ou d'un permis selon le PLU, la localisation et la surface. En zone urbaine couverte par un PLU, une extension jusqu'à 40 m² peut relever d'une déclaration préalable ; au-delà, le permis peut être requis. La mairie reste le passage obligé.
+- À quelle heure la terrasse devient-elle inconfortable ? - La façade est-elle exposée au vent ou aux pluies fréquentes ? - Faut-il protéger une baie vitrée, une table ou tout un espace de vie ? - Les options comme stores latéraux, LED ou chauffage sont-elles utiles ou superflues ?
 
-## La surface peut changer l’autorisation nécessaire Une pergola peut être considérée comme une construction nouvelle ou comme une extension selon son implantation. La surface, le PLU et la localisation du terrain peuvent donc faire basculer le projet vers une déclaration préalable ou un permis. Il faut clarifier ce point avant de figer les dimensions et le devis définitif. Source : Service Public, pergola, carport et abri.
+## Autorisation : ne pas l'oublier
+
+Service Public rappelle qu'une pergola peut relever d'une déclaration préalable ou d'un permis selon le PLU, la localisation et la surface. En zone urbaine couverte par un PLU, une extension jusqu'à 40 m² peut relever d'une déclaration préalable ; au-delà, le permis peut être requis. La mairie reste le passage obligé.
+
+## La surface peut changer l’autorisation nécessaire
+
+Une pergola peut être considérée comme une construction nouvelle ou comme une extension selon son implantation. La surface, le PLU et la localisation du terrain peuvent donc faire basculer le projet vers une déclaration préalable ou un permis. Il faut clarifier ce point avant de figer les dimensions et le devis définitif. Source : Service Public, pergola, carport et abri.
 
 ## Une pergola n'est pas une véranda La pergola bioclimatique protège du soleil et améliore l'usage de la terrasse, mais elle ne remplace pas une pièce isolée. Il faut donc cadrer l'attente : ombre, ventilation, pluie légère, confort extérieur, mais pas chauffage ni isolation comme une extension fermée. Vous envisagez une pergola ? On vérifie l'usage, la surface et les contraintes de façade avant le devis. Étudier ma terrasse
 

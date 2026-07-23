@@ -1,15 +1,35 @@
-import { next } from "@vercel/functions";
+import { rewrite } from "@vercel/functions";
 
-// Secrets read from environment (set them in Vercel > Project > Settings > Environment Variables).
-// Fallbacks keep the current behaviour working until the env vars are configured.
-const FALLBACK_HASH =
-  "8f9e5669280cd41a44674368ccb532d5b8f1070e58ad7bc9091216c62893b25e";
-const BLOG_PASSWORD_HASH = process.env.MDR_BLOG_PASSWORD_HASH || FALLBACK_HASH;
-const ADMIN_PASSWORD_HASH = process.env.MDR_ADMIN_PASSWORD_HASH || FALLBACK_HASH;
-const COOKIE_SECRET = process.env.MDR_COOKIE_SECRET || `mdr-fallback-${FALLBACK_HASH}`;
-const BLOG_ACCESS_COOKIE = "mdr_blog_access";
+// Secrets must be configured in Vercel environment variables.
+// No fallback is kept in source control: if a secret is missing, access fails closed.
+const ADMIN_PASSWORD_HASH = process.env.MDR_ADMIN_PASSWORD_HASH || "";
+const COOKIE_SECRET = process.env.MDR_COOKIE_SECRET || "";
 const ADMIN_ACCESS_COOKIE = "mdr_admin_access";
 const ONE_WEEK = 60 * 60 * 24 * 7;
+const STATIC_PUBLIC_PAGES = new Set([
+  "/",
+  "/index",
+  "/404",
+  "/aides-subventions",
+  "/fenetres-vitrages",
+  "/isolation-thermique",
+  "/volets-stores",
+  "/portes-portails",
+  "/tous-les-articles-exterieur",
+  "/mentions-legales",
+  "/politique-confidentialite",
+  "/politique-cookies",
+  "/conditions-utilisation",
+  "/google4aMlUzolkyQFqZKkQu6U1K5dWI3cuvZ15mC2DOkzMKE",
+]);
+
+function next() {
+  return new Response(null, {
+    headers: {
+      "x-middleware-next": "1",
+    },
+  });
+}
 
 function parseCookie(header = "") {
   return Object.fromEntries(
@@ -78,7 +98,42 @@ function isAdminRoute(pathname) {
 }
 
 function isAdminApi(pathname) {
-  return pathname.startsWith("/api/");
+  return pathname.startsWith("/api/") && pathname !== "/api/cms-article" && pathname !== "/api/cms-listing";
+}
+
+function isSupabaseConfigured() {
+  return Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY);
+}
+
+function isDynamicSeoFile(pathname, method) {
+  if (!isSupabaseConfigured()) return false;
+  if (!["GET", "HEAD"].includes(method)) return false;
+  return pathname === "/sitemap.xml" || pathname === "/llms.txt";
+}
+
+function isCmsListing(pathname, method) {
+  if (!isSupabaseConfigured()) return false;
+  if (!["GET", "HEAD"].includes(method)) return false;
+  return STATIC_PUBLIC_PAGES.has(pathname.replace(/\.html$/, "")) && ![
+    "/404",
+    "/mentions-legales",
+    "/politique-confidentialite",
+    "/politique-cookies",
+    "/conditions-utilisation",
+    "/google4aMlUzolkyQFqZKkQu6U1K5dWI3cuvZ15mC2DOkzMKE",
+  ].includes(pathname.replace(/\.html$/, ""));
+}
+
+function isCmsArticleCandidate(pathname, method) {
+  if (!isSupabaseConfigured()) return false;
+  if (!["GET", "HEAD"].includes(method)) return false;
+  if (STATIC_PUBLIC_PAGES.has(pathname.replace(/\.html$/, ""))) return false;
+  if (pathname.includes(".")) return false;
+  return /^\/[a-z0-9-]+$/.test(pathname);
+}
+
+function missingSecret() {
+  return !COOKIE_SECRET || !ADMIN_PASSWORD_HASH;
 }
 
 function buildCookie(name, value) {
@@ -355,7 +410,32 @@ export default async function middleware(request) {
   const adminRoute = isAdminRoute(url.pathname);
   const adminApi = isAdminApi(url.pathname);
 
-  const blogToken = await accessToken("blog-access");
+  if (!adminRoute && !adminApi && isDynamicSeoFile(url.pathname, request.method)) {
+    return rewrite(new URL(url.pathname === "/sitemap.xml" ? "/api/sitemap" : "/api/llms", request.url));
+  }
+
+  if (!adminRoute && !adminApi && isCmsListing(url.pathname, request.method)) {
+    const target = new URL("/api/cms-listing", request.url);
+    target.searchParams.set("path", url.pathname === "/" ? "" : url.pathname.slice(1));
+    return rewrite(target);
+  }
+
+  if (!adminRoute && !adminApi && isCmsArticleCandidate(url.pathname, request.method)) {
+    const target = new URL("/api/cms-article", request.url);
+    target.searchParams.set("slug", url.pathname.slice(1));
+    return rewrite(target);
+  }
+
+  if (!adminRoute && !adminApi) {
+    return next();
+  }
+
+  if (missingSecret()) {
+    return adminApi
+      ? jsonResponse("Configuration de sécurité manquante.", 503)
+      : htmlResponse(loginPage({ admin: adminRoute, error: true }), 503);
+  }
+
   const adminToken = await accessToken("admin-access");
 
   if (adminRoute || adminApi) {
@@ -381,22 +461,7 @@ export default async function middleware(request) {
     return htmlResponse(loginPage({ admin: true }));
   }
 
-  if (cookies[BLOG_ACCESS_COOKIE] === blogToken) {
-    return next();
-  }
-
-  if (request.method === "POST") {
-    const response = await handlePasswordPost(
-      request,
-      url,
-      BLOG_PASSWORD_HASH,
-      BLOG_ACCESS_COOKIE,
-      blogToken,
-    );
-    return response || htmlResponse(loginPage({ error: true }), 401);
-  }
-
-  return htmlResponse(loginPage());
+  return next();
 }
 
 export const config = {

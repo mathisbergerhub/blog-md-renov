@@ -7,9 +7,10 @@ description: 'Motorisation, alimentation, sécurité, interphone, visiophone et 
 category: 'portes-portails'
 category_label: 'Portails'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
-featured_image: ''
-image_alt: 'Portail motorisé et interphone'
+featured_image: 'uploads/articles/portail-motorise-interphone-securite.webp'
+image_alt: 'Portail motorisé avec visiophone et digicode à l’entrée d’une maison'
 source_html: './portail-motorise-interphone-securite.html'
 tags:
   - 'Haute-Savoie'
@@ -34,7 +35,9 @@ Motorisation, alimentation, sécurité, interphone, visiophone et accès piéton
 
 ## La motorisation se prépare avant la pose du portail Un portail peut être motorisé plus tard, mais c'est rarement l'option la plus simple. Prévoir l'alimentation, les gaines, les cellules, le feu clignotant, le visiophone ou le digicode dès le départ évite des reprises coûteuses.
 
-## Les équipements à anticiper - Alimentation électrique jusqu'au pilier.
+## Les équipements à anticiper
+
+- Alimentation électrique jusqu'au pilier.
 - Cellules de sécurité et feu de signalisation si nécessaire.
 - Commande à distance, clavier, badge ou smartphone.
 - Visiophone ou interphone avec passage de câble.

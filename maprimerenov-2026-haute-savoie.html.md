@@ -7,6 +7,7 @@ description: 'Aides, conditions, démarches : tout ce qu’il faut savoir avant 
 category: 'aides'
 category_label: 'Aides & budget'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '4 min'
 featured_image: '/uploads/briefs/2026-05-27-image-maprimerenov-2026-1-maprimerenov-2026-aide-renovation.webp'
 image_alt: 'Conseiller MD Rénov’ expliquant les aides MaPrimeRénov’ devant une fenêtre à rénover'
@@ -32,7 +33,7 @@ MaPrimeRénov’ peut aider à financer un projet de rénovation énergétique, 
 - Objectif 2026 : 150 000 rénovations par geste annoncées, en plus des rénovations d’ampleur.
 - Point bloquant : les travaux doivent être réalisés par une entreprise RGE.
 
-## MaPrimeRénov’: ce qu’il faut comprendre avant le devis
+## MaPrimeRénov’ : ce qu’il faut comprendre avant le devis
 
 MaPrimeRénov’ dépend de votre situation et du type de travaux. France Rénov’ indique que l’aide varie selon les revenus du foyer et le projet engagé. Pour une rénovation par geste, elle concerne notamment le chauffage et l’isolation ; pour une rénovation d’ampleur, le projet doit viser un gain énergétique beaucoup plus important.
 
@@ -78,9 +79,9 @@ Le bon devis doit donc expliquer le produit, mais aussi la logique du choix : pe
 
 ## Sources officielles utilisées
 
-- info.gouv.fr : réouverture de MaPrimeRénov’ le 23 février 2026, budget 2026 et objectifs annoncés.
-- France Rénov’ : conditions MaPrimeRénov’ par geste, logement, revenus, entreprise RGE et aides cumulables.
-- France Rénov’ : rénovation d’ampleur, gain énergétique et rendez-vous obligatoire avec un conseiller.
+- [info.gouv.fr - réouverture de MaPrimeRénov’](https://www.info.gouv.fr/actualite/reouverture-de-maprimerenov) : confirme la réouverture du guichet le 23 février 2026, le budget 2026 de 3,6 milliards d’euros et le rendez-vous France Rénov’ obligatoire pour les rénovations d’ampleur.
+- [France Rénov’ - MaPrimeRénov’ par geste](https://france-renov.gouv.fr/aides/mpr) : précise les conditions principales : logement, revenus, travaux, entreprise RGE et cumul possible avec d’autres aides.
+- [France Rénov’ - rénovation d’ampleur](https://france-renov.gouv.fr/aides/maprimerenov-renovation-ampleur) : explique le parcours global, le gain énergétique visé et l’accompagnement obligatoire.
 
 <!-- mdr-editorial-value-md -->
 ## Ce qui change la décision avant de signer

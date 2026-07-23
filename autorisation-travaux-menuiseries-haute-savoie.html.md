@@ -7,9 +7,10 @@ description: 'Déclaration préalable, copropriété, PLU : les règles à véri
 category: 'exterieur'
 category_label: 'Démarches'
 date: '2026-03-10'
+modified_date: '2026-07-17'
 reading_time: '6 min'
-featured_image: ''
-image_alt: 'Dossier mairie et façade'
+featured_image: 'uploads/articles/autorisation-travaux-menuiseries-haute-savoie.webp'
+image_alt: 'Maison avec fenêtres, volets, porte et pergola devant un plan de travaux'
 source_html: './autorisation-travaux-menuiseries-haute-savoie.html'
 tags:
   - 'Démarches'

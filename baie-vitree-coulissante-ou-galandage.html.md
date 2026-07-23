@@ -7,6 +7,7 @@ description: 'Clair de jour, seuil, isolation, passage, budget et travaux : le v
 category: 'fenetres'
 category_label: 'Fenêtres'
 date: '2026-04-29'
+modified_date: '2026-07-17'
 reading_time: '3 min'
 featured_image: '/uploads/articles/salon-lumineux-vue-montagnes.webp'
 image_alt: 'Salon lumineux ouvert sur une terrasse avec vue montagne'
