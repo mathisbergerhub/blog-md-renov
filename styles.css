@@ -1680,3 +1680,12 @@ body.mdr-home-page {
 @media (prefers-reduced-motion: reduce) {
   .js-anim .mdr-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
+@media (max-width: 720px) {
+  .mdr-france-renov {
+    margin-top: 16px !important;
+  }
+
+  .mdr-site-footer__action {
+    margin-top: 16px !important;
+  }
+}
