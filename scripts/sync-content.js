@@ -220,7 +220,7 @@ function renderSiteFooter(mode = "home") {
 <div><p>MD Rénov'</p><a href="./index.html">Tous les articles</a><a href="https://www.mdrenov-menuiserie.com" target="_blank" rel="noopener noreferrer">Site principal</a><a href="./mentions-legales.html">Mentions légales</a><a href="./politique-confidentialite.html">Confidentialité</a></div>
 </nav>
 <a href="https://france-renov.gouv.fr/servicepublic" target="_blank" rel="noopener noreferrer" aria-label="France Rénov' - Service public de la rénovation de l'habitat" style="grid-column:1/-1;width:100%;display:block;margin-top:24px;">
-  <img src="./Bandeau France Rénov_ Website_1400x300px.png" alt="France Rénov' - Avant de vous engager, le service public vous informe gratuitement pour préparer et sécuriser votre projet" style="width:100%;height:auto;display:block;">
+<img style="width:100%;max-width:900px;height:auto;display:block;margin:0 auto;" src="./Bandeau France Rénov_ Website_1400x300px.png" alt="France Rénov' - Avant de vous engager, le service public vous informe gratuitement pour préparer et sécuriser votre projet">
 </a>
 <section class="mdr-site-footer__action" aria-label="Demander un devis">
 <p>Un projet à cadrer ?</p>
