@@ -219,6 +219,9 @@ function renderSiteFooter(mode = "home") {
 <div><p>Infos pratiques</p><a href="./prix-renovation-menuiseries-haute-savoie.html">Prix & budget</a><a href="./aides-subventions.html">Aides & subventions</a><a href="./autorisation-travaux-menuiseries-haute-savoie.html">Autorisations</a><a href="./delais-pose-menuiseries-renovation.html">Délais de pose</a></div>
 <div><p>MD Rénov'</p><a href="./index.html">Tous les articles</a><a href="https://www.mdrenov-menuiserie.com" target="_blank" rel="noopener noreferrer">Site principal</a><a href="./mentions-legales.html">Mentions légales</a><a href="./politique-confidentialite.html">Confidentialité</a></div>
 </nav>
+<a href="https://france-renov.gouv.fr/servicepublic" target="_blank" rel="noopener noreferrer" aria-label="France Rénov' - Service public de la rénovation de l'habitat" style="grid-column:1/-1;width:100%;display:block;margin-top:24px;">
+  <img src="./Bandeau France Rénov_ Website_1400x300px.png" alt="France Rénov' - Avant de vous engager, le service public vous informe gratuitement pour préparer et sécuriser votre projet" style="width:100%;height:auto;display:block;">
+</a>
 <section class="mdr-site-footer__action" aria-label="Demander un devis">
 <p>Un projet à cadrer ?</p>
 <a class="mdr-site-footer__cta" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Demander un devis</a>
