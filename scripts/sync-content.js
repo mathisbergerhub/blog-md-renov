@@ -222,7 +222,7 @@ function renderSiteFooter(mode = "home") {
 <a href="https://france-renov.gouv.fr/servicepublic" target="_blank" rel="noopener noreferrer" aria-label="France Rénov' - Service public de la rénovation de l'habitat" style="grid-column:1/-1;width:100%;display:block;margin-top:-40px;">
 <img style="width:100%;max-width:500px;height:auto;display:block;margin:0 auto;" src="./Bandeau France Rénov_ Website_1400x300px.png" alt="France Rénov' - Avant de vous engager, le service public vous informe gratuitement pour préparer et sécuriser votre projet">
 </a>
-<section class="mdr-site-footer__action" aria-label="Demander un devis" style="align-self:start;margin-top:-20px;">
+<section class="mdr-site-footer__action" aria-label="Demander un devis" style="align-self:start;margin-top:-50px;">
 <p>Un projet à cadrer ?</p>
 <a class="mdr-site-footer__cta" href="https://www.mdrenov-menuiserie.com/contact#Contact-Form" target="_blank" rel="noopener noreferrer">Demander un devis</a>
 <span>Réponse sous 48h, sans engagement.</span>
